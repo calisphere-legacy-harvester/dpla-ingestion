@@ -39,10 +39,9 @@ class Couch(object):
         username = config.get("CouchDb", "Username")
         password = config.get("CouchDb", "Password")
 
-        if not kwargs:
-            dpla_db_name = "dpla"
-            dashboard_db_name = "dashboard"
-        else:
+        dpla_db_name = config.get("CouchDb", "ItemDatabase", vars={'ItemDatabase':'ucldc'})
+        dashboard_db_name = config.get("CouchDb", "DashboardDatabase", vars={'DashboardDatabase':'dashboard'})
+        if kwargs:
             dpla_db_name = kwargs.get("dpla_db_name")
             dashboard_db_name = kwargs.get("dashboard_db_name")
 
