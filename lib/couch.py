@@ -33,14 +33,17 @@ class Couch(object):
                              are located.
             batch_size: The batch size to use with iterview
         """
-        config = ConfigParser.ConfigParser()
+        config = ConfigParser.ConfigParser({'ItemDatabase':'ucldc',
+                                            'DashboardDatabase':'dashboard',
+                                            'ViewsDirectory':'couchdb_views'
+                                           })
         config.readfp(open(config_file))
         url = config.get("CouchDb", "Url")
         username = config.get("CouchDb", "Username")
         password = config.get("CouchDb", "Password")
 
-        dpla_db_name = config.get("CouchDb", "ItemDatabase", vars={'ItemDatabase':'ucldc'})
-        dashboard_db_name = config.get("CouchDb", "DashboardDatabase", vars={'DashboardDatabase':'dashboard'})
+        dpla_db_name = config.get("CouchDb", "ItemDatabase")
+        dashboard_db_name = config.get("CouchDb", "DashboardDatabase")
         if kwargs:
             dpla_db_name = kwargs.get("dpla_db_name")
             dashboard_db_name = kwargs.get("dashboard_db_name")
@@ -52,7 +55,8 @@ class Couch(object):
 
         self.dpla_db = self._get_db(dpla_db_name)
         self.dashboard_db = self._get_db(dashboard_db_name)
-        self.views_directory = "couchdb_views"
+        self.views_directory = config.get("CouchDb", "ViewsDirectory")
+        print "=======================> views dir=", self.views_directory
         self.batch_size = 500
 
         self.logger = logging.getLogger("couch")
@@ -83,10 +87,12 @@ class Couch(object):
                                  "dashboard_db_all_provider_docs.js",
                                  "dashboard_db_all_ingestion_docs.js",
                                  "dpla_db_export_database.js"]
-        if db_name == "dpla":
+        if db_name == self.dpla_db.name:
             db = self.dpla_db
-        elif db_name == "dashboard":
+        elif db_name == self.dashboard_db.name:
             db = self.dashboard_db
+        else:
+            raise ValueError(db_name+' is not a valid database name')
 
         for file in os.listdir(self.views_directory):
             if file.startswith(db_name):
