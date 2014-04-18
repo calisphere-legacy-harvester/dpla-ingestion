@@ -72,7 +72,7 @@ class Akara:
     #
     #  MaxServers: maximum number of servers to run at any one time
     #  (this is therefore the maximum number of simultaneous connections)
-    MaxServers           = 10
+    MaxServers           = 20
     #
     #  A 'spare' server is one which is waiting to handle an HTTP request
     #  MinSpareServers: minimum number of spare servers
@@ -81,7 +81,7 @@ class Akara:
     MaxSpareServers      =  2
 
     #  MaxRequestsPerServer: restart a server after this many requests
-    MaxRequestsPerServer =   100
+    MaxRequestsPerServer =   500
 
 
     #### Log configuration
@@ -198,6 +198,7 @@ MODULES = [
     "dplaingestion.akamod.qdc_to_dpla",
     "dplaingestion.akamod.mdl_state_located_in",
     "dplaingestion.akamod.scdl_format_to_type",
+    "dplaingestion.marc_code_to_relator",
     ]
 
 ### Section 3: Other module configuration goes here
@@ -216,18 +217,6 @@ class dpla_thumbs:
     couch_database = "${CouchDb__Url}dpla"
     couch_database_username = "${CouchDb__Username}"
     couch_database_password = "${CouchDb__Password}"
-
-class download_preview:
-    thumbs_root_path = '/tmp/thumbs/'
-    thumbs_root_url  = 'http://something/'
-    # Only these MIME types are supported
-    # The value is the extension which will be used for storing the
-    # file on disk.
-    mime_to_type = {
-        'image/jpeg' : '.jpg',
-        'image/gif'  : '.gif',
-        'image/png'  : '.png',
-    }
 
 class lookup:
     # Key is passed in query param.
@@ -303,6 +292,8 @@ class type_conversion:
         ('jewelry', 'image'),
         ('furnishing', 'image'),
         ('furniture', 'image'),
+        # Keep "moving image" above "image"
+        ('moving image', 'moving image'),
         ('image', 'image'),
         ('drawing', 'image'),
         ('print', 'image'),
@@ -325,11 +316,12 @@ class type_conversion:
         ('notated music', 'image'),
         ('mixed material', 'image'),
         ('audio', 'sound'),
-        ('sound recording', 'sound'),
+        ('sound', 'sound'),
         ('oral history recording', 'sound'),
         ('finding aid', 'collection'),
         ('online collection', 'collection'),
         ('online exhibit', 'interactive resource'),
+        ('moving image', 'moving image'),
         ('motion picture', 'moving image'),
         ('film', 'moving image'),
         ('video game', 'interactive resource'),

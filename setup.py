@@ -31,7 +31,7 @@ out.close()
 from distutils.core import setup
 
 setup( name = 'ingestion',
-       version = '21.0',
+       version = '23.2',
        description='DPLA Ingestion Subsystem',
        author='Mark Breedlove',
        author_email='mb@dp.la',

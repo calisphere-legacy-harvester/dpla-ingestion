@@ -78,7 +78,7 @@ class Couch(object):
             db = self.server[name]
         return db
 
-    def _sync_views(self, db_name):
+    def sync_views(self, db_name):
         """Fetches design documents from the views_directory, saves/updates
            them in the appropriate database, then build the views. 
         """
@@ -282,7 +282,7 @@ class Couch(object):
         # db.purge(docs)
 
         # Rebuild the database views
-        self._sync_views(db.name)
+        self.sync_views(db.name)
 
     def _delete_all_provider_documents(self, provider):
         """Deletes all of a provider's documents from the DPLA and Dashboard
@@ -366,12 +366,10 @@ class Couch(object):
 
     def _bulk_post_to(self, db, docs, **options):
         resp = db.update(docs, **options)
-        # Rebuild database views
-        self._sync_views(db.name)
         self.logger.debug("%s database response: %s" % (db.name, resp))
 
     def _create_ingestion_document(self, provider, uri_base, profile_path,
-                                   thresholds):
+                                   thresholds, fetcher_threads=1):
         """Creates and returns an ingestion document for the provider.
         """
 
@@ -385,6 +383,7 @@ class Couch(object):
             "countDeleted": 0,
             "uri_base": uri_base,
             "profile_path": profile_path,
+            "fetcher_threads": fetcher_threads,
             "fetch_process": {
                 "status": None,
                 "start_time": None,
@@ -549,16 +548,19 @@ class Couch(object):
                 # Last bulk post
                 try:
                     self._bulk_post_to(self.dashboard_db, dashboard_docs)
-                except:
-                    print >> sys.stderr, "Error posting to dashboard db"
+                    self.sync_views(self.dashboard_db.name)
+                except Exception as e:
+                    print >> sys.stderr, \
+                        "Error posting to dashboard db: %s" % e.message
                     return (-1, total_deleted)
                 self._update_ingestion_doc_counts(
                     ingestion_doc, countDeleted=len(delete_docs)
                     )
                 try:
                     self._delete_documents(self.dpla_db, delete_docs)
-                except:
-                    print >> sys.stderr, "Error deleting from dpla db"
+                except Exception as e:
+                    print >> sys.stderr, \
+                        "Error deleting from dpla db: %s" % e.message
                     return (-1, total_deleted)
                 total_deleted += len(delete_docs)
         return (0, total_deleted)
@@ -757,6 +759,7 @@ class Couch(object):
                 count += len(docs)
                 print "%s documents rolled back" % count
                 self._bulk_post_to(self.dpla_db, docs)
+                self.sync_views(self.dpla_db.name)
 
             msg = "Rollback complete"
             self.logger.debug(msg)

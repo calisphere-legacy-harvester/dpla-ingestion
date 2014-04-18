@@ -10,7 +10,6 @@ type_for_type_keyword = \
 type_for_format_keyword = \
         module_config('enrich_type').get('type_for_phys_keyword')
 
-
 @simple_service('POST', 'http://purl.org/la/dp/enrich-type', 'enrich-type',
                 'application/json')
 def enrichtype(body, ctype,
@@ -40,10 +39,20 @@ def enrichtype(body, ctype,
 
     type_strings = []
     format_strings = []
-    sr_type = data['sourceResource'].get('type', [])
-    sr_format = data['sourceResource'].get('format', [])
+    try:
+        sr_type = data['sourceResource'].get('type', [])
+        sr_format = data['sourceResource'].get('format', [])
+    except KeyError:
+        # In this case, sourceResource is not present, so give up and return
+        # the original data unmodified.
+        id_for_msg = data.get('_id', '[no id]')
+        logger.warning('enrich-type lacks sourceResource for _id %s' % \
+                id_for_msg)
+        return body
     if sr_type:
         for t in sr_type if (type(sr_type) == list) else [sr_type]:
+            if type(t) == dict:
+                t = t.get('#text', '')
             type_strings.append(t.lower())
     if sr_format:
         for f in sr_format if (type(sr_format) == list) else [sr_format]:
@@ -60,5 +69,10 @@ def enrichtype(body, ctype,
                        id_for_msg)
         if default:
             data['sourceResource']['type'] = default
+        else:
+            try:
+                del data['sourceResource']['type']
+            except:
+                pass
 
     return json.dumps(data)
