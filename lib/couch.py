@@ -56,7 +56,6 @@ class Couch(object):
         self.dpla_db = self._get_db(dpla_db_name)
         self.dashboard_db = self._get_db(dashboard_db_name)
         self.views_directory = config.get("CouchDb", "ViewsDirectory")
-        print "=======================> views dir=", self.views_directory
         self.batch_size = 500
 
         self.logger = logging.getLogger("couch")
