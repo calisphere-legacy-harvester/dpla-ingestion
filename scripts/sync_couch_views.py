@@ -32,7 +32,7 @@ def main(argv):
         couch._sync_views(args.database_name)
     else:
         print >> sys.stderr, "The database_name parameter should be " + \
-                             "either \"dpla\" or \"dashboard\""
+                             "either \"dpla\" or \"dashboard\" or \"ucldc\""
 
 if __name__ == "__main__":
     main(sys.argv)
