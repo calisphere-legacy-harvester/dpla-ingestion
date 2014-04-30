@@ -28,8 +28,8 @@ def main(argv):
 
     couch = Couch(dpla_db_name=args.database_name, dashboard_db_name='dashboard')
     if args.database_name in ["dpla", "dashboard", "ucldc"]:
-        print "couch._sync_views("+args.database_name+") next!"
-        couch._sync_views(args.database_name)
+        print "couch.sync_views("+args.database_name+") next!"
+        couch.sync_views(args.database_name)
     else:
         print >> sys.stderr, "The database_name parameter should be " + \
                              "either \"dpla\" or \"dashboard\" or \"ucldc\""

@@ -177,6 +177,8 @@ class IAFetcher(AbsoluteURLFetcher):
             if isinstance(record, basestring):
                 errors.append(record)
             else:
+                if record["metadata"]["mediatype"] == "collection":
+                    continue
                 records.append(record)
                 self.coll_record_count += 1
 
