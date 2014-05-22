@@ -5,7 +5,7 @@ Script to add/update then build the views of a database.
 Usage:
     $ python scripts/sync_couch_views.py <database_name>
 
-    where database_name is either "dpla" or "dashboard"
+    where database_name is either "dpla", "dashboard", or "bulk_download"
 """
 import sys
 import time
