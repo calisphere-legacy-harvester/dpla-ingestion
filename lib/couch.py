@@ -2,10 +2,10 @@ import os
 import sys
 import json
 import time
+import couchdb
 import logging
 import ConfigParser
 from copy import deepcopy
-from couchdb import Server
 from datetime import datetime
 from dplaingestion.selector import setprop
 from dplaingestion.dict_differ import DictDiffer
@@ -46,13 +46,16 @@ class Couch(object):
             dpla_db_name = kwargs.get("dpla_db_name")
             dashboard_db_name = kwargs.get("dashboard_db_name")
 
+        bulk_download_db_name = "bulk_download"
+
         # Create server URL
         url = url.split("http://")
         server_url = "http://%s:%s@%s" % (username, password, url[1])
-        self.server = Server(server_url)
+        self.server = couchdb.Server(server_url)
 
         self.dpla_db = self._get_db(dpla_db_name)
         self.dashboard_db = self._get_db(dashboard_db_name)
+        self.bulk_download_db = self._get_db(bulk_download_db_name)
         self.views_directory = "couchdb_views"
         self.batch_size = 500
 
@@ -75,6 +78,10 @@ class Couch(object):
             db = self.server[name]
         return db
 
+    def dpla_view(self, viewname, **options):
+        """Return the result of the given view in the "dpla" database"""
+        return self.dpla_db.view(viewname, None, **options)
+
     def sync_views(self, db_name):
         """Fetches design documents from the views_directory, saves/updates
            them in the appropriate database, then build the views. 
@@ -83,11 +90,14 @@ class Couch(object):
                                  "dpla_db_qa_reports.js",
                                  "dashboard_db_all_provider_docs.js",
                                  "dashboard_db_all_ingestion_docs.js",
-                                 "dpla_db_export_database.js"]
+                                 "dpla_db_export_database.js",
+                                 "bulk_download_db_all_contributor_docs.js"]
         if db_name == "dpla":
             db = self.dpla_db
         elif db_name == "dashboard":
             db = self.dashboard_db
+        elif db_name == "bulk_download":
+            db = self.bulk_download_db
 
         for file in os.listdir(self.views_directory):
             if file.startswith(db_name):
@@ -145,25 +155,20 @@ class Couch(object):
         }
         return kwargs
 
+    # TODO:  rename these _query* functions to remove "_query_" and remove
+    # leading underscores for methods that don't have to be internal.
+
     def _query_all_docs(self, db):
         view_name = "_all_docs"
         for row in db.iterview(view_name, batch=self.batch_size,
                                include_docs=True):
             yield row["doc"]
 
-    def _query_all_provider_docs(self, db, provider_name):
-        """Fetches all provider docs by provider name. The key for this view
-           is the list [provider_name, doc._id], so we supply "0" as the
-           startkey doc._id and "Z" as the endkey doc._id in order to ensure
-           proper sorting. See collation sequence here:
-           https://wiki.apache.org/couchdb/View_collation
-        """
-        view_name = "all_provider_docs/by_provider_name"
-        for row in db.iterview(view_name,
-                               batch=self.batch_size,
-                               include_docs=True,
-                               startkey=[provider_name, "0"],
-                               endkey=[provider_name, "Z"]):
+    def all_dpla_docs(self):
+        """Yield all documents in the dpla database"""
+        for row in self.dpla_db.iterview("_all_docs",
+                                         batch=self.batch_size,
+                                         include_docs=True):
             yield row["doc"]
 
     def _query_all_prov_docs_by_ingest_seq(self, db, provider_name,
@@ -173,7 +178,7 @@ class Couch(object):
            ingestion_sequence, doc._id], so we supply "0" as the startkey
            doc._id and "Z" as the endkey doc._id in order to ensure proper
            sorting. See collation sequence here:
-           https://wiki.apache.org/couchdb/View_collation
+           http://docs.couchdb.org/en/latest/couchapp/views/collation.html
         """
         view_name = "all_provider_docs/by_provider_name_and_ingestion_sequence"
         startkey = [provider_name, ingestion_sequence, "0"]
@@ -186,7 +191,19 @@ class Couch(object):
             yield row["doc"]
 
     def _query_all_dpla_provider_docs(self, provider_name):
-        return self._query_all_provider_docs(self.dpla_db, provider_name)
+        """Yield all "dpla" database documents for the given provider"""
+        # Regarding the startkey and endkey values that are used to define
+        # the result, and the sort order of the documents, see the following,
+        # and note that _all_docs uses an ASCII collation, such that "."
+        # comes after "-":
+        # http://docs.couchdb.org/en/latest/couchapp/views/collation.html#all-docs
+        # ... and note that our _id values look like "provider--<somtehing>"
+        for row in self.dpla_db.iterview("_all_docs",
+                                         batch=self.batch_size,
+                                         include_docs=True,
+                                         startkey=provider_name,
+                                         endkey=provider_name + "."):
+            yield row["doc"]
 
     def _query_all_dpla_prov_docs_by_ingest_seq(self, provider_name,
                                                 ingestion_sequence):
@@ -195,8 +212,15 @@ class Couch(object):
                                                       ingestion_sequence)
  
     def _query_all_dashboard_provider_docs(self, provider_name):
-        return self._query_all_provider_docs(self.dashboard_db,
-                                                provider_name)
+        """Yield all "dashboard" database documents for the given provider"""
+        # See http://docs.couchdb.org/en/latest/couchapp/views/collation.html
+        view = "all_provider_docs/by_provider_name"
+        for row in self.dashboard_db.iterview(view,
+                                              batch=self.batch_size,
+                                              include_docs=True,
+                                              startkey=[provider_name, "0"],
+                                              endkey=[provider_name, "Z"]):
+            yield row["doc"]
 
     def _query_all_dashboard_prov_docs_by_ingest_seq(self, provider_name,
                                                      ingestion_sequence):
@@ -215,6 +239,16 @@ class Couch(object):
         view = self.dashboard_db.view(view_name, include_docs=True,
                                       key=[provider_name, ingestion_sequence])
         return view.rows[-1]["doc"]
+
+    def _get_bulk_download_doc(self, contributor):
+        view_name = "all_docs/by_contributor"
+        view = self.bulk_download_db.view(view_name, include_docs=True,
+                                           key=contributor)
+
+        try:
+            return view.rows[0]["doc"]
+        except couchdb.http.ResourceNotFound:
+            return {"contributor": contributor}
 
     def _prep_for_diff(self, doc):
         """Removes keys from document that should not be compared."""
@@ -426,6 +460,13 @@ class Couch(object):
                 "end_time": None,
                 "error": None
             },
+            "upload_bulk_data_process": {
+                "status": None,
+                "start_time": None,
+                "end_time": None,
+                "error": None
+            },
+
             "poll_storage_process": {
                 "status": None,
                 "start_time": None,
@@ -682,20 +723,23 @@ class Couch(object):
         error_msg = None
         try:
             self._bulk_post_to(self.dashboard_db, added_docs + changed_docs)
-        except:
-            error_msg = "Error posting to the dashboard database"
+        except Exception, e:
+            error_msg = "Error posting to the dashboard database: %s" % e
+            print error_msg
             return (status, error_msg)
         try:
             self._update_ingestion_doc_counts(ingestion_doc,
                                               countAdded=len(added_docs),
                                               countChanged=len(changed_docs))
-        except:
-            error_msg = "Error updating ingestion document counts"
+        except Exception, e:
+            error_msg = "Error updating ingestion document counts: %s" % e
+            print error_msg
             return (status, error_msg)
         try:
             self._bulk_post_to(self.dpla_db, harvested_docs.values())
-        except:
-            error_msg = "Error posting to the dpla database"
+        except Exception, e:
+            error_msg = "Error posting to the dpla database: %s" % e
+            print error_msg
             return (status, error_msg)
 
         status = 0
@@ -786,3 +830,18 @@ class Couch(object):
             self._delete_documents(self.dashboard_db, delete_docs)
 
         return msg
+
+    def update_bulk_download_document(self, contributor, file_path,
+                                      file_size):
+        """Creates/updates a document for a contributor's bulk data file and
+           returns the document id
+        """
+
+        bulk_download_doc = self._get_bulk_download_doc(contributor)
+        bulk_download_doc.update({
+            "file_path": file_path,
+            "file_size": file_size,
+            "last_updated": datetime.now().isoformat()
+            })
+
+        return self.bulk_download_db.save(bulk_download_doc)[0]

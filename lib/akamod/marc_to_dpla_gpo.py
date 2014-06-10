@@ -8,8 +8,12 @@ try:
     from collections import OrderedDict
 except ImportError:
     from ordereddict import OrderedDict
-from dplaingestion.selector import getprop as selector_getprop, setprop, exists
 
+from dplaingestion.selector import getprop as get_prop, setprop, exists
+from dplaingestion.utilities import remove_key_prefix
+
+def getprop(d, p):
+    return get_prop(d, p, True)
 
 CONTEXT = {
     "@vocab": "http://purl.org/dc/terms/",
@@ -39,31 +43,26 @@ CONTEXT = {
     }
 }
 
-hathi_rights_desc = {
-    "pd":       "Public domain",
-    "ic-world": "In-copyright and permitted as world viewable by the "
-                "copyright holder",
-    "pdus":     "Public domain only when viewed in the US",
-    "cc-by":    "Creative Commons Attribution license",
-    "cc-by-nd": "Creative Commons Attribution-NoDerivatives license",
-    "cc-by-nc-nd": "Creative Commons Attribution-NonCommercial-NoDerivatives "
-                   "license",
-    "cc-by-nc":    "Creative Commons Attribution-NonCommercial license",
-    "cc-by-nc-sa": "Creative Commons Attribution-NonCommercial-ShareAlike "
-                   "license",
-    "cc-by-sa":    "Creative Commons Attribution-ShareAlike license",
-    "cc-zero":     "Creative Commons Zero license (implies pd)",
-    "und-world":   "undetermined copyright status and permitted as world "
-                   "viewable by the depositor"
+DESC_FREQ = {
+    "a": "Annual",
+    "b": "Bimonthly",
+    "c": "Semiweekly",
+    "d": "Daily",
+    "e": "Biweekly",
+    "f": "Semiannual",
+    "g": "Biennial",
+    "h": "Triennial",
+    "i": "Three times a week",
+    "j": "Three times a month",
+    "k": "Continuously updated",
+    "m": "Monthly",
+    "q": "Quarterly",
+    "s": "Semimonthly",
+    "t": "Three times a year",
+    "u": "Unknown",
+    "w": "Weekly",
+    "z": "Other"
 }
-
-
-class HathiRightsError(Exception):
-    pass
-
-
-def getprop(d, p):
-    return selector_getprop(d, p, True)
 
 def _as_list(v):
     return v if isinstance(v, (list, tuple)) else [v]
@@ -118,84 +117,16 @@ def datafield_type_transform(values):
 
     return {"type": type, "specType": spec_type} if type else {}
 
-def provider_transform(values):
-    provider = {}
-    if "HT" in values and "avail_ht" in values:
-        provider["@id"] = "http://dp.la/api/contributor/hathitrust"
-        provider["name"] = "HathiTrust"
-
-    return {"provider": provider} if provider else {}
-
-def dataprovider_transform_uiuc(values):
-    data = {}
-    data["dataProvider"] = values[0] + ", University Library"
-    data["provider"] = {}
-    data["provider"]["@id"] = "http://dp.la/api/contributor/uiuc"
-    data["provider"]["name"] = values[0]
-
-    return data
-
-def dataprovider_transform_hathi(values):
-    providers = {
-        "bc": "Boston College",
-        "chi": "University of Chicago",
-        "coo": "Cornell University",
-        "dul1": "Duke University",
-        "gri": "Getty Research Institute",
-        "hvd": "Harvard University",
-        "ien": "Northwestern University",
-        "inu": "Indiana University",
-        "loc": "Library of Congress",
-        "mdl": "Minnesota Digital Library",
-        "mdp": "University of Michigan",
-        "miua": "University of Michigan",
-        "miun": "University of Michigan",
-        "namespace": "description",
-        "nc01": "University of North Carolina",
-        "ncs1": "North Carolina State University",
-        "njp": "Princeton University",
-        "nnc1": "Columbia University",
-        "nnc2": "Columbia University",
-        "nyp": "New York Public Library",
-        "psia": "Penn State University",
-        "pst": "Penn State University",
-        "pur1": "Purdue University",
-        "pur2": "Purdue University",
-        "uc1": "University of California",
-        "uc2": "University of California",
-        "ucm": "Universidad Complutense de Madrid",
-        "ufl1": "University of Florida",
-        "uiug": "University of Illinois",
-        "uiuo": "University of Illinois",
-        "umn": "University of Minnesota",
-        "usu": "Utah State University Press",
-        "uva": "University of Virginia",
-        "wu": "University of Wisconsin",
-        "yale": "Yale University"
-    }
-
-    data_provider = []
-    for v in values:
-        data_provider.append(providers.get(v.split(".")[0], None))
-    data_provider = filter(None, data_provider)
-
-    return {"dataProvider": data_provider} if data_provider else {}
-
-def hathi_rights(values):
-    code = values[0]
-    try:
-        desc = hathi_rights_desc[code]
-        desc += ".  Learn more at http://www.hathitrust.org/access_use"
-        return desc
-    except KeyError:
-        raise HathiRightsError(code)
-
 def get_gov_spec_type(control_008_28, datafield_086_or_087):
     if (control_008_28 in ("a", "c", "f", "i", "l", "m", "o", "s") or
         datafield_086_or_087):
         return "Government Document"
     else:
         return None
+
+def get_gov_publication(control_008_28):
+    if control_008_28 == "f":
+        return "Government Publication"
 
 def format_transform(control_char, leader_char):
     control = {
@@ -275,25 +206,93 @@ def _get_spatial_values(_dict, tag, codes=None):
 
     return values
 
-def _get_contributor_values(_dict, codes=None):
+def _get_contributor_values(_dict):
     """Extracts the appropriate "#text" values from _dict for the
-       contributor field. If subfield e is "aut" or "cre", returns an
+       contributor field. If code "e" is "aut" or "cre", returns an
        empty list.
     """
     values = []
     for subfield in _get_subfields(_dict):
-        if not codes or ("code" in subfield and subfield["code"] in
-                         list(codes)):
+        if ("#text" in subfield and not (subfield.get("code") == "e" and
+                                         subfield.get("#text") == "author")):
+            values.append(subfield["#text"])
+
+    return values
+
+def _get_creator_values(_dict, tag, codes=None):
+    """Extracts the appropriate "#text" values from _dict for the creator
+       field. If tag is 700, 710, or 711 we take only the valude "#text" value
+       for code "e" if it's value is "author".
+    """
+    values = []
+    for subfield in _get_subfields(_dict):
+        if "#text" in subfield:
+            if (tag in (700, 710, 711) and not
+                (subfield.get("code") == "e" and
+                 subfield.get("#text") == "author")):
+                continue
+
+            values.append(subfield["#text"])
+
+    return values
+
+def _set_global_date_values(_dict, tag, codes=None):
+    global DATE
+    if codes:
+        values = _get_values(_dict, codes)
+    else:
+        values = []
+        for subfield in _get_subfields(_dict):
             if "#text" in subfield:
                 values.append(subfield["#text"])
 
-        # Do not use any subfield values if code is e and #text is aut or
-        # cre
-        if subfield.get("code") == "e" and (subfield.get("#text") in ("aut",
-                                                                      "cre")):
-            return []
-    
-    return values
+    DATE[tag].extend(values)
+
+def _set_global_description_values(_dict, tag, codes=None):
+    global DESC
+    if codes:
+        values = _get_values(_dict, codes)
+    else:
+        values = []
+        for subfield in _get_subfields(_dict):
+            if "#text" in subfield:
+                values.append(subfield["#text"])
+
+    if tag in ("310", "583"):
+        DESC[tag].extend(values)
+    else:
+        DESC["5xx"].extend(values)
+
+def _set_global_spatial_values(_dict, tag, codes=None):
+    global SPATIAL
+    if codes:
+        values = _get_values(_dict, codes)
+    else:
+        values = []
+        for subfield in _get_subfields(_dict):
+            if "#text" in subfield:
+                values.append(subfield["#text"])
+
+    values = [re.sub("\.$", "", v) for v in values]
+    [SPATIAL[tag].append(v) for v in values if v not in SPATIAL[tag]]
+
+def _set_global_isa_values(_dict, tag, codes=None):
+    global ISA
+    if codes:
+        values = _get_values(_dict, codes)
+    else:
+        values = []
+        for subfield in _get_subfields(_dict):
+            if "#text" in subfield:
+                values.append(subfield["#text"])
+
+    if "u" in codes:
+        # Use only first 856u
+        if not ISA["856u"]:
+            ISA["856u"] = values
+    else:
+        ISA["856z3"].extend(values)
+
 
 def _get_subject_values(_dict, tag):
     """Extracts the "#text" values from _dict for the subject field and
@@ -357,7 +356,7 @@ def _join_sourceresource_values(prop, values):
     return values
 
 def all_transform(d, p):
-    global PROVIDER
+    global CTRL_008
     logger.debug("TRANSFORMING %s" % d["_id"])
 
     # For spec_type use
@@ -379,7 +378,7 @@ def all_transform(d, p):
             "rights": [],
             "subject": [],
             "temporal": [],
-            "title": [None, None, None],
+            "title": [],
             "format": [],
             "type": [],
             "specType": []
@@ -394,45 +393,41 @@ def all_transform(d, p):
     # [("format", "!cd")] will exclude the "c" and "d" codes (see def
     # _get_values). 
     data_map = {
-        lambda t: t == "856":           [("isShownAt", "u")],
-        # Hathi
-        lambda t: t == "973":           [("provider", "ab")],
-        lambda t: t == "974":           [("dataProvider", "u")],
-        # UIUC
-        lambda t: t == "852":           [("dataProvider", "a")]
     }
     source_resource_map = {
-        lambda t: t in ("020", "022",
-                        "035"):         [("identifier", "a")],
-        lambda t: t == "050":           [("identifier", "ab")],
-        lambda t: t in ("100", "110",
-                        "111"):         [("creator", None)],
-        lambda t: t == "041":           [("language", "a")],
-        lambda t: t == "260":           [("date", "c"), ("publisher", "ab")],
-        lambda t: t == "300":           [("extent", "ac")],
-        lambda t: t in ("337", "338"):  [("format", "a")],
-        lambda t: t == "340":           [("format", "a"), ("extent", "b")],
-        lambda t: (t != "538" and
-                   t.startswith("5")):  [("description", "a")],
-        lambda t: t in ("506", "540"):  [("rights", None)],
-        lambda t: t == "648":           [("temporal", None)],
-        lambda t: t in ("700", "710",
-                        "711", "720"):  [("contributor", None)],
-        #lambda t: t == "662":          [("sourceResource/spatial", None)],
-        lambda t: t == "240":           [("title", 2, None)],
-        lambda t: t == "242":           [("title", 1, None)],
-        lambda t: t == "245":           [("title", 0, "!c")],
-        lambda t: t == "970":           [("type", "a")],
-        lambda t: t == "651":           [("spatial", "a")],
-        lambda t: int(t) in set([600, 630, 650, 651] +
-                            range(610, 620) +
-                            range(653, 659) +
-                            range(690, 700)):   [("subject", None),
-                                                 ("format", "v"),
-                                                 ("temporal", "y"),
-                                                 ("spatial", "z")],
-        lambda t: (760 <= int(t) <= 787):       [("relation", None)],
-
+        # GPO
+        lambda t: t in ("700", "710", "711"):  [("contributor", None)],
+        lambda t: t in ("100", "110", "111",
+                        "700", "710", "711"):  [("creator", None)],
+        lambda t: t in ("260", "264"):         [("date", "c"),
+                                                ("publisher", "ab")],
+        lambda t: t == "362":                  [("date", None)],
+        lambda t: t == "300":                  [("extent", "a")],
+        lambda t: t in ("001", "020", "022"):  [("identifier", None)],
+        lambda t: t in ("035", "050", "074",
+                        "082", "086"):         [("identifier", "a")],
+        lambda t: t == "506":                  [("rights", None)],
+        lambda t: t in ("600", "610", "611",
+                        "630", "650", "651"):  [("subject", None)],
+        lambda t: t in ("600", "610", "650",
+                        "651"):                [("temporal", "y")],
+        lambda t: t == "611":                  [("temporal", "d")],
+        lambda t: t in ("255", "310"):         [("description", None)],
+        lambda t: t == "583":                  [("description", "z")],
+        lambda t: int(t) in (range(500, 538) +
+                             range(539, 583) +
+                             range(584, 600)): [("description", None)],
+        lambda t: t in ("337", "338", "340"):  [("format", "a")],
+        lambda t: t in ("041", "546"):         [("language", None)],
+        lambda t: t == "650":                  [("spatial", "z")],
+        lambda t: t == "651":                  [("spatial", "a")],
+        lambda t: t in ("034"):                [("spatial", None)],
+        lambda t: int(t) in (range(760, 787) +
+                             ["490", "730",
+                              "740", "830"]):  [("relation", None)],
+        lambda t: t == "337":                  [("type", "a")],
+        lambda t: t == "655":                  [("type", None)],
+        lambda t: t == "245":                  [("title", None)],
     }
 
     # Handle datafield
@@ -449,34 +444,32 @@ def all_transform(d, p):
                 if match(tag):
                     for tup in tuples:
                         prop, codes = tup
+                        if prop == "isShownAt":
+                            _set_global_isa_values(_dict, tag, codes)
                         values = _get_values(_dict, codes)
                         if values:
-                            if prop == "provider":
-                                data.update(provider_transform(values))
-                            elif prop == "dataProvider":
-                                if tag == "974" and PROVIDER == "hathitrust":
-                                    dp = dataprovider_transform_hathi(values)
-                                    data.update(dp)
-                                elif tag == "852" and PROVIDER == "uiuc_book":
-                                    dp = dataprovider_transform_uiuc(values)
-                                    data.update(dp)
-                            else:
-                                data[prop] = values[0]
+                            pass
             # Handle source_resource_map matches
             for match, tuples in source_resource_map.iteritems():
                 if match(tag):
                     for tup in tuples:
                         if len(tup) == 2:
+                            values = None
                             prop, codes = tup
                             if prop == "contributor":
-                                # Handle values for contributor
-                                values = _get_contributor_values(_dict, codes)
+                                values = _get_contributor_values(_dict)
+                            elif prop == "creator":
+                                values = _get_creator_values(_dict, tag,
+                                                              codes)
+                            elif prop == "date":
+                                _set_global_date_values(_dict, tag, codes)
                             elif prop == "subject":
-                                # Handle values for subject
                                 values = _get_subject_values(_dict, tag)
+                            elif prop == "description":
+                                _set_global_description_values(_dict, tag,
+                                                               codes)
                             elif prop == "spatial":
-                                # Handle values for spatial
-                                values = _get_spatial_values(_dict, tag, codes)
+                                _set_global_spatial_values(_dict, tag, codes)
                             else:
                                 # Handle values for all other sourceResource
                                 # fields
@@ -521,46 +514,31 @@ def all_transform(d, p):
                 logger.debug("Document has 662: %s" % d["_id"])
             elif tag == "086" or tag == "087":
                 datafield_086_or_087 = True
-            elif tag == "974":
-                # Hathi rights
-                values = _get_values(_dict, "r")
-                try:
-                    data["sourceResource"]["rights"] = hathi_rights(values)
-                except HathiRightsError as e:
-                    logger.warning("Unacceptable rights code for %s: %s" %
-                                   (d["_id"], e.message))
-                except:
-                    logger.error("Could not get rights from %s" % d["_id"])
-
-    # Handle sourceResource/title
-    title = filter(None, data["sourceResource"]["title"])
-    if title:
-        data["sourceResource"]["title"] = [" ".join(t) for t in title]
-    else:
-        del data["sourceResource"]["title"]
 
     # Handle controlfield: values from here are needed to update
     # sourceResource/identifier, sourceResource/language, and
-    # sourceResource/format
+    # sourceResource/format, and to set isShownAt
     format_char_control = None
     format_char_leader = None
+    isa_uri = "http://catalog.gpo.gov/F/?func=direct&doc_number=%s&format=999"
     for item in _as_list(getprop(d, "controlfield")):
         if "#text" in item and "tag" in item:
-            # Map tag 001 only for Hathi
-            if item["tag"] == "001" and PROVIDER == "hathitrust":
-                value = "Hathi: " + item["#text"]
-                data["sourceResource"]["identifier"].append(value)
+            if item["tag"] == "001":
+                data["isShownAt"] = isa_uri % item["#text"]
             if item["tag"] == "007":
                 # For format use
                 format_char_control = item["#text"][0]
             if item["tag"] == "008":
+                CTRL_OO8 = item["#text"]
                 if len(item["#text"]) > 28:
                     # For spec_type use
                     control_008_28 = item["#text"][28]
                 if len(item["#text"]) > 37:
-                    data["sourceResource"]["language"].append(
-                        item["#text"][35:38]
-                    )
+                    # If language not set from tag 041, set it here
+                    if not data["sourceResource"]["language"]:
+                        data["sourceResource"]["language"].append(
+                            item["#text"][35:38]
+                        )
     leader = getprop(d, "leader")
     if len(leader) > 6:
         format_char_leader = leader[6]
@@ -585,18 +563,6 @@ def all_transform(d, p):
                 data["sourceResource"][key]]
     for key in del_keys:
         del data["sourceResource"][key]
-
-    # Handle Hathi isShownAt
-    identifiers = getprop(data, "sourceResource/identifier")
-    if identifiers:
-        is_shown_at = None
-        for id in _as_list(identifiers):
-            if id.startswith("Hathi: "):
-                id = id.split("Hathi: ")[-1]
-                is_shown_at = "http://catalog.hathitrust.org/Record/%s" % id
-                break
-        if is_shown_at:
-            setprop(data, "isShownAt", is_shown_at)
 
     return data
 
@@ -654,12 +620,15 @@ def leader_type_transform(d, p):
             datafield_086_or_087 = True
             break
     gov_spec_type = get_gov_spec_type(control_008_28, datafield_086_or_087)
+    gov_publication = get_gov_publication(control_008_28)
+    if spec_type:
+        spec_type = [spec_type]
+    else:
+        spec_type = []
     if gov_spec_type:
-        if spec_type:
-            spec_type = [spec_type]
-            spec_type.append(gov_spec_type)
-        else:
-            spec_type = gov_spec_type
+        spec_type.append(gov_spec_type)
+    if gov_publication:
+        spec_type.append(gov_publication)
 
     return {"type": type, "specType": spec_type} if type else {}
 
@@ -672,6 +641,7 @@ TRANSFORMER = {
     "ingestType"        : lambda d, p: {"ingestType": d[p]},
     "ingestDate"        : lambda d, p: {"ingestDate": d[p]},
     "originalRecord"    : lambda d, p: {"originalRecord": d[p]},
+    "provider"          : lambda d, p: {"provider": d.get("provider", None)},
     "datafield"         : all_transform
 }
 
@@ -679,8 +649,9 @@ CHO_TRANSFORMER = {
     "leader"            : leader_type_transform
 }
 
-@simple_service('POST', 'http://purl.org/la/dp/marc_to_dpla', 'marc_to_dpla', 'application/ld+json')
-def marc_to_dpla(body, ctype, geoprop=None):
+@simple_service('POST', 'http://purl.org/la/dp/marc_to_dpla_gpo',
+                 'marc_to_dpla_gpo', 'application/ld+json')
+def marc_to_dpla_gpo(body, ctype, geoprop=None):
     """
     Convert output of JSON-ified MARC format into the DPLA JSON-LD format.
 
@@ -694,21 +665,45 @@ def marc_to_dpla(body, ctype, geoprop=None):
         response.add_header('content-type','text/plain')
         return "Unable to parse body as JSON"
 
-    global GEOPROP
-    global PROVIDER
-    GEOPROP = geoprop
-
-    PROVIDER = data.get("_id", "").split("--")[0]
-
     out = {
         "@context": CONTEXT,
         "sourceResource": {}
     }
 
     # The controlfield, datafield, and leader fields are nested within the
-    # metadata/record for UIUC.
+    # metadata/record for GPO.
+    data = remove_key_prefix(data, "marc:")
     if exists(data, "metadata/record"):
         data.update(getprop(data, "metadata/record"))
+
+    # Set global variables
+    global LDR
+    global DATE
+    global DESC
+    global SPATIAL
+    global ISA
+    global CTRL_008
+    LDR = getprop(data, "leader")
+    DATE = {
+        "260": [],
+        "264": [],
+        "362": []
+    }
+    DESC = {
+        "310": [],
+        "5xx": [],
+        "583": []
+    }
+    SPATIAL = {
+        "650": [],
+        "651": [],
+        "034": [],
+        "255": []
+    }
+    ISA = {
+        "856u": [],
+        "856z3": []
+    }
 
     # Apply all transformation rules from original document
     for p in TRANSFORMER:
@@ -721,7 +716,47 @@ def marc_to_dpla(body, ctype, geoprop=None):
         if exists(data, p):
             out["sourceResource"].update(CHO_TRANSFORMER[p](data, p))
 
-    # Strip out keys with None/null values?
-    out = dict((k, v) for (k, v) in out.items() if v)
+    # Handle date values
+    date = None
+    if DATE["362"]:
+        date = DATE["362"]
+    elif LDR[7] == "m":
+        if DATE["260"]:
+            date = DATE["260"]
+        elif DATE["264"]:
+            date = DATE["264"]
+    if date:
+        out["sourceResource"].update({"date": date})
+
+    # Handle description values
+    if not DESC["310"] and LDR[7] == "s":
+        try:
+            description["frequency"] = DESC_FREQ.get(CTRL_008[18])
+        except:
+            logger.error("CTRL_008 error for _id: %s" % data["_id"])
+    description = [v for values in DESC.values() for v in values if v]
+    if description:
+        out["sourceResource"].update({"description": description})
+    
+    # Handle spatial values
+    if LDR[6] == "e":
+        if SPATIAL["034"]:
+            SPATIAL["255"] = []
+    else:
+        SPATIAL["034"] = []
+        SPATIAL["255"] = []
+    spatial = [v for values in SPATIAL.values() for v in values if v]
+    if spatial:
+        out["sourceResource"].update({"spatial": spatial})
+ 
+    # Handle isShownAt values
+    isa = [v for values in ISA.values() for v in values if v]
+    if isa:
+        out.update({"isShownAt": isa})
+
+    # Handle title values
+    if out["sourceResource"]["title"]:
+        title = " ".join(out["sourceResource"]["title"])
+        out["sourceResource"]["title"] = title
 
     return json.dumps(out)

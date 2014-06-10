@@ -1,24 +1,20 @@
 {
-    "name": "uiuc_book",
+    "name": "gpo",
     "type": "oai_verbs",
-    "metadata_prefix": "marc",
-    "endpoint_url": "http://ratri.grainger.illinois.edu/oca-oaiprovider/oai.asp",
-    "sets": [
-        "UC",
-        "ILL",
-        "MN"
-    ],
+    "metadata_prefix": "marc21",
+    "endpoint_url": "http://test.catalog.gpo.gov/OAI",
+    "sets": [],
     "contributor": {
-        "@id": "http://dp.la/api/contributor/uiuc",
-        "name": "University of Illinois at Urbana-Champaign"
+        "@id": "http://dp.la/api/contributor/gpo",
+        "name": "United States Government Printing Office (GPO)"
     },
     "enrichments_coll": [
         "/validate_mapv3"
     ],
     "enrichments_item": [
         "/select-id?prop=header%2Fidentifier",
-        "/marc_to_dpla",
-        "/shred?prop=sourceResource%2Flanguage%2CsourceResource%2Fspatial",
+        "/marc_to_dpla_gpo",
+        "/dedup_value?prop=sourceResource%2Ftemporal", 
         "/cleanup_value",
         "/enrich_earliest_date",
         "/enrich-subject",
