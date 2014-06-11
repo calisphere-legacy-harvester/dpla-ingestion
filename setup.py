@@ -30,7 +30,7 @@ out.close()
 # Standard setup.py follows 
 from distutils.core import setup
 
-setup( name = 'ingestion',
+setup( name = 'dplaingestion',
        version = '26.2',
        description='DPLA Ingestion Subsystem',
        author='Digital Public Library of America',
