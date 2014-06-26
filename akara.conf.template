@@ -123,6 +123,13 @@ MODULES = [
     "dplaingestion.fetchers.nara_fetcher",
     "dplaingestion.fetchers.edan_fetcher",
     "dplaingestion.fetchers.hathi_fetcher",
+    "dplaingestion.create_mapper",
+    "dplaingestion.mappers.mapper",
+    "dplaingestion.mappers.dublin_core_mapper",
+    "dplaingestion.mappers.mods_mapper",
+    "dplaingestion.mappers.harvard_mapper",
+    "dplaingestion.mappers.bpl_mapper",
+    "dplaingestion.mappers.primo_mapper",
     "dplaingestion.akamod.enrich",
     "dplaingestion.akamod.enrich-subject",
     "dplaingestion.akamod.enrich-type",
@@ -200,6 +207,8 @@ MODULES = [
     "dplaingestion.marc_code_to_relator",
     "dplaingestion.akamod.marc_to_dpla_gpo",
     "dplaingestion.akamod.validate_mapv3",
+    "dplaingestion.akamod.dpla_mapper",
+    "dplaingestion.akamod.set_context",
     "dplaingestion.akamod.oac_thumbnail",
     ]
 
