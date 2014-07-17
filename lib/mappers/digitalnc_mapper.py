@@ -1,8 +1,11 @@
-from dplaingestion.mappers.oai_mods_mapper import *
+from akara import logger
+from dplaingestion.utilities import iterify
+from dplaingestion.selector import exists, getprop
+from dplaingestion.mappers.oai_mods_mapper import OAIMODSMapper
 
 class DigitalNCMapper(OAIMODSMapper):
-    def __init__(self, data):
-        super(DigitalNCMapper, self).__init__(data)
+    def __init__(self, provider_data):
+        super(DigitalNCMapper, self).__init__(provider_data)
 
     def map_creator_and_contributor(self):
         prop = self.root_key + "name"
@@ -90,32 +93,6 @@ class DigitalNCMapper(OAIMODSMapper):
                     _dict["subject"].append(s.get("topic"))
 
             self.update_source_resource(self.clean_dict(_dict))
-
-    def map_object_and_is_shown_at(self):
-        prop = self.root_key + "location"
-        _dict = {
-            "object": [],
-            "isShownAt": []
-        }
-
-        if exists(self.provider_data, prop):
-            for s in iterify(getprop(self.provider_data, prop)):
-                try:
-                    url = getprop(s, "url/#text")
-                except:
-                    logger.error("No dictionaries found in %s for record %s" %
-                                 (prop, self.provider_data["_id"]))
-                    continue
-
-                usage = getprop(s, "url/usage")
-                access = getprop(s, "url/access")
-                if (usage == "primary display" and
-                    access == "object in context"):
-                    _dict["isShownAt"] = url
-                elif access == "preview":
-                    _dict["object"] = url
-
-            self.mapped_data.update(self.clean_dict(_dict))
 
     def map_description(self):
         prop = self.root_key + "note"
@@ -206,15 +183,15 @@ class DigitalNCMapper(OAIMODSMapper):
         if exists(self.provider_data, prop):
             for s in iterify(getprop(self.provider_data, prop)):
                 try:
-                    url =  getprop(s, "url/#text")
+                    url =  getprop(s, "url/#text", True)
                 except:
                     logger.error("No dictionaries in prop %s of record %s" %
                                  (prop, self.provider_data["_id"]))
                     continue
 
                 if url:
-                    usage = getprop(s, "url/usage")
-                    access = getprop(s, "url/access")
+                    usage = getprop(s, "url/usage", True)
+                    access = getprop(s, "url/access", True)
                     if (usage == "primary display" and
                         access == "object in context"):
                         ret_dict["isShownAt"] = url
