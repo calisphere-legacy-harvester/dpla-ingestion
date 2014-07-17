@@ -1,8 +1,11 @@
-from dplaingestion.mappers.mods_mapper import *
+from akara import logger
+from dplaingestion.utilities import iterify
+from dplaingestion.selector import exists, getprop
+from dplaingestion.mappers.mods_mapper import MODSMapper
 
 class UVAMapper(MODSMapper):
-    def __init__(self, data):
-        super(UVAMapper, self).__init__(data)
+    def __init__(self, provider_data):
+        super(UVAMapper, self).__init__(provider_data)
 
     def map_subject(self):
         def _join_on_double_hyphen(subject_list):
@@ -24,7 +27,7 @@ class UVAMapper(MODSMapper):
                     else:
                         subject.append(topic)
                 if "name" in _dict:
-                    name_part = getprop(_dict, "name/namePart")
+                    name_part = getprop(_dict, "name/namePart", True)
                     if isinstance(name_part, list):
                         subj = [None, None, None]
                         for name in name_part:
@@ -189,7 +192,7 @@ class UVAMapper(MODSMapper):
         if exists(self.provider_data, prop):
             out = {}
             for _dict in iterify(getprop(self.provider_data, prop)):
-                note = getprop(_dict, "note")
+                note = getprop(_dict, "note", True)
                 if note:
                     for sub_dict in note:
                         if (isinstance(sub_dict, dict) and "displayLabel" in

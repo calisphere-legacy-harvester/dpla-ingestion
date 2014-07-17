@@ -1,8 +1,10 @@
-from dplaingestion.mappers.marc_mapper import *                                      
+from dplaingestion.utilities import iterify
+from dplaingestion.selector import exists, getprop
+from dplaingestion.mappers.marc_mapper import MARCMapper
 
-class GPOMapper(MARCMapper):                                                       
-    def __init__(self, data, key_prefix="marc:"):
-        super(GPOMapper, self).__init__(data, key_prefix)
+class GPOMapper(MARCMapper):
+    def __init__(self, provider_data, key_prefix="marc:"):
+        super(GPOMapper, self).__init__(provider_data, key_prefix)
 
         self.leader = getprop(self.provider_data, "leader")
         self.date = {

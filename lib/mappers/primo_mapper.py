@@ -1,9 +1,11 @@
-from dplaingestion.mappers.mapper import *
+from dplaingestion.utilities import iterify
+from dplaingestion.selector import exists, getprop
+from dplaingestion.mappers.mapper import Mapper
 
 class PrimoMapper(Mapper):
-    def __init__(self, data):
-        super(PrimoMapper, self).__init__(data)
-        if exists(data, "PrimoNMBib/record"):
+    def __init__(self, provider_data):
+        super(PrimoMapper, self).__init__(provider_data)
+        if exists(provider_data, "PrimoNMBib/record"):
             self.root_key = "PrimoNMBib/record/"
         else:
             self.root_key = ""
@@ -69,7 +71,7 @@ class PrimoMapper(Mapper):
     def map_spatial(self):
         prop = self.root_key + "display/lds08"
 
-        values = getprop(self.provider_data, prop)
+        values = getprop(self.provider_data, prop, True)
         if values:
             spatial = []
             [spatial.append(v) for v in iterify(values) if v not in spatial]
@@ -79,7 +81,7 @@ class PrimoMapper(Mapper):
     def map_is_part_of(self):
         prop = self.root_key + "display/lds04"
 
-        values = getprop(self.provider_data, prop)
+        values = getprop(self.provider_data, prop, True)
         if values:
             ipo = []
             [ipo.append(v) for v in iterify(values) if v not in ipo]
@@ -92,7 +94,7 @@ class PrimoMapper(Mapper):
 
         title = []
         for prop in props:
-            values = getprop(self.provider_data, prop)
+            values = getprop(self.provider_data, prop, True)
             if values:
                 [title.append(v) for v in iterify(values) if v not in title]
 
@@ -101,19 +103,21 @@ class PrimoMapper(Mapper):
 
     def map_is_shown_at(self):
         record_id = getprop(self.provider_data,
-                            self.root_key + "control/recordid")
+                            self.root_key + "control/recordid", True)
         if record_id:
             self.mapped_data.update({"isShownAt": self.is_shown_at_url +
                                                   record_id})
 
     def map_object(self):
-        obj = getprop(self.provider_data, self.links_key + "thumbnail")
-        self.mapped_data.update({"object": obj})
+        prop = self.links_key + "thumbnail"
+        if exists(self.provier_data, prop):
+            self.mapped_data.update({"object":
+                                     getprop(self.provider_data, prop)})
 
     def map_data_provider(self):
         prop = self.root_key + "display/lds03"
 
-        values = getprop(self.provider_data, prop)
+        values = getprop(self.provider_data, prop, True)
         if values:
             dp = []
             [dp.append(v) for v in iterify(values) if v not in dp]
