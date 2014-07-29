@@ -210,6 +210,7 @@ MODULES = [
     "dplaingestion.akamod.dpla_mapper",
     "dplaingestion.akamod.set_context",
     "dplaingestion.akamod.oac_thumbnail",
+    "dplaingestion.akamod.oac_to_sourceResource",
     ]
 
 ### Section 3: Other module configuration goes here

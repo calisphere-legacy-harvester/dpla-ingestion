@@ -10,9 +10,6 @@ from akara.services import simple_service
 from amara.lib.iri import is_absolute
 from amara.thirdparty import json
 
-URL_BASE = 'http://content.cdlib.org/'
-URL_SUFFIX = '/thumbnail'
-
 @simple_service('POST', 'http://purl.org/cdlib/dsc/oac-to-sourceResource', 'oac-to-sourceResource', 'application/ld+json')
 def oac_to_sourceResource(body, ctype):
     '''   
