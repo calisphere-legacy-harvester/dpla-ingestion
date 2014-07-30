@@ -22,15 +22,17 @@ def oac_to_sourceResource(body, ctype):
         response.code = 500
         response.add_header('content-type','text/plain')
         return "Unable to parse data object body as JSON"
-    try:
-        ref_images = data['originalRecord']['reference-image']
-        best_image = None
-        x = 0
-        for obj in ref_images:
-            if int(obj['x']) > x:
-                x = int(obj['x'])
-                best_image = obj
+    best_image = None
+    x = 0
+    thumb = data['originalRecord'].get('thumbnail', None)
+    if thumb:
+        x = thumb['X']
+        best_image = thumb
+    ref_images = data['originalRecord'].get('reference-image', [])
+    for obj in ref_images:
+        if int(obj['X']) > x:
+            x = int(obj['X'])
+            best_image = obj
+    if best_image:
         data["isShownBy"] = best_image
-    except KeyError:
-        pass
     return json.dumps(data)
