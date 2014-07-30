@@ -29,6 +29,8 @@ def oac_to_sourceResource(body, ctype):
         x = thumb['X']
         best_image = thumb
     ref_images = data['originalRecord'].get('reference-image', [])
+    if type(ref_images) == dict:
+        ref_images = [ref_images]
     for obj in ref_images:
         if int(obj['X']) > x:
             x = int(obj['X'])
