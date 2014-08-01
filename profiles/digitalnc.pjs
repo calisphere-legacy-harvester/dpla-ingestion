@@ -2,7 +2,7 @@
     "name": "digitalnc",
     "type": "oai_verbs",
     "metadata_prefix": "MODS",
-    "endpoint_url": "http://brevard.lib.unc.edu:8080/repox/OAIHandler",
+    "endpoint_url": "http://repox.lib.unc.edu:8080/repox/OAIHandler",
     "sets": [],
     "contributor": {
         "@id": "http://dp.la/api/contributor/digitalnc",
@@ -14,7 +14,7 @@
     ], 
     "enrichments_item": [
         "/select-id?prop=header%2Fidentifier",
-        "/dpla_mapper?type=digitalnc",
+        "/dpla_mapper?mapper_type=digitalnc",
         "/set_context",
         "/shred?prop=sourceResource%2Fdate&delim=%2C",
         "/enrich-subject",

@@ -1,12 +1,5 @@
-import re
-from akara import logger
-from amara.lib.iri import is_absolute
 from dplaingestion.utilities import iterify
 from dplaingestion.selector import exists
-from dplaingestion.selector import getprop as get_prop, setprop, delprop
-
-def getprop(data, prop):
-    return get_prop(data, prop, True)
 
 class Mapper(object):
     """The base class for all mappers.
@@ -28,8 +21,8 @@ class Mapper(object):
        update_mapped_fields.
     """
 
-    def __init__(self, data, key_prefix=None):
-        self.provider_data = data
+    def __init__(self, provider_data, key_prefix=None):
+        self.provider_data = provider_data
         self.mapped_data = {"sourceResource": {}}
         if key_prefix is not None:
             self.remove_key_prefix(self.provider_data, key_prefix)
@@ -112,6 +105,7 @@ class Mapper(object):
         self.map_base()
         self.map_provider()
         self.map_data_provider()
+        self.map_intermediate_provider()
         self.map_is_shown_at()
         self.map_has_view()
         self.map_object()
@@ -248,6 +242,9 @@ class Mapper(object):
         pass
 
     def map_spec_type(self):
+        pass
+
+    def map_intermediate_provider(self):
         pass
 
     def map_multiple_fields(self):

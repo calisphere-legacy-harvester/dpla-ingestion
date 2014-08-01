@@ -1,8 +1,10 @@
-from dplaingestion.mappers.mapper import *
+from dplaingestion.utilities import iterify
+from dplaingestion.selector import exists, getprop
+from dplaingestion.mappers.mapper import Mapper
 
 class NARAMapper(Mapper):
-    def __init__(self, data):
-        super(NARAMapper, self).__init__(data)
+    def __init__(self, provider_data):
+        super(NARAMapper, self).__init__(provider_data)
 
     def map_extent(self):
         extent = []

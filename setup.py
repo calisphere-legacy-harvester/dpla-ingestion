@@ -31,7 +31,7 @@ out.close()
 from distutils.core import setup
 
 setup( name = 'dplaingestion',
-       version = '28.0',
+       version = '30.0',
        description='DPLA Ingestion Subsystem',
        author='Digital Public Library of America',
        author_email='tech@dp.la',
