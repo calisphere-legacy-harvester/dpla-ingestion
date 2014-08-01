@@ -16,6 +16,13 @@
            "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.isShownAt; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, v[i]], 1); }}}",
            "reduce": "_count"
        },
+       "is_shown_by": {
+           "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.isShownBy; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, doc['id']], v[i]); }} else { emit([provider, doc['id']], '__MISSING_ISSHOWNBY__'); }}"
+       },
+       "is_shown_by_count": {
+           "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.isShownBy; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, v[i]], 1); }} else { emit([provider, '__MISSING_ISSHOWNBY__'], 1); }}",
+           "reduce": "_count"
+       },
        "title": {
            "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.sourceResource.title; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, doc['id']], v[i]); }}}"
        },
@@ -182,6 +189,13 @@
        },
        "identifier_count": {
            "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.sourceResource.identifier; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) {emit([provider, v[i]], 1);}}}",
+           "reduce": "_count"
+       },
+       "object": {
+           "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.object; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, doc['id']], v[i]); }} else { emit([provider, doc['id']], '__MISSING_OBJECT__'); }}"
+       },
+       "object_count": {
+           "map": "function(doc) { provider = doc._id.split('--').shift(); v = doc.object; if (v) { if (v.constructor.toString().indexOf('Array') == -1) { v = new Array(v); } for (i=0; i < v.length; i++) { emit([provider, v[i]], 1); }} else { emit([provider, '__MISSING_OBJECT__'], 1); }}",
            "reduce": "_count"
        }
    },
