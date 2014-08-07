@@ -87,7 +87,7 @@ CHO_TRANSFORMER = {
 }
 
 AGGREGATION_TRANSFORMER = {
-    "id"               : lambda d: {"id": d.get("id",None), "@id" : "http://dp.la/api/items/"+d.get("id","")},
+    "id"               : lambda d: {"id": d.get("id",None), "@id" : "http://ucldc/api/items/"+d.get("id","")},
     "_id"              : lambda d: {"_id": d.get("_id",None)},
     "handle"           : is_shown_at_transform,
     "originalRecord"   : lambda d: {"originalRecord": d.get("originalRecord",None)},
