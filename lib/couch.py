@@ -367,7 +367,11 @@ class Couch(object):
         """Fetches all provider docs from the DPLA database and posts them to
            the backup database, returning the backup database name.
         """
-        backup_db_name = "%s_%s" % (provider,
+        if not provider[0].isalpha():
+            db_prefix = 'Z'+provider
+        else:
+            db_prefix = provider
+        backup_db_name = "%s_%s" % (db_prefix,
                                     datetime.now().strftime("%Y%m%d%H%M%S"))
         backup_db = self.server.create(backup_db_name)
 
