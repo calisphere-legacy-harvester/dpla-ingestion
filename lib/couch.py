@@ -364,7 +364,7 @@ class Couch(object):
            the backup database, returning the backup database name.
         """
         if not provider[0].isalpha():
-            db_prefix = 'Z'+provider
+            db_prefix = 'zz-'+provider
         else:
             db_prefix = provider
         backup_db_name = "%s_%s" % (db_prefix,
