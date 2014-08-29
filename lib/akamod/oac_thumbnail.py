@@ -14,8 +14,8 @@ def oac_thumbnail(body, ctype):
     '''   
     Fill in the OAC thumbnail location.
     http://content.cdlib.org/<ark>/thumbnail
-
-
+    This is only valid for OAC harvested objects. _id for such objects
+    has the ARK embedded, will raise exception is "ark:" not in _id
     '''
     try :
         data = json.loads(body)
