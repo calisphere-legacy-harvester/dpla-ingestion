@@ -198,6 +198,7 @@ MODULES = [
     "dplaingestion.marc_code_to_relator",
     "dplaingestion.akamod.validate_mapv3",
     "dplaingestion.akamod.oac_thumbnail",
+    "dplaingestion.akamod.oac_to_sourceResource",
     ]
 
 class geocode: 

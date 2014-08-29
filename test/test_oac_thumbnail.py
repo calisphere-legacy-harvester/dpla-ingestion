@@ -62,5 +62,4 @@ def test_oac_thumb_url_generation():
     assert EXPECTED == json.loads(content)["object"]
 
 if __name__=="__main__":
-    test_oac_thumb_url_generation()
-    #raise SystemExit("Use nosetests")
+    raise SystemExit("Use nosetests")
