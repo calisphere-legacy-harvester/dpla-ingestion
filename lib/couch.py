@@ -9,6 +9,7 @@ from copy import deepcopy
 from datetime import datetime
 from dplaingestion.selector import setprop
 from dplaingestion.dict_differ import DictDiffer
+from dplaingestion.utilities import iso_utc_with_tz
 
 class Couch(object):
     """A class to hold the couchdb-python functionality used during ingestion.
@@ -370,7 +371,7 @@ class Couch(object):
         else:
             db_prefix = provider
         backup_db_name = "%s_%s" % (db_prefix,
-                                    datetime.now().strftime("%Y%m%d%H%M%S"))
+                                    datetime.utcnow().strftime("%Y%m%d%H%M%S"))
         backup_db = self.server.create(backup_db_name)
 
         msg = "Backing up %s to database %s" % (provider, backup_db_name)
@@ -415,7 +416,7 @@ class Couch(object):
             "provider": provider,
             "type": "ingestion",
             "ingestionSequence": None,
-            "ingestDate": datetime.now().isoformat(),
+            "ingestDate": iso_utc_with_tz(),
             "countAdded": 0,
             "countChanged": 0,
             "countDeleted": 0,
@@ -523,7 +524,7 @@ class Couch(object):
         ingestion_doc = {
             "provider": provider,
             "type": "ingestion",
-            "ingestDate": datetime.now().isoformat(),
+            "ingestDate": iso_utc_with_tz(),
             "countAdded": 0,
             "countChanged": 0,
             "countDeleted": 0
@@ -856,7 +857,7 @@ class Couch(object):
         bulk_download_doc.update({
             "file_path": file_path,
             "file_size": file_size,
-            "last_updated": datetime.now().isoformat()
+            "last_updated": iso_utc_with_tz()
             })
 
         return self.bulk_download_db.save(bulk_download_doc)[0]
@@ -884,5 +885,5 @@ class Couch(object):
                  self._generic_exception_error_msg(e, what)
 
     def _ts_for_err(self):
-        return "[%s]" % datetime.now().isoformat()
+        return "[%s]" % iso_utc_with_tz()
 
