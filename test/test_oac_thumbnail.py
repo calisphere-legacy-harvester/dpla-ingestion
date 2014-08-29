@@ -4,7 +4,6 @@ from amara.thirdparty import json
 
 def _get_server_response(body):
     url = server() + "oac-thumbnail"
-    print("URL:"+url)
     return H.request(url, "POST", body=body)
 
 def test_oac_thumb_url_generation():
@@ -58,7 +57,6 @@ def test_oac_thumb_url_generation():
 
     resp, content = _get_server_response(json.dumps(BAD_INPUT))
     assert resp.status == 500
-    print content
     resp, content = _get_server_response(json.dumps(INPUT))
     assert resp.status == 200
     assert EXPECTED == json.loads(content)["object"]
