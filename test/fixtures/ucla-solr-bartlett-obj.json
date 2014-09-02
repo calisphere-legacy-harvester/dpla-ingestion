@@ -1,0 +1,220 @@
+  {
+    "fgs_state_mlt": "Active",
+    "fgs_createdDate_s": "2013-09-19T18:27:04.419Z",
+    "mods_namePart_personal_ms": [
+      "Heathcote, Basil"
+    ],
+    "fgs_label_s": "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930",
+    "mods_roleTerm_ms": [
+      "repository",
+      "creator"
+    ],
+    "mods_typeOfResource_ms": [
+      "still image"
+    ],
+    "fedora_datastreams_ms": [
+      "AUDIT",
+      "RELS-EXT",
+      "MODS",
+      "DC",
+      "OBJ",
+      "TECHMD",
+      "JP2",
+      "JPG",
+      "TN"
+    ],
+    "dc.relation": [
+      "Adelbert Bartlett Papers. Department of Special Collections, Charles E. Young Research Library, UCLA."
+    ],
+    "score": 4.482099,
+    "fedora_datastreams_mt": [
+      "AUDIT",
+      "RELS-EXT",
+      "MODS",
+      "DC",
+      "OBJ",
+      "TECHMD",
+      "JP2",
+      "JPG",
+      "TN"
+    ],
+    "mods_typeOfResource_mt": [
+      "still image"
+    ],
+    "mods_roleTerm_mt": [
+      "repository",
+      "creator"
+    ],
+    "mods_dateCreated_mt": [
+      "1930-11-30",
+      "November 30, 1930"
+    ],
+    "dc.contributor": [
+      "University of California, Los Angeles. $b Library. $b Dept. of Special Collections (repository)"
+    ],
+    "dc.identifier": [
+      "edu.ucla.library.specialCollections.bartlett:1747",
+      "uclamss_1300_1775i",
+      "1775i"
+    ],
+    "mods_title_ms": [
+      "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930"
+    ],
+    "RELS_EXT_isMemberOfCollection_uri_ms": [
+      "info:fedora/edu.ucla.library.specialCollections.bartlett:15"
+    ],
+    "RELS_EXT_isMemberOfCollection_uri_mt": [
+      "info:fedora/edu.ucla.library.specialCollections.bartlett:15"
+    ],
+    "dc.description": [
+      "Text from nitrate negative sleeve: 1823 - 1824 253R1694 2 negs, 1929.  Photo by Adelbert Bartlett, 535 15th Street, Santa Monica, Calif.  Drum Barracks, 1862-68, offcers qtrs. U.S. Army, Wilmington (now in Los Angeles at L.A. Harbor) Calif. (see story attached)",
+      "Access to this collection is generously supported by Arcadia funds.",
+      "Drum Barracks story is only partially visible, in folded upside-down section of text at top.  Main story on page is \"The Miniature Theater Magnate,\" by Mayfield Allen.",
+      "Text reads in part: ... soldiers were sent from Drum Barracks to Catalina Island, where new barracks were erected and garrisoned for awhile, after which the men were ordered back to their regular posts. ..."
+    ],
+    "mods_extent_mt": [
+      "1 p."
+    ],
+    "mods_extent_ms": [
+      "1 p."
+    ],
+    "mods_languageTerm_mt": [
+      "eng"
+    ],
+    "fgs_ownerId_s": "admin",
+    "dc.format": [
+      "1 p."
+    ],
+    "PID": "edu.ucla.library.specialCollections.bartlett:1747",
+    "RELS_EXT_hasModel_uri_mt": [
+      "info:fedora/islandora:sp_large_image_cmodel"
+    ],
+    "RELS_EXT_hasModel_uri_ms": [
+      "info:fedora/islandora:sp_large_image_cmodel"
+    ],
+    "mods_languageTerm_ms": [
+      "eng"
+    ],
+    "fgs_ownerId_t": "admin",
+    "mods_genre_mt": [
+      "clippings"
+    ],
+    "fgs_lastModifiedDate_t": "2013-09-19T18:27:56.369Z",
+    "mods_dateCreated_ms": [
+      "1930-11-30",
+      "November 30, 1930"
+    ],
+    "fgs_label_mlt": "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930",
+    "fgs_lastModifiedDate_s": "2013-09-19T18:27:56.369Z",
+    "mods_genre_ms": [
+      "clippings"
+    ],
+    "dc.subject": [
+      "Postal service $z United States",
+      "Delivering $z United States",
+      "Drum Barracks (Los Angeles, Calif.)",
+      "Camels $z United States",
+      ""
+    ],
+    "mods_recordIdentifier_mt": [
+      "21198-zz002bxnxg"
+    ],
+    "fgs_label_t": "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930",
+    "mods_xml": [
+      "\n<mods:mods xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd\">\n                    <mods:titleInfo>\n                        <mods:title>Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930</mods:title>\n                    </mods:titleInfo>\n                    <mods:identifier type=\"local\">uclamss_1300_1775i</mods:identifier>\n                    <mods:identifier type=\"local\">1775i</mods:identifier>\n                    <mods:note>Text from nitrate negative sleeve: 1823 - 1824 253R1694 2 negs, 1929.  Photo by Adelbert Bartlett, 535 15th Street, Santa Monica, Calif.  Drum Barracks, 1862-68, offcers qtrs. U.S. Army, Wilmington (now in Los Angeles at L.A. Harbor) Calif. (see story attached)</mods:note>\n                    <mods:note>Access to this collection is generously supported by Arcadia funds.</mods:note>\n                    <mods:note>Drum Barracks story is only partially visible, in folded upside-down section of text at top.  Main story on page is \"The Miniature Theater Magnate,\" by Mayfield Allen.</mods:note>\n                    <mods:note>Text reads in part: ... soldiers were sent from Drum Barracks to Catalina Island, where new barracks were erected and garrisoned for awhile, after which the men were ordered back to their regular posts. ...</mods:note>\n                    <mods:originInfo>\n                        <mods:dateCreated encoding=\"iso8601\">1930-11-30</mods:dateCreated>\n                        <mods:dateCreated>November 30, 1930</mods:dateCreated>\n                    </mods:originInfo>\n                    <mods:genre authority=\"aat\">clippings</mods:genre>\n                    <mods:typeOfResource>still image</mods:typeOfResource>\n                    <mods:language>\n                        <mods:languageTerm authority=\"iso639-3\" type=\"code\">eng</mods:languageTerm>\n                    </mods:language>\n                    <mods:relatedItem type=\"host\">\n                        <mods:titleInfo>\n                            <mods:title>Adelbert Bartlett Papers. Department of Special Collections, Charles E. Young Research Library, UCLA.</mods:title>\n                        </mods:titleInfo>\n                    </mods:relatedItem>\n                    <mods:subject authority=\"tgm\">\n                        <mods:topic>Postal service $z United States</mods:topic>\n                    </mods:subject>\n                    <mods:subject authority=\"tgm\">\n                        <mods:topic>Delivering $z United States</mods:topic>\n                    </mods:subject>\n                    <mods:subject authority=\"lcsh\">\n                        <mods:topic>Drum Barracks (Los Angeles, Calif.)</mods:topic>\n                    </mods:subject>\n                    <mods:subject authority=\"tgm\">\n                        <mods:topic>Camels $z United States</mods:topic>\n                    </mods:subject>\n                    <mods:subject>\n                        <mods:geographic>California--Los Angeles--Wilmington</mods:geographic>\n                    </mods:subject>\n                    <mods:name type=\"corporate\">\n                        <mods:namePart>University of California, Los Angeles. $b Library. $b Dept. of Special Collections</mods:namePart>\n                        <mods:role>\n                            <mods:roleTerm type=\"text\">repository</mods:roleTerm>\n                        </mods:role>\n                    </mods:name>\n                    <mods:name type=\"personal\">\n                        <mods:namePart>Heathcote, Basil</mods:namePart>\n                        <mods:role>\n                            <mods:roleTerm type=\"text\">creator</mods:roleTerm>\n                        </mods:role>\n                    </mods:name>\n                    <mods:physicalDescription>\n                        <mods:extent>1 p.</mods:extent>\n                    </mods:physicalDescription>\n                    <mods:recordInfo>\n                        <mods:recordIdentifier>21198-zz002bxnxg</mods:recordIdentifier>\n                    </mods:recordInfo>\n                </mods:mods>"
+    ],
+    "repository": [
+      {
+        "name": "Special Collections and Archives",
+        "@id": "https://registry-dev.cdlib.org/api/v1/repository/30/"
+      }
+    ],
+    "mods_title_mt": [
+      "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930"
+    ],
+    "timestamp": "2014-07-22T01:41:43.672000+00:00",
+    "mods_note_mt": [
+      "Text from nitrate negative sleeve: 1823 - 1824 253R1694 2 negs, 1929.  Photo by Adelbert Bartlett, 535 15th Street, Santa Monica, Calif.  Drum Barracks, 1862-68, offcers qtrs. U.S. Army, Wilmington (now in Los Angeles at L.A. Harbor) Calif. (see story attached)",
+      "Access to this collection is generously supported by Arcadia funds.",
+      "Drum Barracks story is only partially visible, in folded upside-down section of text at top.  Main story on page is \"The Miniature Theater Magnate,\" by Mayfield Allen.",
+      "Text reads in part: ... soldiers were sent from Drum Barracks to Catalina Island, where new barracks were erected and garrisoned for awhile, after which the men were ordered back to their regular posts. ..."
+    ],
+    "collection": [
+      {
+        "name": "BARTLETT (ADELBERT) PAPERS",
+        "@id": "https://registry-dev.cdlib.org/api/v1/collection/25561/"
+      }
+    ],
+    "mods_geographic_mt": [
+      "California--Los Angeles--Wilmington"
+    ],
+    "mods_topic_ms": [
+      "Postal service $z United States",
+      "Delivering $z United States",
+      "Drum Barracks (Los Angeles, Calif.)",
+      "Camels $z United States"
+    ],
+    "fgs_ownerId_mlt": "admin",
+    "dc.coverage": [
+      "California--Los Angeles--Wilmington"
+    ],
+    "mods_note_ms": [
+      "Text from nitrate negative sleeve: 1823 - 1824 253R1694 2 negs, 1929.  Photo by Adelbert Bartlett, 535 15th Street, Santa Monica, Calif.  Drum Barracks, 1862-68, offcers qtrs. U.S. Army, Wilmington (now in Los Angeles at L.A. Harbor) Calif. (see story attached)",
+      "Access to this collection is generously supported by Arcadia funds.",
+      "Drum Barracks story is only partially visible, in folded upside-down section of text at top.  Main story on page is \"The Miniature Theater Magnate,\" by Mayfield Allen.",
+      "Text reads in part: ... soldiers were sent from Drum Barracks to Catalina Island, where new barracks were erected and garrisoned for awhile, after which the men were ordered back to their regular posts. ..."
+    ],
+    "fgs_createdDate_mlt": "2013-09-19T18:27:04.419Z",
+    "dc.language": [
+      "eng"
+    ],
+    "dc.title": [
+      "Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, \"When Camels Carried Mail to California,\" by Basil Heathcote, 1930"
+    ],
+    "campus": [
+      {
+        "name": "UCLA",
+        "@id": "https://registry-dev.cdlib.org/api/v1/campus/10/"
+      }
+    ],
+    "mods_geographic_ms": [
+      "California--Los Angeles--Wilmington"
+    ],
+    "mods_recordIdentifier_ms": [
+      "21198-zz002bxnxg"
+    ],
+    "fgs_lastModifiedDate_mlt": "2013-09-19T18:27:56.369Z",
+    "fgs_state_t": "Active",
+    "mods_namePart_corporate_ms": [
+      "University of California, Los Angeles. $b Library. $b Dept. of Special Collections"
+    ],
+    "dc.type": [
+      "clippings",
+      "StillImage"
+    ],
+    "mods_namePart_corporate_mt": [
+      "University of California, Los Angeles. $b Library. $b Dept. of Special Collections"
+    ],
+    "fgs_state_s": "Active",
+    "mods_identifier_ms": [
+      "uclamss_1300_1775i",
+      "1775i"
+    ],
+    "dc.creator": [
+      "Heathcote, Basil"
+    ],
+    "mods_topic_mt": [
+      "Postal service $z United States",
+      "Delivering $z United States",
+      "Drum Barracks (Los Angeles, Calif.)",
+      "Camels $z United States"
+    ],
+    "mods_identifier_mt": [
+      "uclamss_1300_1775i",
+      "1775i"
+    ],
+    "mods_namePart_personal_mt": [
+      "Heathcote, Basil"
+    ],
+    "fgs_createdDate_t": "2013-09-19T18:27:04.419Z"
+  }
