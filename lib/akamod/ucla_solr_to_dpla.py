@@ -16,40 +16,13 @@ from amara.thirdparty import json
 from dateutil.parser import parse as dateutil_parse
 
 from dplaingestion.selector import getprop
+from dplaingestion.akamod.context import CONTEXT
 
 URL_UCLA_OBJECT_ROOT = 'http://digital.library.ucla.edu/collections/islandora/object/'
 
 # default date used by dateutil-python to populate absent date elements during parse,
 # e.g. "1999" would become "1999-01-01" instead of using the current month/day
 DEFAULT_DATETIME = dateutil_parse("2000-01-01") 
-
-CONTEXT = {
-   "@vocab": "http://purl.org/dc/terms/",
-   "dpla": "http://dp.la/terms/",
-   "edm": "http://www.europeana.eu/schemas/edm/",    
-   "LCSH": "http://id.loc.gov/authorities/subjects",
-   "name": "xsd:string",
-   "collection" : "dpla:aggregation",
-   "aggregatedDigitalResource" : "dpla:aggregatedDigitalResource",
-   "originalRecord" : "dpla:originalRecord",
-   "state": "dpla:state",                             
-   "coordinates": "dpla:coordinates",
-   "stateLocatedIn" : "dpla:stateLocatedIn",
-   "sourceResource" : "edm:sourceResource",   
-   "dataProvider" : "edm:dataProvider",
-   "hasView" : "edm:hasView",
-   "isShownAt" : "edm:isShownAt",
-   "object" : "edm:object",
-   "provider" : "edm:provider",
-   "begin" : {
-     "@id" : "dpla:dateRangeStart",
-     "@type": "xsd:date"
-   },
-   "end" : {
-     "@id" : "dpla:dateRangeEnd",
-     "@type": "xsd:date"
-   },
-}
 
 def is_shown_at_transform(d):
     '''For the UCLA Islandora implementation, the URL of the local object
