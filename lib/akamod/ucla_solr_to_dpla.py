@@ -24,12 +24,17 @@ URL_UCLA_OBJECT_ROOT = 'http://digital.library.ucla.edu/collections/islandora/ob
 # e.g. "1999" would become "1999-01-01" instead of using the current month/day
 DEFAULT_DATETIME = dateutil_parse("2000-01-01") 
 
-def is_shown_at_transform(d):
+def is_shown_transform(d):
     '''For the UCLA Islandora implementation, the URL of the local object
     page can be found from:
     http://digital.library.ucla.edu/collections/islandora/object/<PID>
+    The actual image is found here: 
+    http://digital.library.ucla.edu/collections/islandora/object/<PID>/JPG/JPG.jpg
+
     '''
-    return {"isShownAt" :  ''.join((URL_UCLA_OBJECT_ROOT, d['PID'])) }
+    return {"isShownAt" :  ''.join((URL_UCLA_OBJECT_ROOT, d['PID'])),
+            "isShownBy" :  ''.join((URL_UCLA_OBJECT_ROOT, d['PID'], '/datastream/JPG/JPG.jpg')),
+            }
 
 def spatial_transform(d):
     spatial = d["dc.coverage"]
@@ -62,7 +67,7 @@ CHO_TRANSFORMER = {
 AGGREGATION_TRANSFORMER = {
     "id"               : lambda d: {"id": d.get("id",None), "@id" : "http://ucldc/api/items/"+d.get("id","")},
     "_id"              : lambda d: {"_id": d.get("_id",None)},
-    "PID"           : is_shown_at_transform,
+    "PID"           : is_shown_transform,
     "originalRecord"   : lambda d: {"originalRecord": d.get("originalRecord",None)},
     "source"           : lambda d: {"dataProvider": d.get("source",None)},
     "provider"         : lambda d: {"provider": d.get("provider", None)},

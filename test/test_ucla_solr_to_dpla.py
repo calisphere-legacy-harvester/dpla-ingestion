@@ -22,6 +22,8 @@ def test_ucla_mapping():
         obj = json.loads(content)
         TC.assertIn('isShownAt', obj)
         TC.assertEqual(obj['isShownAt'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747')
+        TC.assertIn('isShownBy', obj)
+        TC.assertEqual(obj['isShownBy'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747/datastream/JPG/JPG.jpg')
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertEqual(srcRes['subject'], [u'Postal service $z United States', u'Delivering $z United States', u'Drum Barracks (Los Angeles, Calif.)', u'Camels $z United States', u''])
