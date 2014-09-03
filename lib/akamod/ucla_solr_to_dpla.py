@@ -33,7 +33,7 @@ def is_shown_transform(d):
 
     '''
     return {"isShownAt" :  ''.join((URL_UCLA_OBJECT_ROOT, d['PID'])),
-            "isShownBy" :  ''.join((URL_UCLA_OBJECT_ROOT, d['PID'], '/datastream/JPG/JPG.jpg')),
+            "isShownBy" :  {'src':''.join((URL_UCLA_OBJECT_ROOT, d['PID'], '/datastream/JPG/JPG.jpg'))},
             }
 
 def spatial_transform(d):
