@@ -6,38 +6,11 @@ import base64
 from dplaingestion.utilities import iterify, remove_key_prefix
 from dplaingestion.selector import getprop as selector_getprop, exists
 from dplaingestion.marc_code_to_relator import MARC_CODE_TO_RELATOR
+from dplaingestion.akamod.context import CONTEXT
 
 
 def getprop(d, p):
     return selector_getprop(d, p, True)
-
-CONTEXT = {
-    "@vocab": "http://purl.org/dc/terms/",
-    "dpla": "http://dp.la/terms/",
-    "edm": "http://www.europeana.eu/schemas/edm/",
-    "LCSH": "http://id.loc.gov/authorities/subjects",
-    "name": "xsd:string",
-    "collection" : "dpla:aggregation",
-    "aggregatedDigitalResource" : "dpla:aggregatedDigitalResource",
-    "originalRecord" : "dpla:originalRecord",
-    "state": "dpla:state",
-    "coordinates": "dpla:coordinates",
-    "stateLocatedIn" : "dpla:stateLocatedIn",
-    "sourceResource" : "edm:sourceResource",
-    "dataProvider" : "edm:dataProvider",
-    "hasView" : "edm:hasView",
-    "isShownAt" : "edm:isShownAt",
-    "object" : "edm:object",
-    "provider" : "edm:provider",
-    "begin" : {
-        "@id" : "dpla:dateRangeStart",
-        "@type": "xsd:date"
-    },
-    "end" : {
-        "@id" : "dpla:dateRangeEnd",
-        "@type": "xsd:date"
-    }
-}
 
 # UVA specific transforms
 def subject_transform_uva(d, p):

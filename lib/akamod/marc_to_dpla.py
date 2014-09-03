@@ -9,35 +9,8 @@ try:
 except ImportError:
     from ordereddict import OrderedDict
 from dplaingestion.selector import getprop as selector_getprop, setprop, exists
+from dplaingestion.akamod.context import CONTEXT
 
-
-CONTEXT = {
-    "@vocab": "http://purl.org/dc/terms/",
-    "dpla": "http://dp.la/terms/",
-    "edm": "http://www.europeana.eu/schemas/edm/",
-    "LCSH": "http://id.loc.gov/authorities/subjects",
-    "name": "xsd:string",
-    "collection" : "dpla:aggregation",
-    "aggregatedDigitalResource" : "dpla:aggregatedDigitalResource",
-    "originalRecord" : "dpla:originalRecord",
-    "state": "dpla:state",
-    "coordinates": "dpla:coordinates",
-    "stateLocatedIn" : "dpla:stateLocatedIn",
-    "sourceResource" : "edm:sourceResource",
-    "dataProvider" : "edm:dataProvider",
-    "hasView" : "edm:hasView",
-    "isShownAt" : "edm:isShownAt",
-    "object" : "edm:object",
-    "provider" : "edm:provider",
-    "begin" : {
-        "@id" : "dpla:dateRangeStart",
-        "@type": "xsd:date"
-    },
-    "end" : {
-        "@id" : "dpla:dateRangeEnd",
-        "@type": "xsd:date"
-    }
-}
 
 hathi_rights_desc = {
     "pd":       "Public domain",
