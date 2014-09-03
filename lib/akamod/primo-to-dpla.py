@@ -9,40 +9,12 @@ import sys
 import re
 from copy import deepcopy
 from dplaingestion.selector import getprop, exists
+from dplaingestion.akamod.context import CONTEXT
 
 GEOPROP = None
 RECORD = "PrimoNMBib/record/"
 LINKS = "sear:LINKS/"
 URL = "http://utah-primoprod.hosted.exlibrisgroup.com/primo_library/libweb/action/dlDisplay.do?vid=MWDL&afterPDS=true&docId="
-
-#FIXME not format specific, move to generic module
-CONTEXT = {
-   "@vocab": "http://purl.org/dc/terms/",
-   "dpla": "http://dp.la/terms/",
-   "edm": "http://www.europeana.eu/schemas/edm/",
-   "LCSH": "http://id.loc.gov/authorities/subjects",
-   "name": "xsd:string",
-   "collection" : "dpla:aggregation",
-   "aggregatedDigitalResource" : "dpla:aggregatedDigitalResource",
-   "originalRecord" : "dpla:originalRecord",
-   "state": "dpla:state",
-   "coordinates": "dpla:coordinates",
-   "stateLocatedIn" : "dpla:stateLocatedIn",
-   "sourceResource" : "edm:sourceResource",
-   "dataProvider" : "edm:dataProvider",
-   "hasView" : "edm:hasView",
-   "isShownAt" : "edm:isShownAt",
-   "object" : "edm:object",
-   "provider" : "edm:provider",
-   "begin" : {
-     "@id" : "dpla:dateRangeStart",
-     "@type": "xsd:date"
-   },
-   "end" : {
-     "@id" : "dpla:end",
-     "@type": "xsd:date"
-   }
-}
 
 def multi_transform(d, key, props, return_format="str"):
     """
