@@ -97,7 +97,6 @@ def ucla_islandora_solr_to_dpla(body,ctype,geoprop=None):
         if p in CHO_TRANSFORMER:
             out['sourceResource'].update(CHO_TRANSFORMER[p](data))
         if p in AGGREGATION_TRANSFORMER:
-            print("P:{}".format(p) )
             out.update(AGGREGATION_TRANSFORMER[p](data))
 
     # Strip out keys with None/null values?
