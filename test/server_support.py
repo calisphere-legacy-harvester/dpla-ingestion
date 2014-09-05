@@ -199,6 +199,7 @@ MODULES = [
     "dplaingestion.akamod.oac_thumbnail",
     "dplaingestion.akamod.oac_to_sourceResource",
     "dplaingestion.akamod.ucla_solr_to_dpla",
+    "dplaingestion.akamod.lapl_marc_id",
     ]
 
 class geocode: 
