@@ -213,8 +213,8 @@ class MARCMapper(Mapper):
             exclude = True
             codes = codes[1:]
 
-        pymarc_record = False
         for subfield in self._get_subfields(_dict):
+            pymarc_record = False
             if not codes:
                 pass
             elif not exclude and ("code" in subfield and subfield["code"] in
@@ -226,11 +226,12 @@ class MARCMapper(Mapper):
             elif not exclude and (subfield.keys()[0] in codes):
                 code = subfield.keys()[0]
                 pymarc_record = True
-            elif exclude and (subfield.keys()[0] not in codes):
+            elif exclude and len(subfield.keys()) == 1 and (subfield.keys()[0] not in codes):
                 code = subfield.keys()[0]
                 pymarc_record = True
             else:
                 continue
+
             if "#text" in subfield:
                 values.append(subfield["#text"])
             elif pymarc_record:
