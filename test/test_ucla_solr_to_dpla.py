@@ -9,7 +9,7 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 def _get_server_response(body):
-    url = server() + "ucla-solr-to-dpla"
+    url = server() + "dpla_mapper?mapper_type=ucla_solr"
     return H.request(url, "POST", body=body)
 
 def test_ucla_mapping():
@@ -20,6 +20,8 @@ def test_ucla_mapping():
         resp, content = _get_server_response(INPUT)
         assert resp.status == 200
         obj = json.loads(content)
+        import pprint
+        pprint.pprint(obj)
         TC.assertIn('isShownAt', obj)
         TC.assertEqual(obj['isShownAt'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747')
         TC.assertIn('isShownBy', obj)

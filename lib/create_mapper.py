@@ -84,6 +84,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.lapl_marc_mapper import LAPLMARCMapper
         return LAPLMARCMapper(data)
 
+    def _create_ucla_solr_mapper(data):
+        from dplaingestion.mappers.ucla_solr_mapper import UCLASolrMapper
+        return UCLASolrMapper(data)
+
     mappers = {
         'ia':           lambda d: _create_ia_mapper(d),
         'bpl':          lambda d: _create_bpl_mapper(d),
@@ -105,6 +109,7 @@ def create_mapper(mapper_type, data):
         'uiuc_marc':    lambda d: _create_uiuc_marc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
+        'ucla_solr':    lambda d: _create_ucla_solr_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
