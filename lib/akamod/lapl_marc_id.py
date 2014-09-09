@@ -36,7 +36,7 @@ def lapl_marc_id(body, ctype):
 
     request_headers = copy_headers_to_dict(request.environ)
     source_name = request_headers.get('Source')
-
+    
     data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, ident)
     data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
 

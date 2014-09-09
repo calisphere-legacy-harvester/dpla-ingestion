@@ -1,0 +1,390 @@
+  {
+    "campus": [],
+    "collection": [
+      {
+        "name": "LAPL Photos MARC",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26094/"
+      }
+    ],
+    "leader": "02715nkm a2200421Ia 4500",
+    "fields": [
+      {
+        "001": "ocn838675849"
+      },
+      {
+        "003": "OCoLC"
+      },
+      {
+        "005": "20130412175709.0"
+      },
+      {
+        "007": "kh bo|                "
+      },
+      {
+        "008": "130412s19uu    cau               ineng d"
+      },
+      {
+        "035": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "(OCoLC)838675849"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "037": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Herman J. Schultheis Collection"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "037": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "N-011-201 8x10"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "040": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "LPU"
+            },
+            {
+              "c": "LPU"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "049": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "LPUA"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "099": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "00101746"
+            },
+            {
+              "e": "MN"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "100": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Schultheis, Herman."
+            }
+          ],
+          "ind1": "1"
+        }
+      },
+      {
+        "245": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Olvera Street shop"
+            },
+            {
+              "h": "[graphic] /"
+            },
+            {
+              "c": "Herman Schultheis."
+            }
+          ],
+          "ind1": "1"
+        }
+      },
+      {
+        "260": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "c": "[ca. 19--]"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "300": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "1 photographic print :"
+            },
+            {
+              "b": "b&w ;"
+            },
+            {
+              "c": "15 x 11 cm."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "500": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Title supplied by cataloger."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "500": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Herman J. Schultheis was born in Aachen, Germany in 1900, and immigrated to the United States in the mid-1920s after obtaining a Ph.D. in mechanical and electrical engineering.  He married Ethel Wisloh in 1936, and the pair moved to Los Angeles the following year.  He worked in the film industry from the late 1930s to the mid-1940s, most notably on the animated features \"Fantasia\" and \"Pinocchio.\"  His detailed notebook, documenting the special effects for \"Fantasia,\" is the subject of a 14-minute short-subject included on the film's DVD.  In 1949, he started employment with Librascope as a patent engineer.  Schultheis was an avid amateur photographer who traveled the world with his cameras.  It was on one of these photographic exhibitions in 1955 that he disappeared in the jungles of Guatemala.  His remains were discovered 18 months later.  The digitized portion of this collection represents the images Schultheis took of Los Angeles and its surrounding communities after he relocated to the area in 1937."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "520": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "A man and two boys sit in front of an Olvera Street shop. A large sign on the right reads, \"For Your Fortune Consult Princess Lorena - The Morning Star.\" Another sign posted above the doorway reads, \"Chief Kut - Mescalero.\" It is not clear if the man sitting on the right is Chief Kut."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "530": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "LAPL"
+            },
+            {
+              "d": "00101746"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "650": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Signs and signboards"
+            },
+            {
+              "z": "California"
+            },
+            {
+              "z": "Los Angeles."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "650": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Fortune-tellers"
+            },
+            {
+              "z": "California"
+            },
+            {
+              "z": "Los Angeles."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "650": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Boys"
+            },
+            {
+              "z": "California"
+            },
+            {
+              "z": "Los Angeles."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "650": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Men"
+            },
+            {
+              "z": "California"
+            },
+            {
+              "z": "Los Angeles."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "651": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "El Pueblo de Los Angeles Historical Monument (Los Angeles, Calif.)."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "651": {
+          "ind2": "0",
+          "subfields": [
+            {
+              "a": "Olvera Street (Los Angeles, Calif.)."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "651": {
+          "ind2": "4",
+          "subfields": [
+            {
+              "a": "Downtown Los Angeles (Los Angeles, Calif.)."
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "655": {
+          "ind2": "7",
+          "subfields": [
+            {
+              "a": "Schultheis Collection photographs."
+            },
+            {
+              "2": "local"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "856": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "u": "http://jpg1.lapl.org/00101/00101746.jpg"
+            }
+          ],
+          "ind1": "4"
+        }
+      },
+      {
+        "898": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "qEnglish English"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "898": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "qPhotograph Photograph"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "910": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "CARL0005159565"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "994": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "C0"
+            },
+            {
+              "b": "LPU"
+            }
+          ],
+          "ind1": " "
+        }
+      },
+      {
+        "998": {
+          "ind2": "4",
+          "subfields": [
+            {
+              "a": "ITS83.5   20130412175707 kjc 0968 "
+            },
+            {
+              "b": "ITS83.5   20130412175707 kjc 0968"
+            }
+          ],
+          "ind1": " "
+        }
+      }
+    ],
+    "repository": []
+  }
