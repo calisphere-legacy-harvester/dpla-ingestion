@@ -9,7 +9,9 @@ from dplaingestion.utilities import strip_unclosed_brackets
 
 class MARCMapper(Mapper):                                                       
 
-    def __init__(self, provider_data, key_prefix=None):
+    def __init__(self, provider_data, key_prefix=None,
+            datafield_tag='datafield',
+            controlfield_tag='controlfield'):
         super(MARCMapper, self).__init__(provider_data, key_prefix)
 
         # Fields controlfield, datafield, and leader may be nested within the
@@ -25,6 +27,8 @@ class MARCMapper(Mapper):
         self.control_008_21 = ""
         self.control_008_28 = ""
         self.control_format_char = ""
+        self.datafield_tag = datafield_tag
+        self.controlfield_tag = controlfield_tag
         self.datafield_086_or_087 = False
 
         self.identifier_tag_labels = {
@@ -209,6 +213,7 @@ class MARCMapper(Mapper):
             exclude = True
             codes = codes[1:]
 
+        pymarc_record = False
         for subfield in self._get_subfields(_dict):
             if not codes:
                 pass
@@ -218,11 +223,18 @@ class MARCMapper(Mapper):
             elif exclude and ("code" in subfield and subfield["code"] not in
                               codes):
                 pass
+            elif not exclude and (subfield.keys()[0] in codes):
+                code = subfield.keys()[0]
+                pymarc_record = True
+            elif exclude and (subfield.keys()[0] not in codes):
+                code = subfield.keys()[0]
+                pymarc_record = True
             else:
                 continue
-
             if "#text" in subfield:
                 values.append(subfield["#text"])
+            elif pymarc_record:
+                values.append(subfield[code])
 
         return values
 
@@ -508,14 +520,25 @@ class MARCMapper(Mapper):
         pass
 
     def map_datafield_tags(self):
-        for item in iterify(getprop(self.provider_data, "datafield")):
+        for item in iterify(getprop(self.provider_data, self.datafield_tag)):
             for _dict in iterify(item):
                 tag = _dict.get("tag", None)
                 # Skip cases where there is no tag or where tag == "ERR"
                 try:
                     int(tag)
                 except:
-                    continue
+                    #using pymarc for ucldc
+                    # no "tag" translates tag codes to string key
+                    # test against key, if int, then use that as key
+                    # the _dict for pymarc is a single key value dict
+                    try:
+                        tag = _dict.keys()[0]
+                        int(tag)
+                        #this is a pymarc record
+                        #grab "subfields" as data dict
+                        _dict['subfield'] = _dict[tag]['subfields']
+                    except:
+                        continue
 
                 if tag == "086" or tag == "087":
                     self.datafield_086_or_087 = True
@@ -630,7 +653,7 @@ class MARCMapper(Mapper):
                      "d": "cf8_serial_item_ceased_pub",
                      "c": "cf8_serial_item_current"
                     }
-        for item in iterify(getprop(self.provider_data, "controlfield")):
+        for item in iterify(getprop(self.provider_data, self.controlfield_tag)):
             if "#text" in item and "tag" in item:
                 if item["tag"] == "001":
                     self.control_001 = item["#text"]
