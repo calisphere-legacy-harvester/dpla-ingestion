@@ -5,8 +5,13 @@ from dplaingestion.selector import exists
 from dplaingestion.mappers.mapper import Mapper
 
 class DublinCoreMapper(Mapper):
-    def __init__(self, provider_data):
+    def __init__(self, provider_data, prefix=None):
+        '''
+        prefix is a possible prefix present in the name of the elements, e.g.
+        for dc.coverage prefix is 'dc.'
+        '''
         super(DublinCoreMapper, self).__init__(provider_data)
+        self.prefix = prefix
 
     # root mapping
     def map_is_shown_at(self):
@@ -17,8 +22,9 @@ class DublinCoreMapper(Mapper):
 
     # sourceResource mapping
     def source_resource_prop_to_prop(self, prop):
-        if exists(self.provider_data, prop):
-            self.update_source_resource({prop: self.provider_data.get(prop)})
+        provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
+        if exists(self.provider_data, provider_prop):
+            self.update_source_resource({prop: self.provider_data.get(provider_prop)})
             
     def map_collection(self):
         self.source_resource_prop_to_prop("collection")
