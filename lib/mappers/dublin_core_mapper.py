@@ -3,14 +3,20 @@ from amara.lib.iri import is_absolute
 from dplaingestion.utilities import iterify
 from dplaingestion.selector import exists
 from dplaingestion.mappers.mapper import Mapper
+from jsonpath import jsonpath
 
 class DublinCoreMapper(Mapper):
-    def __init__(self, provider_data, prefix=None):
+    def __init__(self, provider_data, path_parent=None, prefix=None):
         '''
+        path_parent is JSONPath to parent key of the dc elements.
         prefix is a possible prefix present in the name of the elements, e.g.
         for dc.coverage prefix is 'dc.'
         '''
         super(DublinCoreMapper, self).__init__(provider_data)
+        #make provider_data point to parent element
+        if path_parent:
+            self.provider_data = jsonpath(self.provider_data, path_parent)[0]
+        print("KEYS::::{}".format(self.provider_data.keys()))
         self.prefix = prefix
 
     # root mapping

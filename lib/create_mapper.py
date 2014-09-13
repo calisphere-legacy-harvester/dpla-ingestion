@@ -88,6 +88,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucla_solr_dc_mapper import UCLASolrDCMapper
         return UCLASolrDCMapper(data)
 
+    def _create_ucldc_nuxeo_dc_mapper(data):
+        from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import UCLDCNuxeoMapper
+        return UCLDCNuxeoMapper(data)
+
     mappers = {
         'ia':           lambda d: _create_ia_mapper(d),
         'bpl':          lambda d: _create_bpl_mapper(d),
@@ -110,6 +114,7 @@ def create_mapper(mapper_type, data):
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
+        'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_dc_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

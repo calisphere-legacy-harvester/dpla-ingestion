@@ -20,8 +20,6 @@ def test_ucla_mapping():
         resp, content = _get_server_response(INPUT)
         assert resp.status == 200
         obj = json.loads(content)
-        import pprint
-        pprint.pprint(obj)
         TC.assertIn('isShownAt', obj)
         TC.assertEqual(obj['isShownAt'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747')
         TC.assertIn('isShownBy', obj)
