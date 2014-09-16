@@ -15,10 +15,6 @@ import argparse
 import ConfigParser
 from dplaingestion.couch import Couch
 
-# ConfigParser.ConfigParser().getboolean() expects a string
-config = ConfigParser.ConfigParser({"SyncQAViews": "True"})
-config.readfp(open('akara.ini'))
-
 def define_arguments():
     """Defines command line arguments for the current script"""
     parser = argparse.ArgumentParser()

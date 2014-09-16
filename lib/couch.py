@@ -33,21 +33,27 @@ class Couch(object):
             views_directory: The path where the view JavaScript files
                              are located.
             batch_size: The batch size to use with iterview
+            sync_qa_views: Boolean; determines whether QA views get synced
         """
         config = ConfigParser.ConfigParser({'ItemDatabase':'ucldc',
                                             'DashboardDatabase':'dashboard',
                                             'ViewsDirectory':'couchdb_views'
+                                            'LogLevel': 'INFO',
+                                            'SyncQAViews': 'True'})
                                            })
         config.readfp(open(config_file))
         url = config.get("CouchDb", "Url")
         username = config.get("CouchDb", "Username")
         password = config.get("CouchDb", "Password")
+        log_level = config.get("CouchDb", "LogLevel")
+        sync_qa_views = config.getboolean("CouchDb", "SyncQAViews")
 
         dpla_db_name = config.get("CouchDb", "ItemDatabase")
         dashboard_db_name = config.get("CouchDb", "DashboardDatabase")
         if kwargs:
             dpla_db_name = kwargs.get("dpla_db_name")
             dashboard_db_name = kwargs.get("dashboard_db_name")
+            sync_qa_views = kwargs.get("sync_qa_views", True)
 
         bulk_download_db_name = "bulk_download"
 
@@ -61,6 +67,7 @@ class Couch(object):
         self.bulk_download_db = self._get_db(bulk_download_db_name)
         self.views_directory = config.get("CouchDb", "ViewsDirectory")
         self.batch_size = 500
+        self.sync_qa_views = sync_qa_views
 
         self.logger = logging.getLogger("couch")
         handler = logging.FileHandler("logs/couch.log")
@@ -69,7 +76,7 @@ class Couch(object):
             "%b %d %H:%M:%S")
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
-        self.logger.setLevel("DEBUG")
+        self.logger.setLevel(log_level)
 
     def _get_db(self, name):
         """Return a database given the database name, creating the database
@@ -85,7 +92,7 @@ class Couch(object):
         """Return the result of the given view in the "dpla" database"""
         return self.dpla_db.view(viewname, None, **options)
 
-    def sync_views(self, db_name, sync_qa_views=True):
+    def sync_views(self, db_name):
         """Fetches design documents from the views_directory, saves/updates
            them in the appropriate database, then build the views. 
         """
@@ -96,8 +103,11 @@ class Couch(object):
                                  "bulk_download_db_all_contributor_docs.js"]
         if db_name == self.dpla_db.name:
             db = self.dpla_db
-            if sync_qa_views:
+            if self.sync_qa_views:
+                self.logger.debug("QA views will be synced.")
                 build_views_from_file.append("dpla_db_qa_reports.js")
+            else:
+                self.logger.debug("QA views will NOT be synced.")
         elif db_name == self.dashboard_db.name:
             db = self.dashboard_db
         elif db_name == "bulk_download":
@@ -106,7 +116,7 @@ class Couch(object):
             raise ValueError(db_name+' is not a valid database name')
 
         for file in os.listdir(self.views_directory):
-            if file.startswith(db_name):
+            if file.startswith(db_name) and file in build_views_from_file:
                 fname = os.path.join(self.views_directory, file)
                 with open(fname, "r") as f:
                     s = f.read().replace("\n", "")
@@ -123,21 +133,20 @@ class Couch(object):
                     db[design_doc["_id"]] = design_doc
 
                 # Build views
-                if file in build_views_from_file:
-                    design_doc_name = design_doc["_id"].split("_design/")[-1]
-                    real_views = (v for v in design_doc["views"] if v != "lib")
-                    for view in real_views:
-                        view_path = "%s/%s" % (design_doc_name, view)
-                        start = time.time()
-                        try:
-                            for doc in db.view(view_path, limit=0):
-                                pass
-                            self.logger.debug("Built %s view %s in %s seconds"
-                                              % (db.name, view_path,
-                                                 time.time() - start))
-                        except Exception, e:
-                            self.logger.error("Error building %s view %s: %s" %
-                                              (db.name, view_path, e))
+                design_doc_name = design_doc["_id"].split("_design/")[-1]
+                real_views = (v for v in design_doc["views"] if v != "lib")
+                for view in real_views:
+                    view_path = "%s/%s" % (design_doc_name, view)
+                    start = time.time()
+                    try:
+                        for doc in db.view(view_path, limit=0):
+                            pass
+                        self.logger.debug("Built %s view %s in %s seconds"
+                                          % (db.name, view_path,
+                                             time.time() - start))
+                    except Exception, e:
+                        self.logger.error("Error building %s view %s: %s" %
+                                          (db.name, view_path, e))
 
     def update_ingestion_doc(self, ingestion_doc, **kwargs):
         for prop, value in kwargs.items():

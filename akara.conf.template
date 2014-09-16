@@ -196,6 +196,7 @@ MODULES = [
     "dplaingestion.akamod.validate_mapv3",
     "dplaingestion.akamod.dpla_mapper",
     "dplaingestion.akamod.set_context",
+    "dplaingestion.akamod.strip_html"
     "dplaingestion.akamod.oac_thumbnail",
     "dplaingestion.akamod.oac_to_sourceResource",
     "dplaingestion.akamod.ucla_solr_to_dpla",
