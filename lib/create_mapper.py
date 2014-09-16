@@ -92,6 +92,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import UCLDCNuxeoMapper
         return UCLDCNuxeoMapper(data)
 
+    def _create_ucsd_blacklight_dc(data):
+        from dplaingestion.mappers.ucsd_blacklight_dc_mapper import UCSDBlacklightDCMapper
+        return UCSDBlacklightDCMapper(data)
+
     mappers = {
         'ia':           lambda d: _create_ia_mapper(d),
         'bpl':          lambda d: _create_bpl_mapper(d),
@@ -115,6 +119,7 @@ def create_mapper(mapper_type, data):
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_dc_mapper(d),
+        'ucsd_blacklight_dc': lambda d: _create_ucsd_blacklight_dc(d),
     }
 
     return mappers.get(mapper_type)(data)
