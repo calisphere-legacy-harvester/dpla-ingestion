@@ -16,7 +16,6 @@ class DublinCoreMapper(Mapper):
         #make provider_data point to parent element
         if path_parent:
             self.provider_data = jsonpath(self.provider_data, path_parent)[0]
-        print("KEYS::::{}".format(self.provider_data.keys()))
         self.prefix = prefix
 
     # root mapping
