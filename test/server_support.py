@@ -191,7 +191,7 @@ MODULES = [
     "dplaingestion.akamod.scdl_format_to_type",
     "dplaingestion.marc_code_to_relator",
     "dplaingestion.akamod.validate_mapv3",
-    "dplaingestion.akamod.strip_html"
+    "dplaingestion.akamod.strip_html",
     "dplaingestion.akamod.oac_thumbnail",
     "dplaingestion.akamod.oac_to_sourceResource",
     "dplaingestion.akamod.ucla_solr_to_dpla",

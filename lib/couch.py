@@ -37,9 +37,9 @@ class Couch(object):
         """
         config = ConfigParser.ConfigParser({'ItemDatabase':'ucldc',
                                             'DashboardDatabase':'dashboard',
-                                            'ViewsDirectory':'couchdb_views'
+                                            'ViewsDirectory':'couchdb_views',
                                             'LogLevel': 'INFO',
-                                            'SyncQAViews': 'True'})
+                                            'SyncQAViews': 'True',
                                            })
         config.readfp(open(config_file))
         url = config.get("CouchDb", "Url")
