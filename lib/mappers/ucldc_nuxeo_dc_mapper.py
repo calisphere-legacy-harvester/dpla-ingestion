@@ -13,5 +13,5 @@ class UCLDCNuxeoMapper(DublinCoreMapper):
         self.mapped_data.update({"isShownAt": 'http://example.edu'})
 
     def map_subject(self):
-        if exists(self.provider_data, 'dc:subjects'):
-            self.update_source_resource({'subject': self.provider_data.get('dc:subjects')})
+        if exists(self.provider_data_source, 'dc:subjects'):
+            self.update_source_resource({'subject': self.provider_data_source.get('dc:subjects')})

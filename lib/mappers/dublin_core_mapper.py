@@ -13,14 +13,16 @@ class DublinCoreMapper(Mapper):
         for dc.coverage prefix is 'dc.'
         '''
         super(DublinCoreMapper, self).__init__(provider_data)
-        #make provider_data point to parent element
+        #make provider_data_source point to parent element
         if path_parent:
-            self.provider_data = jsonpath(self.provider_data, path_parent)[0]
+            self.provider_data_source = jsonpath(self.provider_data, path_parent)[0]
+        else:
+            self.provider_data_source = self.provider_data
         self.prefix = prefix
 
     # root mapping
     def map_is_shown_at(self):
-        for h in iterify(self.provider_data.get("handle")):
+        for h in iterify(self.provider_data_source.get("handle")):
             if is_absolute(h):
                 self.mapped_data.update({"isShownAt": h})
                 break
@@ -28,8 +30,8 @@ class DublinCoreMapper(Mapper):
     # sourceResource mapping
     def source_resource_prop_to_prop(self, prop):
         provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
-        if exists(self.provider_data, provider_prop):
-            self.update_source_resource({prop: self.provider_data.get(provider_prop)})
+        if exists(self.provider_data_source, provider_prop):
+            self.update_source_resource({prop: self.provider_data_source.get(provider_prop)})
             
     def map_collection(self):
         self.source_resource_prop_to_prop("collection")
@@ -78,6 +80,6 @@ class DublinCoreMapper(Mapper):
 
     def map_spatial(self):
         prop= "coverage"
-        if exists(self.provider_data, prop):
+        if exists(self.provider_data_source, prop):
             self.update_source_resource({"spatial":
-                                         self.provider_data.get(prop)})
+                                         self.provider_data_source.get(prop)})
