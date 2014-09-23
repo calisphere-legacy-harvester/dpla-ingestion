@@ -16,4 +16,4 @@ python-cloudfiles
 ordereddict
 jsonschema==2.3.0
 MarkupSafe==0.23
-jsonpath==0.54
+git+https://github.com/mredar/jsonpath.git#egg=jsonpath
