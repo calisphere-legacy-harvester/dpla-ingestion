@@ -12,7 +12,7 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=ucldc_nuxeo_dc"
     return H.request(url, "POST", body=body)
 
-def test_ucla_mapping():
+def test_ucldc_nuxeo_mapping():
     fixture = path.join(DIR_FIXTURES, 'ucldc-nuxeo.json')
     with open(fixture) as f:
         INPUT = f.read()
@@ -20,6 +20,8 @@ def test_ucla_mapping():
         assert resp.status == 200
         obj = json.loads(content)
         TC.assertIn('isShownAt', obj)
+        TC.assertIn('isShownBy', obj)
+        TC.assertEqual(obj['isShownBy'], 'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/40677ed1-f7c2-476f-886d-bf79c3fec8c4/Medium:content/')
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertEqual(srcRes['title'],  "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph")
