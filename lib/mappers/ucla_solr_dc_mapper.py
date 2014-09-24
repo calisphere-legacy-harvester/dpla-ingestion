@@ -2,7 +2,7 @@ from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
 
-class UCLASolrDCMapper(DublinCoreMapper):                                                       
+class UCLASolrDCMapper(DublinCoreMapper):
     URL_UCLA_OBJECT_ROOT = 'http://digital.library.ucla.edu/collections/islandora/object/'
 
     def __init__(self, provider_data): 
