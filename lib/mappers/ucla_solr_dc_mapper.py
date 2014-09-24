@@ -11,7 +11,7 @@ class UCLASolrDCMapper(DublinCoreMapper):
     # root mapping
     def map_is_shown_at(self, index=None):
         self.mapped_data.update( {"isShownAt" :  ''.join((self.URL_UCLA_OBJECT_ROOT, self.provider_data['PID'])),
-            "isShownBy" :  {'src':''.join((self.URL_UCLA_OBJECT_ROOT, self.provider_data['PID'], '/datastream/JPG/JPG.jpg'))},
+            "isShownBy" :  ''.join((self.URL_UCLA_OBJECT_ROOT, self.provider_data['PID'], '/datastream/JPG/JPG.jpg')),
             })
 
     def map_data_provider(self):
