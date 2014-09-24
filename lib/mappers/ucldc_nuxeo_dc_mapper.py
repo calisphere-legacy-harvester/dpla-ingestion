@@ -16,7 +16,6 @@ class UCLDCNuxeoMapper(DublinCoreMapper):
     # root mapping
     def map_is_shown_at(self):
         self.mapped_data.update({"isShownAt": 'http://example.edu'})
-        print("provider_data keys:{}".format(self.provider_data.keys()))
         self.mapped_data.update({"isShownBy": 
                 url_nuxeo_pic_template_med_sz.format(self.provider_data['uid'])})
 
