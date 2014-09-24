@@ -52,6 +52,14 @@ def test_oac_isShownBy():
                 )
     EXPECTED = "http://content.cdlib.org/ark:/13030/tf8779p3bw/hi-res"
     _check_isShownBy(INPUT, EXPECTED)
+    INPUT['originalRecord']['reference-image'].append({
+                    "Y": 2000,
+                    "X": 3000,
+                    "src": "ark:/13030/tf8779p3bw/hi-res-2"
+                    }
+                )
+    EXPECTED = "http://content.cdlib.org/ark:/13030/tf8779p3bw/hi-res-2"
+    _check_isShownBy(INPUT, EXPECTED)
 
 
 if __name__=="__main__":

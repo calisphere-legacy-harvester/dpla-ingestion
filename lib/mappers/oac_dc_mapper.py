@@ -1,5 +1,13 @@
+import os
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
+from akara import module_config
+
+URL_OAC_CONTENT_BASE = module_config().get(
+                        'url_oac_content',
+                        os.environ.get('URL_OAC_CONTENT_BASE',
+                                        'http://content.cdlib.org')
+                        )
 
 class OAC_DCMapper(DublinCoreMapper):
     '''Mapper for OAC xml feed objects'''
@@ -19,6 +27,8 @@ class OAC_DCMapper(DublinCoreMapper):
             if int(obj['X']) > x:
                 x = int(obj['X'])
                 best_image = obj['src']
+        if best_image and not best_image.startswith('http'):
+            best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
         return best_image
 
     def select_isShownAt(self):
