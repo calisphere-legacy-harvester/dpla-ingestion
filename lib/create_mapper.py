@@ -80,6 +80,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
         return DublinCoreMapper(data)
 
+    def _create_missouri_mapper(data):
+        from dplaingestion.mappers.missouri_mapper import MissouriMapper
+        return MissouriMapper(data)
+
     def _create_lapl_marc_mapper(data):
         from dplaingestion.mappers.lapl_marc_mapper import LAPLMARCMapper
         return LAPLMARCMapper(data)
@@ -120,6 +124,7 @@ def create_mapper(mapper_type, data):
         'digitalnc':    lambda d: _create_digitalnc_mapper(d),
         'uiuc_marc':    lambda d: _create_uiuc_marc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
+        'missouri':     lambda d: _create_missouri_mapper(d)
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_dc_mapper(d),
