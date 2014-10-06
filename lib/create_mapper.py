@@ -124,7 +124,7 @@ def create_mapper(mapper_type, data):
         'digitalnc':    lambda d: _create_digitalnc_mapper(d),
         'uiuc_marc':    lambda d: _create_uiuc_marc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
-        'missouri':     lambda d: _create_missouri_mapper(d)
+        'missouri':     lambda d: _create_missouri_mapper(d),
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_dc_mapper(d),
