@@ -28,7 +28,6 @@ def define_arguments():
 def main(argv):
     parser = define_arguments()
     args = parser.parse_args(argv[1:])
-    sync_qa_views = config.getboolean('CouchDb', 'SyncQAViews')
     couch = Couch(dpla_db_name=args.database_name, dashboard_db_name='dashboard')
     database_names = ["dpla", "dashboard", "bulk_download", "ucldc"]
     if args.database_name in database_names:
