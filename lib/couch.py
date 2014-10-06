@@ -100,12 +100,16 @@ class Couch(object):
                                  "dashboard_db_all_provider_docs.js",
                                  "dashboard_db_all_ingestion_docs.js",
                                  "dpla_db_export_database.js",
-                                 "bulk_download_db_all_contributor_docs.js"]
+                                 "bulk_download_db_all_contributor_docs.js",
+                                 "ucldc_db_all_provider_docs.js",
+                                 "ucldc_db_export_database.js",
+                                 ]
         if db_name == self.dpla_db.name:
             db = self.dpla_db
             if self.sync_qa_views:
                 self.logger.debug("QA views will be synced.")
                 build_views_from_file.append("dpla_db_qa_reports.js")
+                build_views_from_file.append("ucldc_db_qa_reports.js")
             else:
                 self.logger.debug("QA views will NOT be synced.")
         elif db_name == self.dashboard_db.name:

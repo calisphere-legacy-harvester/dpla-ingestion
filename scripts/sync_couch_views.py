@@ -33,7 +33,7 @@ def main(argv):
     database_names = ["dpla", "dashboard", "bulk_download", "ucldc"]
     if args.database_name in database_names:
         print "couch.sync_views("+args.database_name+") next!"
-        couch.sync_views(args.database_name, sync_qa_views)
+        couch.sync_views(args.database_name)
     else:
         print >> sys.stderr, "The database_name parameter should be " + \
                              "either \"dpla\" or \"dashboard\" or \"ucldc\"  \
