@@ -40,6 +40,10 @@ def test_lapl_creator():
     TC.assertEqual(doc['sourceResource']['specType'], [u'Photograph/Pictorial Works'])
     TC.assertIn(u'type', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['type'], u'Image')
+    TC.assertIn(u'isShownAt', doc)
+    TC.assertEqual(doc['isShownAt'], [u'http://jpg1.lapl.org/00101/00101746.jpg'])
+    TC.assertIn(u'isShownBy', doc)
+    TC.assertEqual(doc['isShownBy'], [u'http://jpg1.lapl.org/00101/00101746.jpg'])
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")

@@ -9,3 +9,9 @@ class LAPLMARCMapper(MARCMapper):
 
     def map_data_provider(self):
         super(LAPLMARCMapper, self).map_data_provider(prop="collection")
+
+
+    def update_is_shown_at(self):
+        '''Cheat, use this to copy isShownAt to isShownBy for 
+        grabbing images'''
+        self.mapped_data['isShownBy'] = self.mapped_data['isShownAt']
