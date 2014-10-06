@@ -69,6 +69,13 @@
                     }",
             "reduce": "_count"
         },
+        "isShownBy": {
+            "map": "function(doc) {
+                        var e = require('views/lib/utils').emit_handler;
+                        e(doc, 'isShownBy', false);
+                    }",
+            "reduce": "_count"
+        },
         "sourceResource.title": {
             "map": "function(doc) {
                         var e = require('views/lib/utils').emit_handler;
