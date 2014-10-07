@@ -196,6 +196,7 @@ MODULES = [
     "dplaingestion.akamod.oac_thumbnail",
     "dplaingestion.akamod.oac_to_sourceResource",
     "dplaingestion.akamod.lapl_marc_id",
+    "dplaingestion.akamod.select_oac_id",
     ]
 
 class geocode: 
