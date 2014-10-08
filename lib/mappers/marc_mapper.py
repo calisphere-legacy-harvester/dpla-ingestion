@@ -7,6 +7,7 @@ from collections import OrderedDict
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.utilities import strip_unclosed_brackets
 
+
 class MARCMapper(Mapper):                                                       
 
     def __init__(self, provider_data, key_prefix=None,
@@ -319,6 +320,9 @@ class MARCMapper(Mapper):
     def map_is_shown_at(self, _dict, tag, codes):
         prop = "isShownAt"
         self.extend_prop(prop, _dict, codes)
+        if isinstance(self.mapped_data[prop], list):
+            # EDM says this is a single URL, not a list
+            self.mapped_data[prop] = self.mapped_data[prop][0]
 
     def map_language(self, _dict, tag, codes):
         def _extract_codes(values):
