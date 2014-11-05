@@ -107,7 +107,7 @@ class Couch(object):
         if db_name == self.dpla_db.name:
             db = self.dpla_db
             if self.sync_qa_views:
-                self.logger.debug("QA views will be synced.")
+                self.logger.debug("QA views will be synced. {0}".format(db))
                 build_views_from_file.append("dpla_db_qa_reports.js")
                 build_views_from_file.append("ucldc_db_qa_reports.js")
             else:
