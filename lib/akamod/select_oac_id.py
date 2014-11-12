@@ -29,17 +29,13 @@ def selectid(body, ctype):
     source_name = request_headers.get('Source')
 
     logger.error(str(data))
-    print(str(data), sys.stderr)
     objid = None
     v = getprop(data, 'identifier')
-    print(str(v), sys.stderr)
     if isinstance(v,basestring):
         objid = v
     else:
         if v:
-            print('HERE\n', sys.stderr)
             for h in (v if isinstance(v, list) else [v]):
-                print('H:{}'.format(h), sys.stderr)
                 if h.startswith('http://ark.cdlib.org/ark:'):
                     if is_absolute(h):
                         objid = h
