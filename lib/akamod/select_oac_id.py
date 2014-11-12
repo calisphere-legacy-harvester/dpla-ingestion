@@ -5,7 +5,6 @@ from amara.lib.iri import is_absolute
 from akara.services import simple_service
 from akara.util import copy_headers_to_dict
 from akara import request, response
-from akara import logger
 from dplaingestion.selector import getprop, setprop, exists
 
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src,lname))
@@ -28,18 +27,13 @@ def selectid(body, ctype):
     request_headers = copy_headers_to_dict(request.environ)
     source_name = request_headers.get('Source')
 
-    logger.error(str(data))
-    print(str(data), sys.stderr)
     objid = None
     v = getprop(data, 'identifier')
-    print(str(v), sys.stderr)
     if isinstance(v,basestring):
         objid = v
     else:
         if v:
-            print('HERE\n', sys.stderr)
             for h in (v if isinstance(v, list) else [v]):
-                print('H:{}'.format(h), sys.stderr)
                 if h.startswith('http://ark.cdlib.org/ark:'):
                     if is_absolute(h):
                         objid = h

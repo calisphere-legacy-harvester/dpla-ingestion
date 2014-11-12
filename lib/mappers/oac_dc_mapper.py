@@ -35,7 +35,7 @@ class OAC_DCMapper(DublinCoreMapper):
         '''The identifier that's a URL and has ark: is the location
         where the object lives in the current OAC'''
         isShownAt = None
-        print('d:{} OR:{}'.format(self.provider_data.keys(), self.provider_data['originalRecord'].keys()))
+        #print('d:{} OR:{}'.format(self.provider_data.keys(), self.provider_data['originalRecord'].keys()))
         for u in self.provider_data['originalRecord']['identifier']:
             if u[:4] == 'http':
                 isShownAt = u
