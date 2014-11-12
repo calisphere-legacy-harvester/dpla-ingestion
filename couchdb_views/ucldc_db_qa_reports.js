@@ -449,6 +449,20 @@
                     }",
             "reduce": "_count"
         },
+        "sourceResource.place": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_handler;
+                        emitr(doc, 'sourceResource.place', false);
+                    }",
+            "reduce": "_count"
+        },
+        "sourceResource.place_value": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_path_value;
+                        emitr(doc, 'sourceResource.place', false);
+                    }",
+            "reduce": "_count"
+        },
         "sourceResource.extent": {
             "map": "function(doc) {
                         var emitr = require('views/lib/utils').emit_handler;
