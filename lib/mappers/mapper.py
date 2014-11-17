@@ -153,7 +153,7 @@ class Mapper(object):
     def map_ids(self):
         id = self.provider_data.get("id", "")
         _id = self.provider_data.get("_id")
-        at_id = "http://dp.la/api/items/" + id
+        at_id = "http://ucldc.cdlib.org/api/items/" + _id
         self.mapped_data.update({"id": id, "_id": _id, "@id": at_id})
 
     # root mapping functions
