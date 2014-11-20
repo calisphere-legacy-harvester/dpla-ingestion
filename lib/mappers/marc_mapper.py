@@ -658,19 +658,20 @@ class MARCMapper(Mapper):
                      "d": "cf8_serial_item_ceased_pub",
                      "c": "cf8_serial_item_current"
                     }
-        for item in iterify(getprop(self.provider_data, self.controlfield_tag)):
-            if "#text" in item and "tag" in item:
-                if item["tag"] == "001":
-                    self.control_001 = item["#text"]
-                    self.add_identifier(item["#text"])
-                elif item["tag"] == "007":
-                    self.control_format_char = item["#text"][0]
+        for item in self.provider_data['fields']:
+            tag = item.keys()[0]
+            if tag.startswith('00'):
+                if tag == "001":
+                    self.control_001 = item[tag]
+                    self.add_identifier(item[tag])
+                elif tag == "007":
+                    self.control_format_char = item[tag][0]
                     try:
-                        self.control_007_01 = item["#text"][1]
+                        self.control_007_01 = item[tag][1]
                     except:
                         pass
-                elif item["tag"] == "008":
-                    text = item["#text"]
+                elif tag == "008":
+                    text = item[tag]
                     type_of_date = text[6]
                     if type_of_date in date_func:
                         f = getattr(self, date_func[type_of_date])

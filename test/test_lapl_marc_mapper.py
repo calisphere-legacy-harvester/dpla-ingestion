@@ -44,6 +44,7 @@ def test_lapl_creator():
     TC.assertEqual(doc['isShownAt'], u'http://jpg1.lapl.org/00101/00101746.jpg')
     TC.assertIn(u'isShownBy', doc)
     TC.assertEqual(doc['isShownBy'], u'http://jpg1.lapl.org/00101/00101746.jpg')
+    TC.assertEqual(doc['sourceResource']['language'], [u'eng'])
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")
