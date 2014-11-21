@@ -1,11 +1,12 @@
 from dplaingestion.selector import setprop
-from dplaingestion.mappers.pymarc_mapper import PYMARCMapper
+from dplaingestion.mappers.marc_mapper import MARCMapper
 
-class LAPLMARCMapper(PYMARCMapper):                                                       
+class LAPLMARCMapper(MARCMapper):                                                       
     def __init__(self, provider_data):
         super(LAPLMARCMapper, self).__init__(provider_data,
                 datafield_tag='fields',
-                controlfield_tag='fields')
+                controlfield_tag='fields',
+                pymarc=True)
 
     def map_data_provider(self):
         super(LAPLMARCMapper, self).map_data_provider(prop="collection")

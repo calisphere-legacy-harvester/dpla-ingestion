@@ -12,11 +12,12 @@ class MARCMapper(Mapper):
 
     def __init__(self, provider_data, key_prefix=None,
             datafield_tag='datafield',
-            controlfield_tag='controlfield'):
+            controlfield_tag='controlfield',
+            pymarc=False):
         super(MARCMapper, self).__init__(provider_data, key_prefix)
 
         # Fields controlfield, datafield, and leader may be nested within the
-        # metadata/record field
+        # metadata/record field for DPLA fetcher items
         prop = "metadata/record"
         if exists(self.provider_data, prop):
             self.provider_data.update(getprop(self.provider_data, prop))
@@ -31,6 +32,7 @@ class MARCMapper(Mapper):
         self.datafield_tag = datafield_tag
         self.controlfield_tag = controlfield_tag
         self.datafield_086_or_087 = False
+        self.pymarc = pymarc
 
         self.identifier_tag_labels = {
             "020": "ISBN:",
@@ -206,37 +208,39 @@ class MARCMapper(Mapper):
         Extracts the appropriate "#text" values from _dict given a string of
         codes. If codes is None, all "#text" values are extracted. If codes
         starts with "!", codes are excluded.
+        For pymarc records, the #text if just the data value for the dictionary
+        entry
         """
         values = []
         exclude = False
+        codes = codes if codes != None else []
 
         if codes and codes.startswith("!"):
             exclude = True
             codes = codes[1:]
 
         for subfield in self._get_subfields(_dict):
-            pymarc_record = False
-            if not codes:
-                pass
-            elif not exclude and ("code" in subfield and subfield["code"] in
-                                  codes):
-                pass
-            elif exclude and ("code" in subfield and subfield["code"] not in
-                              codes):
-                pass
-            elif not exclude and (subfield.keys()[0] in codes):
-                code = subfield.keys()[0]
-                pymarc_record = True
-            elif exclude and len(subfield.keys()) == 1 and (subfield.keys()[0] not in codes):
-                code = subfield.keys()[0]
-                pymarc_record = True
+            #print('++++ SUBFIELD:{} codes:{}\n'.format(subfield, codes))
+            if self.pymarc:
+                if not exclude and (subfield.keys()[0] in codes):
+                    code = subfield.keys()[0]
+                elif exclude and len(subfield.keys()) == 1 and (subfield.keys()[0] not in codes):
+                    code = subfield.keys()[0]
+                else:
+                    continue
             else:
-                continue
+                if not codes:
+                    pass
+                elif not exclude and ("code" in subfield and subfield["code"] in
+                                      codes):
+                    pass
+                elif exclude and ("code" in subfield and subfield["code"] not in
+                                  codes):
+                    pass
+                else:
+                    continue
 
-            if "#text" in subfield:
-                values.append(subfield["#text"])
-            elif pymarc_record:
-                values.append(subfield[code])
+            values.append(subfield[code]) if self.pymarc else values.append(subfield["#text"])
 
         return values
 
@@ -246,12 +250,16 @@ class MARCMapper(Mapper):
         _dict: a dictionary of one element of the "datafield" list
         code:  one MARC subfield character code
         """
-        try:
-            subfields = [sf["#text"] for sf in self._get_subfields(_dict)
-                         if sf["code"] == code]
-            return subfields[0]  # assume there's just one
-        except (KeyError, IndexError):
-            return None
+        if self.pymarc:
+            subfields = [sf[code] for sf in self._get_subfields(_dict) if sf.keys()[0] == code]
+            return subfields[0]
+        else:
+            try:
+                subfields = [sf["#text"] for sf in self._get_subfields(_dict)
+                             if sf["code"] == code]
+                return subfields[0]  # assume there's just one
+            except (KeyError, IndexError), e:
+                return None
 
     def _get_subject_values(self, _dict, tag):
         """
@@ -527,23 +535,19 @@ class MARCMapper(Mapper):
     def map_datafield_tags(self):
         for item in iterify(getprop(self.provider_data, self.datafield_tag)):
             for _dict in iterify(item):
-                tag = _dict.get("tag", None)
+                if self.pymarc:
+                    tag = _dict.keys()[0]
+                    #this is a pymarc record
+                    #grab "subfields" as data dict
+                    if 'subfields' in _dict[tag]:
+                        _dict['subfield'] = _dict[tag]['subfields']
+                else:
+                    tag = _dict.get("tag", None)
                 # Skip cases where there is no tag or where tag == "ERR"
                 try:
                     int(tag)
                 except:
-                    #using pymarc for ucldc
-                    # no "tag" translates tag codes to string key
-                    # test against key, if int, then use that as key
-                    # the _dict for pymarc is a single key value dict
-                    try:
-                        tag = _dict.keys()[0]
-                        int(tag)
-                        #this is a pymarc record
-                        #grab "subfields" as data dict
-                        _dict['subfield'] = _dict[tag]['subfields']
-                    except:
-                        continue
+                    continue
 
                 if tag == "086" or tag == "087":
                     self.datafield_086_or_087 = True
@@ -673,8 +677,10 @@ class MARCMapper(Mapper):
                 elif tag == "008":
                     text = item[tag]
                     type_of_date = text[6]
+                    print("\nTOD:{}".format(type_of_date))
                     if type_of_date in date_func:
                         f = getattr(self, date_func[type_of_date])
+                        print('TYPe of date:{} text:{} func:{}'.format(type_of_date,text, f))
                         (begin, end) = f(text)
                         self.set_begin_end_dates(begin, end)
                     if len(text) > 18:
@@ -688,6 +694,7 @@ class MARCMapper(Mapper):
                         language = self._get_mapped_value(prop)
                         language.append(text[35:38])
                         setprop(self.mapped_data, prop, language)
+                    print("\n=---OUT --- \n")
 
     def update_mapped_fields(self):
         self.update_title()
