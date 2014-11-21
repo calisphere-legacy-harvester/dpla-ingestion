@@ -50,6 +50,9 @@ def test_lapl_creator():
                                                 'end':'19uu',
                                                 'displayDate':'[ca. 19--]'
                                                 })
+    TC.assertEqual(len(doc['sourceResource']['subject']), 8) 
+    TC.assertEqual(doc['sourceResource']['subject'][0], 
+            'Signs and signboards--California--Los Angeles.')
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")

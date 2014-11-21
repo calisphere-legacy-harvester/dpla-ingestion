@@ -220,7 +220,6 @@ class MARCMapper(Mapper):
             codes = codes[1:]
 
         for subfield in self._get_subfields(_dict):
-            #print('++++ SUBFIELD:{} codes:{}\n'.format(subfield, codes))
             if self.pymarc:
                 if not exclude and (subfield.keys()[0] in codes):
                     code = subfield.keys()[0]
@@ -289,13 +288,16 @@ class MARCMapper(Mapper):
 
         values = []
         for subfield in self._get_subfields(_dict):
-            code = subfield.get("code", "")
+            code = subfield.get("code", "") if not self.pymarc else subfield.keys()[0]
             if not code or code.isdigit():
                 # Skip codes that are numeric
                 continue
 
-            if "#text" in subfield:
+            if self.pymarc:
+                values.append(subfield[subfield.keys()[0].rstrip(", ")])
+            elif "#text" in subfield:
                 values.append(subfield["#text"].rstrip(", "))
+            if values:
                 delimiters = _delimiters(tag, code)
                 for delim in delimiters:
                     values = [delim.join(values)]
@@ -677,10 +679,8 @@ class MARCMapper(Mapper):
                 elif tag == "008":
                     text = item[tag]
                     type_of_date = text[6]
-                    print("\nTOD:{}".format(type_of_date))
                     if type_of_date in date_func:
                         f = getattr(self, date_func[type_of_date])
-                        print('TYPe of date:{} text:{} func:{}'.format(type_of_date,text, f))
                         (begin, end) = f(text)
                         self.set_begin_end_dates(begin, end)
                     if len(text) > 18:
@@ -694,7 +694,6 @@ class MARCMapper(Mapper):
                         language = self._get_mapped_value(prop)
                         language.append(text[35:38])
                         setprop(self.mapped_data, prop, language)
-                    print("\n=---OUT --- \n")
 
     def update_mapped_fields(self):
         self.update_title()
