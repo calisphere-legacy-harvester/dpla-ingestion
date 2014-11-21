@@ -313,7 +313,6 @@ class MARCMapper(Mapper):
         field. If subfield "e" #text value is "aut" or "cre", the _dict is not
         used.
         """
-        print('CONTRIB')
         values = []
         for subfield in self._get_subfields(_dict):
             if self.pymarc:
@@ -321,7 +320,6 @@ class MARCMapper(Mapper):
                     if subfield['e'] in ("aut", "cre"):
                         return []
                 else:
-                    print('SUBFIELD: {}'.format(subfield))
                     for code in subfield.keys():
                         if not codes or code in codes:
                             values.append(subfield[code])
