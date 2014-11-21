@@ -11,3 +11,6 @@ akara.ini
 akara.conf
 akara.confc
 ENV/*
+workspace/*
+.coverage
+htmlcov/*
