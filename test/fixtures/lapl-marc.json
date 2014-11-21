@@ -314,6 +314,40 @@
         }
       },
       {
+        "700": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Torrez, Eloy."
+            }
+          ],
+          "ind1": "1"
+        }
+      },
+      {
+        "710": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Walker & Eisen."
+            }
+          ],
+          "ind1": "2"
+        }
+      },
+      {
+        "710": {
+          "ind2": " ",
+          "subfields": [
+            {
+              "a": "Mark Redar",
+              "e": "aut"
+            }
+          ],
+          "ind1": "2"
+        }
+      },
+      {
         "856": {
           "ind2": " ",
           "subfields": [

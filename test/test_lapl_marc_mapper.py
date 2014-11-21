@@ -53,6 +53,8 @@ def test_lapl_creator():
     TC.assertEqual(len(doc['sourceResource']['subject']), 8) 
     TC.assertEqual(doc['sourceResource']['subject'][0], 
             'Signs and signboards--California--Los Angeles.')
+    TC.assertEqual(doc['sourceResource']['contributor'], ['Torrez, Eloy.',
+                        'Walker & Eisen.'])
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")

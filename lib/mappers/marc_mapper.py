@@ -313,17 +313,28 @@ class MARCMapper(Mapper):
         field. If subfield "e" #text value is "aut" or "cre", the _dict is not
         used.
         """
+        print('CONTRIB')
         values = []
         for subfield in self._get_subfields(_dict):
-            if not codes or ("code" in subfield and subfield["code"] in codes):
-                if "#text" in subfield:
-                    values.append(subfield["#text"])
-
-            # Do not any _dict subfield values if the _dict contains #text of
-            # "aut" or "cre" for code "e"
-            if (subfield.get("code") == "e" and subfield.get("#text") in
-                ("aut", "cre")):
-                return []
+            if self.pymarc:
+                if "e" in subfield:
+                    if subfield['e'] in ("aut", "cre"):
+                        return []
+                else:
+                    print('SUBFIELD: {}'.format(subfield))
+                    for code in subfield.keys():
+                        if not codes or code in codes:
+                            values.append(subfield[code])
+            else:
+                if not codes or ("code" in subfield and subfield["code"] in codes):
+                    if "#text" in subfield:
+                        values.append(subfield["#text"])
+    
+                # Do not any _dict subfield values if the _dict contains #text of
+                # "aut" or "cre" for code "e"
+                if (subfield.get("code") == "e" and subfield.get("#text") in
+                    ("aut", "cre")):
+                    return []
 
         return values
 
