@@ -41,7 +41,6 @@
         },
         "has_field_value": "function(head, req) {
             start({'headers': {'Content-Type': 'application/json'}});
-            var row;
             if (!('field' in req.query)) {
                 throw new Error('Please supply a field query paramter');
             }
@@ -53,6 +52,7 @@
             send('[');
             first = true;
             var getPropByString = require('lists/lib/utils').getPropByString;
+            var row;
             while (row = getRow()) {
                 if (!first) {
                     send(',');
@@ -71,7 +71,27 @@
             send(']');
         }",
         "marc_field_value": "function(head, req) {
-            send(req);
-            }"
+            /*pymarc records aint the best, better dict by field num*/
+            start({'headers': {'Content-Type': 'application/json'}});
+            if (!('field' in req.query)) {
+                throw new Error('Please supply a field query paramter');
+            }
+            send('[');
+            first = true;
+            var row;
+            while (row = getRow()) {
+                fields =  row.value['originalRecord']['fields'];
+                for (idx in fields) {
+                    if (fields[idx][req.query.field]) {
+                        if (!first) {
+                            send(',');
+                        }
+                        first = false;
+                        send('{\"'+ row.value._id + '\" : ' + toJSON(fields[idx]) + '}\\n');
+                    }
+                }
+            }
+            send(']');
+        }"
     }
 }
