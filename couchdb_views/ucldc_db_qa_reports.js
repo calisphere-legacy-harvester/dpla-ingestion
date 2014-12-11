@@ -536,12 +536,11 @@
                           }
                       }",
         "sort_by_value": "function(head, req) {
+                    start({'headers': {'Content-Type': 'application/json'}});
                     var row;
                     var rows=[];
                     while (row = getRow()) {
-                        if (row.key[1] === '__MISSING__') {
-                            rows.push(row);
-                        }
+                        rows.push(row)
                     }
                     /*send(rows[0].key[1]);*/
                     send(toJSON(rows));
