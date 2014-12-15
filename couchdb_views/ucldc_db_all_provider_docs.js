@@ -54,10 +54,6 @@
             var getPropByString = require('lists/lib/utils').getPropByString;
             var row;
             while (row = getRow()) {
-                if (!first) {
-                    send(',');
-                }
-                first = false;
                 field_obj = getPropByString(row.value, field);
                 if (field_obj) {
                     if (value) {
@@ -65,7 +61,11 @@
                             continue;
                         }
                     }
-                    send('{\"'+ row.value._id + '\" : ' + toJSON(field_obj) + '}\\n');
+                    if (!first) {
+                        send(',\\n');
+                    }
+                    first = false;
+                    send('{\"'+ row.value._id + '\" : ' + toJSON(field_obj) + '}');
                 }
             }
             send(']');
@@ -81,15 +81,17 @@
             var row;
             while (row = getRow()) {
                 fields =  row.value['originalRecord']['fields'];
+                var data_in_row = [];
                 for (idx in fields) {
                     if (fields[idx][req.query.field]) {
-                        if (!first) {
-                            send(',');
-                        }
-                        first = false;
-                        send('{\"'+ row.value._id + '\" : ' + toJSON(fields[idx]) + '}\\n');
+                        data_in_row.push(fields[idx]);
                     }
                 }
+                if (!first) {
+                    send(',\\n');
+                }
+                first = false;
+                send('{\"'+ row.value._id + '\" : ' + toJSON(data_in_row) + '}');
             }
             send(']');
         }"
