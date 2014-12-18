@@ -140,6 +140,7 @@ MODULES = [
     "dplaingestion.akamod.strip_html",
     "dplaingestion.akamod.lapl_marc_id",
     "dplaingestion.akamod.select_oac_id",
+    "dplaingestion.akamod.oai-to-dpla",
     ]
 
 
