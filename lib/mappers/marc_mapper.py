@@ -250,8 +250,11 @@ class MARCMapper(Mapper):
         code:  one MARC subfield character code
         """
         if self.pymarc:
-            subfields = [sf[code] for sf in self._get_subfields(_dict) if sf.keys()[0] == code]
-            return subfields[0]
+            try:
+                subfields = [sf[code] for sf in self._get_subfields(_dict) if sf.keys()[0] == code]
+                return subfields[0]
+            except (KeyError, IndexError), e:
+                return None
         else:
             try:
                 subfields = [sf["#text"] for sf in self._get_subfields(_dict)

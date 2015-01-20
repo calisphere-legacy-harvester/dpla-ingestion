@@ -21,19 +21,17 @@ class LAPLMARCMapper(MARCMapper):
         prop = "isShownAt"
         values = self._get_values(_dict, codes)
         if tag == "910":
-            print "VALUES:", str(values), ' TAG ', str(tag)
             self.extend_prop(prop, _dict, codes, values=values)
             if isinstance(self.mapped_data[prop], list):
                 # EDM says this is a single URL, not a list
                 self.mapped_data[prop] = self.mapped_data[prop][0]
             self.mapped_data[prop] = ''.join((
-            'http://photos.lapl.org/carlweb/jsp/DoSearch?index=z&databaseID=968&count=10&initialsearch=true&terms=',
+            'http://photos.lapl.org/carlweb/jsp/DoSearch?index=z&databaseID=968&terms=',
             self.mapped_data[prop][4:]
             ))
 
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
-        print "ISSHOWNBY CALLLED VALUES:"
         self.extend_prop(prop, _dict, codes)
         if isinstance(self.mapped_data[prop], list):
             # EDM says this is a single URL, not a list
