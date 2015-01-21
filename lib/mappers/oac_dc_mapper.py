@@ -33,8 +33,10 @@ class OAC_DCMapper(DublinCoreMapper):
         return best_image
 
     def map_is_shown_at(self, index=None):
-        self.mapped_data.update( {"isShownAt" : self.select_isShownAt(),
-            "isShownBy" :  self.get_best_oac_image(),
+        pass # already set by select-oac-id
+
+    def map_is_shown_by(self, index=None):
+        self.mapped_data.update( { "isShownBy" :  self.get_best_oac_image(),
             })
 
     def map_data_provider(self):

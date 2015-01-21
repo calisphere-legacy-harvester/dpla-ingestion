@@ -9,6 +9,7 @@ class Mapper(object):
 
             Method to map provider: map_provider
             Method to map isShownAt: map_is_shown_at
+            Method to map isShownBy: map_is_shown_by
 
        These methods map fields from the provider_data dictionary to the 
        mapped_data dictionary one-to-one. For mapping one-to-many fields or
@@ -107,6 +108,7 @@ class Mapper(object):
         self.map_data_provider()
         self.map_intermediate_provider()
         self.map_is_shown_at()
+        self.map_is_shown_by()
         self.map_has_view()
         self.map_object()
 
@@ -172,6 +174,9 @@ class Mapper(object):
             self.mapped_data.update({prop: self.provider_data.get(prop)})
 
     def map_is_shown_at(self):
+        pass
+
+    def map_is_shown_by(self):
         pass
 
     def map_has_view(self):
