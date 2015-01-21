@@ -32,16 +32,6 @@ class OAC_DCMapper(DublinCoreMapper):
             best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
         return best_image
 
-    def select_isShownAt(self):
-        '''The identifier that's a URL and has ark: is the location
-        where the object lives in the current OAC'''
-        isShownAt = None
-        #print('d:{} OR:{}'.format(self.provider_data.keys(), self.provider_data['originalRecord'].keys()))
-        for u in self.provider_data['originalRecord'].get('identifier', []):
-            if u[:4] == 'http':
-                isShownAt = u
-        return isShownAt
-
     def map_is_shown_at(self, index=None):
         self.mapped_data.update( {"isShownAt" : self.select_isShownAt(),
             "isShownBy" :  self.get_best_oac_image(),

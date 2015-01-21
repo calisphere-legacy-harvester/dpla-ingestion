@@ -23,8 +23,8 @@ def test_id_selected():
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     TC.assertEqual(json.loads(content)['_id'], EXPECTED)
-    #data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, id)
-    #data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
+    TC.assertEqual(json.loads(content)['isShownAt'],
+            'http://ark.cdlib.org/ark:/bogus')
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")
