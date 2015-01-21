@@ -61,6 +61,46 @@ def test_oac_isShownBy():
     EXPECTED = "http://content.cdlib.org/ark:/13030/tf8779p3bw/hi-res-2"
     _check_isShownBy(INPUT, EXPECTED)
 
+def test_map_data_provider():
+    '''Test that the "provider" is the collection'''
+    INPUT = {
+        #"_id": "yoshikawa-family-collection--http://ark.cdlib.org/ark:/13030/tf8779p3bw",
+        #"id": "bc46e3740d4ac92658be203231ffa87e",
+#        "originalRecord": {'identifier':['http://ark.cdlib.org/ark:/bogus', 'localid'],
+        "originalRecord": {
+            'collection': [
+                   {
+                       "description": "",
+                       "title": "Historical Treasures of San Bernardino",
+                       "ingestType": "collection",
+                       "@id": "https://registry.cdlib.org/api/v1/collection/10046/",
+                       "id": "10046",
+                       "name": "Historical Treasures of San Bernardino"
+                   }
+               ]
+            }
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['dataProvider'],
+            INPUT['originalRecord']['collection'])
+
+def test_map_state_located_in():
+    '''Should always return California'''
+    INPUT = {'originalRecord':{}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['stateLocatedIn'], 'California')
+
+def test_map_spatial():
+    INPUT = {'originalRecord':{'coverage':'Oakland'}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['spatial'], ['Oakland'])
+
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")

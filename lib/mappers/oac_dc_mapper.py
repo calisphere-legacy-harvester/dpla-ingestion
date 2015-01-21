@@ -1,6 +1,7 @@
 import os
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
+from dplaingestion.utilities import iterify
 from akara import module_config
 
 URL_OAC_CONTENT_BASE = module_config().get(
@@ -36,7 +37,7 @@ class OAC_DCMapper(DublinCoreMapper):
         where the object lives in the current OAC'''
         isShownAt = None
         #print('d:{} OR:{}'.format(self.provider_data.keys(), self.provider_data['originalRecord'].keys()))
-        for u in self.provider_data['originalRecord']['identifier']:
+        for u in self.provider_data['originalRecord'].get('identifier', []):
             if u[:4] == 'http':
                 isShownAt = u
         return isShownAt
@@ -47,13 +48,18 @@ class OAC_DCMapper(DublinCoreMapper):
             })
 
     def map_data_provider(self):
-        super(OAC_DCMapper, self).map_data_provider(prop="collection")
+        if self.provider_data.has_key('originalRecord'):
+            if self.provider_data['originalRecord'].has_key('collection'):
+                self.mapped_data.update({"dataProvider":
+                    self.provider_data['originalRecord']['collection']})
 
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": "California"})
 
     def map_spatial(self):
-        if exists(self.provider_data, "coverage"):
-            self.update_source_resource({"spatial":
-                                         iterify(getprop(self.provider_data,
+        print "PROVIDER KEYS:", self.provider_data.keys()
+        if self.provider_data.has_key('originalRecord'):
+            if self.provider_data['originalRecord'].has_key('coverage'):
+                self.update_source_resource({"spatial":
+                                         iterify(getprop(self.provider_data['originalRecord'],
                                                          "coverage"))})
