@@ -17,6 +17,19 @@ def _check_isShownBy(INPUT, EXPECTED):
     TC.assertEqual(resp.status, 200)
     TC.assertEqual(json.loads(content)['isShownBy'], EXPECTED)
 
+def test_oac_isShownAt():
+    '''Verify that the isShownAt set by select-oac-id is still in data.
+    '''
+    INPUT = {
+        'identifier':['http://ark.cdlib.org/ark:/bogus', 'localid']
+    }
+    url = server() + "select-oac-id"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT),
+            headers={'Source': 'an-oac-collection-slug'})
+    resp, content = _get_server_response(content)
+    content = json.loads(content)
+    TC.assertEqual(content['isShownAt'], 'http://ark.cdlib.org/ark:/bogus')
+
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 
     OAC original records

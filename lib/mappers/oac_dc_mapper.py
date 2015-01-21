@@ -16,24 +16,26 @@ class OAC_DCMapper(DublinCoreMapper):
     def get_best_oac_image(self):
         '''From the list of images, choose the largest one'''
         best_image = None
-        x = 0
-        thumb = self.provider_data['originalRecord'].get('thumbnail', None)
-        if thumb:
-            x = thumb['X']
-            best_image = thumb['src']
-        ref_images = self.provider_data['originalRecord'].get('reference-image', [])
-        if type(ref_images) == dict:
-            ref_images = [ref_images]
-        for obj in ref_images:
-            if int(obj['X']) > x:
-                x = int(obj['X'])
-                best_image = obj['src']
-        if best_image and not best_image.startswith('http'):
-            best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
+        if self.provider_data.has_key('originalRecord'): # guard weird input
+            x = 0
+            thumb = self.provider_data['originalRecord'].get('thumbnail', None)
+            if thumb:
+                x = thumb['X']
+                best_image = thumb['src']
+            ref_images = self.provider_data['originalRecord'].get('reference-image', [])
+            if type(ref_images) == dict:
+                ref_images = [ref_images]
+            for obj in ref_images:
+                if int(obj['X']) > x:
+                    x = int(obj['X'])
+                    best_image = obj['src']
+            if best_image and not best_image.startswith('http'):
+                best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
         return best_image
 
     def map_is_shown_at(self, index=None):
-        pass # already set by select-oac-id
+        ''' This is set in select-oac-id but must be added to mapped data'''
+        self.mapped_data.update({'isShownAt': self.provider_data.get('isShownAt', None)})
 
     def map_is_shown_by(self, index=None):
         self.mapped_data.update( { "isShownBy" :  self.get_best_oac_image(),
