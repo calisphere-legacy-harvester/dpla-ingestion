@@ -41,7 +41,7 @@ def test_lapl_creator():
     TC.assertIn(u'type', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['type'], u'Image')
     TC.assertIn(u'isShownAt', doc)
-    TC.assertEqual(doc['isShownAt'], u'http://photos.lapl.org/carlweb/jsp/DoSearch?index=z&databaseID=968&count=10&initialsearch=true&terms=0005159565')
+    TC.assertEqual(doc['isShownAt'], u'http://photos.lapl.org/carlweb/jsp/DoSearch?index=z&databaseID=968&terms=0005159565')
     TC.assertIn(u'isShownBy', doc)
     TC.assertEqual(doc['isShownBy'], u'http://jpg1.lapl.org/00101/00101746.jpg')
     TC.assertEqual(doc['sourceResource']['language'], [u'eng'])
