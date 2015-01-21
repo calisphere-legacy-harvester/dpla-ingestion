@@ -10,7 +10,7 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 def _get_server_response(body):
-    url = server() + "dedup-sourceresource"
+    url = server() + "dedupe-sourceresource"
     return H.request(url, "POST", body=body,
             )
 

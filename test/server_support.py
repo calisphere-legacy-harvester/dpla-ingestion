@@ -141,7 +141,7 @@ MODULES = [
     "dplaingestion.akamod.lapl_marc_id",
     "dplaingestion.akamod.select_oac_id",
     "dplaingestion.akamod.oai-to-dpla",
-    "dplaingestion.akamod.dedup_sourceresource",
+    "dplaingestion.akamod.dedupe_sourceresource",
     ]
 
 
