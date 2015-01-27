@@ -38,6 +38,13 @@ def test_map_oac_dc_meta():
         INPUT = f.read()
     resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
+    content_obj = json.loads(content)
+    srcRes = content_obj['sourceResource']
+    TC.assertEqual(len(srcRes['format']), 1)
+    TC.assertEqual(srcRes['format'], ['painting'])
+    TC.assertEqual(len(srcRes['relation']), 7)
+    TC.assertEqual(len(srcRes['subject']), 2)
+    TC.assertEqual(srcRes['subject'],  [u'Japanese Americans', u'Uchida'])
 
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 

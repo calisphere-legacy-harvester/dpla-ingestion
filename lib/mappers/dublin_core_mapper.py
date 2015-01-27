@@ -52,6 +52,7 @@ class DublinCoreMapper(Mapper):
         self.source_resource_prop_to_prop("extent")
 
     def map_format(self):
+        print "+++++++++ in map_format"
         self.source_resource_prop_to_prop("format")
 
     def map_identifier(self):

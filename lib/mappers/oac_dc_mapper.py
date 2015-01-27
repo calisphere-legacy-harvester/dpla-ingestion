@@ -21,13 +21,19 @@ class OAC_DCMapper(DublinCoreMapper):
         '''
         provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
         values = []
+        print 'PROP TO PROP {}\n'.format(provider_prop)
         if exists(self.provider_data_source, provider_prop):
+            print 'PROVIDER DATA for prop:{}\n\n'.format(self.provider_data_source[provider_prop])
             for x in self.provider_data_source[provider_prop]:
-                print "\n======{}:{}\n".format(provider_prop, x)
-                if provider_prop == 'format':
-                    print self.provider_data_source
-                for attrib, attval in x['attrib'].items():
-                    if attval != suppress_attribs.get(attrib, None):
+                if not x['attrib']:
+                    values.append(x['text'])
+                else:
+                    suppress = False
+                    for attrib, attval in x['attrib'].items():
+                        if attval in suppress_attribs.get(attrib, []):
+                            suppress = True
+                            break
+                    if not suppress:
                         values.append(x['text'])
             self.update_source_resource({prop: values})
             
@@ -74,3 +80,11 @@ class OAC_DCMapper(DublinCoreMapper):
                 self.update_source_resource({"spatial":
                                          iterify(getprop(self.provider_data['originalRecord'],
                                                          "coverage"))})
+
+    def map_format(self):
+        self.source_resource_prop_to_prop("format",
+                suppress_attribs={'q':'x'})
+
+    def map_subject(self):
+        self.source_resource_prop_to_prop("subject",
+                suppress_attribs={'q':'series'})

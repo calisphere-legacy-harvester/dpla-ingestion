@@ -17,7 +17,8 @@ def _get_server_response(body):
 def test_id_selected():
     '''Test that the id is grabbed '''
     INPUT = {
-        'identifier':['http://ark.cdlib.org/ark:/bogus', 'localid']
+            'identifier':[{'attrib':{}, 'text':'http://ark.cdlib.org/ark:/bogus'},
+                {'attrib':{}, 'text':'localid'}]
     }
     EXPECTED = 'an-oac-collection-slug--http://ark.cdlib.org/ark:/bogus'
     resp, content = _get_server_response(json.dumps(INPUT))
