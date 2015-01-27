@@ -37,3 +37,15 @@ class LAPLMARCMapper(MARCMapper):
             # EDM says this is a single URL, not a list
             self.mapped_data[prop] = self.mapped_data[prop][0]
 
+    def map_description(self, _dict, tag, codes):
+        '''Need to handle the special case of mapping the 530 field.
+        Need to concatenate subfields a & d into one value
+        '''
+        if tag != "530":
+            super(LAPLMARCMapper, self).map_description(_dict, tag, codes)
+        else:
+            prop = "sourceResource/description"
+            values = [' '.join(self._get_values(_dict, 'ad'))]
+            self.extend_prop(prop, _dict, codes, values=values)
+
+

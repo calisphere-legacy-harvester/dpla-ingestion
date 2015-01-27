@@ -27,6 +27,7 @@ def test_lapl_creator():
     TC.assertIn(u'title', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['title'], [u'Olvera Street shop [graphic] /']) 
     TC.assertIn(u'description', doc[u'sourceResource'])
+    TC.assertEqual(len(doc['sourceResource']['description']), 4)
     TC.assertEqual(doc['sourceResource']['description'][2],
             u'A man and two boys sit in front of an Olvera Street shop. A large sign on the right reads, "For Your Fortune Consult Princess Lorena - The Morning Star." Another sign posted above the doorway reads, "Chief Kut - Mescalero." It is not clear if the man sitting on the right is Chief Kut.')
     TC.assertIn(u'extent', doc[u'sourceResource'])
@@ -56,6 +57,7 @@ def test_lapl_creator():
     TC.assertEqual(doc['sourceResource']['contributor'], ['Torrez, Eloy.',
                         'Walker & Eisen.'])
     TC.assertEqual(doc['sourceResource']['creator'], ['Schultheis, Herman.'])
+    TC.assertTrue('LAPL 00101746' in doc['sourceResource']['description'])
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")
