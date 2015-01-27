@@ -21,7 +21,8 @@ def test_oac_isShownAt():
     '''Verify that the isShownAt set by select-oac-id is still in data.
     '''
     INPUT = {
-        'identifier':['http://ark.cdlib.org/ark:/bogus', 'localid']
+            'identifier':[{'attrib':{}, 'text':'http://ark.cdlib.org/ark:/bogus'},
+                {'attrib':{}, 'text':'localid'}]
     }
     url = server() + "select-oac-id"
     resp, content = H.request(url, "POST", body=json.dumps(INPUT),
@@ -29,6 +30,14 @@ def test_oac_isShownAt():
     resp, content = _get_server_response(content)
     content = json.loads(content)
     TC.assertEqual(content['isShownAt'], 'http://ark.cdlib.org/ark:/bogus')
+
+def test_map_oac_dc_meta():
+    '''Test that the DC meta values from OAC are pulled to sourceResource'''
+    fixture = path.join(DIR_FIXTURES, 'oac-xml.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+    resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
 
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 

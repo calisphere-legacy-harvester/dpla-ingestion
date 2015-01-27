@@ -12,7 +12,25 @@ URL_OAC_CONTENT_BASE = module_config().get(
 
 class OAC_DCMapper(DublinCoreMapper):
     '''Mapper for OAC xml feed objects'''
-
+    # sourceResource mapping
+    def source_resource_prop_to_prop(self, prop, suppress_attribs={}):
+        '''Override to handle elements which are dictionaries of format
+        {'attrib': {}, 'text':"string value of element"}
+        suppress_attribs is a dictionary of attribute key:value pairs to
+        omit from mapping.
+        '''
+        provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
+        values = []
+        if exists(self.provider_data_source, provider_prop):
+            for x in self.provider_data_source[provider_prop]:
+                print "\n======{}:{}\n".format(provider_prop, x)
+                if provider_prop == 'format':
+                    print self.provider_data_source
+                for attrib, attval in x['attrib'].items():
+                    if attval != suppress_attribs.get(attrib, None):
+                        values.append(x['text'])
+            self.update_source_resource({prop: values})
+            
     def get_best_oac_image(self):
         '''From the list of images, choose the largest one'''
         best_image = None
@@ -51,7 +69,6 @@ class OAC_DCMapper(DublinCoreMapper):
         self.update_source_resource({"stateLocatedIn": "California"})
 
     def map_spatial(self):
-        print "PROVIDER KEYS:", self.provider_data.keys()
         if self.provider_data.has_key('originalRecord'):
             if self.provider_data['originalRecord'].has_key('coverage'):
                 self.update_source_resource({"spatial":

@@ -34,9 +34,9 @@ def selectid(body, ctype):
     else:
         if v:
             for h in (v if isinstance(v, list) else [v]):
-                if h.startswith('http://ark.cdlib.org/ark:'):
-                    if is_absolute(h):
-                        objid = h
+                if h['text'].startswith('http://ark.cdlib.org/ark:'):
+                    if is_absolute(h['text']):
+                        objid = h['text']
                 if not objid:
                     objid = v[0]
 
