@@ -1,0 +1,267 @@
+{
+  "facet-onlineItems": [
+    {
+      "attrib": {},
+      "text": "Items online"
+    }
+  ],
+  "identifier": [
+    {
+      "attrib": {},
+      "text": "http://ark.cdlib.org/ark:/13030/kt40000501"
+    },
+    {
+      "attrib": {
+        "q": "mods"
+      },
+      "text": "[15]"
+    },
+    {
+      "attrib": {
+        "q": "mods"
+      },
+      "text": "brk00000755_7a.tif"
+    }
+  ],
+  "dateStamp": [
+    {
+      "attrib": {},
+      "text": "2013-10-22"
+    }
+  ],
+  "facet-type-tab": [
+    {
+      "attrib": {},
+      "text": "image"
+    }
+  ],
+  "facet-collection-title": [
+    {
+      "attrib": {},
+      "text": "Yoshiko Uchida Papers"
+    }
+  ],
+  "facet-collection-order": [
+    {
+      "attrib": {},
+      "text": "ark:/13030/tf0c600134::25"
+    }
+  ],
+  "institution-url": [
+    {
+      "attrib": {},
+      "text": "http://bancroft.berkeley.edu/"
+    }
+  ],
+  "iso-start-date": [
+    {
+      "attrib": {},
+      "text": "1942:00:00"
+    }
+  ],
+  "rights": [
+    {
+      "attrib": {},
+      "text": "Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+    },
+    {
+      "attrib": {},
+      "text": "The Bancroft Library--assigned"
+    },
+    {
+      "attrib": {},
+      "text": "All requests to reproduce, publish, quote from, or otherwise use collection materials must be submitted in writing to the Head of Public Services, The Bancroft Library, University of California, Berkeley 94720-6000. See: http://bancroft.berkeley.edu/reference/permissions.html"
+    },
+    {
+      "attrib": {},
+      "text": "The Bancroft Library University of California Berkeley, CA 94720-6000"
+    }
+  ],
+  "publisher": [
+    {
+      "attrib": {},
+      "text": "The Bancroft Library;;, University of California, Berkeley, Berkeley, CA 94720-6000, Phone: (510) 642-6481, Fax: (510) 642-7589, Email: bancref@library.berkeley.edu;;, URL: http://bancroft.berkeley.edu/"
+    }
+  ],
+  "date": [
+    {
+      "attrib": {
+        "q": "created"
+      },
+      "text": "7/21/42"
+    },
+    {
+      "attrib": {
+        "q": "published"
+      },
+      "text": "7/21/72"
+    }
+  ],
+  "facet-jardaBrowse": [
+    {
+      "attrib": {},
+      "text": "Yoshiko Uchida"
+    }
+  ],
+  "institution-doublelist": [
+    {
+      "attrib": {},
+      "text": "B::Bancroft Library::UC Berkeley"
+    },
+    {
+      "attrib": {},
+      "text": "U::UC Berkeley::Bancroft Library"
+    }
+  ],
+  "sort-year": [
+    {
+      "attrib": {},
+      "text": "1942"
+    }
+  ],
+  "subject": [
+    {
+      "attrib": {
+        "q": "series"
+      },
+      "text": "Yoshiko Uchida Papers"
+    },
+    {
+      "attrib": {
+        "q": "series"
+      },
+      "text": "Japanese American Relocation Digital Archive"
+    },
+    {
+      "attrib": { },
+      "text": "Japanese Americans"
+    },
+    {
+      "attrib": { },
+      "text": "Uchida"
+    }
+  ],
+  "sort-title": [
+    {
+      "attrib": {},
+      "text": "untitled watercolor of people at camp housing"
+    }
+  ],
+  "year": [
+    {
+      "attrib": {},
+      "text": "1942"
+    }
+  ],
+  "relation": [
+    {
+      "attrib": {},
+      "text": "http://www.oac.cdlib.org/findaid/ark:/13030/tf0c600134"
+    },
+    {
+      "attrib": {},
+      "text": "http://bancroft.berkeley.edu/collections/jarda.html"
+    },
+    {
+      "attrib": {},
+      "text": "hb158005k9"
+    },
+    {
+      "attrib": {},
+      "text": "BANC MSS 86/97 c"
+    },
+    {
+      "attrib": {},
+      "text": "http://www.oac.cdlib.org/findaid/ark:/13030/tf0c600134"
+    },
+    {
+      "attrib": {},
+      "text": "http://calisphere.universityofcalifornia.edu/"
+    },
+    {
+      "attrib": {},
+      "text": "http://bancroft.berkeley.edu/"
+    }
+  ],
+  "relation-from": [
+    {
+      "attrib": {
+        "q": "collection"
+      },
+      "text": "http://www.oac.cdlib.org/findaid/ark:/13030/tf0c600134|Yoshiko Uchida Papers"
+    }
+  ],
+  "jardaBrowse": [
+    {
+      "attrib": {},
+      "text": "Yoshiko Uchida"
+    }
+  ],
+  "facet-oac-tab": [
+    {
+      "attrib": {},
+      "text": "digital item"
+    }
+  ],
+  "facet-institution": [
+    {
+      "attrib": {},
+      "text": "UC Berkeley::Bancroft Library"
+    }
+  ],
+  "title": [
+    {
+      "attrib": {},
+      "text": "[Untitled watercolor of people at camp housing]"
+    }
+  ],
+  "iso-end-date": [
+    {
+      "attrib": {},
+      "text": "1942:00:00"
+    }
+  ],
+  "oac4-tab": [
+    {
+      "attrib": {},
+      "text": "Items::image"
+    }
+  ],
+  "type": [
+    {
+      "attrib": {
+        "q": "mods"
+      },
+      "text": "still image"
+    }
+  ],
+  "thumbnail": {
+    "src": "http://content.cdlib.org/ark:/13030/kt40000501/thumbnail",
+    "X": 125,
+    "Y": 93
+  },
+  "reference-image": [
+    {
+      "src": "http://content.cdlib.org/ark:/13030/kt40000501/FID3",
+      "X": 750,
+      "Y": 564
+    },
+    {
+      "src": "http://content.cdlib.org/ark:/13030/kt40000501/FID4",
+      "X": 1500,
+      "Y": 1131
+    }
+  ],
+  "format": [
+    {
+      "attrib": {
+        "q": "x"
+      },
+      "text": "mods"
+    },
+    {
+      "attrib": {},
+      "text": "painting"
+    }
+  ]
+}
