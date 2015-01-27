@@ -55,6 +55,7 @@ def test_lapl_creator():
             'Signs and signboards--California--Los Angeles.')
     TC.assertEqual(doc['sourceResource']['contributor'], ['Torrez, Eloy.',
                         'Walker & Eisen.'])
+    TC.assertEqual(doc['sourceResource']['creator'], ['Schultheis, Herman.'])
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")

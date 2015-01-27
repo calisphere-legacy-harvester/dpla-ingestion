@@ -12,7 +12,18 @@ _FIELDS = {"fields": [{ "856": {
                         "ind1": "4",
                         "ind2": " "
                         },
-                      }
+                      },
+                      {
+                        "100": {
+                          "ind2": " ",
+                          "subfields": [
+                            {
+                              "a": "Schultheis, Herman."
+                            }
+                          ],
+                          "ind1": "1"
+                        }
+                      },
                     ]
            }
 
@@ -24,9 +35,12 @@ _MAPPER = MARCMapper(_FIELDS,
 
 TC = TestCase('__init__')
 
+_MAPPER.map_datafield_tags()
+
 def test_map_is_shown_at():
-    _MAPPER.map_datafield_tags()
-    print(_MAPPER.mapped_data)
     TC.assertEqual(_MAPPER.mapped_data['isShownAt'],
                        "http://jpg1.lapl.org/sola1/00000001.jpg")
             
+def test_map_creator():
+    TC.assertEqual(_MAPPER.mapped_data['sourceResource']['creator'],
+                        ['Schultheis, Herman.'])

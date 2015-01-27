@@ -16,6 +16,7 @@ class MARCMapper(Mapper):
             pymarc=False):
         super(MARCMapper, self).__init__(provider_data, key_prefix)
 
+
         # Fields controlfield, datafield, and leader may be nested within the
         # metadata/record field for DPLA fetcher items
         prop = "metadata/record"
@@ -221,12 +222,15 @@ class MARCMapper(Mapper):
 
         for subfield in self._get_subfields(_dict):
             if self.pymarc:
-                if not exclude and (subfield.keys()[0] in codes):
-                    code = subfield.keys()[0]
+                if not codes:
+                    pass
+                elif not exclude and (subfield.keys()[0] in codes):
+                    pass
                 elif exclude and len(subfield.keys()) == 1 and (subfield.keys()[0] not in codes):
-                    code = subfield.keys()[0]
+                    pass
                 else:
                     continue
+                code = subfield.keys()[0]
             else:
                 if not codes:
                     pass
