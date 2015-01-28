@@ -27,11 +27,21 @@ class DublinCoreMapper(Mapper):
                 self.mapped_data.update({"isShownAt": h})
                 break
 
+    # sourceResource specific mapping
+    def source_resource_orig_to_prop(self, provider_prop, srcRes_prop):
+        '''Map a property in the provider's original data to 
+        a sourceResource property
+        Args:
+            provider_prop - name of field in original data
+            srcRes_prop - name of field in sourceResource to map to
+        '''
+        if exists(self.provider_data_source, provider_prop):
+            self.update_source_resource({srcRes_prop: self.provider_data_source.get(provider_prop)})
+
     # sourceResource mapping
     def source_resource_prop_to_prop(self, prop):
         provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
-        if exists(self.provider_data_source, provider_prop):
-            self.update_source_resource({prop: self.provider_data_source.get(provider_prop)})
+        self.source_resource_orig_to_prop(provider_prop, prop)
             
     def map_collection(self):
         self.source_resource_prop_to_prop("collection")
@@ -52,7 +62,6 @@ class DublinCoreMapper(Mapper):
         self.source_resource_prop_to_prop("extent")
 
     def map_format(self):
-        print "+++++++++ in map_format"
         self.source_resource_prop_to_prop("format")
 
     def map_identifier(self):
@@ -84,3 +93,6 @@ class DublinCoreMapper(Mapper):
         if exists(self.provider_data_source, prop):
             self.update_source_resource({"spatial":
                                          self.provider_data_source.get(prop)})
+
+    def map_temporal(self):
+        self.source_resource_prop_to_prop("temporal")

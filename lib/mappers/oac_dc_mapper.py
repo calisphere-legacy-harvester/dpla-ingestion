@@ -13,13 +13,18 @@ URL_OAC_CONTENT_BASE = module_config().get(
 class OAC_DCMapper(DublinCoreMapper):
     '''Mapper for OAC xml feed objects'''
     # sourceResource mapping
-    def source_resource_prop_to_prop(self, prop, suppress_attribs={}):
+    def source_resource_orig_to_prop(self,
+                                    provider_prop,
+                                    srcRes_prop,
+                                    suppress_attribs={}):
         '''Override to handle elements which are dictionaries of format
         {'attrib': {}, 'text':"string value of element"}
-        suppress_attribs is a dictionary of attribute key:value pairs to
-        omit from mapping.
+        Args:
+            provider_prop - name of field in original data
+            srcRes_prop - name of field in sourceResource to map to
+            suppress_attribs is a dictionary of attribute key:value pairs to
+                omit from mapping.
         '''
-        provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
         values = []
         if exists(self.provider_data_source, provider_prop):
             for x in self.provider_data_source[provider_prop]:
@@ -40,8 +45,17 @@ class OAC_DCMapper(DublinCoreMapper):
                     if not suppress:
                         values.append(x['text'])
 
-            self.update_source_resource({prop: values})
+            self.update_source_resource({srcRes_prop: values})
             
+    def source_resource_prop_to_prop(self, prop, suppress_attribs={}):
+        '''Override to handle elements which are dictionaries of format
+        {'attrib': {}, 'text':"string value of element"}
+        suppress_attribs is a dictionary of attribute key:value pairs to
+        omit from mapping.
+        '''
+        provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
+        self.source_resource_orig_to_prop(provider_prop, prop, suppress_attribs)
+
     def get_best_oac_image(self):
         '''From the list of images, choose the largest one'''
         best_image = None
