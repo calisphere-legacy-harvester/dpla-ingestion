@@ -21,10 +21,14 @@ class OAC_DCMapper(DublinCoreMapper):
         '''
         provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
         values = []
-        print 'PROP TO PROP {}\n'.format(provider_prop)
         if exists(self.provider_data_source, provider_prop):
-            print 'PROVIDER DATA for prop:{}\n\n'.format(self.provider_data_source[provider_prop])
             for x in self.provider_data_source[provider_prop]:
+                try:
+                    value = x['text']
+                except KeyError:
+                    # not an elementtree type data value
+                    values.append(x)
+                    continue
                 if not x['attrib']:
                     values.append(x['text'])
                 else:
@@ -35,6 +39,7 @@ class OAC_DCMapper(DublinCoreMapper):
                             break
                     if not suppress:
                         values.append(x['text'])
+
             self.update_source_resource({prop: values})
             
     def get_best_oac_image(self):
