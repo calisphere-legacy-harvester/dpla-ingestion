@@ -5,7 +5,6 @@ from akara.services import simple_service
 from akara.util import copy_headers_to_dict
 from akara import request, response
 from akara import logger
-from dplaingestion.selector import getprop, setprop, exists
 
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src,lname))
 COUCH_REC_ID_BUILDER = lambda src, id_handle: COUCH_ID_BUILDER(src,id_handle.strip().replace(" ","__"))
