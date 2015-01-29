@@ -40,10 +40,10 @@ def test_map_oac_dc_meta():
     TC.assertEqual(resp.status, 200)
     content_obj = json.loads(content)
     srcRes = content_obj['sourceResource']
-    TC.assertEqual(len(srcRes['format']), 1)
+    TC.assertEqual(len(srcRes['format']), 1) # suppresses q="x"
     TC.assertEqual(srcRes['format'], ['painting'])
     TC.assertEqual(len(srcRes['relation']), 7)
-    TC.assertEqual(len(srcRes['subject']), 2)
+    TC.assertEqual(len(srcRes['subject']), 2) # suppresses q="series"
     TC.assertEqual(srcRes['subject'],  [u'Japanese Americans', u'Uchida'])
     TC.assertEqual(srcRes['collection'][0]['name'], 'Uchida (Yoshiko) Papers')
 
