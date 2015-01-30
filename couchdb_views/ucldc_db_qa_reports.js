@@ -99,6 +99,20 @@
                     }",
             "reduce": "_count"
         },
+        "object": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_handler;
+                        emitr(doc, 'object', false);
+                    }",
+            "reduce": "_count"
+        },
+        "object_value": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_path_value;
+                        emitr(doc, 'object', false);
+                    }",
+            "reduce": "_count"
+        },
         "isShownAt": {
             "map": "function(doc) {
                         var emitr = require('views/lib/utils').emit_handler;
