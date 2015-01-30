@@ -103,6 +103,7 @@ class Couch(object):
                                  "bulk_download_db_all_contributor_docs.js",
                                  "ucldc_db_all_provider_docs.js",
                                  "ucldc_db_export_database.js",
+                                 "ucldc_db_readonly.js",
                                  ]
         if db_name == self.dpla_db.name:
             db = self.dpla_db
@@ -110,6 +111,7 @@ class Couch(object):
                 self.logger.debug("QA views will be synced. {0}".format(db))
                 build_views_from_file.append("dpla_db_qa_reports.js")
                 build_views_from_file.append("ucldc_db_qa_reports.js")
+                build_views_from_file.append("ucldc_db_originalRecord_lookups.js")
             else:
                 self.logger.debug("QA views will NOT be synced.")
         elif db_name == self.dashboard_db.name:
@@ -138,19 +140,20 @@ class Couch(object):
 
                 # Build views
                 design_doc_name = design_doc["_id"].split("_design/")[-1]
-                real_views = (v for v in design_doc["views"] if v != "lib")
-                for view in real_views:
-                    view_path = "%s/%s" % (design_doc_name, view)
-                    start = time.time()
-                    try:
-                        for doc in db.view(view_path, limit=0):
-                            pass
-                        self.logger.debug("Built %s view %s in %s seconds"
-                                          % (db.name, view_path,
-                                             time.time() - start))
-                    except Exception, e:
-                        self.logger.error("Error building %s view %s: %s" %
-                                          (db.name, view_path, e))
+                if design_doc.has_key("views"):
+                    real_views = (v for v in design_doc["views"] if v != "lib")
+                    for view in real_views:
+                        view_path = "%s/%s" % (design_doc_name, view)
+                        start = time.time()
+                        try:
+                            for doc in db.view(view_path, limit=0):
+                                pass
+                            self.logger.debug("Built %s view %s in %s seconds"
+                                              % (db.name, view_path,
+                                                 time.time() - start))
+                        except Exception, e:
+                            self.logger.error("Error building %s view %s: %s" %
+                                              (db.name, view_path, e))
 
     def update_ingestion_doc(self, ingestion_doc, **kwargs):
         for prop, value in kwargs.items():
