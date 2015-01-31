@@ -143,6 +143,7 @@ MODULES = [
     "dplaingestion.akamod.oai-to-dpla",
     "dplaingestion.akamod.dedupe_sourceresource",
     "dplaingestion.akamod.lapl_oai_isShown_26096",
+    "dplaingestion.akamod.jsonfy_prop",
     ]
 
 
