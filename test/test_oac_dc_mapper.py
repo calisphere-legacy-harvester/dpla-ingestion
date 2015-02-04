@@ -130,6 +130,26 @@ def test_map_spatial():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['spatial'], ['Oakland'])
+    INPUT = {'originalRecord':{'coverage':['Oakland', 'ark:/12345/bogusark',
+                'Uptown']}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['spatial'], ['Oakland', 'Uptown'])
+    INPUT = {'originalRecord':{'coverage':['Oakland', 'ark:/12345/bogusark',
+                ['Uptown', 'Oakland', 'CA'],]}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['spatial'], ['Oakland',
+                ['Uptown', 'Oakland', 'CA']])
+    INPUT = {'originalRecord':{'coverage':['Oakland', 'ark:/12345/bogusark',
+        {'neighborhood': 'Uptown', 'city':'Oakland'},]}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['spatial'], ['Oakland',
+        {'neighborhood': 'Uptown', 'city':'Oakland'},])
 
 
 if __name__=="__main__":

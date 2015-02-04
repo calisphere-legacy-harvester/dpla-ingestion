@@ -96,9 +96,11 @@ class OAC_DCMapper(DublinCoreMapper):
     def map_spatial(self):
         if self.provider_data.has_key('originalRecord'):
             if self.provider_data['originalRecord'].has_key('coverage'):
-                self.update_source_resource({"spatial":
-                                         iterify(getprop(self.provider_data['originalRecord'],
-                                                         "coverage"))})
+                coverage_data = iterify(getprop(self.provider_data['originalRecord'],
+                                                         "coverage"))
+                #remove arks from data
+                coverage_data = [ c for c in coverage_data if (not isinstance(c,basestring) or not c.startswith('ark:'))]
+                self.update_source_resource({"spatial":coverage_data})
 
     def map_format(self):
         self.source_resource_prop_to_prop("format",
