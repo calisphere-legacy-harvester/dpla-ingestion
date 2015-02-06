@@ -10,8 +10,8 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 #http://stackoverflow.com/questions/18084476/is-there-a-way-to-use-python-unit-test-assertions-outside-of-a-testcase
 TC = TestCase('__init__')
 
-def _get_server_response(body, mode):
-    url = server() + "required-values-from-collection-registry?mode={}".format(mode)
+def _get_server_response(body, field, mode):
+    url = server() + "required-values-from-collection-registry?field={}&mode={}".format(field, mode)
     return H.request(url, "POST", body=body,
             )
 
@@ -36,19 +36,30 @@ def test_noFilling():
     this_input['sourceResource'] = {'rights':'this has rights',
             'type': 'this has type',
             }
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'], 'this has rights')
     TC.assertEqual(content['sourceResource']['type'], 'this has type')
 
+def test_no_dcmi_type():
+    this_input = deepcopy(INPUT)
+    this_input['originalRecord']['collection'][0]['dcmi_type'] = ''
+    this_input['sourceResource'] = {}
+    resp, content = _get_server_response(json.dumps(this_input), field='type',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertNotIn('type', content['sourceResource'])
 
 def test_fill_dcmi_type():
     '''Is dcmi_type filled if no type in sourceResource'''
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'rights':'this has rights',
             }
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='type',
+            mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'], 'this has rights')
@@ -57,7 +68,8 @@ def test_fill_dcmi_type():
 def test_fill_rights():
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'type': 'this has type', }
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
@@ -71,15 +83,21 @@ def test_fill_missing_rights():
         originalRecord={'collection':[{'rights_statement':'',
         'rights_status':'', 'dcmi_type':''}]},
         sourceResource={})
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
     # not sure if this is correct behavior
-    TC.assertEqual(resp.status, 500)
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['rights'],
+            [u'copyright unknown',
+            u'Please contact the contributing institution for the copyright status of this object'])
 
 def test_fill_rights_no_status():
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'type': 'this has type', }
     this_input['originalRecord']['collection'][0]['rights_status'] = 'XXXX'
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
@@ -90,7 +108,8 @@ def test_fill_rights_no_stmt():
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'type': 'this has type', }
     this_input['originalRecord']['collection'][0]['rights_statement'] = ''
-    resp, content = _get_server_response(json.dumps(this_input), mode='fill')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
@@ -102,22 +121,24 @@ def test_append():
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'type': 'type0', 
             'rights': 'rights0'}
-    resp, content = _get_server_response(json.dumps(this_input), mode='append')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='append')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
             ['rights0', 'public domain', 'rights-stmt'])
-    TC.assertEqual(content['sourceResource']['type'],
-            ['type0', 'Image'])
+    TC.assertEqual(content['sourceResource']['type'], 'type0')
     this_input['sourceResource'] = {'type': ['type0', 'type1'], 
             'rights': ['rights0', 'rights1']}
-    resp, content = _get_server_response(json.dumps(this_input), mode='append')
+    resp, content = _get_server_response(json.dumps(this_input), field='type',
+            mode='append')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
-            ['rights0', 'rights1', 'public domain', 'rights-stmt'])
+            ['rights0', 'rights1'])
     TC.assertEqual(content['sourceResource']['type'],
             ['type0', 'type1', 'Image'])
+            #['type0', 'Image'])
 
 def test_overwrite():
     '''Test the overwrite mode. Values from collection registry overwrite the
@@ -125,19 +146,27 @@ def test_overwrite():
     this_input = deepcopy(INPUT)
     this_input['sourceResource'] = {'type': 'type0', 
             'rights': 'rights0'}
-    resp, content = _get_server_response(json.dumps(this_input), mode='overwrite')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='overwrite')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
             ['public domain', 'rights-stmt'])
-    TC.assertEqual(content['sourceResource']['type'],
-            'Image')
+    TC.assertEqual(content['sourceResource']['type'], 'type0')
+    resp, content = _get_server_response(json.dumps(this_input), field='type',
+            mode='overwrite')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['rights'], 'rights0')
+    TC.assertEqual(content['sourceResource']['type'], 'Image')
     this_input = dict(originalRecord={'collection':[
                 {'rights_statement':'', 'rights_status':''}]})
-    resp, content = _get_server_response(json.dumps(this_input), mode='overwrite')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='overwrite')
     TC.assertEqual(resp.status, 500)
     this_input = dict(originalRecord={'collection':[
                 {'rights_statement':'xxxx', 'rights_status':'I',
                     'dcmi_type':''}]})
-    resp, content = _get_server_response(json.dumps(this_input), mode='overwrite')
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='overwrite')
     TC.assertEqual(resp.status, 500)
