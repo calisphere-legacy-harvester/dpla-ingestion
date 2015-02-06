@@ -9,7 +9,7 @@ from akara import logger
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src,lname))
 COUCH_REC_ID_BUILDER = lambda src, id_handle: COUCH_ID_BUILDER(src,id_handle.strip().replace(" ","__"))
 
-@simple_service('POST', 'http://purl.org/la/dp/lapl-marc-id', 'lapl-marc-id',
+@simple_service('POST', 'http://purl.org/org/cdlib/ucldc/lapl-marc-id', 'lapl-marc-id',
                 'application/json')
 def lapl_marc_id(body, ctype):
     '''MARC sucks'''

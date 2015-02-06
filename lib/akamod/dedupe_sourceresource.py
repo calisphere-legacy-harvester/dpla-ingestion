@@ -6,7 +6,7 @@ from akara.util import copy_headers_to_dict
 from akara import request, response
 from dplaingestion.selector import getprop, setprop, exists
 
-@simple_service('POST', 'http://purl.org/la/dp/dedupe-sourceresource',
+@simple_service('POST', 'http://purl.org/org/cdlib/ucldc/dedupe-sourceresource',
                 'dedupe-sourceresource',
                 'application/json')
 def dedup_srcres(body, ctype):

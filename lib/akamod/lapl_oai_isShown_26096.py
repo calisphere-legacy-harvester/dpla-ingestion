@@ -9,7 +9,7 @@ from dplaingestion.selector import getprop, setprop, exists
 URL_BASE_OBJECT_VIEW = 'http://rescarta.lapl.org/ResCarta-Web/'
 URL_BASE_THUMBNAIL = 'http://rescarta.lapl.org/ResCarta-Web/servlet/RcWebThumbnail?obj_type=SERIAL_MONOGRAPH&pg_idx=0&obj_id='
 
-@simple_service('POST', 'http://purl.org/la/dp/lapl-oai-isShown-26096', 'lapl-oai-isShown-26096',
+@simple_service('POST', 'http://purl.org/org/cdlib/ucldc/lapl-oai-isShown-26096', 'lapl-oai-isShown-26096',
                 'application/json')
 def lapl_oai_isShown_26096(body, ctype):
     '''Map from the oai source records for LAPL collection 26096 (city
