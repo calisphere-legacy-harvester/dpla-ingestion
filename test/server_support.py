@@ -145,6 +145,7 @@ MODULES = [
     "dplaingestion.akamod.lapl_oai_isShown_26096",
     "dplaingestion.akamod.jsonfy_prop",
     "dplaingestion.akamod.required_values_from_collection_registry",
+    "dplaingestion.akamod.set_ucldc_dataprovider",
     ]
 
 
