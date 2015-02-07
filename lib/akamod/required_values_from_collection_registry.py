@@ -24,7 +24,7 @@ DCMI_TYPES = {'C': 'Collection',
             }
 
 RIGHTS_STATUS_DEFAULT = RIGHTS_STATUS['UN']
-RIGHTS_STATEMENT_DEFAULT = 'Please contact the contributing institution for the copyright status of this object'
+RIGHTS_STATEMENT_DEFAULT = 'Please contact the contributing institution for more information regarding the copyright status of this object. Its presence on this site does not necessarily mean it is free from copyright restrictions.'
 
 def get_collection(data):
     return getprop(data,'originalRecord/collection')[0]
