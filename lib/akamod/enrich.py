@@ -69,9 +69,12 @@ def enrich(body, ctype):
         else:
             wsgi_header = "HTTP_PIPELINE_ITEM"
             enrichments = item_enrichments
-            # Preserve record prior to any enrichments
-            record["originalRecord"] = record.copy()         
-            record["ingestType"] = "item"
+            #if existing doc will have originalRecord & sourceResource
+            # pass through directly to akara
+            if not ('originalRecord' in record and 'sourceResource' in record):
+                # Preserve record prior to any enrichments
+                record["originalRecord"] = record.copy()         
+                record["ingestType"] = "item"
 
         # Explicitly populate ingestDate as UTC
         record["ingestDate"] = iso_utc_with_tz()
@@ -79,6 +82,7 @@ def enrich(body, ctype):
         error, enriched_record_text = pipe(record, ctype, enrichments,
                                            wsgi_header)
         enriched_record = json.loads(enriched_record_text)
+        
         if error:
             errors.append(error)
 
