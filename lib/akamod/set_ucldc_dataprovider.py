@@ -21,9 +21,9 @@ def set_ucldc_dataprovider(body, ctype):
         return "Unable to parse body as JSON"
     
     repo = getprop(data,'originalRecord/repository')[0]
-    campus = getprop(data,'originalRecord/campus')[0]
+    campus = getprop(data,'originalRecord/campus')
     dataProvider = repo['name']
     if campus:
-        dataProvider = ', '.join((campus['name'], repo['name']))
+        dataProvider = ', '.join((campus[0]['name'], repo['name']))
     setprop(data, 'dataProvider', dataProvider)
     return json.dumps(data)

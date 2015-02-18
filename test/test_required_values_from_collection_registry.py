@@ -89,8 +89,7 @@ def test_fill_missing_rights():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
-            [u'copyright unknown',
-            u'Please contact the contributing institution for the copyright status of this object'])
+            [u'Please contact the contributing institution for more information regarding the copyright status of this object.'])
 
 def test_fill_rights_no_status():
     this_input = deepcopy(INPUT)
