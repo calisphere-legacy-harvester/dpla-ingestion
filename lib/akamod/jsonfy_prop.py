@@ -4,6 +4,30 @@ from akara.services import simple_service
 from amara.thirdparty import json
 from dplaingestion.selector import getprop, setprop, delprop
 
+def jsonfy_obj(obj):
+    '''Jsonfy a python dict object. For immediate sub items (not recursive yet
+    if the data can be turned into a json object, do so.
+    Unpacks string json objects buried in some blacklight/solr feeds.
+    '''
+    obj_jsonfied = {}
+    for key, value in obj.items():
+        if isinstance(value, list):
+            new_list = []
+            for v in value:
+                try:
+                    x = json.loads(v)
+                    new_list.append(x)
+                except (ValueError, TypeError) as e:
+                    new_list.append(v)
+            obj_jsonfied[key] = new_list
+        else: #usually singlevalue string, not json
+            try:
+                x = json.loads(value)
+            except (ValueError, TypeError) as e:
+                x = value
+            obj_jsonfied[key] = x
+    return obj_jsonfied
+
 @simple_service("POST", "http://purl.org/la/dp/jsonfy-prop",
                 "jsonfy-prop", "application/json")
 def jsonfy_prop(body, ctype, prop=None):
@@ -24,25 +48,9 @@ def jsonfy_prop(body, ctype, prop=None):
     else:
         obj = data
 
-    for key, value in obj.items():
-        if isinstance(value, list):
-            new_list = []
-            for v in value:
-                try:
-                    x = json.loads(v)
-                    new_list.append(x)
-                except (ValueError, TypeError) as e:
-                    new_list.append(v)
-            obj[key] = new_list
-        else: #usually singlevalue string, not json
-            try:
-                x = json.loads(value)
-            except (ValueError, TypeError) as e:
-                x = value
-            obj[key] = x
-        
+    obj_jsonfied = jsonfy_obj(obj)
     if prop:
-        setprop(data, prop, obj)
+        setprop(data, prop, obj_jsonfied)
     else:
-        data = obj
+        data = obj_jsonfied
     return json.dumps(data)
