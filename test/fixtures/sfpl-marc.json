@@ -1,0 +1,205 @@
+{
+  "campus": [],
+  "collection": [
+    {
+      "description": "The San Francisco Historical Photograph Collection in the San Francisco History Center of the San Francisco Public Library contains over 2 million photographs and works on papers of San Francisco and California scenes ranging from 1850 to the present. This collection includes views of San Francisco street scenes, buildings, and neighborhoods, as well as photographs of famous San Francisco personalities. The collection consists mostly of the photo morgue of the San Francisco News-Call Bulletin, a daily newspaper, ranging from 1920s to 1965. The collection also contains albums, slides, postcards, cabinet cards, stereoviews, and lantern slides of San Francisco and California subjects. Over 40,000 images may be viewed online.",
+      "name": "San Francisco Historical Photograph Collection",
+      "title": "San Francisco Historical Photograph Collection",
+      "dcmi_type": "X",
+      "ingestType": "collection",
+      "rights_statement": "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions.",
+      "@id": "https://registry.cdlib.org/api/v1/collection/26095/",
+      "id": "26095",
+      "rights_status": "UN"
+    }
+  ],
+  "leader": "00779ckm  2200181 a 4500",
+  "fields": [
+    {
+      "008": "      s1875                            d"
+    },
+    {
+      "010": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "AAA-7284"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "245": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "[Woodward's Gardens]"
+          },
+          {
+            "h": "[graphic]."
+          }
+        ],
+        "ind1": "0"
+      }
+    },
+    {
+      "260": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "c": "1875."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "300": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "1 photographic print:"
+          },
+          {
+            "b": "b&w."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "490": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "San Francisco Historical Photograph Collection"
+          }
+        ],
+        "ind1": "0"
+      }
+    },
+    {
+      "555": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Folder: S.F. Parks-Woodward's Gardens."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "540": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "653": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Parks"
+          },
+          {
+            "x": "Woodward's Gardens."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "691": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "San Francisco (Calif.)"
+          },
+          {
+            "x": "Photographs."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "856": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "u": "http://webbie1.sfpl.org/multimedia/sfphotos/AAA-7284.jpg"
+          },
+          {
+            "3": "View Image"
+          }
+        ],
+        "ind1": "4"
+      }
+    },
+    {
+      "907": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": ".b10023860"
+          },
+          {
+            "b": "02-06-15"
+          },
+          {
+            "c": "08-13-03"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "998": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "zzzzz"
+          },
+          {
+            "b": "08-13-03"
+          },
+          {
+            "c": "b"
+          },
+          {
+            "d": "-"
+          },
+          {
+            "e": "-"
+          },
+          {
+            "f": "eng"
+          },
+          {
+            "g": "   "
+          },
+          {
+            "h": "0"
+          },
+          {
+            "i": "1"
+          }
+        ],
+        "ind1": " "
+      }
+    }
+  ],
+  "repository": [
+    {
+      "name": "San Francisco Public Library",
+      "@id": "https://registry.cdlib.org/api/v1/repository/144/"
+    }
+  ]
+}

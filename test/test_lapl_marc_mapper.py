@@ -14,7 +14,7 @@ def _get_server_response(body):
     return H.request(url, "POST", body=body,
             )
 
-def test_lapl_creator():
+def test_lapl_marc_mapping():
     fixture = path.join(DIR_FIXTURES, 'lapl-marc.json')
     with open(fixture) as f:
         INPUT = f.read()

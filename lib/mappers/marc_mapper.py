@@ -722,3 +722,12 @@ class MARCMapper(Mapper):
         self.map_datafield_tags()
         self.map_controlfield_tags()
         self.update_mapped_fields()
+
+# the pymarc version of marc_mapper
+# TODO: should pull out differences here
+class PyMARCMapper(MARCMapper):                                                       
+    def __init__(self, provider_data):
+        super(PyMARCMapper, self).__init__(provider_data,
+                datafield_tag='fields',
+                controlfield_tag='fields',
+                pymarc=True)

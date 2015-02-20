@@ -1,13 +1,9 @@
 from dplaingestion.selector import setprop
-from dplaingestion.mappers.marc_mapper import MARCMapper
+from dplaingestion.mappers.marc_mapper import PyMARCMapper
 
-class LAPLMARCMapper(MARCMapper):                                                       
+class LAPLMARCMapper(PyMARCMapper):                                                       
     def __init__(self, provider_data):
-        super(LAPLMARCMapper, self).__init__(provider_data,
-                datafield_tag='fields',
-                controlfield_tag='fields',
-                pymarc=True)
-
+        super(LAPLMARCMapper, self).__init__(provider_data)
         self.mapping_dict.update(
                 {lambda t: t == "856": [(self.map_is_shown_by, "u")]})
         self.mapping_dict.update(
