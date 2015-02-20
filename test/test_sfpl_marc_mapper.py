@@ -21,5 +21,7 @@ def test_sfpl_marc_mapper():
         TC.assertIn('010', INPUT)
         resp, content = _get_server_response(INPUT)
     assert str(resp.status).startswith("2"), str(resp) + "\n" + content
-
     doc = json.loads(content)
+    #isShownAt
+    TC.assertEqual(doc['isShownAt'], 'http://sflib1.sfpl.org:82/record=b1002386')
+    TC.assertEqual(doc['isShownBy'], 'http://webbie1.sfpl.org/multimedia/sfphotos/AAA-7284.jpg')
