@@ -146,6 +146,7 @@ MODULES = [
     "dplaingestion.akamod.jsonfy_prop",
     "dplaingestion.akamod.required_values_from_collection_registry",
     "dplaingestion.akamod.set_ucldc_dataprovider",
+    "dplaingestion.akamod.sfpl_marc_id",
     ]
 
 
