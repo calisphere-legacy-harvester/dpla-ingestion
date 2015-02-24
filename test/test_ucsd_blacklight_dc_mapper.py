@@ -62,3 +62,5 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['type'], 'image')
     TC.assertEqual(obj['isShownAt'],
             'https://library.ucsd.edu/dc/object/bb0922726p')
+    TC.assertEqual(obj['isShownBy'],
+            'https://library.ucsd.edu/dc/object/bb0922726p/_2.jpg')
