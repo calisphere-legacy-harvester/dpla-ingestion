@@ -1,0 +1,520 @@
+{
+  "unit_code_tesim": [
+    "dlp"
+  ],
+  "date_tesim": [
+    1964,
+    "1964-01-01",
+    "1964-12-31",
+    "creation",
+    "w3cdtf"
+  ],
+  "file_2.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "rdfxml_ssi": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:ns0=\"http://library.ucsd.edu/ontology/dams#\" xmlns:ns1=\"http://www.loc.gov/mads/rdf/v1#\" xmlns:ns2=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n  <ns0:Object rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p\">\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb06839822\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb1127664r\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb19809207\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb67932501\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb80901931\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb93871330\"/>\n    </ns0:complexSubject>\n    <ns0:copyright rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb45747975\"/>\n    <ns0:date>\n      <ns0:Date>\n        <ns0:beginDate>1964-01-01</ns0:beginDate>\n        <ns0:encoding>w3cdtf</ns0:encoding>\n        <ns0:endDate>1964-12-31</ns0:endDate>\n        <ns0:type>creation</ns0:type>\n        <ns2:value>1964</ns2:value>\n      </ns0:Date>\n    </ns0:date>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd20490006\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd4062714c\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5359652p\"/>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p/1.tif\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>17878c74</ns0:crc32checksum>\n        <ns0:dateCreated>2011-09-27T14:16:59</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd01035911\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>bytestream</ns0:formatName>\n        <ns0:md5checksum>10d8c55dfa822b40571f1fb864f72ee4</ns0:md5checksum>\n        <ns0:mimeType>application/octet-stream</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:sha1checksum>86352d4b306b1e360d25ae52d700a744686c79ca</ns0:sha1checksum>\n        <ns0:size>12969316</ns0:size>\n        <ns0:sourceFileName>20775-bb0922726p-0-1.tif</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/09/22/72/6p</ns0:sourcePath>\n        <ns0:use>image-source</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p/2.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>0eb92aac</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-11T03:44:25-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd6212862m\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>ae3211144cb16bedb1db175619e9e25c</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>768x762</ns0:quality>\n        <ns0:sha1checksum>5b2bc36ffe0c374e83eb38c3582c70b1813792ce</ns0:sha1checksum>\n        <ns0:size>256856</ns0:size>\n        <ns0:sourceFileName>20775-bb0922726p-0-2.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/09/22/72/6p</ns0:sourcePath>\n        <ns0:use>image-service</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p/3.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>7a8ab783</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-11T03:44:25-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd52572207\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>84255ad8dbbe02d669cc43dce17ef5dc</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>450x446</ns0:quality>\n        <ns0:sha1checksum>bc93b0d87b7cdeaaa08fad1dde9ea51369b46220</ns0:sha1checksum>\n        <ns0:size>118269</ns0:size>\n        <ns0:sourceFileName>20775-bb0922726p-0-3.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/09/22/72/6p</ns0:sourcePath>\n        <ns0:use>image-preview</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p/4.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>7958b5fb</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-11T03:44:25-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd88067404\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>9fb365e57693805659c999b717a11d28</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>150x149</ns0:quality>\n        <ns0:sha1checksum>093047d93c72441a8557e08c5eea4c4eeba79ba4</ns0:sha1checksum>\n        <ns0:size>47287</ns0:size>\n        <ns0:sourceFileName>20775-bb0922726p-0-4.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/09/22/72/6p</ns0:sourcePath>\n        <ns0:use>image-thumbnail</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0922726p/5.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>257569c7</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-11T03:44:25-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd2697470h\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>40cc763ff4491a95aa7f853f5229b7e9</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>65x64</ns0:quality>\n        <ns0:sha1checksum>3989811f7ebdd9c5271d57ba9034db4a5e601cc4</ns0:sha1checksum>\n        <ns0:size>39328</ns0:size>\n        <ns0:sourceFileName>20775-bb0922726p-0-5.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/09/22/72/6p</ns0:sourcePath>\n        <ns0:use>image-icon</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:language>\n      <ns1:Language rdf:about=\"http://library.ucsd.edu/ark:/20775/bb83631427\"/>\n    </ns0:language>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>Physical description</ns0:displayLabel>\n        <ns0:type>general physical description</ns0:type>\n        <ns2:value>1 2.25 inch black and white negative</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>fileName</ns0:displayLabel>\n        <ns0:type>identifier</ns0:type>\n        <ns2:value>039.tif</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>ARK</ns0:displayLabel>\n        <ns0:type>identifier</ns0:type>\n        <ns2:value>http://libraries.ucsd.edu/ark:/20775/bb0922726p</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>Digital source type</ns0:displayLabel>\n        <ns0:type>digitalOrigin</ns0:type>\n        <ns2:value>reformatted digital</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>Digital object made available by</ns0:displayLabel>\n        <ns2:value>Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>negative</ns0:displayLabel>\n        <ns0:type>identifier</ns0:type>\n        <ns2:value>an3_r4025_39</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>Location of Originals</ns0:displayLabel>\n        <ns0:type>existence and location of originals</ns0:type>\n        <ns2:value>This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:preferredCitationNote>\n      <ns0:PreferredCitationNote>\n        <ns2:value>\"Camp Matthews, Rifle range, shed, storage\". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego</ns2:value>\n      </ns0:PreferredCitationNote>\n    </ns0:preferredCitationNote>\n    <ns0:provenanceCollection rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb54963083\"/>\n    <ns0:rightsHolder rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb8090109s\"/>\n    <ns0:title>\n      <ns1:Title>\n        <ns1:authoritativeLabel>Camp Matthews, Rifle range, shed, storage</ns1:authoritativeLabel>\n        <ns1:elementList rdf:parseType=\"Collection\">\n          <ns1:MainTitleElement>\n            <ns1:elementValue>Camp Matthews, Rifle range, shed, storage</ns1:elementValue>\n          </ns1:MainTitleElement>\n        </ns1:elementList>\n      </ns1:Title>\n    </ns0:title>\n    <ns0:typeOfResource>still image</ns0:typeOfResource>\n    <ns0:unit rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb09910635\"/>\n  </ns0:Object>\n</rdf:RDF>\n",
+  "discover_access_group_ssim": [
+    "public",
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "files_tesim": [
+    {
+      "size": "12969316",
+      "id": "1.tif",
+      "quality": "",
+      "mimeType": "application/octet-stream",
+      "use": "image-source",
+      "sourcePath": "/pub/data2/dams/localStore/bb/09/22/72/6p",
+      "label": "",
+      "formatName": "bytestream",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0922726p-0-1.tif",
+      "dateCreated": "2011-09-27T14:16:59"
+    },
+    {
+      "size": "256856",
+      "id": "2.jpg",
+      "quality": "768x762",
+      "mimeType": "image/jpeg",
+      "use": "image-service",
+      "sourcePath": "/pub/data2/dams/localStore/bb/09/22/72/6p",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0922726p-0-2.jpg",
+      "dateCreated": "2013-05-11T03:44:25-0700"
+    },
+    {
+      "size": "118269",
+      "id": "3.jpg",
+      "quality": "450x446",
+      "mimeType": "image/jpeg",
+      "use": "image-preview",
+      "sourcePath": "/pub/data2/dams/localStore/bb/09/22/72/6p",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0922726p-0-3.jpg",
+      "dateCreated": "2013-05-11T03:44:25-0700"
+    },
+    {
+      "size": "47287",
+      "id": "4.jpg",
+      "quality": "150x149",
+      "mimeType": "image/jpeg",
+      "use": "image-thumbnail",
+      "sourcePath": "/pub/data2/dams/localStore/bb/09/22/72/6p",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0922726p-0-4.jpg",
+      "dateCreated": "2013-05-11T03:44:25-0700"
+    },
+    {
+      "size": "39328",
+      "id": "5.jpg",
+      "quality": "65x64",
+      "mimeType": "image/jpeg",
+      "use": "image-icon",
+      "sourcePath": "/pub/data2/dams/localStore/bb/09/22/72/6p",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0922726p-0-5.jpg",
+      "dateCreated": "2013-05-11T03:44:25-0700"
+    }
+  ],
+  "complexSubject_tesim": [
+    "University of California, San Diego--Buildings, structures, etc",
+    "Camp Matthews (Calif.)--Buildings, structures, etc",
+    "University of California, San Diego--History",
+    "La Jolla (San Diego, Calif.)--Photographs",
+    "Camp Matthews (Calif.)--Photographs",
+    "Camp Matthews (Calif.)--History"
+  ],
+  "otherNote_json_tesim": [
+    {
+      "value": "a test description (added for testing)",
+      "type": "description",
+      "displayLabel": "Description"
+    },
+    {
+      "value": "1 2.25 inch black and white negative",
+      "type": "general physical description",
+      "displayLabel": "Physical description"
+    },
+    {
+      "value": "039.tif",
+      "type": "identifier",
+      "displayLabel": "fileName"
+    },
+    {
+      "value": "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
+      "type": "identifier",
+      "displayLabel": "ARK"
+    },
+    {
+      "value": "reformatted digital",
+      "type": "digitalOrigin",
+      "displayLabel": "Digital source type"
+    },
+    {
+      "value": "Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)",
+      "type": "",
+      "displayLabel": "Digital object made available by"
+    },
+    {
+      "value": "an3_r4025_39",
+      "type": "identifier",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)",
+      "type": "existence and location of originals",
+      "displayLabel": "Location of Originals"
+    }
+  ],
+  "language_json_tesim": [
+    {
+      "externalAuthority": "http://id.loc.gov/vocabulary/iso639-2/zxx",
+      "name": "No linguistic content",
+      "code": "zxx"
+    }
+  ],
+  "campus": [
+    {
+      "name": "UC San Diego",
+      "@id": "https://registry-dev.cdlib.org/api/v1/campus/6/"
+    }
+  ],
+  "title_ssi": "camp matthews, rifle range, shed, storage",
+  "system_create_dtsi": "2013-07-05T09:25:01+00:00",
+  "thumbnail_tesim": [
+    "http://library.ucsd.edu/ark:/20775/bb0922726p/4.jpg"
+  ],
+  "preferredCitationNote_tesim": [
+    "\"Camp Matthews, Rifle range, shed, storage\". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego"
+  ],
+  "object_profile_ssm": [
+    {
+      "objLastModDate": "2013-07-05T02:25:01-07:00",
+      "datastreams": {
+        "RELS-EXT": {
+          "dsControlGroup": "X",
+          "dsVersionID": "RELS-EXT",
+          "dsCreateDate": "2013-09-05T23:23:59-07:00",
+          "dsSize": 81264,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0922726p+RELS-EXT",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_5.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_5.jpg",
+          "dsCreateDate": "2013-05-11T03:44:25-07:00",
+          "dsSize": 39328,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/5.jpg",
+          "dsLocation": "bb0922726p+_5.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "3989811f7ebdd9c5271d57ba9034db4a5e601cc4",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "rightsMetadata": {
+          "dsControlGroup": "X",
+          "dsVersionID": "rightsMetadata",
+          "dsCreateDate": "2013-09-05T23:23:59-07:00",
+          "dsSize": 81264,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0922726p+rightsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_1.tif": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_1.tif",
+          "dsCreateDate": "2011-09-27T14:16:59-07:00",
+          "dsSize": 12969316,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/1.tif",
+          "dsLocation": "bb0922726p+_1.tif",
+          "dsLocationType": null,
+          "dsChecksumType": "86352d4b306b1e360d25ae52d700a744686c79ca",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/octet-stream"
+        },
+        "_3.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_3.jpg",
+          "dsCreateDate": "2013-05-11T03:44:25-07:00",
+          "dsSize": 118269,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/3.jpg",
+          "dsLocation": "bb0922726p+_3.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "bc93b0d87b7cdeaaa08fad1dde9ea51369b46220",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "_2.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_2.jpg",
+          "dsCreateDate": "2013-05-11T03:44:25-07:00",
+          "dsSize": 256856,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/2.jpg",
+          "dsLocation": "bb0922726p+_2.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "5b2bc36ffe0c374e83eb38c3582c70b1813792ce",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "_4.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_4.jpg",
+          "dsCreateDate": "2013-05-11T03:44:25-07:00",
+          "dsSize": 47287,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/4.jpg",
+          "dsLocation": "bb0922726p+_4.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "093047d93c72441a8557e08c5eea4c4eeba79ba4",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "DC": {
+          "dsControlGroup": "X",
+          "dsVersionID": "DC",
+          "dsCreateDate": "2013-09-05T23:23:59-07:00",
+          "dsSize": 81264,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0922726p+DC",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "damsMetadata": {
+          "dsControlGroup": "X",
+          "dsVersionID": "damsMetadata",
+          "dsCreateDate": "2013-09-05T23:23:59-07:00",
+          "dsSize": 81264,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0922726p+damsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_rdf.xml": {
+          "dsControlGroup": "X",
+          "dsLabel": "/rdf.xml",
+          "dsLocation": "bb0922726p+_rdf.xml",
+          "dsLocationType": null,
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsVersionable": false,
+          "dsVersionID": "_rdf.xml"
+        }
+      },
+      "objCreateDate": "2013-07-05T02:25:01-07:00",
+      "objOwnerId": "foo",
+      "objState": "A",
+      "objModels": [
+        "info:fedora/afmodel:Object",
+        "info:fedora/fedora-system:FedoraObject-3.0"
+      ],
+      "objLabel": null,
+      "objItemIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0922726p/methods/fedora-system%3A3/viewItemIndex",
+      "objDissIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0922726p/methods/fedora-system%3A3/viewMethodIndex"
+    }
+  ],
+  "file_1.tif_filestore_tesim": [
+    "localStore"
+  ],
+  "object_create_dtsi": "1964-01-01T00:00:00+00:00",
+  "system_modified_dtsi": "2013-07-05T09:25:01+00:00",
+  "repository": [
+    {
+      "name": "Mandeville Special Collections Library",
+      "@id": "https://registry-dev.cdlib.org/api/v1/repository/22/"
+    }
+  ],
+  "relationship_json_tesim": [
+    {
+      "Creator": [
+        "Mark Redar test creator"
+      ],
+      "Collector": [
+        "Redar, Mark V.",
+        "Redar, Mark E."
+      ],
+      "Contributor": [
+        "Mark Redar test contrib",
+        "Mark Redar test2 contrib"
+      ]
+    }
+  ],
+  "language_tesim": [
+    "No linguistic content"
+  ],
+  "file_3.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "object_state_ssi": "A",
+  "edit_access_group_ssim": [
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "collections_tesim": [
+    "bb54963083"
+  ],
+  "active_fedora_model_ssi": "DamsObject",
+  "all_fields_tesim": [
+    "Camp Matthews, Rifle range, shed, storage",
+    1964,
+    "1964-01-01",
+    "1964-12-31",
+    "creation",
+    "w3cdtf",
+    "No linguistic content",
+    "1 2.25 inch black and white negative",
+    "039.tif",
+    "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
+    "reformatted digital",
+    "Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)",
+    "an3_r4025_39",
+    "This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)",
+    "\"Camp Matthews, Rifle range, shed, storage\". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego",
+    "University of California, San Diego--Buildings, structures, etc",
+    "Camp Matthews (Calif.)--Buildings, structures, etc",
+    "University of California, San Diego--History",
+    "La Jolla (San Diego, Calif.)--Photographs",
+    "Camp Matthews (Calif.)--Photographs",
+    "Camp Matthews (Calif.)--History",
+    "Library Digital Collections",
+    "dlp",
+    "Camp Matthews Photographs and Plans",
+    "image"
+  ],
+  "copyright_tesim": [
+    {
+      "id": "bb45747975",
+      "date": "",
+      "note": "Constraint(s) on Use: This work is protected by the U.S. Copyright Law (Title 17, U.S.C.). Use of this work beyond that allowed by \"fair use\" requires written permission of the UC Regents. Permission may be obtained from the UC San Diego Libraries department having custody of the work (http://libraries.ucsd.edu/locations/mscl/). Responsibility for obtaining permissions and any use and distribution of this work rests exclusively with the user and not the UC San Diego Libraries.",
+      "purposeNote": "Use: This work is available from the UC San Diego Libraries. This digital copy of the work is intended to support research, teaching, and private study.",
+      "jurisdiction": "us",
+      "beginDate": "",
+      "endDate": "",
+      "status": "Under copyright"
+    }
+  ],
+  "title_tesim": [
+    "Camp Matthews, Rifle range, shed, storage"
+  ],
+  "file_5.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "file_4.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "note_tesim": [
+    "1 2.25 inch black and white negative",
+    "039.tif",
+    "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
+    "reformatted digital",
+    "Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)",
+    "an3_r4025_39",
+    "This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)",
+    "\"Camp Matthews, Rifle range, shed, storage\". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego"
+  ],
+  "has_model_ssim": [
+    "info:fedora/afmodel:DamsObject"
+  ],
+  "subject_tesim": [
+    "University of California, San Diego--Buildings, structures, etc",
+    "Camp Matthews (Calif.)--Buildings, structures, etc",
+    "University of California, San Diego--History",
+    "La Jolla (San Diego, Calif.)--Photographs",
+    "Camp Matthews (Calif.)--Photographs",
+    "Camp Matthews (Calif.)--History"
+  ],
+  "id": "bb0922726p",
+  "preferredCitationNote_json_tesim": [
+    {
+      "value": "\"Camp Matthews, Rifle range, shed, storage\". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego",
+      "type": "",
+      "displayLabel": ""
+    }
+  ],
+  "score": 8.6556425,
+  "id_t": "bb0922726p",
+  "read_access_group_ssim": [
+    "public",
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "resource_type_tesim": [
+    "image"
+  ],
+  "title_json_tesim": [
+    {
+      "nonSort": "",
+      "partNumber": "",
+      "acronymVariant": "",
+      "external": [],
+      "translationVariant": "",
+      "expansionVariant": "",
+      "subtitle": "",
+      "name": "Camp Matthews, Rifle range, shed, storage",
+      "partName": "",
+      "variant": "",
+      "value": "Camp Matthews, Rifle range, shed, storage",
+      "abbreviationVariant": ""
+    }
+  ],
+  "otherNote_tesim": [
+    "1 2.25 inch black and white negative",
+    "039.tif",
+    "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
+    "reformatted digital",
+    "Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)",
+    "an3_r4025_39",
+    "This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)"
+  ],
+  "component_map_tesim": [
+    {}
+  ],
+  "timestamp": "2014-06-14T15:15:46.558000+00:00",
+  "unit_json_tesim": [
+    {
+      "name": "Library Digital Collections",
+      "id": "bb09910635",
+      "code": "dlp"
+    }
+  ],
+  "collection_name_tesim": [
+    "Camp Matthews Photographs and Plans"
+  ],
+  "collection": [
+    {
+      "name": "Camp Matthews Photographs and Plans",
+      "@id": "https://registry-dev.cdlib.org/api/v1/collection/25563"
+    }
+  ],
+  "date_json_tesim": [
+    {
+      "encoding": "w3cdtf",
+      "value": "1964",
+      "endDate": "1964-12-31",
+      "beginDate": "1964-01-01",
+      "type": "creation"
+    }
+  ],
+  "collection_json_tesim": [
+    {
+      "name": "Camp Matthews Photographs and Plans",
+      "id": "bb54963083",
+      "type": "ProvenanceCollection"
+    }
+  ]
+}

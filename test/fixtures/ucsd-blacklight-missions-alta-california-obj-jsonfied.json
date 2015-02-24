@@ -1,0 +1,461 @@
+{
+  "unit_code_tesim": [
+    "dlp"
+  ],
+  "date_tesim": [
+    "between 1885-1890",
+    1885,
+    1890,
+    "creation",
+    "w3cdtf"
+  ],
+  "rdfxml_ssi": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:ns0=\"http://library.ucsd.edu/ontology/dams#\" xmlns:ns1=\"http://www.loc.gov/mads/rdf/v1#\" xmlns:ns2=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n  <ns0:Object rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n\">\n    <ns0:assembledCollection rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb3038949s\"/>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb01720297\"/>\n    </ns0:complexSubject>\n    <ns0:complexSubject>\n      <ns1:ComplexSubject rdf:about=\"http://library.ucsd.edu/ark:/20775/bb88751802\"/>\n    </ns0:complexSubject>\n    <ns0:copyright rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb75782410\"/>\n    <ns0:corporateName>\n      <ns1:CorporateName rdf:about=\"http://library.ucsd.edu/ark:/20775/bb8533882v\"/>\n    </ns0:corporateName>\n    <ns0:date>\n      <ns0:Date>\n        <ns0:beginDate>1885</ns0:beginDate>\n        <ns0:encoding>w3cdtf</ns0:encoding>\n        <ns0:endDate>1890</ns0:endDate>\n        <ns0:type>creation</ns0:type>\n        <ns2:value>between 1885-1890</ns2:value>\n      </ns0:Date>\n    </ns0:date>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd3994667n\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5122943b\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5291607q\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd6696440w\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd8601893s\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd92903233\"/>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n/1.tif\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>a8b6446b</ns0:crc32checksum>\n        <ns0:dateCreated>2001-05-09T12:24:50-07:00</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd3618916n\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>TIFF</ns0:formatName>\n        <ns0:formatVersion>5.0</ns0:formatVersion>\n        <ns0:md5checksum>4ac42ef67c1c067c25bfb34bca596ff1</ns0:md5checksum>\n        <ns0:mimeType>image/tiff</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>3916x3112</ns0:quality>\n        <ns0:sha1checksum>a10fe8a822853a636cfdcf8fa97f57404ec8c3fa</ns0:sha1checksum>\n        <ns0:size>36563820</ns0:size>\n        <ns0:sourceCapture rdf:nodeID=\"g70064917730860\"/>\n        <ns0:sourceFileName>20775-bb0308012n-0-1.tif</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/03/08/01/2n</ns0:sourcePath>\n        <ns0:use>image-source</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n/2.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>b73340ac</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-10T05:45:14-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd62127955\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>0fa54de1cd9842e10db22b83d4512c81</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>768x610</ns0:quality>\n        <ns0:sha1checksum>330285159fd6a25de1708d5b2296766b47490c23</ns0:sha1checksum>\n        <ns0:size>350485</ns0:size>\n        <ns0:sourceFileName>20775-bb0308012n-0-2.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/03/08/01/2n</ns0:sourcePath>\n        <ns0:use>image-service</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n/3.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>32e1a8d4</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-10T05:45:14-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd88066746\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>368012ad981aae98fb7b2d8573f6c04a</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>450x358</ns0:quality>\n        <ns0:sha1checksum>25c3a6d4fca92bcad7dbd2558b482560495b46e7</ns0:sha1checksum>\n        <ns0:size>122347</ns0:size>\n        <ns0:sourceFileName>20775-bb0308012n-0-3.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/03/08/01/2n</ns0:sourcePath>\n        <ns0:use>image-preview</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n/4.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>93d0a28e</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-10T05:45:14-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd7509734m\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>23efae09edd0a4e19f17a9ab690549f3</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>150x119</ns0:quality>\n        <ns0:sha1checksum>ac2945eac3a8c3a19acb084b52d32ab2e9759975</ns0:sha1checksum>\n        <ns0:size>15365</ns0:size>\n        <ns0:sourceFileName>20775-bb0308012n-0-4.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/03/08/01/2n</ns0:sourcePath>\n        <ns0:use>image-thumbnail</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0308012n/5.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>264de0eb</ns0:crc32checksum>\n        <ns0:dateCreated>2013-05-10T05:45:14-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd49158567\"/>\n        <ns0:filestore>localStore</ns0:filestore>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>ab0c86e5de4f3813bbcdd1d812bc83ec</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>65x52</ns0:quality>\n        <ns0:sha1checksum>0e5e0c351f308b789ba67dfe8106305dd37c01f5</ns0:sha1checksum>\n        <ns0:size>3792</ns0:size>\n        <ns0:sourceFileName>20775-bb0308012n-0-5.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/03/08/01/2n</ns0:sourcePath>\n        <ns0:use>image-icon</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:note>\n      <ns0:Note>\n        <ns0:displayLabel>filename</ns0:displayLabel>\n        <ns0:type>identifier</ns0:type>\n        <ns2:value>6302</ns2:value>\n      </ns0:Note>\n    </ns0:note>\n    <ns0:note>\n      <ns0:Note rdf:about=\"http://library.ucsd.edu/ark:/20775/bb48138063\"/>\n    </ns0:note>\n    <ns0:relationship>\n      <ns0:Relationship>\n        <ns0:personalName rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb1127669b\"/>\n        <ns0:role rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb2390480h\"/>\n      </ns0:Relationship>\n    </ns0:relationship>\n    <ns0:relationship>\n      <ns0:Relationship>\n        <ns0:personalName rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb98308201\"/>\n        <ns0:role rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb2390480h\"/>\n      </ns0:Relationship>\n    </ns0:relationship>\n    <ns0:relationship>\n      <ns0:Relationship>\n        <ns0:personalName rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb3687419n\"/>\n        <ns0:role rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb6486002k\"/>\n      </ns0:Relationship>\n    </ns0:relationship>\n    <ns0:title>\n      <ns1:Title>\n        <ns1:authoritativeLabel>Mission San Carlos</ns1:authoritativeLabel>\n        <ns1:elementList rdf:parseType=\"Collection\">\n          <ns1:MainTitleElement>\n            <ns1:elementValue>Mission San Carlos</ns1:elementValue>\n          </ns1:MainTitleElement>\n        </ns1:elementList>\n      </ns1:Title>\n    </ns0:title>\n    <ns0:typeOfResource>still image</ns0:typeOfResource>\n    <ns0:unit rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb09910635\"/>\n  </ns0:Object>\n  <ns1:Authority rdf:about=\"http://library.ucsd.edu/ark:/20775/bb6486002k\"/>\n  <ns1:PersonalName rdf:about=\"http://library.ucsd.edu/ark:/20775/bb3687419n\"/>\n  <ns1:PersonalName rdf:about=\"http://library.ucsd.edu/ark:/20775/bb98308201\"/>\n  <ns1:PersonalName rdf:about=\"http://library.ucsd.edu/ark:/20775/bb1127669b\"/>\n  <ns1:Authority rdf:about=\"http://library.ucsd.edu/ark:/20775/bb2390480h\"/>\n  <ns0:SourceCapture rdf:nodeID=\"g70064917730860\">\n    <ns0:captureSource>transmission scanner</ns0:captureSource>\n    <ns0:imageProducer>Mandeville Special Collections Library</ns0:imageProducer>\n    <ns0:scannerManufacturer>Epson</ns0:scannerManufacturer>\n    <ns0:scannerModelName>Expression 1600</ns0:scannerModelName>\n    <ns0:scanningSoftware>Epson Twain Pro</ns0:scanningSoftware>\n    <ns0:scanningSoftwareVersion>2.10E</ns0:scanningSoftwareVersion>\n    <ns0:sourceType>albumen photographs</ns0:sourceType>\n  </ns0:SourceCapture>\n</rdf:RDF>\n",
+  "discover_access_group_ssim": [
+    "public",
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "files_tesim": [
+    {
+      "size": "36563820",
+      "id": "1.tif",
+      "quality": "3916x3112",
+      "label": "",
+      "scanner_manufacturer": "Epson",
+      "scanning_software": "Epson Twain Pro",
+      "sourcePath": "/pub/data2/dams/localStore/bb/03/08/01/2n",
+      "source_type": "albumen photographs",
+      "image_producer": "Mandeville Special Collections Library",
+      "use": "image-source",
+      "mimeType": "image/tiff",
+      "scanner_model_name": "Expression 1600",
+      "capture_source": "transmission scanner",
+      "formatName": "TIFF",
+      "scanning_software_version": "2.10E",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0308012n-0-1.tif",
+      "source_capture": "_:g70064917730860",
+      "dateCreated": "2001-05-09T12:24:50-07:00"
+    },
+    {
+      "size": "350485",
+      "id": "2.jpg",
+      "quality": "768x610",
+      "mimeType": "image/jpeg",
+      "use": "image-service",
+      "sourcePath": "/pub/data2/dams/localStore/bb/03/08/01/2n",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0308012n-0-2.jpg",
+      "dateCreated": "2013-05-10T05:45:14-0700"
+    },
+    {
+      "size": "122347",
+      "id": "3.jpg",
+      "quality": "450x358",
+      "mimeType": "image/jpeg",
+      "use": "image-preview",
+      "sourcePath": "/pub/data2/dams/localStore/bb/03/08/01/2n",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0308012n-0-3.jpg",
+      "dateCreated": "2013-05-10T05:45:14-0700"
+    },
+    {
+      "size": "15365",
+      "id": "4.jpg",
+      "quality": "150x119",
+      "mimeType": "image/jpeg",
+      "use": "image-thumbnail",
+      "sourcePath": "/pub/data2/dams/localStore/bb/03/08/01/2n",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0308012n-0-4.jpg",
+      "dateCreated": "2013-05-10T05:45:14-0700"
+    },
+    {
+      "size": "3792",
+      "id": "5.jpg",
+      "quality": "65x52",
+      "mimeType": "image/jpeg",
+      "use": "image-icon",
+      "sourcePath": "/pub/data2/dams/localStore/bb/03/08/01/2n",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "localStore",
+      "sourceFileName": "20775-bb0308012n-0-5.jpg",
+      "dateCreated": "2013-05-10T05:45:14-0700"
+    }
+  ],
+  "complexSubject_tesim": [
+    "Missions--California--History",
+    "Spanish mission buildings--California"
+  ],
+  "otherNote_json_tesim": [
+    {
+      "value": "Special Collections & Archives, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)",
+      "id": "b",
+      "type": "local attribution",
+      "displayLabel": "digital object made available by"
+    },
+    {
+      "value": "6302",
+      "type": "identifier",
+      "displayLabel": "filename"
+    }
+  ],
+  "campus": [
+    {
+      "name": "UC San Diego",
+      "@id": "https://registry-dev.cdlib.org/api/v1/campus/6/"
+    }
+  ],
+  "file_4.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "collection_name_tesim": [
+    "The Missions of Alta California"
+  ],
+  "system_create_dtsi": "2013-07-01T04:49:07Z",
+  "thumbnail_tesim": [
+    "http://library.ucsd.edu/ark:/20775/bb0308012n/4.jpg"
+  ],
+  "object_profile_ssm": [
+    {
+      "objLastModDate": "2013-06-30T21:49:07-07:00",
+      "datastreams": {
+        "RELS-EXT": {
+          "dsControlGroup": "X",
+          "dsVersionID": "RELS-EXT",
+          "dsCreateDate": "2013-09-09T21:04:57-07:00",
+          "dsSize": 54529,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0308012n+RELS-EXT",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_5.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_5.jpg",
+          "dsCreateDate": "2013-05-10T05:45:14-07:00",
+          "dsSize": 3792,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/5.jpg",
+          "dsLocation": "bb0308012n+_5.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "0e5e0c351f308b789ba67dfe8106305dd37c01f5",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "rightsMetadata": {
+          "dsControlGroup": "X",
+          "dsVersionID": "rightsMetadata",
+          "dsCreateDate": "2013-09-09T21:04:57-07:00",
+          "dsSize": 54529,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0308012n+rightsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_1.tif": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_1.tif",
+          "dsCreateDate": "2001-05-09T12:24:50-07:00",
+          "dsSize": 36563820,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/1.tif",
+          "dsLocation": "bb0308012n+_1.tif",
+          "dsLocationType": null,
+          "dsChecksumType": "a10fe8a822853a636cfdcf8fa97f57404ec8c3fa",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/tiff"
+        },
+        "_3.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_3.jpg",
+          "dsCreateDate": "2013-05-10T05:45:14-07:00",
+          "dsSize": 122347,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/3.jpg",
+          "dsLocation": "bb0308012n+_3.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "25c3a6d4fca92bcad7dbd2558b482560495b46e7",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "_2.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_2.jpg",
+          "dsCreateDate": "2013-05-10T05:45:14-07:00",
+          "dsSize": 350485,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/2.jpg",
+          "dsLocation": "bb0308012n+_2.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "330285159fd6a25de1708d5b2296766b47490c23",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "_4.jpg": {
+          "dsControlGroup": "X",
+          "dsVersionID": "_4.jpg",
+          "dsCreateDate": "2013-05-10T05:45:14-07:00",
+          "dsSize": 15365,
+          "dsChecksum": "SHA-1",
+          "dsVersionable": false,
+          "dsLabel": "/4.jpg",
+          "dsLocation": "bb0308012n+_4.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "ac2945eac3a8c3a19acb084b52d32ab2e9759975",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg"
+        },
+        "DC": {
+          "dsControlGroup": "X",
+          "dsVersionID": "DC",
+          "dsCreateDate": "2013-09-09T21:04:57-07:00",
+          "dsSize": 54529,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0308012n+DC",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "damsMetadata": {
+          "dsControlGroup": "X",
+          "dsVersionID": "damsMetadata",
+          "dsCreateDate": "2013-09-09T21:04:57-07:00",
+          "dsSize": 54529,
+          "dsChecksum": "none",
+          "dsVersionable": false,
+          "dsLabel": null,
+          "dsLocation": "bb0308012n+damsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml"
+        },
+        "_rdf.xml": {
+          "dsControlGroup": "X",
+          "dsLabel": "/rdf.xml",
+          "dsLocation": "bb0308012n+_rdf.xml",
+          "dsLocationType": null,
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsVersionable": false,
+          "dsVersionID": "_rdf.xml"
+        }
+      },
+      "objCreateDate": "2013-06-30T21:49:07-07:00",
+      "objOwnerId": "foo",
+      "objState": "A",
+      "objModels": [
+        "info:fedora/afmodel:Object",
+        "info:fedora/fedora-system:FedoraObject-3.0"
+      ],
+      "objLabel": null,
+      "objItemIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0308012n/methods/fedora-system%3A3/viewItemIndex",
+      "objDissIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0308012n/methods/fedora-system%3A3/viewMethodIndex"
+    }
+  ],
+  "file_1.tif_filestore_tesim": [
+    "localStore"
+  ],
+  "object_create_dtsi": "1885-01-01T00:00:00Z",
+  "system_modified_dtsi": "2013-07-01T04:49:07Z",
+  "component_map_tesim": [
+    {}
+  ],
+  "relationship_json_tesim": [
+    {
+      "Creator": [
+        "Jackson, William Henry, 1843-1942"
+      ],
+      "Collector": [
+        "Hill, Dorothy V.",
+        "Hill, Kenneth E."
+      ]
+    }
+  ],
+  "file_2.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "file_3.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "id": "bb0308012n",
+  "edit_access_group_ssim": [
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "collections_tesim": [
+    "bb3038949s"
+  ],
+  "active_fedora_model_ssi": "DamsObject",
+  "all_fields_tesim": [
+    "Mission San Carlos",
+    "between 1885-1890",
+    1885,
+    1890,
+    "creation",
+    "w3cdtf",
+    "Hill, Kenneth E.",
+    "Collector",
+    "Hill, Dorothy V.",
+    "Collector",
+    "Jackson, William Henry, 1843-1942",
+    "Creator",
+    "Special Collections & Archives, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)",
+    6302,
+    "Missions--California--History",
+    "Spanish mission buildings--California",
+    "Mission San Carlos",
+    "Library Digital Collections",
+    "dlp",
+    "The Missions of Alta California",
+    "image"
+  ],
+  "copyright_tesim": [
+    {
+      "id": "bb75782410",
+      "date": "",
+      "note": "Constraint(s) on Use: This work may be used without prior permission.",
+      "purposeNote": "Use: This work is available from the UC San Diego Library. This digital copy of the work is intended to support research, teaching, and private study.",
+      "jurisdiction": "",
+      "beginDate": "",
+      "endDate": "",
+      "status": "Public Domain"
+    }
+  ],
+  "title_tesim": [
+    "Mission San Carlos"
+  ],
+  "file_5.jpg_filestore_tesim": [
+    "localStore"
+  ],
+  "title_ssi": "mission san carlos",
+  "note_tesim": [
+    "Special Collections & Archives, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)",
+    6302
+  ],
+  "has_model_ssim": [
+    "info:fedora/afmodel:DamsObject"
+  ],
+  "subject_tesim": [
+    "Missions--California--History",
+    "Spanish mission buildings--California"
+  ],
+  "object_state_ssi": "A",
+  "score": 9.278866,
+  "id_t": "bb0308012n",
+  "read_access_group_ssim": [
+    "public",
+    "dams-curator",
+    "dams-manager-admin"
+  ],
+  "resource_type_tesim": [
+    "image"
+  ],
+  "title_json_tesim": [
+    {
+      "nonSort": "",
+      "partNumber": "",
+      "acronymVariant": "",
+      "external": [],
+      "translationVariant": "",
+      "expansionVariant": "",
+      "subtitle": "",
+      "name": "Mission San Carlos",
+      "partName": "",
+      "variant": "",
+      "value": "Mission San Carlos",
+      "abbreviationVariant": ""
+    }
+  ],
+  "otherNote_tesim": [
+    "Special Collections & Archives, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)",
+    6302
+  ],
+  "repository": [
+    {
+      "name": "Mandeville Special Collections Library",
+      "@id": "https://registry-dev.cdlib.org/api/v1/repository/22/"
+    }
+  ],
+  "timestamp": "2014-12-14T23:25:35.587Z",
+  "unit_json_tesim": [
+    {
+      "name": "Library Digital Collections",
+      "id": "bb09910635",
+      "code": "dlp"
+    }
+  ],
+  "corporateName_tesim": [
+    "Mission San Carlos"
+  ],
+  "collection": [
+    {
+      "name": "Missions of Alta California",
+      "@id": "https://registry-dev.cdlib.org/api/v1/collection/183"
+    }
+  ],
+  "name_tesim": [
+    "Hill, Kenneth E.",
+    "Hill, Dorothy V.",
+    "Jackson, William Henry, 1843-1942",
+    "Mission San Carlos"
+  ],
+  "date_json_tesim": [
+    {
+      "encoding": "w3cdtf",
+      "value": "between 1885-1890",
+      "endDate": "1890",
+      "beginDate": "1885",
+      "type": "creation"
+    }
+  ],
+  "collection_json_tesim": [
+    {
+      "name": "The Missions of Alta California",
+      "id": "bb3038949s",
+      "type": "AssembledCollection"
+    }
+  ]
+}
