@@ -273,5 +273,19 @@
       "text": "untitled watercolor of people at camp housing",
       "attrib": {}
     }
-  ]
+  ],
+  "description": [
+  {
+      "text": "description1 comes through for suppressed collections",
+      "attrib": {}
+  },
+  {
+      "text": "description2 will not come through for suppressed collections",
+      "attrib": {}
+  },
+  {
+      "text": "description3 comes through for suppressed collections",
+      "attrib": {}
+  }
+ ]
 }

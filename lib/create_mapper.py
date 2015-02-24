@@ -104,6 +104,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.oac_dc_mapper import OAC_DCMapper
         return OAC_DCMapper(data)
 
+    def _create_oac_dc_mapper_suppress_desc_2(data):
+        from dplaingestion.mappers.oac_dc_mapper_suppress_description_2 import OAC_DCMapperSuppressDescription2
+        return OAC_DCMapperSuppressDescription2(data)
+
     mappers = {
         'ia':           lambda d: _create_ia_mapper(d),
         'bpl':          lambda d: _create_bpl_mapper(d),
@@ -130,6 +134,7 @@ def create_mapper(mapper_type, data):
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_dc_mapper(d),
         'ucsd_blacklight_dc': lambda d: _create_ucsd_blacklight_dc_mapper(d),
         'oac_dc':       lambda d: _create_oac_dc_mapper(d),
+        'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
     }
 
     return mappers.get(mapper_type)(data)
