@@ -9,16 +9,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     # root mapping
     def map_is_shown_at(self, index=None):
-        pass
-###
+        is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
+            self.provider_data['id_t']))
+        self.mapped_data.update({"isShownAt": is_shown_at})
+
     def map_data_provider(self):
         super(UCSDBlacklightDCMapper, self).map_data_provider(prop="collection_json_tesim")
 
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": "California"})
-
-    def map_is_shown_at(self):
-        pass
 
     def map_has_view(self):
         pass

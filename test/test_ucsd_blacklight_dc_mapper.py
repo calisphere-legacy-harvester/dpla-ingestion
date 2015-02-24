@@ -60,3 +60,5 @@ def test_ucsd_dc_mapping():
         "Camp Matthews (Calif.)--History"
         ])
     TC.assertEqual(srcRes['type'], 'image')
+    TC.assertEqual(obj['isShownAt'],
+            'https://library.ucsd.edu/dc/object/bb0922726p')
