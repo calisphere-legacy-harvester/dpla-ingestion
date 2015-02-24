@@ -150,7 +150,12 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_prop_from_provider_json_tesim('relation')
 
     def map_rights(self):
-        self.source_resource_prop_from_provider_json_tesim('rights')
+        values = []
+        for obj in self.provider_data.get('copyright_tesim', []):
+            values.append(obj.get('status')) if obj.get('status') else None
+            values.append(obj.get('note')) if obj.get('note') else None
+            values.append(obj.get('purposeNote')) if obj.get('purposeNote') else None
+        self.update_source_resource({'rights':values})
 
     def map_subject(self):
         self.source_resource_prop_from_provider_json_tesim('subject')

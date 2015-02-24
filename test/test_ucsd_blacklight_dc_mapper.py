@@ -48,3 +48,6 @@ def test_ucsd_dc_mapping():
             ["1 2.25 inch black and white negative"])
     TC.assertEqual(srcRes['language'],  [{'iso639':'zxx',
                                           'name': 'No linguistic content', }])
+    TC.assertEqual(srcRes['rights'][0],  "Under copyright")
+    TC.assertEqual(srcRes['rights'][1][:21], "Constraint(s) on Use:")
+    TC.assertEqual(srcRes['rights'][2][:27], "Use: This work is available")
