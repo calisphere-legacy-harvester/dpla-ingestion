@@ -167,7 +167,9 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_orig_to_prop('title_tesim', 'title')
 
     def map_type(self):
-        self.source_resource_prop_from_provider_json_tesim('type')
+        field = 'type'
+        self.source_resource_orig_to_prop('resource_type_tesim', field)
+        self.mapped_data["sourceResource"][field] = self.mapped_data["sourceResource"][field][0]
 
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": "California"})

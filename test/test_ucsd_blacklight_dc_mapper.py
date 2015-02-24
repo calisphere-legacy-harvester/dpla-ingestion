@@ -59,3 +59,4 @@ def test_ucsd_dc_mapping():
         "Camp Matthews (Calif.)--Photographs",
         "Camp Matthews (Calif.)--History"
         ])
+    TC.assertEqual(srcRes['type'], 'image')
