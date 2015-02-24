@@ -44,19 +44,30 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 ###                objlist.append(json.loads(o))
 ###            self.update_source_resource({prop: objlist})
 ###
-    def source_resource_prop_from_provider_json_tesim(self, prop, srcRes_prop=None):
+    def source_resource_prop_from_provider_json_tesim(self, prop, srcRes_prop=None, sub_key=None):
+        '''Get data from a json_tesim.
+        Provider prop will be the <prop>_json_tesim
+        If sourceResource property has different name, pass in as srcRes_prop.
+        sub_key will cause this to only pull forward that key's value from
+        the json object in the UCSD field
+        '''
         provider_prop = ''.join((prop, '_json_tesim'))
         if not srcRes_prop:
             srcRes_prop = prop
-        self.source_resource_orig_to_prop(provider_prop, srcRes_prop)
+        if not sub_key:
+            self.source_resource_orig_to_prop(provider_prop, srcRes_prop)
+        else:
+            #all stored as list
+            values = []
+            for obj in self.provider_data.get(provider_prop):
+                if obj.get(sub_key):
+                    values.append(obj.get(sub_key))
+            self.update_source_resource({srcRes_prop: values})
 
     def map_relationship(self, relationship_type):
-        print "GET RELATIONSHIPS"
         relationships = self.provider_data_source.get('relationship_json_tesim')[0]
-        print "GET RELATION"
         relation = relationships.get(relationship_type, None)
         if relation:
-            print "FOUND RELATION"
             self.update_source_resource({relationship_type.lower(): relation})
 
     def map_contributor(self):
@@ -80,27 +91,57 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                            displayDate=date_obj['value'])
         self.update_source_resource({'date': date_mapped})
 
-    def map_description(self):
-        self.source_resource_prop_from_provider_json_tesim('description')
+    def parse_otherNotes(self, note_type, display_label=None):
+        '''Pull out values for the note_type from the otherNote_json_tesim.
+        If display_label is specified, only take values when the 
+        displayLabel equals the given display_label
+        return the values for the note type
+        '''
+        values = []
         otherNotes = self.provider_data_source.get('otherNote_json_tesim')
         for note in otherNotes:
-            if note['type'] == 'description':
-                self.update_source_resource({'description': note['value']})
+            if note['type'] == note_type:
+                if display_label and display_label == note['displayLabel']:
+                    values.append(note['value'])
+                else:
+                    values.append(note['value'])
+        return values if len(values) else None
+
+    def get_otherNotes_field(self, field, display_label=None):
+        '''Get a field from that is in the otherNotes.
+        '''
+        values = self.parse_otherNotes(field)
+        if values:
+            self.update_source_resource({field: values})
+
+    def map_description(self):
+        self.get_otherNotes_field('description')
 
     def map_extent(self):
         self.source_resource_prop_from_provider_json_tesim('extent')
 
     def map_format(self):
-        self.source_resource_prop_from_provider_json_tesim('format')
+        values = self.parse_otherNotes('general physical description')
+        if values:
+            self.update_source_resource({'format': values})
 
     def map_identifier(self):
-        self.source_resource_prop_from_provider_json_tesim('identifier')
+        self.get_otherNotes_field('identifier')
 
 ###    def map_is_part_of(self):
 ###        pass
 
     def map_language(self):
-        self.source_resource_prop_from_provider_json_tesim('language')
+        field = 'language'
+        self.source_resource_prop_from_provider_json_tesim(field)
+        #fix to match dpla spec
+        values = []
+        for lang in self.mapped_data["sourceResource"][field]:
+            lang['iso639'] = lang['code']
+            del lang['code']
+            del lang['externalAuthority']
+            values.append(lang)
+        self.update_source_resource({field:values})
 
     def map_publisher(self):
         self.source_resource_prop_from_provider_json_tesim('publisher')
