@@ -155,12 +155,12 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_prop_from_provider_json_tesim(field)
         #fix to match dpla spec
         values = []
-        for lang in self.mapped_data["sourceResource"][field]:
+        for lang in self.mapped_data["sourceResource"].get(field, []):
             lang['iso639'] = lang['code']
             del lang['code']
             del lang['externalAuthority']
             values.append(lang)
-        self.update_source_resource({field:values})
+        self.update_source_resource({field:values}) if len(values) else None
 
     def map_publisher(self):
         self.source_resource_prop_from_provider_json_tesim('publisher')
@@ -174,7 +174,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             values.append(obj.get('status')) if obj.get('status') else None
             values.append(obj.get('note')) if obj.get('note') else None
             values.append(obj.get('purposeNote')) if obj.get('purposeNote') else None
-        self.update_source_resource({'rights':values})
+        self.update_source_resource({'rights':values}) if len(values) else None
 
     def map_subject(self):
         self.source_resource_orig_to_prop('subject_tesim', 'subject')
@@ -188,7 +188,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_type(self):
         field = 'type'
         self.source_resource_orig_to_prop('resource_type_tesim', field)
-        self.mapped_data["sourceResource"][field] = self.mapped_data["sourceResource"][field][0]
+        if field in self.mapped_data["sourceResource"]:
+            self.mapped_data["sourceResource"][field] = self.mapped_data["sourceResource"][field][0]
 
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": "California"})

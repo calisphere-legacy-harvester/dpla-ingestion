@@ -13,7 +13,6 @@ def _get_server_response(body):
     return H.request(url, "POST", body=body)
 
 def test_ucsd_dc_mapping():
-    #fixture = path.join(DIR_FIXTURES, 'ucsd-blacklight-missions-alta-california-obj.json')
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
     fixture = path.join(DIR_FIXTURES,
@@ -64,3 +63,21 @@ def test_ucsd_dc_mapping():
             'https://library.ucsd.edu/dc/object/bb0922726p')
     TC.assertEqual(obj['isShownBy'],
             'https://library.ucsd.edu/dc/object/bb0922726p/_2.jpg')
+
+def test_missing_language():
+    fixture = path.join(DIR_FIXTURES,
+              'ucsd-blacklight-missions-alta-california-obj-jsonfied.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertEqual(obj['isShownAt'],
+            'https://library.ucsd.edu/dc/object/bb0308012n')
+    TC.assertEqual(obj['isShownBy'],
+            'https://library.ucsd.edu/dc/object/bb0308012n/_2.jpg')
+    TC.assertNotIn('language', obj['sourceResource'])
+    TC.assertEqual(obj['sourceResource']['type'], 'image')
+    TC.assertEqual(obj['sourceResource']['rights'][0], 'Public Domain')
+
