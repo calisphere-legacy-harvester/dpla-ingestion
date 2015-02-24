@@ -51,3 +51,11 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['rights'][0],  "Under copyright")
     TC.assertEqual(srcRes['rights'][1][:21], "Constraint(s) on Use:")
     TC.assertEqual(srcRes['rights'][2][:27], "Use: This work is available")
+    TC.assertEqual(srcRes['subject'], [
+        "University of California, San Diego--Buildings, structures, etc",
+        "Camp Matthews (Calif.)--Buildings, structures, etc",
+        "University of California, San Diego--History",
+        "La Jolla (San Diego, Calif.)--Photographs",
+        "Camp Matthews (Calif.)--Photographs",
+        "Camp Matthews (Calif.)--History"
+        ])

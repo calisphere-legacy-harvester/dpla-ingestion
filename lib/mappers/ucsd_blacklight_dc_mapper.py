@@ -158,7 +158,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.update_source_resource({'rights':values})
 
     def map_subject(self):
-        self.source_resource_prop_from_provider_json_tesim('subject')
+        self.source_resource_orig_to_prop('subject_tesim', 'subject')
 
 ### TODO:    def map_temporal(self):
 ###        pass
