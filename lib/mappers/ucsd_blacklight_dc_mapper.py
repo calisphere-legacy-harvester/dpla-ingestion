@@ -10,13 +10,13 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     # root mapping
     def map_is_shown_at(self, index=None):
         is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
-            self.provider_data['id_t']))
+            self.provider_data['id']))
         self.mapped_data.update({"isShownAt": is_shown_at})
 
     def map_is_shown_by(self):
         '''bit complicated. need the files_tesim sub-object with
         key "use"=="image-service". Get the "id" field from this.
-        Then construct URL as http://library.ucsd.edu/dc/object/ + id_t (ARK) +
+        Then construct URL as http://library.ucsd.edu/dc/object/ + id (ARK) +
         /_ + id from  above
 
         TODO: handle complex objects
@@ -27,7 +27,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                 break
         else:
             return None
-        obj_id =  self.provider_data['id_t']
+        obj_id =  self.provider_data['id']
         is_shown_by = ''.join(('https://library.ucsd.edu/dc/object/',
                 obj_id, '/_', fid))
         self.mapped_data.update({"isShownBy": is_shown_by})
