@@ -9,9 +9,11 @@ from dplaingestion.selector import getprop, setprop, exists
                 'set-ucldc-dataprovider',
                 'application/json')
 def set_ucldc_dataprovider(body, ctype):
-    '''For ucldc, we always have a originalRecord/repository entry and
-    an originalRecord/campus (which may be blank).
-    Concatenate these, separated by a , for dataProvider value
+    '''For ucldc, we always have a originalRecord/collection entry.
+    This has a repository object which may or may not have a list of 
+    campuses.
+    Concatenate the repo & campus if exisiting, separated by a ,
+    for dataProvider value
     '''
     try :
         data = json.loads(body)
@@ -20,10 +22,13 @@ def set_ucldc_dataprovider(body, ctype):
         response.add_header('content-type','text/plain')
         return "Unable to parse body as JSON"
     
-    repo = getprop(data,'originalRecord/repository')[0]
-    campus = getprop(data,'originalRecord/campus')
+    collection = getprop(data,'originalRecord/collection')[0]
+    repo = collection['repository'][0]
+    campus = None
+    if len(repo['campus']):
+        campus = repo['campus'][0]
     dataProvider = repo['name']
     if campus:
-        dataProvider = ', '.join((campus[0]['name'], repo['name']))
+        dataProvider = ', '.join((campus['name'], repo['name']))
     setprop(data, 'dataProvider', dataProvider)
     return json.dumps(data)

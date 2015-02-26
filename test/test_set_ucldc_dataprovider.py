@@ -16,26 +16,39 @@ def _get_server_response(body):
 
 def test_set_repo_only():
     '''All data have a repo, some have campus'''
-    INPUT = { 'originalRecord': { "repository": [
-                { "@id": "https://registry.cdlib.org/api/v1/repository/143/",
-               "name": "Los Angeles Public Library" } ],
-               "campus": [ ],
+    INPUT = { 'originalRecord':
+            { "collection": [
+                {"repository":[ { "name": "Los Angeles Public Library",
+                    "@id": "https://registry.cdlib.org/api/v1/repository/143/",
+                    "campus": [ ],
+                    }
+                    ]
                 }
+              ]
             }
+    }
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['dataProvider'], 'Los Angeles Public Library')
 
 def test_set_has_campus():
-    INPUT = { 'originalRecord': { "repository": [
-                { "@id": "https://registry.cdlib.org/api/v1/repository/4/",
-               "name": "Bancroft Library" } ],
-               "campus": [{ "@id": "https://registry.cdlib.org/api/v1/campus/1/",
-                        "name": "UC Berkeley" }]
+    INPUT = { 'originalRecord':
+            { "collection": [
+                { "repository": [
+                    { "@id": "https://registry.cdlib.org/api/v1/repository/4/",
+                      "name": "Bancroft Library",
+                      "campus": [{ "name": "UC Berkeley",
+                      "@id": "https://registry.cdlib.org/api/v1/campus/1/",}]
+                    }
+                    ]
                 }
+              ]
             }
+    }
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['dataProvider'], 'UC Berkeley, Bancroft Library')
+
+#TODO: handle multiple repos, campuses.... Luckily repo is only on one campus
