@@ -22,7 +22,6 @@ class Couch(object):
     def __init__(self,
             config_file=os.environ.get("DPLA_CONFIG_FILE", "akara.ini"),
             **kwargs):
-        config_file = 
         """
         Default Args:
             config_file: The configuration file that includes the Couch server
