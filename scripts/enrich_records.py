@@ -25,7 +25,8 @@ from dplaingestion.selector import getprop
 from dplaingestion.utilities import make_tarfile, iso_utc_with_tz
 
 config = ConfigParser.ConfigParser()
-config.readfp(open('akara.ini'))
+config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
+config.readfp(open(config_file))
 threads_working = 0
 
 class EnrichmentError(Exception):

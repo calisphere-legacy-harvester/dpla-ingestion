@@ -181,7 +181,7 @@ def main(argv):
         return -1
 
     error_msg = []
-    config_file = "akara.ini"
+    config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
 
     fetcher = create_fetcher(ingestion_doc["profile_path"],
                              ingestion_doc["uri_base"],

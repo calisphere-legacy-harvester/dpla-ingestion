@@ -5,6 +5,7 @@ Script to create an ingestion document
 Usage:
     $ python create_ingestion_document.py profile_path
 """
+import os
 import sys
 import argparse
 import ConfigParser
@@ -25,7 +26,7 @@ def main(argv):
     parser = define_arguments()
     args = parser.parse_args(argv[1:])
 
-    config_file = ("akara.ini")
+    config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
     config = ConfigParser.ConfigParser()
     config.readfp(open(config_file))
     uri_base = "http://localhost:" + config.get("Akara", "Port")

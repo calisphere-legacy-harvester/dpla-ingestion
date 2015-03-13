@@ -62,7 +62,7 @@ def main(argv):
 
     error_msg = None
     if alerts:
-        config_file = "akara.ini"
+        config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
         config = ConfigParser.ConfigParser()                                    
         config.readfp(open(config_file))
         to = [s.strip() for s in config.get("Alert", "To").split(",")]

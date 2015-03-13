@@ -10,7 +10,7 @@ from dplaingestion.utilities import iso_utc_with_tz, url_join
 import pyrax
 
 # TODO: Make a generalized config loader for all the scripts.
-config_file = "akara.ini"
+config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
 CONFIG = ConfigParser.ConfigParser()
 CONFIG.readfp(open(config_file))
 

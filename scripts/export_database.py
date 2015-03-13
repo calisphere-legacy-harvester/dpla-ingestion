@@ -50,7 +50,7 @@ def set_global_variables(container):
     global RS_APIKEY
     global RS_CONTAINER_NAME
 
-    config_file = "akara.ini"
+    config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
     config = ConfigParser.ConfigParser()
     config.readfp(open(config_file))
     RS_USERNAME = config.get("Rackspace", "Username")
