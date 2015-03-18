@@ -72,13 +72,13 @@ class Akara:
     #
     #  MaxServers: maximum number of servers to run at any one time
     #  (this is therefore the maximum number of simultaneous connections)
-    MaxServers           = 40
+    MaxServers           = 1
     #
     #  A 'spare' server is one which is waiting to handle an HTTP request
     #  MinSpareServers: minimum number of spare servers
-    MinSpareServers      =  1
+    MinSpareServers      =  0
     #  MaxSpareServers: maximum number of spare servers
-    MaxSpareServers      =  2
+    MaxSpareServers      =  0
 
     #  MaxRequestsPerServer: restart a server after this many requests
     MaxRequestsPerServer =   5000
