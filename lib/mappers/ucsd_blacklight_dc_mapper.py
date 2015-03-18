@@ -10,7 +10,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     # root mapping
     def map_is_shown_at(self, index=None):
         is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
-            self.provider_data['id']))
+            self.provider_data['id_t']))
         self.mapped_data.update({"isShownAt": is_shown_at})
 
     def map_is_shown_by(self):
@@ -27,7 +27,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                 break
         else:
             return None
-        obj_id =  self.provider_data['id']
+        obj_id =  self.provider_data['id_t']
         is_shown_by = ''.join(('https://library.ucsd.edu/dc/object/',
                 obj_id, '/_', fid))
         self.mapped_data.update({"isShownBy": is_shown_by})
