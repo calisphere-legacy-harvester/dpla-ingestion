@@ -48,7 +48,7 @@ MAPV3_SCHEMAS = {
             "dataProvider",
             "id",
             "isShownAt",
-            "object",
+            #"object",
             "originalRecord",
             "provider",
             "sourceResource"
