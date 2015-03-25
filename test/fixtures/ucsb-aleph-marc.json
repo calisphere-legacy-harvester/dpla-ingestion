@@ -1,0 +1,359 @@
+{
+  "leader": "01429njm a2200385 a 4500",
+  "fields": [
+    {
+      "001": "002145834"
+    },
+    {
+      "004": "ALL8071"
+    },
+    {
+      "005": "20131221201825.0"
+    },
+    {
+      "007": "se immsnnmwhna"
+    },
+    {
+      "007": "cr|nn||||a|ump"
+    },
+    {
+      "008": "990405s1912    nju||n g                d"
+    },
+    {
+      "028": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "960"
+          },
+          {
+            "b": "Edison Amberol"
+          }
+        ],
+        "ind1": "0"
+      }
+    },
+    {
+      "035": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "(OCoLC)ocm41103656"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "035": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "ALL8071"
+          },
+          {
+            "b": "MA"
+          }
+        ],
+        "ind1": "9"
+      }
+    },
+    {
+      "040": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "SYB"
+          },
+          {
+            "c": "SYB"
+          },
+          {
+            "d": "CU-SB"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "245": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "Sailor's hornpipe medley"
+          },
+          {
+            "h": "[sound recording]."
+          }
+        ],
+        "ind1": "0"
+      }
+    },
+    {
+      "260": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Orange, N.J. :"
+          },
+          {
+            "b": "Edison Amberol,"
+          },
+          {
+            "c": "[1912]."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "300": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "1 cylinder (ca. 4 min.) :"
+          },
+          {
+            "b": "160 rpm ;"
+          },
+          {
+            "c": "2 1/4 x 4 in."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "500": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Edison Amberol: 960."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "500": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Year of release from \"The Edison Phonograph Monthly,\" v.10 (1912)."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "500": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Introduces \"Jenny Linn,\" \"Lockers,\" \"Acrobat,\" \"Champion\" and \"Autograph.\""
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "511": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Charles D'Almaine."
+          }
+        ],
+        "ind1": "0"
+      }
+    },
+    {
+      "520": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Violin solo with orchestra accompaniment."
+          }
+        ],
+        "ind1": "8"
+      }
+    },
+    {
+      "561": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Todd collection."
+          },
+          {
+            "5": "CU-SB"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "530": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Also available online via the Internet."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "650": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "Popular instrumental music"
+          },
+          {
+            "y": "1911-1920."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "650": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "Violin with orchestra."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "655": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "Fiddle tunes."
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "700": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "D'Almaine, Charles,"
+          },
+          {
+            "d": "1871-1943."
+          },
+          {
+            "4": "itr"
+          }
+        ],
+        "ind1": "1"
+      }
+    },
+    {
+      "856": {
+        "ind2": "1",
+        "subfields": [
+          {
+            "3": "Audio files:"
+          },
+          {
+            "u": "http://www.library.ucsb.edu/OBJID/Cylinder0002"
+          }
+        ],
+        "ind1": "4"
+      }
+    },
+    {
+      "852": {
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "CU-SB"
+          },
+          {
+            "b": "MAIN"
+          },
+          {
+            "c": "SPPA"
+          },
+          {
+            "j": "Cylinder 0002"
+          },
+          {
+            "n": "us"
+          },
+          {
+            "x": "cnh 01/29/02 item"
+          },
+          {
+            "9": "1"
+          },
+          {
+            "4": "Main Library"
+          },
+          {
+            "5": "Special Coll., Performing Arts"
+          }
+        ],
+        "ind1": "4"
+      }
+    },
+    {
+      "940": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "OCLC"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "945": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "d": "01/26/00"
+          },
+          {
+            "n": "tch 11/17/00 bib"
+          },
+          {
+            "n": "dcs 1/29/00 cat"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "948": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "LTI 01/18/2015"
+          }
+        ],
+        "ind1": " "
+      }
+    },
+    {
+      "049": {
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "CUTM"
+          }
+        ],
+        "ind1": " "
+      }
+    }
+  ]
+}
