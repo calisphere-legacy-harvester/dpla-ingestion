@@ -49,7 +49,8 @@ class MARCMapper(Mapper):
         # prefix it with a "!": [("format", "!cd")] will exclude the "c"
         # "d" codes (see method _get_values).
         self.mapping_dict = {
-            lambda t: t == "856":               [(self.map_is_shown_at, "u")],
+            lambda t: t == "856":               [(self.map_is_shown_at, "u"),
+                                                 (self.map_is_shown_by, "u")],
             lambda t: t == "041":               [(self.map_language, "a")],
             lambda t: t == "260":               [(self.map_display_date, "c"),
                                                  (self.map_publisher, "ab")],
@@ -345,6 +346,13 @@ class MARCMapper(Mapper):
 
     def map_is_shown_at(self, _dict, tag, codes):
         prop = "isShownAt"
+        self.extend_prop(prop, _dict, codes)
+        if isinstance(self.mapped_data[prop], list):
+            # EDM says this is a single URL, not a list
+            self.mapped_data[prop] = self.mapped_data[prop][0]
+
+    def map_is_shown_by(self, _dict, tag, codes):
+        prop = "isShownBy"
         self.extend_prop(prop, _dict, codes)
         if isinstance(self.mapped_data[prop], list):
             # EDM says this is a single URL, not a list
