@@ -24,5 +24,5 @@ def test_ucsb_aleph_marc_id_select():
         assert resp.status == 200
         obj = json.loads(content)
         TC.assertIn('_id', obj)
-        TC.assertEqual(obj[u'_id'], '113--ALL8071')
+        TC.assertEqual(obj[u'_id'], '113--http://www.library.ucsb.edu/OBJID/Cylinder0002')
 

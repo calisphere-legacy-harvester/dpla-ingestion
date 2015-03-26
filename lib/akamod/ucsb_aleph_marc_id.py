@@ -22,11 +22,11 @@ def ucsb_aleph_marc_id(body, ctype):
 
     ident = None
     for field in data['fields']:
-        if '035' in field:
-            subfields = field['035']['subfields']
+        if '856' in field:
+            subfields = field['856']['subfields']
             for subf in subfields:
-                if 'a' in subf:
-                    ident = subf['a']
+                if 'u' in subf:
+                    ident = subf['u']
 
     if not ident:
         response.code = 500
