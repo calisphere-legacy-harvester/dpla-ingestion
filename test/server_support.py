@@ -148,6 +148,7 @@ MODULES = [
     "dplaingestion.akamod.set_ucldc_dataprovider",
     "dplaingestion.akamod.sfpl_marc_id",
     "dplaingestion.akamod.ucsb_aleph_marc_id",
+    "dplaingestion.akamod.unescape_xhtml_entities",
     ]
 
 
