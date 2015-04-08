@@ -60,11 +60,13 @@ class Couch(object):
         bulk_download_db_name = "bulk_download"
 
         # Create server URL
+        scheme = 'http'
         if "https://" in url:
+            scheme = 'https'
             url = url.split("https://")
         else:
             url = url.split("http://")
-        server_url = "%s%s:%s@%s" % (url[0], username, password, url[1])
+        server_url = "%s://%s:%s@%s" % (scheme, username, password, url[1])
         self.server = couchdb.Server(server_url)
 
         self.dpla_db = self._get_db(dpla_db_name)
