@@ -183,7 +183,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 ###        pass
 
     def map_title(self):
-        self.source_resource_orig_to_prop('title_tesim', 'title')
+        title = self.provider_data_source['title_json_tesim'][0]['name']
+        self.update_source_resource({'title': [title]})
 
     def map_type(self):
         field = 'type'

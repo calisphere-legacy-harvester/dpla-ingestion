@@ -1,7 +1,7 @@
 from akara import logger
 from amara.lib.iri import is_absolute
 from dplaingestion.utilities import iterify
-from dplaingestion.selector import exists
+from dplaingestion.selector import exists, getprop
 from dplaingestion.mappers.mapper import Mapper
 from jsonpath import jsonpath
 
@@ -36,7 +36,7 @@ class DublinCoreMapper(Mapper):
             srcRes_prop - name of field in sourceResource to map to
         '''
         if exists(self.provider_data_source, provider_prop):
-            self.update_source_resource({srcRes_prop: self.provider_data_source.get(provider_prop)})
+            self.update_source_resource({srcRes_prop: getprop(self.provider_data_source, provider_prop)})
 
     # sourceResource mapping
     def source_resource_prop_to_prop(self, prop):
