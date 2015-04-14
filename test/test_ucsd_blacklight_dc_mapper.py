@@ -37,8 +37,10 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['description'],
             ["a test description (added for testing)"])
     TC.assertEqual(srcRes['creator'],  ['Mark Redar test creator'])
-    TC.assertEqual(srcRes['contributor'],  [ "Mark Redar test contrib",
-                                             "Mark Redar test2 contrib" ])
+    TC.assertEqual(srcRes['contributor'],  ["Mark Redar test contrib",
+                                            "Mark Redar test2 contrib",
+                                            "Redar, Mark collector 1",
+                                            "Redar, Mark collector 2.",])
     TC.assertEqual(srcRes['identifier'],  [ "039.tif",
                         "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
                         "an3_r4025_39",
