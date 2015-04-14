@@ -305,12 +305,8 @@
   ],
   "relationship_json_tesim": [
     {
-      "Creator": [
+      "SomeRole": [
         "Jackson, William Henry, 1843-1942"
-      ],
-      "Collector": [
-        "Hill, Dorothy V.",
-        "Hill, Kenneth E."
       ]
     }
   ],

@@ -93,7 +93,13 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.map_relationship('Contributor')
 
     def map_creator(self):
-        self.map_relationship('Creator')
+        relationships = self.provider_data_source.get('relationship_json_tesim',None)
+        if relationships:
+             if len(relationships[0]) == 1:
+                 role, value = relationships[0].items()[0]
+                 self.update_source_resource({'creator': value})
+             else:
+                 self.map_relationship('Creator')
 
     def map_date(self):
         # make DPLA style date object

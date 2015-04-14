@@ -80,4 +80,6 @@ def test_missing_language():
     TC.assertNotIn('language', obj['sourceResource'])
     TC.assertEqual(obj['sourceResource']['type'], 'image')
     TC.assertEqual(obj['sourceResource']['rights'][0], 'Public Domain')
+    TC.assertEqual(obj['sourceResource']['creator'],
+                   [ "Jackson, William Henry, 1843-1942", ])
 
