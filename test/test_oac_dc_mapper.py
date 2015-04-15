@@ -15,7 +15,7 @@ def _get_server_response(body):
 def _check_isShownBy(INPUT, EXPECTED):
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
-    TC.assertEqual(json.loads(content)['isShownBy'], EXPECTED)
+    TC.assertEqual(json.loads(content).get('isShownBy', None), EXPECTED)
 
 def test_oac_isShownAt():
     '''Verify that the isShownAt set by select-oac-id is still in data.

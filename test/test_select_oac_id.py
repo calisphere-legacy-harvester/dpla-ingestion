@@ -26,6 +26,8 @@ def test_id_selected():
     TC.assertEqual(json.loads(content)['_id'], EXPECTED)
     TC.assertEqual(json.loads(content)['isShownAt'],
             'http://ark.cdlib.org/ark:/bogus')
+    TC.assertEqual(json.loads(content)['isShownBy'],
+            'http://ark.cdlib.org/ark:/bogus/thumbnail')
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")

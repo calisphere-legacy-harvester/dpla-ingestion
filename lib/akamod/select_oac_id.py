@@ -48,5 +48,6 @@ def selectid(body, ctype):
     data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, objid)
     data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
     data[u'isShownAt'] = objid
+    data[u'isShownBy'] = objid + '/thumbnail'
 
     return json.dumps(data)

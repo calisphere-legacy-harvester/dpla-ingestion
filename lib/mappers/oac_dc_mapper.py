@@ -63,8 +63,9 @@ class OAC_DCMapper(DublinCoreMapper):
             x = 0
             thumb = self.provider_data['originalRecord'].get('thumbnail', None)
             if thumb:
-                x = thumb['X']
-                best_image = thumb['src']
+                if 'src' in thumb:
+                    x = thumb['X']
+                    best_image = thumb['src']
             ref_images = self.provider_data['originalRecord'].get('reference-image', [])
             if type(ref_images) == dict:
                 ref_images = [ref_images]
@@ -81,8 +82,11 @@ class OAC_DCMapper(DublinCoreMapper):
         self.mapped_data.update({'isShownAt': self.provider_data.get('isShownAt', None)})
 
     def map_is_shown_by(self, index=None):
-        self.mapped_data.update( { "isShownBy" :  self.get_best_oac_image(),
-            })
+        #already set in select_oac_id to base of {{obj url}}/thumbnail
+        best_image = self.get_best_oac_image()
+        if best_image:
+            self.mapped_data.update( { "isShownBy" :  self.get_best_oac_image(),
+                })
 
     def map_data_provider(self):
         if self.provider_data.has_key('originalRecord'):
