@@ -24,9 +24,9 @@ from dplaingestion.couch import Couch
 from dplaingestion.selector import getprop
 from dplaingestion.utilities import make_tarfile, iso_utc_with_tz
 
-config = ConfigParser.ConfigParser()
-config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
-config.readfp(open(config_file))
+###config = ConfigParser.ConfigParser()
+###config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
+###config.readfp(open(config_file))
 threads_working = 0
 
 class EnrichmentError(Exception):
@@ -120,6 +120,9 @@ def queue_and_errors(ingestion_doc, profile, stats, enrich_dir):
     list to hold any errors
     """
     global config
+    config = ConfigParser.ConfigParser()
+    config_file = os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
+    config.readfp(open(config_file))
     queue_size = int(config.get('Enrichment', 'QueueSize'))
     thread_count = int(config.get('Enrichment', 'ThreadCount'))
     queue = Queue.Queue(queue_size)
