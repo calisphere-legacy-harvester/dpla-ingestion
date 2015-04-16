@@ -20,7 +20,7 @@ class Couch(object):
     """
 
     def __init__(self,
-            config_file=os.environ.get("DPLA_CONFIG_FILE", "akara.ini"),
+            config_file=None,
             **kwargs):
         """
         Default Args:
@@ -37,6 +37,8 @@ class Couch(object):
             batch_size: The batch size to use with iterview
             sync_qa_views: Boolean; determines whether QA views get synced
         """
+        if not config_file:
+            config_file=os.environ.get("DPLA_CONFIG_FILE", "akara.ini"),
         config = ConfigParser.ConfigParser({'ItemDatabase':'ucldc',
                                             'DashboardDatabase':'dashboard',
                                             'ViewsDirectory':'couchdb_views',
