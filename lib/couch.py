@@ -38,7 +38,7 @@ class Couch(object):
             sync_qa_views: Boolean; determines whether QA views get synced
         """
         if not config_file:
-            config_file=os.environ.get("DPLA_CONFIG_FILE", "akara.ini"),
+            config_file=os.environ.get("DPLA_CONFIG_FILE", "akara.ini")
         config = ConfigParser.ConfigParser({'ItemDatabase':'ucldc',
                                             'DashboardDatabase':'dashboard',
                                             'ViewsDirectory':'couchdb_views',
