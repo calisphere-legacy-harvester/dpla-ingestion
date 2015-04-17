@@ -103,7 +103,8 @@ class OAC_DCMapper(DublinCoreMapper):
                 coverage_data = iterify(getprop(self.provider_data['originalRecord'],
                                                          "coverage"))
                 #remove arks from data
-                coverage_data = [ c for c in coverage_data if (not isinstance(c,basestring) or not c.startswith('ark:'))]
+                # and move the "text" value to 
+                coverage_data = [ c['text'] for c in coverage_data if (not isinstance(c,basestring) and not c['text'].startswith('ark:'))]
                 self.update_source_resource({"spatial":coverage_data})
 
     def map_format(self):
