@@ -253,6 +253,20 @@
                     }",
             "reduce": "_count"
         },
+        "sourceResource.spatial": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_handler;
+                        emitr(doc, 'sourceResource.spatial', false);
+                    }",
+            "reduce": "_count"
+        },
+        "sourceResource.spatial.value": {
+            "map": "function(doc) {
+                        var emitr = require('views/lib/utils').emit_path_value;
+                        emitr(doc, 'sourceResource.spatial', false);
+                    }",
+            "reduce": "_count"
+        },
         "sourceResource.spatial.state": {
             "map": "function(doc) {
                         var emitr = require('views/lib/utils').emit_handler;
