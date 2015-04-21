@@ -52,29 +52,48 @@ class UCSF_XML_FeedTestCase(TestCase):
                 ['memo', 'notes'])
 
 
+    def _chk_lang(self, INPUT, expected):
+        resp, content = self._get_server_response(json.dumps(INPUT))
+        self.assertEqual(resp.status, 200)
+        obj = json.loads(content)
+        self.assertEqual(obj['sourceResource']['language'],
+                expected)
+
     def testLanguageMapping(self):
         '''Test the various combos found'''
-        pass
-        '''
-"Arabic"
-"Arabic; Chinese"
-"Arabic; French"
-"Arabic; German"
-"Arabic; Hindu"
-"Arabic; Russian"
-"Chinese"
-"French"
-"French; German"
-"French; Italian"
-"German"
-"Greek"
-"Hindu"
-"Italian"
-"Russian"
-"Russian; Greek"
-"Spanish"
-"Spanish; Arabic"
-"Spanish; French"
-"Spanish; Italian"
-"Spanish; Italian; German"
-'''
+        INPUT = dict(collection = [{'resource_uri':'api/v1/123/'}],
+                tid = 'bogus-id',
+                uri = 'bogus-uri',
+                metadata = {'ti':'bogus-title',
+                    'lg': ["Arabic"]}
+                )
+        self._chk_lang(INPUT, 
+                [{'name': 'Arabic', 'iso639_9': 'ara'}])
+        INPUT['metadata']['lg'] = [ "Arabic; Chinese"]
+        self._chk_lang(INPUT, 
+                [{'name': 'Arabic', 'iso639_9': 'ara'},
+                {'name': 'Chinese', 'iso639_9': 'chi'}])
+        INPUT['metadata']['lg'] = [ "Arabic; French" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'Arabic', 'iso639_9': 'ara'},
+                {'name': 'French', 'iso639_9': 'fre'}])
+        INPUT['metadata']['lg'] = [ "German" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'German', 'iso639_9': 'ger'}])
+        INPUT['metadata']['lg'] = [ "Greek" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'Greek', 'iso639_9': 'gre'}])
+        INPUT['metadata']['lg'] = [ "Hindu" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'Hindu', 'iso639_9': 'hin'}])
+        INPUT['metadata']['lg'] = [ "Italian" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'Italian', 'iso639_9': 'ita'}])
+        INPUT['metadata']['lg'] = [ "Russian" ]
+        self._chk_lang(INPUT, 
+                [{'name': 'Russian', 'iso639_9': 'rus'}])
+        INPUT['metadata']['lg'] = [ "Spanish; Italian; German"]
+        self._chk_lang(INPUT, 
+                [{'name': 'Spanish', 'iso639_9': 'spa'},
+                {'name': 'Italian', 'iso639_9': 'ita'},
+                {'name': 'German', 'iso639_9': 'ger'}])

@@ -91,9 +91,9 @@ class UCSFXMLFeedMapper(Mapper):
                 'Spanish': 'spa',
         }
         lang_list = None
-        lg = self.metadata.get('lg', None)
+        lg = self.metadata.get('lg', [None])[0]
         if lg:
-            lang_list = [{'name':l.strip(), 'iso639_9':iso_map[l.strip]} for
+            lang_list = [{'name':l.strip(), 'iso639_9':iso_map[l.strip()]} for
                 l in lg.split(';')]
         if not lang_list:
             lang_list = [{'name':'English', 'iso639_9': 'eng'}]
