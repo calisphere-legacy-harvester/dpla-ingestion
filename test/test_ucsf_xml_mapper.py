@@ -26,11 +26,55 @@ class UCSF_XML_FeedTestCase(TestCase):
                 'http://legacy.library.ucsf.edu/tid/nga13j00')
         self.assertEqual(obj['isShownBy'],
                 'http://legacy.library.ucsf.edu/tid/nga13j00/pdf')
-        self.assertEqual(obj['sourceResource']['creator'],
+        srcRes = obj['sourceResource']
+        self.assertEqual(srcRes['creator'],
                 ['Mark Redar', u'Whent, Peter', u'Namelex Holdings Limited'])
-        self.assertEqual(obj['sourceResource']['date'],
-                ['20030410 (April 10, 2003) '])
-        self.assertEqual(obj['sourceResource']['description'],
+        self.assertEqual(srcRes['date'],
+                ['20030410 (April 10, 2003)'])
+        self.assertEqual(srcRes['description'],
                 [u'Gallaher v Tlais 2005 Folio 185'])
-        self.assertEqual(obj['sourceResource']['extent'],
+        self.assertEqual(srcRes['extent'],
                 "1 page")
+        self.assertEqual(srcRes['language'],
+                [{'name':'English', 'iso639_9': 'eng'}])
+        self.assertEqual(srcRes['spatial'],
+                ["Jordan", "Syria", "UK", "Ukraine"])
+        self.assertEqual(srcRes['subject'],
+                    [u'Gallaher International Limited',
+                     u'Gallaher Ltd',
+                     u'Tlais Enterprises Limited',
+                     u'Gallaher International Limited',
+                     u'Farah, Simon',
+                     u'Simon'])
+        self.assertEqual(srcRes['title'],
+            ["[Memo from Peter Whent to Simon Faith regarding reimbursing instructions]"])
+        self.assertEqual(srcRes['format'],
+                ['memo', 'notes'])
+
+
+    def testLanguageMapping(self):
+        '''Test the various combos found'''
+        pass
+        '''
+"Arabic"
+"Arabic; Chinese"
+"Arabic; French"
+"Arabic; German"
+"Arabic; Hindu"
+"Arabic; Russian"
+"Chinese"
+"French"
+"French; German"
+"French; Italian"
+"German"
+"Greek"
+"Hindu"
+"Italian"
+"Russian"
+"Russian; Greek"
+"Spanish"
+"Spanish; Arabic"
+"Spanish; French"
+"Spanish; Italian"
+"Spanish; Italian; German"
+'''

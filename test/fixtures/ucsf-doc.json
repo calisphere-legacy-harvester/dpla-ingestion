@@ -53,13 +53,16 @@
       "20030410 (April 10, 2003) "
     ],
     "dt": [
-      "memo"
+      "memo; notes"
     ],
     "tid": [
       "nga13j00"
     ],
     "usage": [
       "Gallaher v Tlais 2005 Folio 185"
+    ],
+    "ct": [
+        "Jordan; Syria; UK; Ukraine"
     ],
     "cn": [
       "Gallaher"
@@ -75,7 +78,11 @@
     ],
     "au": [
         "Mark Redar"
+    ], 
+    "cco": [
+        "Gallaher International Limited; Gallaher Ltd; Tlais Enterprises Limited"
     ],
+
     "ddu": [
       "20130221 (February 21, 2013) "
     ]

@@ -34,7 +34,11 @@ class UCSFXMLFeedMapper(Mapper):
         '''
         data = []
         for field in source_fields:
-            data.extend(self.metadata.get(field, []))
+            d = self.metadata.get(field, [None])[0]
+            if d:
+                #lists are stored as ';' separated values
+                d = [ x.strip() for x in d.split(';') ]
+                data.extend(d)
         self.update_source_resource({fieldname: data}) 
 
     def map_creator(self):
@@ -57,3 +61,69 @@ class UCSFXMLFeedMapper(Mapper):
                 extent += 's'
             self.update_source_resource({'extent':extent})
 
+    def map_language(self):
+        '''Contains name when not english?
+        From gallaher corpus:
+        Arabic
+        Chinese
+        French
+        German
+        Greek
+        Hindu
+        Italian
+        Russian
+        Spanish
+
+        and "; " separted list of the above
+
+        We'll need to convert these to ISO 3-letter language equivalents:
+        Arabic - ara, Chinese - chi, Dutch - dut, French - fre, German - ger,
+        Greek - gre, Hindu - hin, Italian - ita, Russian - rus, Spanish - spa"
+        '''
+        iso_map = {'Arabic' : 'ara',
+                'Chinese': 'chi',
+                'French': 'fre',
+                'German': 'ger',
+                'Greek': 'gre',
+                'Hindu': 'hin',
+                'Italian': 'ita',
+                'Russian': 'rus',
+                'Spanish': 'spa',
+        }
+        lang_list = None
+        lg = self.metadata.get('lg', None)
+        if lg:
+            lang_list = [{'name':l.strip(), 'iso639_9':iso_map[l.strip]} for
+                l in lg.split(';')]
+        if not lang_list:
+            lang_list = [{'name':'English', 'iso639_9': 'eng'}]
+        self.update_source_resource({'language': lang_list})
+
+    def map_spatial(self):
+        '''does this need to map to spatial['country']'''
+        cts = self.metadata.get('ct', [None,])[0]
+        if cts:
+            countries = [ c.strip() for c in cts.split(';')]
+            self.update_source_resource({'spatial': countries})
+
+    def map_subject(self):
+        '''"<cc>: Copied
+        <cco>: Organizations copied
+        <ccp>: Person copied
+        <men>: Mentioned
+        <meno>: Organizations mentioned
+        <org>: Organizations mentioned
+        <menp>: Persons mentioned
+        <per>: Persons mentioned
+        <rc>: Recipients
+        <rco>: Organization recipients
+        <rcp>: Person recipients
+        '''
+        self._map_metadata_fields('subject', ('cco', 'ccp', 'men', 'meno',
+                                  'menp', 'org', 'per', 'rc', 'rco', 'rcp'))
+        
+    def map_title(self):
+        self.update_source_resource({'title': self.metadata['ti']})
+
+    def map_format(self):
+        self._map_metadata_fields('format', ('dt',))
