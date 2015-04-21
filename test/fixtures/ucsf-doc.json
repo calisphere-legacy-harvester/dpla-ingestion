@@ -1,0 +1,83 @@
+{
+  "tid": "nga13j00",
+  "collection": [
+    {
+      "url_oac": "",
+      "url_local": "http://legacy.library.ucsf.edu/",
+      "url_harvest": "http://legacy.library.ucsf.edu/action/search/xml?q=ddu%3A20*&asf=ddu&asd=&fd=1&_hd=&hd=on&sf=&_rs=&_ef=&ef=on&sd=&ed=&c=ga",
+      "staging_notes": "",
+      "slug": "gallaher-collection-from-2005-until-2008-gallaher",
+      "rights_status": "CR",
+      "rights_statement": "This item is protected by the U.S. Copyright Law (Title 17, U.S.C.). Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user",
+      "harvest_extra_data": "",
+      "files_in_hand": false,
+      "files_in_dams": false,
+      "extent": null,
+      "enrichments_item": "",
+      "description": "From 2005 until 2008, Gallaher, a UK-based tobacco company which was later bought by Japan Tobacco International (JTI), spent three years in a bitter legal battle against its former Middle Eastern distributor. More than 20,000 internal documents were disclosed in the course of the litigation between Gallaher and the Cypriot company, Tlais Enterprises. This collection is a subset of those documents. During the trial, Gallaher was accused of \"complicity in facilitating worldwide smuggling, sanction-busting in Iraq, and the dumping of sub-standard cigarettes in Africa and Afghanistan,\" according to the British press.\r\n",
+      "dcmi_type": "T",
+      "campus": [
+        {
+          "slug": "UCSF",
+          "resource_uri": "/api/v1/campus/7/",
+          "position": 7,
+          "name": "UC San Francisco",
+          "ark": "ark:/13030/tf3x0nb742"
+        }
+      ],
+      "harvest_type": "TBD",
+      "hosted": "",
+      "metadata_in_dams": false,
+      "name": "Gallaher Collection",
+      "qa_completed": false,
+      "ready_for_publication": false,
+      "repository": [],
+      "resource_uri": "/api/v1/collection/26100/"
+    }
+  ],
+  "uri": "http://legacy.library.ucsf.edu/tid/nga13j00",
+  "metadata": {
+    "ti": [
+      "[Memo from Peter Whent to Simon Faith regarding reimbursing instructions]"
+    ],
+    "pg": [
+      "1"
+    ],
+    "meno": [
+      "Gallaher International Limited"
+    ],
+    "aup": [
+      "Whent, Peter"
+    ],
+    "dd": [
+      "20030410 (April 10, 2003) "
+    ],
+    "dt": [
+      "memo"
+    ],
+    "tid": [
+      "nga13j00"
+    ],
+    "usage": [
+      "Gallaher v Tlais 2005 Folio 185"
+    ],
+    "cn": [
+      "Gallaher"
+    ],
+    "bn": [
+      "GA07179"
+    ],
+    "rcp": [
+      "Farah, Simon; Simon"
+    ],
+    "auo": [
+        "Namelex Holdings Limited"
+    ],
+    "au": [
+        "Mark Redar"
+    ],
+    "ddu": [
+      "20130221 (February 21, 2013) "
+    ]
+  }
+}

@@ -44,6 +44,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.oac_dc_mapper_suppress_description_2 import OAC_DCMapperSuppressDescription2
         return OAC_DCMapperSuppressDescription2(data)
 
+    def _create_ucsf_xml_mapper(data):
+        from dplaingestion.mappers.ucsf_xml_mapper import UCSFXMLFeedMapper
+        return UCSFXMLFeedMapper(data)
+
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
@@ -54,6 +58,7 @@ def create_mapper(mapper_type, data):
         'ucsd_blacklight_dc': lambda d: _create_ucsd_blacklight_dc_mapper(d),
         'oac_dc':       lambda d: _create_oac_dc_mapper(d),
         'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
+        'ucsf_xml': lambda d: _create_ucsf_xml_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
