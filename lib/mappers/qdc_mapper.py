@@ -35,9 +35,6 @@ class QDCMapper(Mapper):
         if exists(self.provider_data, prop):
             self.update_source_resource({prop: self.provider_data.get(prop)})
             
-    def map_collection(self):
-        self.source_resource_prop_to_prop("collection")
-
     def map_contributor(self):
         self.source_resource_prop_to_prop("contributor")
 

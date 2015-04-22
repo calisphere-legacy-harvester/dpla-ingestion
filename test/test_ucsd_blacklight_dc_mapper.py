@@ -27,9 +27,6 @@ def test_ucsd_dc_mapping():
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['title'],
             ['Camp Matthews, Rifle range, shed, storage'])
-    TC.assertEqual(srcRes['collection'],  [{u'@id':
-        u'https://registry-dev.cdlib.org/api/v1/collection/25563',
-        u'name': u'Camp Matthews Photographs and Plans'}])
     TC.assertEqual(srcRes['date'],  { "displayDate": "1964",
                                       "end": "1964-12-31",
                                       "begin": "1964-01-01",

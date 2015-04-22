@@ -45,24 +45,6 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_object(self):
         pass
 
-    # sourceResource mapping functions
-    def map_collection(self):
-        prop = "collection"
-        if exists(self.provider_data, prop):
-            self.update_source_resource({"collection":
-                                         self.provider_data.get(prop)})
-
-###    def source_resource_prop_from_provider_prop_json(self, provider_prop, prop):
-###        '''Map the UCSD _json_tesim fields to sourceResource properties.
-###        The _json_tesim seems to be a list of one json object, load it 
-###        and assigng to prop. Need to know which field in the json we want
-###        '''
-###        if exists(self.provider_data, provider_prop):
-###            objlist = []
-###            for o in self.provider_data[provider_prop]:
-###                objlist.append(json.loads(o))
-###            self.update_source_resource({prop: objlist})
-###
     def source_resource_prop_from_provider_json_tesim(self, prop, srcRes_prop=None, sub_key=None):
         '''Get data from a json_tesim.
         Provider prop will be the <prop>_json_tesim
@@ -194,6 +176,14 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_title(self):
         title = self.provider_data_source['title_json_tesim'][0]['name']
         self.update_source_resource({'title': [title]})
+        alt_title_tags = ['variant', 'abbreviationVariant',
+                'acronymVariant', 'expansionVariant']
+        alt_titles = []
+        for tag in alt_title_tags:
+            value = self.provider_data_source['title_json_tesim'][0].get(tag, None)
+            if value:
+                alt_titles.append(value)
+        self.update_source_resource({'alternativeTitle': alt_titles})
 
     def map_type(self):
         field = 'type'

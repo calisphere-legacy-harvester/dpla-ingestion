@@ -45,7 +45,6 @@ def test_map_oac_dc_meta():
     TC.assertEqual(len(srcRes['relation']), 7)
     TC.assertEqual(len(srcRes['subject']), 2) # suppresses q="series"
     TC.assertEqual(srcRes['subject'],  [u'Japanese Americans', u'Uchida'])
-    TC.assertEqual(srcRes['collection'][0]['name'], 'Uchida (Yoshiko) Papers')
 
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 

@@ -43,9 +43,6 @@ class DublinCoreMapper(Mapper):
         provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
         self.source_resource_orig_to_prop(provider_prop, prop)
             
-    def map_collection(self):
-        self.source_resource_prop_to_prop("collection")
-
     def map_contributor(self):
         self.source_resource_prop_to_prop("contributor")
 

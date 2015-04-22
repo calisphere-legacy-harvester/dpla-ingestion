@@ -120,7 +120,6 @@ class Mapper(object):
 
     def map_source_resource(self):
         """Mapps the mapped_data sourceResource fields."""
-        self.map_collection()
         self.map_contributor()
         self.map_creator()
         self.map_date()
@@ -186,12 +185,6 @@ class Mapper(object):
         pass
 
     # sourceResource mapping functions
-    def map_collection(self):
-        prop = "collection"
-        if exists(self.provider_data, prop):
-            self.update_source_resource({"collection":
-                                         self.provider_data.get(prop)})
-
     def map_contributor(self):
         pass
 
