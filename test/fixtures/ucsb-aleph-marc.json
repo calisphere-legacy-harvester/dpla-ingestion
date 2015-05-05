@@ -257,6 +257,31 @@
       }
     },
     {
+        "856": {
+            "ind1": "4",
+            "subfields": [
+                {
+                    "z": "Audio file of Syracuse cylinder"
+                },
+                {
+                    "u": "http://digilib.syr.edu/u?/cylinder,364"
+                }
+            ],
+            "ind2": "1"
+        }
+    },
+    {
+        "856": {
+            "ind1": "",
+            "subfields": [
+                {
+                    "z": "Cylinder has not been digitized for online access."
+                }
+            ],
+            "ind2": ""
+        }
+    },
+    {
       "856": {
         "ind2": "1",
         "subfields": [

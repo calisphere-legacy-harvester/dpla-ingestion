@@ -96,6 +96,11 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucsf_xml_mapper import UCSFXMLFeedMapper
         return UCSFXMLFeedMapper(data)
 
+    def _create_ucsb_aleph_mapper(data):
+        from dplaingestion.mappers.ucsb_aleph_marc import UCSBAlephMarcMapper
+        return UCSBAlephMarcMapper(data)
+
+
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
@@ -107,6 +112,7 @@ def create_mapper(mapper_type, data):
         'oac_dc':       lambda d: _create_oac_dc_mapper(d),
         'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
         'ucsf_xml': lambda d: _create_ucsf_xml_mapper(d),
+        'ucsb_aleph_marc': lambda d: _create_ucsb_aleph_mapper(d),
         'missouri':     lambda d: _create_missouri_mapper(d),
         'mapv3_json':   lambda d: _create_mapv3_json_mapper(d),
         'mdl_json':     lambda d: _create_mdl_json_mapper(d),
