@@ -48,7 +48,7 @@ class UCSFXMLFeedMapper(Mapper):
         self._map_metadata_fields('date', ('dd',))
 
     def map_description(self):
-        self._map_metadata_fields('description', ('desc', 'cond', 'brd', 'usage',))
+        self._map_metadata_fields('description', ('desc', 'cond', 'usage',))
 
     def map_extent(self):
         '''The extent for these is the number of pages in the pdf.
@@ -107,20 +107,26 @@ class UCSFXMLFeedMapper(Mapper):
             self.update_source_resource({'spatial': countries})
 
     def map_subject(self):
-        '''"<cc>: Copied
-        <cco>: Organizations copied
-        <ccp>: Person copied
+        '''"
+        <brd>: Brand
         <men>: Mentioned
         <meno>: Organizations mentioned
         <org>: Organizations mentioned
         <menp>: Persons mentioned
         <per>: Persons mentioned
-        <rc>: Recipients
-        <rco>: Organization recipients
-        <rcp>: Person recipients
+        
+        2015-05-05 : move brand ('brd') from description to subject
+
+        2015-05-05 : dropping becauses mostly redundant:
+                            <cc>: Copied, 
+                            <cco>: Organizations copied
+                            <ccp>: Person copied
+                            <rc>: Recipients
+                            <rco>: Organization recipients
+                            <rcp>: Person recipients
         '''
-        self._map_metadata_fields('subject', ('cco', 'ccp', 'men', 'meno',
-                                  'menp', 'org', 'per', 'rc', 'rco', 'rcp'))
+        self._map_metadata_fields('subject', ('brd', 'men', 'meno',
+                                  'menp', 'org', 'per', ))
         
     def map_title(self):
         self.update_source_resource({'title': self.metadata['ti']})

@@ -32,20 +32,32 @@ class UCSF_XML_FeedTestCase(TestCase):
         self.assertEqual(srcRes['date'],
                 ['20030410 (April 10, 2003)'])
         self.assertEqual(srcRes['description'],
-                [u'Gallaher v Tlais 2005 Folio 185'])
+                [u'A nice description',
+                 u'A nice condition',
+                 u'Gallaher v Tlais 2005 Folio 185'])
         self.assertEqual(srcRes['extent'],
                 "1 page")
         self.assertEqual(srcRes['language'],
                 [{'name':'English', 'iso639_9': 'eng'}])
         self.assertEqual(srcRes['spatial'],
                 ["Jordan", "Syria", "UK", "Ukraine"])
+        print "SUBJECT:{}".format(srcRes['subject'])
         self.assertEqual(srcRes['subject'],
-                    [u'Gallaher International Limited',
-                     u'Gallaher Ltd',
-                     u'Tlais Enterprises Limited',
+                    [ u'Marlboro',
+                     u'Philip Morris',
+                     u'Cleopatra',
+                     u'Marlboro Lights',
+                     u'Philip Morris Red',
+                     u'Karelia Slims',
+                     u'Kool',
+                     u'Marlboro Menthol',
+                     u'Bogus',
+                     u'Rebogus',
                      u'Gallaher International Limited',
-                     u'Farah, Simon',
-                     u'Simon'])
+                     u'Mark',
+                     u'Brian',
+                     u'Adrian',
+                     ])
         self.assertEqual(srcRes['title'],
             ["[Memo from Peter Whent to Simon Faith regarding reimbursing instructions]"])
         self.assertEqual(srcRes['format'],

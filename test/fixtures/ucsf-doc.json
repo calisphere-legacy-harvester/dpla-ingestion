@@ -43,8 +43,14 @@
     "pg": [
       "1"
     ],
+    "men": [
+      "Bogus; Rebogus"
+    ],
     "meno": [
       "Gallaher International Limited"
+    ],
+    "menp": [
+        "Mark; Brian; Adrian"
     ],
     "aup": [
       "Whent, Peter"
@@ -58,6 +64,12 @@
     "tid": [
       "nga13j00"
     ],
+    "desc": [
+        "A nice description"
+    ],
+    "cond": [
+        "A nice condition"
+    ],
     "usage": [
       "Gallaher v Tlais 2005 Folio 185"
     ],
@@ -70,8 +82,14 @@
     "bn": [
       "GA07179"
     ],
+    "rc": [
+      "Farah, Simon; Simon; Gallaher International Limited; Gallaher Ltd; Tlais Enterprises Limited"
+    ],
     "rcp": [
       "Farah, Simon; Simon"
+    ],
+    "rco": [
+        "Gallaher International Limited; Gallaher Ltd; Tlais Enterprises Limited"
     ],
     "auo": [
         "Namelex Holdings Limited"
@@ -79,9 +97,18 @@
     "au": [
         "Mark Redar"
     ], 
+    "cc": [
+        "Gallaher International Limited; Gallaher Ltd; Tlais Enterprises Limited; Joe; Bob; Lisa"
+    ],
     "cco": [
         "Gallaher International Limited; Gallaher Ltd; Tlais Enterprises Limited"
     ],
+    "ccp": [
+        "Joe; Bob; Sam"
+    ],
+    "brd": [
+               "Marlboro; Philip Morris; Cleopatra; Marlboro Lights; Philip Morris Red; Karelia Slims; Kool; Marlboro Menthol" 
+    ], 
     "ddu": [
       "20130221 (February 21, 2013) "
     ]
