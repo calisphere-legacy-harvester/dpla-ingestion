@@ -31,4 +31,7 @@ def set_ucldc_dataprovider(body, ctype):
     if campus:
         dataProvider = ', '.join((campus['name'], repo['name']))
     setprop(data, 'dataProvider', dataProvider)
+    data['provider'] = {}
+    setprop(data, 'provider/name', dataProvider)
+    setprop(data, 'provider/@id', collection['@id'])
     return json.dumps(data)

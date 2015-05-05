@@ -22,7 +22,8 @@ def test_set_repo_only():
                     "@id": "https://registry.cdlib.org/api/v1/repository/143/",
                     "campus": [ ],
                     }
-                    ]
+                    ],
+                    "@id": "https://registry.cdlib.org/api/v1/collection/26094",
                 }
               ]
             }
@@ -41,7 +42,8 @@ def test_set_has_campus():
                       "campus": [{ "name": "UC Berkeley",
                       "@id": "https://registry.cdlib.org/api/v1/campus/1/",}]
                     }
-                    ]
+                    ],
+                  "@id": "https://registry.cdlib.org/api/v1/collection/26094",
                 }
               ]
             }
@@ -50,5 +52,7 @@ def test_set_has_campus():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['dataProvider'], 'UC Berkeley, Bancroft Library')
+    TC.assertEqual(content['provider']['name'], 'UC Berkeley, Bancroft Library')
+    TC.assertEqual(content['provider']['@id'], 'https://registry.cdlib.org/api/v1/collection/26094')
 
 #TODO: handle multiple repos, campuses.... Luckily repo is only on one campus
