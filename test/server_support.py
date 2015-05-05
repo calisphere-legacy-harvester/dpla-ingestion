@@ -116,6 +116,7 @@ MODULES = [
     "dplaingestion.akamod.geocode",
     "dplaingestion.akamod.filter_empty_values",
     "dplaingestion.akamod.contentdm_identify_object",
+    "dplaingestion.akamod.cdl_identify_object",
     "dplaingestion.akamod.move_date_values",
     "dplaingestion.akamod.enrich_location",
     "dplaingestion.akamod.lookup",

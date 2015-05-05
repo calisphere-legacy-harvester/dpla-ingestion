@@ -12,6 +12,54 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
         return DublinCoreMapper(data)
 
+    def _create_bpl_mapper(data):
+        from dplaingestion.mappers.bpl_mapper import BPLMapper
+        return BPLMapper(data)
+
+    def _create_uva_mapper(data):
+        from dplaingestion.mappers.uva_mapper import UVAMapper
+        return UVAMapper(data)
+
+    def _create_mdl_mapper(data):
+        from dplaingestion.mappers.mdl_mapper import MDLMapper
+        return MDLMapper(data)
+
+    def _create_cdl_json_mapper(data):
+        from dplaingestion.mappers.cdl_json_mapper import CDLJSONMapper
+        return CDLJSONMapper(data)
+
+    def _create_mapv3_json_mapper(data):
+        from dplaingestion.mappers.mapv3_json_mapper import MAPV3JSONMapper
+        return MAPV3JSONMapper(data)
+
+    def _create_mdl_json_mapper(data):
+        from dplaingestion.mappers.mdl_json_mapper import MDLJSONMapper
+        return MDLJSONMapper(data)
+
+    def _create_gpo_mapper(data):
+        from dplaingestion.mappers.gpo_mapper import GPOMapper
+        return GPOMapper(data)
+
+    def _create_scdl_mapper(data):
+        from dplaingestion.mappers.scdl_mapper import SCDLMapper
+        return SCDLMapper(data)
+
+    def _create_edan_mapper(data):
+        from dplaingestion.mappers.edan_mapper import EDANMapper
+        return EDANMapper(data)
+
+    def _create_nara_mapper(data):
+        from dplaingestion.mappers.nara_mapper import NARAMapper
+        return NARAMapper(data)
+
+    def _create_nypl_mapper(data):
+        from dplaingestion.mappers.nypl_mapper import NYPLMapper
+        return NYPLMapper(data)
+
+    def _create_untl_mapper(data):
+        from dplaingestion.mappers.untl_mapper import UNTLMapper
+        return UNTLMapper(data)
+
     def _create_missouri_mapper(data):
         from dplaingestion.mappers.missouri_mapper import MissouriMapper
         return MissouriMapper(data)
@@ -59,6 +107,10 @@ def create_mapper(mapper_type, data):
         'oac_dc':       lambda d: _create_oac_dc_mapper(d),
         'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
         'ucsf_xml': lambda d: _create_ucsf_xml_mapper(d),
+        'missouri':     lambda d: _create_missouri_mapper(d),
+        'mapv3_json':   lambda d: _create_mapv3_json_mapper(d),
+        'mdl_json':     lambda d: _create_mdl_json_mapper(d),
+        'cdl_json':     lambda d: _create_cdl_json_mapper(d)
     }
 
     return mappers.get(mapper_type)(data)
