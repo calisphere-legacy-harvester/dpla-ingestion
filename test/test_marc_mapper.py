@@ -73,8 +73,9 @@ def test_full_marc_doc():
     TC.assertIn(u'sourceResource', doc)
     TC.assertIn(u'title', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['title'], ["Sailor's hornpipe medley [sound recording]."]) 
-    TC.assertEqual(doc['isShownAt'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
-    TC.assertEqual(doc['isShownBy'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
+    #NOTE: regular marc mapper grabs first 856$u field
+    TC.assertEqual(doc['isShownAt'], "http://digilib.syr.edu/u?/cylinder,364")
+    TC.assertEqual(doc['isShownBy'], "http://digilib.syr.edu/u?/cylinder,364")
     TC.assertEqual(doc['sourceResource']['contributor'], [u"D'Almaine, Charles, 1871-1943. itr"])
     TC.assertEqual(doc['sourceResource']['date'], {u'begin': u'1912', u'end': u'1912', u'displayDate': u'[1912]'})
     TC.assertEqual(doc['sourceResource']['description'], 
