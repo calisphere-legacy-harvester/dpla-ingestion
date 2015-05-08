@@ -37,7 +37,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         super(UCSDBlacklightDCMapper, self).map_data_provider(prop="collection_json_tesim")
 
     def map_state_located_in(self):
-        self.update_source_resource({"stateLocatedIn": "California"})
+        self.update_source_resource({"stateLocatedIn": {"name": "California"}})
 
     def map_has_view(self):
         pass
@@ -168,7 +168,11 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.update_source_resource({'rights':values}) if len(values) else None
 
     def map_subject(self):
-        self.source_resource_orig_to_prop('subject_tesim', 'subject')
+        provider_prop = 'subject_tesim'
+        srcRes_prop = 'subject'
+        if exists(self.provider_data_source, provider_prop):
+            subject_objs = [ {'name': s } for s in getprop(self.provider_data_source, provider_prop)]
+            self.update_source_resource({srcRes_prop: subject_objs })
 
 ### TODO:    def map_temporal(self):
 ###        pass
@@ -192,7 +196,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             self.mapped_data["sourceResource"][field] = self.mapped_data["sourceResource"][field][0]
 
     def map_state_located_in(self):
-        self.update_source_resource({"stateLocatedIn": "California"})
+        self.update_source_resource({"stateLocatedIn": [{"name": "California"}]})
+        #self.update_source_resource({"stateLocatedIn": "California"})
 
 ### TODO:    def map_spatial(self):
 ###        pass

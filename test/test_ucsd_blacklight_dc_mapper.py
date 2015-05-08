@@ -50,18 +50,19 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['rights'][1][:21], "Constraint(s) on Use:")
     TC.assertEqual(srcRes['rights'][2][:27], "Use: This work is available")
     TC.assertEqual(srcRes['subject'], [
-        "University of California, San Diego--Buildings, structures, etc",
-        "Camp Matthews (Calif.)--Buildings, structures, etc",
-        "University of California, San Diego--History",
-        "La Jolla (San Diego, Calif.)--Photographs",
-        "Camp Matthews (Calif.)--Photographs",
-        "Camp Matthews (Calif.)--History"
+        {"name":"University of California, San Diego--Buildings, structures, etc"},
+        {"name":"Camp Matthews (Calif.)--Buildings, structures, etc"},
+        {"name":"University of California, San Diego--History"},
+        {"name":"La Jolla (San Diego, Calif.)--Photographs"},
+        {"name":"Camp Matthews (Calif.)--Photographs"},
+        {"name":"Camp Matthews (Calif.)--History"}
         ])
     TC.assertEqual(srcRes['type'], 'image')
     TC.assertEqual(obj['isShownAt'],
             'https://library.ucsd.edu/dc/object/bb0922726p')
     TC.assertEqual(obj['isShownBy'],
             'https://library.ucsd.edu/dc/object/bb0922726p/_2.jpg')
+    TC.assertEqual(srcRes['stateLocatedIn'][0]['name'], 'California')
 
 def test_missing_language():
     fixture = path.join(DIR_FIXTURES,
