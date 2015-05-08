@@ -18,7 +18,7 @@ class UCLASolrDCMapper(DublinCoreMapper):
         super(UCLASolrDCMapper, self).map_data_provider(prop="collection")
 
     def map_state_located_in(self):
-        self.update_source_resource({"stateLocatedIn": "California"})
+        self.update_source_resource({"stateLocatedIn": [{"name": "California"}]})
 
     def map_spatial(self):
         if exists(self.provider_data, "dc.coverage"):

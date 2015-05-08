@@ -77,7 +77,15 @@ class DublinCoreMapper(Mapper):
         self.source_resource_prop_to_prop("rights")
 
     def map_subject(self):
-        self.source_resource_prop_to_prop("subject")
+        prop = 'subject'
+        provider_prop = prop if not self.prefix else ''.join((self.prefix, prop))
+        if exists(self.provider_data_source, provider_prop):
+            subject_orig = getprop(self.provider_data_source, provider_prop)
+            if isinstance(subject_orig, basestring):
+                subject_objs = [{'name':subject_orig}]
+            else: #assuming list?
+                subject_objs = [{'name':s} for s in subject_orig if s]
+            self.update_source_resource({prop: subject_objs})
 
     def map_title(self):
         self.source_resource_prop_to_prop("title")

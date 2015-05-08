@@ -26,7 +26,11 @@ def test_ucla_mapping():
         TC.assertEqual(obj['isShownBy'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747/datastream/JPG/JPG.jpg')
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
-        TC.assertEqual(srcRes['subject'], [u'Postal service $z United States', u'Delivering $z United States', u'Drum Barracks (Los Angeles, Calif.)', u'Camels $z United States', u''])
+        TC.assertEqual(srcRes['subject'], [
+            {'name' : u'Postal service $z United States'},
+            {'name' : u'Delivering $z United States'},
+            {'name' : u'Drum Barracks (Los Angeles, Calif.)'},
+            {'name' : u'Camels $z United States'}])
         TC.assertEqual(srcRes['contributor'], [u'University of California, Los Angeles. $b Library. $b Dept. of Special Collections (repository)'])
         TC.assertEqual(srcRes['spatial'], [u"California--Los Angeles--Wilmington"])
         TC.assertEqual(srcRes['creator'], [u'Heathcote, Basil'])
@@ -36,9 +40,9 @@ def test_ucla_mapping():
         TC.assertEqual(srcRes['identifier'], [u'edu.ucla.library.specialCollections.bartlett:1747', u'uclamss_1300_1775i', u'1775i'])
         TC.assertEqual(srcRes['language'], [u'eng'])
         TC.assertEqual(srcRes['relation'], [u'Adelbert Bartlett Papers. Department of Special Collections, Charles E. Young Research Library, UCLA.'])
-        TC.assertEqual(srcRes['subject'], [u'Postal service $z United States', u'Delivering $z United States', u'Drum Barracks (Los Angeles, Calif.)', u'Camels $z United States', u''])
         TC.assertEqual(srcRes['title'], [u'Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, "When Camels Carried Mail to California," by Basil Heathcote, 1930'])
         TC.assertEqual(srcRes['type'], [ "clippings", "StillImage" ])
+        TC.assertEqual(srcRes['stateLocatedIn'][0]['name'], 'California')
 
 if __name__=="__main__":
     test_ucla_mapping()
