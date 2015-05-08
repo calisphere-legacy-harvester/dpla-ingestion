@@ -93,7 +93,10 @@ def test_full_marc_doc():
     #TODO: this is broken return spaces    TC.assertEqual(doc['sourceResource']['language'], '')
     TC.assertEqual(doc['sourceResource']['publisher'],
             [u'Orange, N.J. : Edison Amberol,'])
+    print "SUBJECT RETURNED:{}".format(doc['sourceResource']['subject'])
     TC.assertEqual(doc['sourceResource']['subject'],
-            [u'Popular instrumental music--1911-1920.', u'Violin with orchestra.', u'Fiddle tunes.'])
+            [{'name':u'Popular instrumental music--1911-1920.'},
+             {'name': u'Violin with orchestra.'},
+             {'name': u'Fiddle tunes.'}])
     TC.assertEqual(doc['sourceResource']['type'],
             'Sound')

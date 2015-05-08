@@ -191,6 +191,7 @@ class MARCMapper(Mapper):
                     values = [re.sub("\.$", "", v) for v in values]
                     values[-1] += "."
                 if values:
+                    print "=====VALUES:{}\n".format(values)
                     values = [delim.join(values)]
 
         # Remove any double periods (excluding those in ellipsis)
@@ -431,8 +432,11 @@ class MARCMapper(Mapper):
     
     def map_subject(self, _dict, tag, codes):
         prop = "sourceResource/subject"
-        values = self._get_subject_values(_dict, tag)
-        self.extend_prop(prop, _dict, codes, values=values)
+        values = [{'name': v} for v in self._get_subject_values(_dict, tag)]
+        if values:
+            prop_value = self._get_mapped_value(prop)
+            prop_value.extend(values)
+            setprop(self.mapped_data, prop, prop_value)
 
     def map_contributor(self, _dict, tag, codes):
         prop = "sourceResource/contributor"

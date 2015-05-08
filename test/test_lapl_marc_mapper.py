@@ -53,7 +53,7 @@ def test_lapl_marc_mapping():
                                                 })
     TC.assertEqual(len(doc['sourceResource']['subject']), 8) 
     TC.assertEqual(doc['sourceResource']['subject'][0], 
-            'Signs and signboards--California--Los Angeles.')
+            {'name': 'Signs and signboards--California--Los Angeles.'})
     TC.assertEqual(doc['sourceResource']['contributor'], ['Torrez, Eloy.',
                         'Walker & Eisen.'])
     TC.assertEqual(doc['sourceResource']['creator'], ['Schultheis, Herman.'])
