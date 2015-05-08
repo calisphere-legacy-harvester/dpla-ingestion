@@ -191,7 +191,6 @@ class MARCMapper(Mapper):
                     values = [re.sub("\.$", "", v) for v in values]
                     values[-1] += "."
                 if values:
-                    print "=====VALUES:{}\n".format(values)
                     values = [delim.join(values)]
 
         # Remove any double periods (excluding those in ellipsis)
