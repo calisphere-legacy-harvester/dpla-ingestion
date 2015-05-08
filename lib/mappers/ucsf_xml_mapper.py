@@ -29,9 +29,8 @@ class UCSFXMLFeedMapper(Mapper):
         at_id = "http://ucldc.cdlib.org/api/items/" + id
         self.mapped_data.update({"id": id, "_id": _id, "@id": at_id})
 
-    def _map_metadata_fields(self, fieldname, source_fields):
-        '''Map a number source UCSF fields to a sourceResource
-        '''
+    def get_metadata_values(self, source_fields):
+        '''Get list of string values from source_fields'''
         data = []
         for field in source_fields:
             d = self.metadata.get(field, [None])[0]
@@ -39,6 +38,12 @@ class UCSFXMLFeedMapper(Mapper):
                 #lists are stored as ';' separated values
                 d = [ x.strip() for x in d.split(';') ]
                 data.extend(d)
+        return data
+
+    def _map_metadata_fields(self, fieldname, source_fields):
+        '''Map a number source UCSF fields to a sourceResource
+        '''
+        data = self.get_metadata_values(source_fields)
         self.update_source_resource({fieldname: data}) 
 
     def map_creator(self):
@@ -125,8 +130,11 @@ class UCSFXMLFeedMapper(Mapper):
                             <rco>: Organization recipients
                             <rcp>: Person recipients
         '''
-        self._map_metadata_fields('subject', ('brd', 'men', 'meno',
+        values = self.get_metadata_values(('brd', 'men', 'meno',
                                   'menp', 'org', 'per', ))
+
+        value_objs = [{'name': v} for v in values]
+        self.update_source_resource({'subject': value_objs}) 
         
     def map_title(self):
         self.update_source_resource({'title': self.metadata['ti']})
