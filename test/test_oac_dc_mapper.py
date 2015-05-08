@@ -44,7 +44,9 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['format'], ['painting'])
     TC.assertEqual(len(srcRes['relation']), 7)
     TC.assertEqual(len(srcRes['subject']), 2) # suppresses q="series"
-    TC.assertEqual(srcRes['subject'],  [u'Japanese Americans', u'Uchida'])
+    TC.assertEqual(srcRes['subject'],  [
+        {'name': u'Japanese Americans'},
+        {'name': u'Uchida'}])
 
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 
@@ -121,7 +123,7 @@ def test_map_state_located_in():
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
-    TC.assertEqual(content['sourceResource']['stateLocatedIn'], 'California')
+    TC.assertEqual(content['sourceResource']['stateLocatedIn'][0]['name'], 'California')
 
 def test_map_spatial():
     INPUT = {'originalRecord':{'coverage':[{'text':'Oakland', 'attrib':''}]}}

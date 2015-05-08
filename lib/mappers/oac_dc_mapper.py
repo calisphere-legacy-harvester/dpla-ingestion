@@ -12,18 +12,11 @@ URL_OAC_CONTENT_BASE = module_config().get(
 
 class OAC_DCMapper(DublinCoreMapper):
     '''Mapper for OAC xml feed objects'''
-    # sourceResource mapping
-    def source_resource_orig_to_prop(self,
+    def get_values_from_text_attrib(self,
                                     provider_prop,
-                                    srcRes_prop,
                                     suppress_attribs={}):
-        '''Override to handle elements which are dictionaries of format
-        {'attrib': {}, 'text':"string value of element"}
-        Args:
-            provider_prop - name of field in original data
-            srcRes_prop - name of field in sourceResource to map to
-            suppress_attribs is a dictionary of attribute key:value pairs to
-                omit from mapping.
+        '''Return a list of string values take from the OAC type
+        original record (each value is {'text':<val>, 'attrib':<val>} object)
         '''
         values = []
         if exists(self.provider_data_source, provider_prop):
@@ -44,8 +37,24 @@ class OAC_DCMapper(DublinCoreMapper):
                             break
                     if not suppress:
                         values.append(x['text'])
+        return values
 
-            self.update_source_resource({srcRes_prop: values})
+    # sourceResource mapping
+    def source_resource_orig_to_prop(self,
+                                    provider_prop,
+                                    srcRes_prop,
+                                    suppress_attribs={}):
+        '''Override to handle elements which are dictionaries of format
+        {'attrib': {}, 'text':"string value of element"}
+        Args:
+            provider_prop - name of field in original data
+            srcRes_prop - name of field in sourceResource to map to
+            suppress_attribs is a dictionary of attribute key:value pairs to
+                omit from mapping.
+        '''
+        values = self.get_values_from_text_attrib(provider_prop,
+                                             suppress_attribs)
+        self.update_source_resource({srcRes_prop: values})
             
     def source_resource_prop_to_prop(self, prop, suppress_attribs={}):
         '''Override to handle elements which are dictionaries of format
@@ -95,7 +104,7 @@ class OAC_DCMapper(DublinCoreMapper):
                     self.provider_data['originalRecord']['collection']})
 
     def map_state_located_in(self):
-        self.update_source_resource({"stateLocatedIn": "California"})
+        self.update_source_resource({"stateLocatedIn": [{"name": "California"}]})
 
     def map_spatial(self):
         if self.provider_data.has_key('originalRecord'):
@@ -112,5 +121,7 @@ class OAC_DCMapper(DublinCoreMapper):
                 suppress_attribs={'q':'x'})
 
     def map_subject(self):
-        self.source_resource_prop_to_prop("subject",
+        subject_values = self.get_values_from_text_attrib("subject",
                 suppress_attribs={'q':'series'})
+        subject_objs = [{'name': s} for s in subject_values]
+        self.update_source_resource({"subject": subject_objs})
