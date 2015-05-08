@@ -197,7 +197,6 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": [{"name": "California"}]})
-        #self.update_source_resource({"stateLocatedIn": "California"})
 
 ### TODO:    def map_spatial(self):
 ###        pass
