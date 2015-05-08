@@ -26,12 +26,14 @@ def test_set_repo_only():
                     "@id": "https://registry.cdlib.org/api/v1/collection/26094",
                 }
               ]
-            }
+            },
+            'sourceResource':{}
     }
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['dataProvider'], 'Los Angeles Public Library')
+    TC.assertEqual(content['sourceResource']['stateLocatedIn'][0]['name'], 'California')
 
 def test_set_has_campus():
     INPUT = { 'originalRecord':
@@ -46,7 +48,8 @@ def test_set_has_campus():
                   "@id": "https://registry.cdlib.org/api/v1/collection/26094",
                 }
               ]
-            }
+            },
+            'sourceResource':{}
     }
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
@@ -54,5 +57,6 @@ def test_set_has_campus():
     TC.assertEqual(content['dataProvider'], 'UC Berkeley, Bancroft Library')
     TC.assertEqual(content['provider']['name'], 'UC Berkeley, Bancroft Library')
     TC.assertEqual(content['provider']['@id'], 'https://registry.cdlib.org/api/v1/collection/26094')
+    TC.assertEqual(content['sourceResource']['stateLocatedIn'][0]['name'], 'California')
 
 #TODO: handle multiple repos, campuses.... Luckily repo is only on one campus

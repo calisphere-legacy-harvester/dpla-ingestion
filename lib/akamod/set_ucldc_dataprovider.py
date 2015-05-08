@@ -34,4 +34,5 @@ def set_ucldc_dataprovider(body, ctype):
     data['provider'] = {}
     setprop(data, 'provider/name', dataProvider)
     setprop(data, 'provider/@id', collection['@id'])
+    data['sourceResource']['stateLocatedIn'] = [{'name':'California'}]
     return json.dumps(data)
