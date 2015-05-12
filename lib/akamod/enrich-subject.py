@@ -45,7 +45,11 @@ def enrichsubject(body,ctype,action="enrich-subject",prop="sourceResource/subjec
         v = getprop(data,prop)
         subject = []
         for s in (v if not isinstance(v,basestring) else [v]):
-            subj = cleanup(s)
+            if isinstance(v, dict):
+                #already {'name': <val>}
+                subj = cleanup(s['name'])
+            else:
+                subj = cleanup(s)
             if subj:
                 subject.append({ "name" : subj })
 
