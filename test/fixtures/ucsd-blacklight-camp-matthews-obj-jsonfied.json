@@ -105,6 +105,11 @@
       "displayLabel": "Physical description"
     },
     {
+      "value": "black and white photograph",
+      "type": "physical description",
+      "displayLabel": "Physical description"
+    },
+    {
       "value": "039.tif",
       "type": "identifier",
       "displayLabel": "fileName"

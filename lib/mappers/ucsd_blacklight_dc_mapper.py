@@ -115,7 +115,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                     values.append(note['value'])
                 else:
                     values.append(note['value'])
-        return values if len(values) else None
+        return values if len(values) else []
 
     def get_otherNotes_field(self, field, display_label=None):
         '''Get a field from that is in the otherNotes.
@@ -132,6 +132,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     def map_format(self):
         values = self.parse_otherNotes('general physical description')
+        values.extend(self.parse_otherNotes('physical description'))
         if values:
             self.update_source_resource({'format': values})
 
@@ -208,10 +209,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     def map_spatial(self):
         spatial_objs = []
-        print "PROVIDER DATA:{}".format(self.provider_data.keys())
         for obj in self.provider_data.get('geographic_tesim', []):
             spatial_objs.append({'name': obj})
-        print "SPATIAL_OBJS:{}".format(spatial_objs)
         if spatial_objs:
             self.mapped_data['sourceResource']['spatial'] = spatial_objs
 
