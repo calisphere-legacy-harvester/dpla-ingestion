@@ -48,6 +48,9 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['format'],
             ["1 2.25 inch black and white negative",
              "black and white photograph"])
+    TC.assertEqual(srcRes['genre'],
+            ["Data tables",
+             "Point cloud"])
     TC.assertEqual(srcRes['language'],  [{'iso639':'zxx',
                                           'name': 'No linguistic content', }])
     TC.assertEqual(srcRes['rights'][0],  "Under copyright")

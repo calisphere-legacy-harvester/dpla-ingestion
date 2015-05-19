@@ -139,6 +139,10 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         values.extend(self.parse_otherNotes('physical description'))
         if values:
             self.update_source_resource({'format': values})
+        #add genre mapping here
+        genres = self.provider_data_source.get('genreForm_tesim', None)
+        if genres:
+            self.update_source_resource({'genre':genres})
 
     def map_identifier(self):
         self.get_otherNotes_field('identifier')

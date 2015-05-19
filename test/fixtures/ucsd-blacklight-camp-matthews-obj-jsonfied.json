@@ -93,6 +93,10 @@
     "Camp Matthews (Calif.)--Photographs",
     "Camp Matthews (Calif.)--History"
   ],
+  "genreForm_tesim": [
+      "Data tables",
+      "Point cloud"
+  ],
   "otherNote_json_tesim": [
     {
       "value": "a test description (added for testing)",
