@@ -26,9 +26,14 @@ def ucsb_aleph_marc_id(body, ctype):
             subfields = field['856']['subfields']
             for subf in subfields:
                 if 'u' in subf:
-                    ident = subf['u']
+                    # restrict to ones that have url like
+                    # http://www.library.ucsb.edu/OBJID/Cylinder0002
+                    if 'OBJID' in subf['u']:
+                        ident = subf['u']
+
 
     if not ident:
+        logger.error('NO 856 u for doc leader:{}'.format(data['leader']))
         response.code = 500
         response.add_header('content-type', 'text/plain')
         return "No id property was found"
