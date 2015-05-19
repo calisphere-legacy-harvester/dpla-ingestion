@@ -73,6 +73,7 @@ MAPV3_SCHEMAS = {
             "ingestDate": {"type": "string", "format": "date-time"},
             "ingestType": {"type": "string", "enum": ["item"]},
             "isShownAt": {"type": "string", "format": "uri"},
+            "isShownBy": {"type": "string", "format": "uri"},
             "object": {"type": "string", "format": "uri"},
             "originalRecord": {
                 "type": "object",
@@ -101,7 +102,7 @@ MAPV3_SCHEMAS = {
                 "type": "object",
                 "required": ["@id"],
                 "properties": {
-                    "@context": {"type": ["string", "object"]},
+                    #"@context": {"type": ["string", "object"]},
                     "@id": {"type": "string", "format": "uri"},
                     "@type": {"type": "string"},
                     "_id": {"type": "string"},
