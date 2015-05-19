@@ -173,6 +173,9 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         if exists(self.provider_data_source, provider_prop):
             subject_objs = [ {'name': s } for s in getprop(self.provider_data_source, provider_prop)]
             self.update_source_resource({srcRes_prop: subject_objs })
+        if exists(self.provider_data_source, "topic_tesim"):
+            subject_objs = [ {'name': s } for s in getprop(self.provider_data_source, "topic_tesim")]
+            self.mapped_data['sourceResource'][srcRes_prop].extend(subject_objs)
 
 ### TODO:    def map_temporal(self):
 ###        pass

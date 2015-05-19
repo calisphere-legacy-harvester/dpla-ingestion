@@ -434,6 +434,10 @@
       "Camp Matthews, San Diego",
       "Test spatial"
   ],
+  "topic_tesim": [
+      "test topic 1",
+      "test topic 2"
+  ],
   "subject_tesim": [
     "University of California, San Diego--Buildings, structures, etc",
     "Camp Matthews (Calif.)--Buildings, structures, etc",

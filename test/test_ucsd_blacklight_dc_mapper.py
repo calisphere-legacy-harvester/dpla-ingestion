@@ -55,7 +55,9 @@ def test_ucsd_dc_mapping():
         {"name":"University of California, San Diego--History"},
         {"name":"La Jolla (San Diego, Calif.)--Photographs"},
         {"name":"Camp Matthews (Calif.)--Photographs"},
-        {"name":"Camp Matthews (Calif.)--History"}
+        {"name":"Camp Matthews (Calif.)--History"},
+        {"name": "test topic 1"},
+        {"name": "test topic 2"}
         ])
     TC.assertEqual(srcRes['type'], 'image')
     TC.assertEqual(obj['isShownAt'],
