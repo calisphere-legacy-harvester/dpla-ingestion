@@ -125,7 +125,11 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             self.update_source_resource({field: values})
 
     def map_description(self):
-        self.get_otherNotes_field('description')
+        descriptions = self.parse_otherNotes('description')
+        descriptions.extend(self.parse_otherNotes('thesis'))
+        descriptions.extend(self.parse_otherNotes('bibliography'))
+        if descriptions:
+            self.update_source_resource({'description':descriptions})
 
     def map_extent(self):
         self.source_resource_prop_from_provider_json_tesim('extent')

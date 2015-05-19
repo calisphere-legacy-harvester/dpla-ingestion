@@ -110,6 +110,16 @@
       "displayLabel": "Physical description"
     },
     {
+      "value": "A Thesis title",
+      "type": "thesis",
+      "displayLabel": "thesis"
+    },
+    {
+      "value": "A bibliography",
+      "type": "bibliography",
+      "displayLabel": "bibo"
+    },
+    {
       "value": "039.tif",
       "type": "identifier",
       "displayLabel": "fileName"
