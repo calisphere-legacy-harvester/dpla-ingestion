@@ -14,7 +14,7 @@ def _get_server_response(body):
     return H.request(url, "POST", body=body,
             )
 
-def test_lapl_creator():
+def test_dedupe_and_remove_blank():
     fixture = path.join(DIR_FIXTURES, 'couchdb_doc_with_dups.json')
     with open(fixture) as f:
         INPUT = f.read()
@@ -46,3 +46,6 @@ def test_lapl_creator():
                 u'http://calisphere.universityofcalifornia.edu/',
                 u'http://bancroft.berkeley.edu/']
             )
+    TC.assertNotIn("an_empty_list", new_doc['sourceResource'])
+    TC.assertNotIn("an_empty_dict", new_doc['sourceResource'])
+    TC.assertNotIn("an_empty_string", new_doc['sourceResource'])

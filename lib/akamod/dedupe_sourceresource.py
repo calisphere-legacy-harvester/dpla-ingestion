@@ -9,7 +9,7 @@ from dplaingestion.selector import getprop, setprop, exists
 @simple_service('POST', 'http://purl.org/org/cdlib/ucldc/dedupe-sourceresource',
                 'dedupe-sourceresource',
                 'application/json')
-def dedup_srcres(body, ctype):
+def dedupe_srcres(body, ctype):
     try :
         data = json.loads(body)
     except:
@@ -17,11 +17,19 @@ def dedup_srcres(body, ctype):
         response.add_header('content-type', 'text/plain')
         return "Unable to parse body as JSON"
 
-    return json.dumps(dedup_sourceresource(data))
+    doc = remove_blank_values(data)
+    return json.dumps(dedupe_sourceresource(doc))
+
+def remove_blank_values(doc):
+    '''Remove blank values from the sourceResource'''
+    for key, value in doc['sourceResource'].items():
+        if not value:
+            del doc['sourceResource'][key]
+    return doc
 
 # from harvester.post_processing.dedup_sourceresource
 # need to un-duplicate this code, but circular import?
-def dedup_sourceresource(doc):
+def dedupe_sourceresource(doc):
     ''' Look for duplicate values in the doc['sourceResource'] and 
     remove.
     Values must be *exactly* the same
