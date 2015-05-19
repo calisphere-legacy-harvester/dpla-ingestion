@@ -63,6 +63,8 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(obj['isShownBy'],
             'https://library.ucsd.edu/dc/object/bb0922726p/_2.jpg')
     TC.assertEqual(srcRes['stateLocatedIn'][0]['name'], 'California')
+    TC.assertEqual(srcRes['spatial'], [{'name': "Camp Matthews, San Diego"},
+        {"name": "Test spatial"}])
 
 def test_missing_language():
     fixture = path.join(DIR_FIXTURES,

@@ -198,8 +198,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_state_located_in(self):
         self.update_source_resource({"stateLocatedIn": [{"name": "California"}]})
 
-### TODO:    def map_spatial(self):
-###        pass
+    def map_spatial(self):
+        spatial_objs = []
+        print "PROVIDER DATA:{}".format(self.provider_data.keys())
+        for obj in self.provider_data.get('geographic_tesim', []):
+            spatial_objs.append({'name': obj})
+        print "SPATIAL_OBJS:{}".format(spatial_objs)
+        if spatial_objs:
+            self.mapped_data['sourceResource']['spatial'] = spatial_objs
+
 
 ### TODO:   def map_spec_type(self):
 ###        pass

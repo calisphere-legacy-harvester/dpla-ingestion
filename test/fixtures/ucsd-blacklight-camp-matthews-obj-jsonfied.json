@@ -430,6 +430,10 @@
   "has_model_ssim": [
     "info:fedora/afmodel:DamsObject"
   ],
+  "geographic_tesim": [
+      "Camp Matthews, San Diego",
+      "Test spatial"
+  ],
   "subject_tesim": [
     "University of California, San Diego--Buildings, structures, etc",
     "Camp Matthews (Calif.)--Buildings, structures, etc",
