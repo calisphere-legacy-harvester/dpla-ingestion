@@ -166,6 +166,11 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             values.append(obj.get('note')) if obj.get('note') else None
             values.append(obj.get('purposeNote')) if obj.get('purposeNote') else None
         self.update_source_resource({'rights':values}) if len(values) else None
+        #map rightsHolder to originalRecord rightsHolder
+        if exists(self.provider_data_source, 'rightsHolder_tesim'):
+            if not self.mapped_data['originalRecord']:
+                self.mapped_data['originalRecord'] = {}
+            self.mapped_data['originalRecord']['rightsHolder'] = self.provider_data_source['rightsHolder_tesim']
 
     def map_subject(self):
         provider_prop = 'subject_tesim'

@@ -24,6 +24,7 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
     TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['title'],
             ['Camp Matthews, Rifle range, shed, storage'])
@@ -67,6 +68,10 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['stateLocatedIn'][0]['name'], 'California')
     TC.assertEqual(srcRes['spatial'], [{'name': "Camp Matthews, San Diego"},
         {"name": "Test spatial"}])
+    TC.assertEqual(obj['originalRecord']['rightsHolder'], [
+            "DeWitt Higgs",
+            "Kathryn M. Ringrose"
+      ])
 
 def test_missing_language():
     fixture = path.join(DIR_FIXTURES,
