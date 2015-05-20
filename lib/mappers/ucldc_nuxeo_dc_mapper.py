@@ -21,4 +21,4 @@ class UCLDCNuxeoMapper(DublinCoreMapper):
 
     def map_subject(self):
         if exists(self.provider_data_source, 'dc:subjects'):
-            self.update_source_resource({'subject': self.provider_data_source.get('dc:subjects')})
+            self.update_source_resource({'subject': [{'name': s} for s in self.provider_data_source.get('dc:subjects')]})

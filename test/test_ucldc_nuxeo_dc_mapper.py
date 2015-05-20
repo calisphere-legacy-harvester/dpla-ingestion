@@ -27,5 +27,6 @@ def test_ucldc_nuxeo_mapping():
         TC.assertEqual(srcRes['title'],  "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph")
         TC.assertEqual(srcRes['creator'], 'system')
 #        TC.assertEqual(srcRes['created'], "2014-01-23T08:26:49.59Z")
-        TC.assertEqual(srcRes['subject'], [])
+        TC.assertEqual(srcRes['subject'], [{'name': 'California'},
+            {'name': 'Photographs'}, {'name': 'test subject'}])
 

@@ -30,7 +30,10 @@
     "ucldc_schema:rightsnotice": null,
     "ucldc_schema:contributor": [],
     "picture:genre": null,
-    "dc:subjects": [],
+    "dc:subjects": ["California",
+     "Photographs",
+     "test subject"
+    ],
     "ucldc_schema:date": [
       {
         "inclusiveend": "1949",
