@@ -1,0 +1,327 @@
+{
+  "type": [
+    "Archives and Manuscripts"
+  ],
+  "identifier": [
+    "http://hdl.handle.net/10575/25"
+  ],
+  "Item": {
+    "@id": "uuid-640925bd-9cdf-46be-babb-b2138c3fce9c",
+    "text": null,
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Item": [
+      {
+        "text": null,
+        "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+          {
+            "text": null,
+            "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+              {
+                "{urn:mpeg:mpeg21:2002:01-DII-NS}Identifier": [],
+                "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "urn:mpeg:mpeg21:2002:01-DII-NS http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-21_schema_files/dii/dii.xsd",
+                "text": "urn:hdl:10575/25"
+              }
+            ],
+            "@mimeType": "application/xml; charset=utf-8"
+          }
+        ]
+      },
+      {
+        "text": null,
+        "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+          {
+            "text": null,
+            "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+              {
+                "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                  {
+                    "{http://purl.org/dc/elements/1.1/}title": [],
+                    "text": "Schedule of lectures"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}creator": [],
+                    "text": "Rorty, Richard"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}subject": [],
+                    "text": "Rorty, Richard"
+                  },
+                  {
+                    "text": "Original file location on Richard Rorty's disk: MS-C017-FD032/!COLLOQU.IA",
+                    "{http://purl.org/dc/elements/1.1/}description": []
+                  },
+                  {
+                    "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access.",
+                    "{http://purl.org/dc/elements/1.1/}description": []
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}publisher": [],
+                    "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}date": [],
+                    "text": "2010-02-11T22:41:34Z"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}type": [],
+                    "text": "Archives and Manuscripts"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}format": [],
+                    "text": "application/pdf"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}identifier": [],
+                    "text": "http://hdl.handle.net/10575/25"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}language": [],
+                    "text": "en_US"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}relation": [],
+                    "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/"
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}rights": [],
+                    "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu)."
+                  },
+                  {
+                    "{http://purl.org/dc/elements/1.1/}rights": [],
+                    "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/using/virtual-reading-room-application-form.html. Access may be granted in less than 5 business days."
+                  }
+                ],
+                "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+                "text": null
+              }
+            ],
+            "@mimeType": "application/xml; charset=utf-8"
+          }
+        ]
+      },
+      {
+        "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+          {
+            "text": null,
+            "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+            "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/25/1/!COLLOQU.IA.pdf",
+            "@mimeType": "application/pdf"
+          }
+        ],
+        "@id": "uuid-897984d8-9392-4a68-912f-ffdf6fd7ce59",
+        "text": null
+      }
+    ]
+  },
+  "created": [
+    "2015-05-20T20:30:26Z"
+  ],
+  "Component": {
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+      {
+        "text": null,
+        "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+        "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/25/1/!COLLOQU.IA.pdf",
+        "@mimeType": "application/pdf"
+      }
+    ],
+    "@id": "uuid-897984d8-9392-4a68-912f-ffdf6fd7ce59",
+    "text": null
+  },
+  "title": [
+    "Schedule of lectures"
+  ],
+  "rights": [
+    "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu).",
+    "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/using/virtual-reading-room-application-form.html. Access may be granted in less than 5 business days."
+  ],
+  "relation": [
+    "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/"
+  ],
+  "creator": [
+    "Rorty, Richard"
+  ],
+  "Descriptor": {
+    "text": null,
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+      {
+        "text": null,
+        "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+          {
+            "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+              {
+                "{http://purl.org/dc/elements/1.1/}title": [],
+                "text": "Schedule of lectures"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}creator": [],
+                "text": "Rorty, Richard"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}subject": [],
+                "text": "Rorty, Richard"
+              },
+              {
+                "text": "Original file location on Richard Rorty's disk: MS-C017-FD032/!COLLOQU.IA",
+                "{http://purl.org/dc/elements/1.1/}description": []
+              },
+              {
+                "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access.",
+                "{http://purl.org/dc/elements/1.1/}description": []
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}publisher": [],
+                "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}date": [],
+                "text": "2010-02-11T22:41:34Z"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}type": [],
+                "text": "Archives and Manuscripts"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}format": [],
+                "text": "application/pdf"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}identifier": [],
+                "text": "http://hdl.handle.net/10575/25"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}language": [],
+                "text": "en_US"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}relation": [],
+                "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/"
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}rights": [],
+                "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu)."
+              },
+              {
+                "{http://purl.org/dc/elements/1.1/}rights": [],
+                "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/using/virtual-reading-room-application-form.html. Access may be granted in less than 5 business days."
+              }
+            ],
+            "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+            "text": null
+          }
+        ],
+        "@mimeType": "application/xml; charset=utf-8"
+      }
+    ]
+  },
+  "dc": [
+    null
+  ],
+  "format": [
+    "application/pdf"
+  ],
+  "description": [
+    "Original file location on Richard Rorty's disk: MS-C017-FD032/!COLLOQU.IA",
+    "File transferred from Richard Rorty's original floppy disk and converted to PDF for access."
+  ],
+  "Resource": {
+    "text": null,
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+    "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/25/1/!COLLOQU.IA.pdf",
+    "@mimeType": "application/pdf"
+  },
+  "datestamp": "2015-05-20T11:04:23Z",
+  "Statement": {
+    "text": null,
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+      {
+        "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+          {
+            "{http://purl.org/dc/elements/1.1/}title": [],
+            "text": "Schedule of lectures"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}creator": [],
+            "text": "Rorty, Richard"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}subject": [],
+            "text": "Rorty, Richard"
+          },
+          {
+            "text": "Original file location on Richard Rorty's disk: MS-C017-FD032/!COLLOQU.IA",
+            "{http://purl.org/dc/elements/1.1/}description": []
+          },
+          {
+            "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access.",
+            "{http://purl.org/dc/elements/1.1/}description": []
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}publisher": [],
+            "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}date": [],
+            "text": "2010-02-11T22:41:34Z"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}type": [],
+            "text": "Archives and Manuscripts"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}format": [],
+            "text": "application/pdf"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}identifier": [],
+            "text": "http://hdl.handle.net/10575/25"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}language": [],
+            "text": "en_US"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}relation": [],
+            "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/"
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}rights": [],
+            "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu)."
+          },
+          {
+            "{http://purl.org/dc/elements/1.1/}rights": [],
+            "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/using/virtual-reading-room-application-form.html. Access may be granted in less than 5 business days."
+          }
+        ],
+        "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+        "text": null
+      }
+    ],
+    "@mimeType": "application/xml; charset=utf-8"
+  },
+  "date": [
+    "2010-02-11T22:41:34Z"
+  ],
+  "DIDLInfo": {
+    "text": null,
+    "{urn:mpeg:mpeg21:2002:02-DIDL-NS}DIDLInfo": [
+      {
+        "{http://purl.org/dc/terms/}created": [],
+        "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://purl.org/dc/terms/ ",
+        "text": "2015-05-20T20:30:26Z"
+      }
+    ]
+  },
+  "Identifier": [
+    "urn:hdl:10575/25"
+  ],
+  "id": "oai:ucispace-prod.lib.uci.edu:10575/25",
+  "subject": [
+    "Rorty, Richard"
+  ],
+  "publisher": [
+    "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu"
+  ],
+  "language": [
+    "en_US"
+  ]
+}
