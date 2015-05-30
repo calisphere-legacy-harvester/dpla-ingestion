@@ -25,8 +25,15 @@ def test_ucldc_nuxeo_mapping():
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertEqual(srcRes['title'],  "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph")
-        TC.assertEqual(srcRes['creator'], 'system')
-#        TC.assertEqual(srcRes['created'], "2014-01-23T08:26:49.59Z")
-        TC.assertEqual(srcRes['subject'], [{'name': 'California'},
-            {'name': 'Photographs'}, {'name': 'test subject'}])
+        TC.assertEqual(srcRes['rights'], "copyrighted")
+        TC.assertEqual(srcRes['alternativeTitle'], [])
+        TC.assertEqual(srcRes['contributor'], [])
+        TC.assertEqual(srcRes['creator'], ["Cochems, Edward W. (Edward William), 1874-1949"])
+        TC.assertEqual(srcRes['date'], [{'date': '1919 - 1949'}])
+        TC.assertEqual(srcRes['description'], "First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model")
+        TC.assertIn('extent', srcRes)
+        TC.assertEqual(srcRes['format'], "Photographic print")
+        TC.assertEqual(srcRes['genre'], [])
+        TC.assertEqual(srcRes['identifier'], ["633"])
+        TC.assertEqual(srcRes['language'], [])
 
