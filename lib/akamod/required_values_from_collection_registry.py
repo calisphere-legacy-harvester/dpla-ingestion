@@ -104,4 +104,7 @@ def required_values_from_collection_registry(body, ctype, field, mode):
         data = set_rights_from_collection(data, mode)
     elif field == 'type':
         data = set_type_from_collection(data, mode)
+    #ensure "@context" is there
+    if not exists(data, "@context"):
+        data["@context"] = "http://dp.la/api/items/context"
     return json.dumps(data)
