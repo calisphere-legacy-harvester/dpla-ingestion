@@ -9,7 +9,7 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=ucldc_nuxeo_dc"
+    url = server() + "dpla_mapper?mapper_type=ucldc_nuxeo"
     return H.request(url, "POST", body=body)
 
 def test_ucldc_nuxeo_mapping():
