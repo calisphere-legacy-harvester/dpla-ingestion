@@ -19,7 +19,8 @@ class UCLDCNuxeoMapper(Mapper):
         self.map_genre()
 
     def map_original_record(self):
-        if 'originalRecord' not in self.mapped_data:
+        super(UCLDCNuxeoMapper, self).map_original_record()
+        if not self.mapped_data['originalRecord']: #during testing, this is None
             self.mapped_data['originalRecord'] = {}
         self.map_source()
         self.map_provenance()
