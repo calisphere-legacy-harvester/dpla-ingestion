@@ -111,6 +111,7 @@ def create_mapper(mapper_type, data):
         'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
         'sfpl_marc':    lambda d: _create_sfpl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
+        'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucldc_nuxeo': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucsd_blacklight_dc': lambda d: _create_ucsd_blacklight_dc_mapper(d),
         'oac_dc':       lambda d: _create_oac_dc_mapper(d),
