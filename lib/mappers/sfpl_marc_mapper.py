@@ -21,6 +21,9 @@ class SFPLMARCMapper(PyMARCMapper):
 
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
-        if tag == '856':
-            url = self._get_values(_dict, codes)[0]
-            self.mapped_data[prop] = url
+        # Take first one listed
+        if not self.mapped_data.get(prop, None):
+            # not yet set
+            if tag == '856':
+                url = self._get_values(_dict, codes)[0]
+                self.mapped_data[prop] = url
