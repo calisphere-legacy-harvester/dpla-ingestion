@@ -13,13 +13,13 @@ def _get_server_response(body):
     return H.request(url, "POST", body=body)
 
 def test_uci_object_urls():
-    fixture = path.join(DIR_FIXTURES, 'uci-didl-oai.json')
+    fixture = path.join(DIR_FIXTURES, 'uci-oai-enriched-once.json')
     with open(fixture) as f:
         INPUT = f.read()
         resp, content = _get_server_response(INPUT)
         print resp.status
         assert resp.status == 200
         obj = json.loads(content)
-        TC.assertEqual(obj['isShownAt'], "http://hdl.handle.net/10575/25")
+        TC.assertEqual(obj['isShownAt'], "http://hdl.handle.net/10575/11971")
         TC.assertEqual(obj['isShownBy'],
-                "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/25/1/!COLLOQU.IA.pdf")
+                "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/3/VAOHP0138_F01_Viet.pdf")

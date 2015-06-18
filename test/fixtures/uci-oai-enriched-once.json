@@ -1,0 +1,847 @@
+{
+  "id": "8837bcd7b30795280dec9d29012b4401",
+  "_id": "26129--oai:ucispace-prod.lib.uci.edu:10575/11971",
+  "@id": "http://dp.la/api/items/8837bcd7b30795280dec9d29012b4401",
+  "ingestDate": "2015-06-18T00:03:41.207043Z",
+  "sourceResource": {
+    "subject": [
+      {
+        "name": "Acculturation"
+      },
+      {
+        "name": "Army of the Republic of Vietnam (ARVN)"
+      },
+      {
+        "name": "Boat People"
+      },
+      {
+        "name": "Communism"
+      },
+      {
+        "name": "Education"
+      },
+      {
+        "name": "Healthcare"
+      },
+      {
+        "name": "Higher education"
+      },
+      {
+        "name": "Marriage"
+      },
+      {
+        "name": "Medical professional"
+      },
+      {
+        "name": "Refugee camp (Philippines)"
+      },
+      {
+        "name": "Religion"
+      },
+      {
+        "name": "Sponsors or sponsorship"
+      },
+      {
+        "name": "Tradition or custom"
+      },
+      {
+        "name": "Little Saigon (Orange County, California)"
+      },
+      {
+        "name": "Vietnam, Northern"
+      },
+      {
+        "name": "Vietnam, Southern"
+      }
+    ],
+    "type": "sound",
+    "identifier": [
+      "http://hdl.handle.net/10575/11971"
+    ],
+    "format": "01:00:00",
+    "creator": [
+      "Nguyen, William"
+    ],
+    "stateLocatedIn": [
+      {
+        "name": "California"
+      }
+    ],
+    "date": [
+      "2015-02-26"
+    ],
+    "description": [
+      "An oral history with Mr. William Nguyen, born in 1952 in Ha Noi, Vietnam. He was a young medical student before April 30, 1975. After the collapse of South Vietnam, he left his family behind to flee Vietnam by boat. He discusses the troubling times during which he had to move from Ha Noi to Saigon to flee from the communist regime. In addition, he discussed his medical school experiences in Saigon. He shared memories of migration to the Americas and his time in Canada to continue his education. After coming to the United States, he became a family-practice pathologist. He explains his involvement in a medical clinic organization called MEMO in which health fairs for the community is organized to maintain community health. He has two children and lives in Anaheim Hills, California with his wife.",
+      "Recorded Digitally"
+    ],
+    "language": [
+      {
+        "name": "English",
+        "iso639_3": "eng"
+      },
+      {
+        "name": "Vietnamese",
+        "iso639_3": "vie"
+      }
+    ],
+    "title": [
+      "Oral History of William Nguyen"
+    ],
+    "temporal": [
+      {
+        "displayDate": "1950-1959",
+        "end": "1959",
+        "begin": "1950"
+      }
+    ],
+    "rights": "copyrighted",
+    "collection": [
+      {
+        "resource_uri": "/api/v1/collection/26129/",
+        "title": "Community Interviewers",
+        "local_id": "community-interviewers",
+        "staging_notes": "",
+        "rights_statement": "",
+        "name": "Community Interviewers",
+        "url_local": "http://ucispace.lib.uci.edu/handle/10575/11946",
+        "enrichments_item": "/select-id?prop=id,\r\n/oai-to-dpla,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/uci-object-urls,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "harvest_extra_data": "set=hdl_10575_11946&metadataPrefix=didl",
+        "slug": "community-interviewers",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26129",
+        "rights_status": "CR",
+        "extent": null,
+        "metadata_in_dams": false,
+        "url_oac": "",
+        "id": "26129",
+        "hosted": "",
+        "ready_for_publication": false,
+        "featured": false,
+        "qa_completed": false,
+        "dcmi_type": "X",
+        "url_harvest": "http://ucispace-prod.lib.uci.edu:8080/oai/request",
+        "campus": [
+          {
+            "resource_uri": "/api/v1/campus/3/",
+            "google_analytics_tracking_code": "",
+            "slug": "UCI",
+            "@id": "https://registry.cdlib.org/api/v1/campus/3/",
+            "ark": "ark:/13030/tf3f59p4sv",
+            "position": 2,
+            "name": "UC Irvine"
+          }
+        ],
+        "files_in_dams": false,
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description": "",
+        "repository": [
+          {
+            "resource_uri": "/api/v1/repository/15/",
+            "google_analytics_tracking_code": "",
+            "slug": "southeast-asian-archive",
+            "@id": "https://registry.cdlib.org/api/v1/repository/15/",
+            "ark": "ark:/13030/tf529010fv",
+            "campus": [
+              {
+                "resource_uri": "/api/v1/campus/3/",
+                "google_analytics_tracking_code": "",
+                "slug": "UCI",
+                "ark": "ark:/13030/tf3f59p4sv",
+                "position": 2,
+                "name": "UC Irvine"
+              }
+            ],
+            "name": "Southeast Asian Archive"
+          }
+        ],
+        "harvest_type": "OAI"
+      }
+    ],
+    "contributor": [
+      "Doan, Giang"
+    ]
+  },
+  "@context": {
+    "LCSH": "http://id.loc.gov/authorities/subjects",
+    "provider": "edm:provider",
+    "originalRecord": "dpla:originalRecord",
+    "collection": "dpla:aggregation",
+    "dpla": "http://dp.la/terms/",
+    "object": "edm:object",
+    "sourceResource": "edm:sourceResource",
+    "name": "xsd:string",
+    "hasView": "edm:hasView",
+    "@vocab": "http://purl.org/dc/terms/",
+    "begin": {
+      "@type": "xsd:date",
+      "@id": "dpla:dateRangeStart"
+    },
+    "edm": "http://www.europeana.eu/schemas/edm/",
+    "state": "dpla:state",
+    "aggregatedDigitalResource": "dpla:aggregatedDigitalResource",
+    "coordinates": "dpla:coordinates",
+    "isShownAt": "edm:isShownAt",
+    "stateLocatedIn": "dpla:stateLocatedIn",
+    "end": {
+      "@type": "xsd:date",
+      "@id": "dpla:dateRangeEnd"
+    },
+    "dataProvider": "edm:dataProvider"
+  },
+  "ingestType": "item",
+  "dataProvider": [
+    {
+      "resource_uri": "/api/v1/collection/26129/",
+      "title": "Community Interviewers",
+      "local_id": "community-interviewers",
+      "staging_notes": "",
+      "rights_statement": "",
+      "name": "Community Interviewers",
+      "url_local": "http://ucispace.lib.uci.edu/handle/10575/11946",
+      "enrichments_item": "/select-id?prop=id,\r\n/oai-to-dpla,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/uci-object-urls,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+      "harvest_extra_data": "set=hdl_10575_11946&metadataPrefix=didl",
+      "slug": "community-interviewers",
+      "@id": "https://registry.cdlib.org/api/v1/collection/26129",
+      "rights_status": "CR",
+      "extent": null,
+      "metadata_in_dams": false,
+      "url_oac": "",
+      "id": "26129",
+      "hosted": "",
+      "ready_for_publication": false,
+      "featured": false,
+      "qa_completed": false,
+      "dcmi_type": "X",
+      "url_harvest": "http://ucispace-prod.lib.uci.edu:8080/oai/request",
+      "campus": [
+        {
+          "resource_uri": "/api/v1/campus/3/",
+          "google_analytics_tracking_code": "",
+          "slug": "UCI",
+          "@id": "https://registry.cdlib.org/api/v1/campus/3/",
+          "ark": "ark:/13030/tf3f59p4sv",
+          "position": 2,
+          "name": "UC Irvine"
+        }
+      ],
+      "files_in_dams": false,
+      "files_in_hand": false,
+      "ingestType": "collection",
+      "description": "",
+      "repository": [
+        {
+          "resource_uri": "/api/v1/repository/15/",
+          "google_analytics_tracking_code": "",
+          "slug": "southeast-asian-archive",
+          "@id": "https://registry.cdlib.org/api/v1/repository/15/",
+          "ark": "ark:/13030/tf529010fv",
+          "campus": [
+            {
+              "resource_uri": "/api/v1/campus/3/",
+              "google_analytics_tracking_code": "",
+              "slug": "UCI",
+              "ark": "ark:/13030/tf3f59p4sv",
+              "position": 2,
+              "name": "UC Irvine"
+            }
+          ],
+          "name": "Southeast Asian Archive"
+        }
+      ],
+      "harvest_type": "OAI"
+    }
+  ],
+  "originalRecord": {
+    "identifier": [
+      "http://hdl.handle.net/10575/11971"
+    ],
+    "created": [
+      "2015-06-18T00:03:38Z"
+    ],
+    "Item": {
+      "@id": "uuid-b75da239-8d70-45ee-80ae-df3996bed392",
+      "text": null,
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Item": [
+        {
+          "text": null,
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+            {
+              "text": null,
+              "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+                {
+                  "{urn:mpeg:mpeg21:2002:01-DII-NS}Identifier": [],
+                  "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "urn:mpeg:mpeg21:2002:01-DII-NS http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-21_schema_files/dii/dii.xsd",
+                  "text": "urn:hdl:10575/11971"
+                }
+              ],
+              "@mimeType": "application/xml; charset=utf-8"
+            }
+          ]
+        },
+        {
+          "text": null,
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+            {
+              "text": null,
+              "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+                {
+                  "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                    {
+                      "{http://purl.org/dc/elements/1.1/}title": [],
+                      "text": "Oral History of William Nguyen"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}creator": [],
+                      "text": "Nguyen, William"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Acculturation"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Army of the Republic of Vietnam (ARVN)"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Boat People"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Communism"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Education"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Healthcare"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Higher education"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Marriage"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Medical professional"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Refugee camp (Philippines)"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Religion"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Sponsors or sponsorship"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Tradition or custom"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Little Saigon (Orange County, California)"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Vietnam, Northern"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}subject": [],
+                      "text": "Vietnam, Southern"
+                    },
+                    {
+                      "text": "An oral history with Mr. William Nguyen, born in 1952 in Ha Noi, Vietnam. He was a young medical student before April 30, 1975. After the collapse of South Vietnam, he left his family behind to flee Vietnam by boat. He discusses the troubling times during which he had to move from Ha Noi to Saigon to flee from the communist regime. In addition, he discussed his medical school experiences in Saigon. He shared memories of migration to the Americas and his time in Canada to continue his education. After coming to the United States, he became a family-practice pathologist. He explains his involvement in a medical clinic organization called MEMO in which health fairs for the community is organized to maintain community health. He has two children and lives in Anaheim Hills, California with his wife.",
+                      "{http://purl.org/dc/elements/1.1/}description": []
+                    },
+                    {
+                      "text": "Recorded Digitally",
+                      "{http://purl.org/dc/elements/1.1/}description": []
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}contributor": [],
+                      "text": "Doan, Giang"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}date": [],
+                      "text": "2015-02-26"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}type": [],
+                      "text": "Sound"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}format": [],
+                      "text": "01:00:00"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}identifier": [],
+                      "text": "http://hdl.handle.net/10575/11971"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}language": [],
+                      "text": "English"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}language": [],
+                      "text": "Vietnamese"
+                    },
+                    {
+                      "{http://purl.org/dc/elements/1.1/}coverage": [],
+                      "text": "1950-1959"
+                    }
+                  ],
+                  "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+                  "text": null
+                }
+              ],
+              "@mimeType": "application/xml; charset=utf-8"
+            }
+          ]
+        },
+        {
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+            {
+              "text": null,
+              "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+              "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/1/VAOHP0138_T01.mp3",
+              "@mimeType": "audio/mpeg"
+            }
+          ],
+          "@id": "uuid-40a6463e-fb1f-49d2-a946-c0916ba5968f",
+          "text": null
+        },
+        {
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+            {
+              "text": null,
+              "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+              "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/2/VAOHP0138_F01_Eng.pdf",
+              "@mimeType": "application/pdf"
+            }
+          ],
+          "@id": "uuid-3822293c-f5ad-4828-a52d-f246bf8767aa",
+          "text": null
+        },
+        {
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+            {
+              "text": null,
+              "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+              "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/3/VAOHP0138_F01_Viet.pdf",
+              "@mimeType": "application/pdf"
+            }
+          ],
+          "@id": "uuid-d4a03d5d-26b5-4046-bc55-e513f4d3189a",
+          "text": null
+        }
+      ]
+    },
+    "language": [
+      "English",
+      "Vietnamese"
+    ],
+    "Identifier": [
+      "urn:hdl:10575/11971"
+    ],
+    "date": [
+      "2015-02-26"
+    ],
+    "coverage": [
+      "1950-1959"
+    ],
+    "title": [
+      "Oral History of William Nguyen"
+    ],
+    "subject": [
+      "Acculturation",
+      "Army of the Republic of Vietnam (ARVN)",
+      "Boat People",
+      "Communism",
+      "Education",
+      "Healthcare",
+      "Higher education",
+      "Marriage",
+      "Medical professional",
+      "Refugee camp (Philippines)",
+      "Religion",
+      "Sponsors or sponsorship",
+      "Tradition or custom",
+      "Little Saigon (Orange County, California)",
+      "Vietnam, Northern",
+      "Vietnam, Southern"
+    ],
+    "id": "oai:ucispace-prod.lib.uci.edu:10575/11971",
+    "DIDLInfo": {
+      "text": null,
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}DIDLInfo": [
+        {
+          "{http://purl.org/dc/terms/}created": [],
+          "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://purl.org/dc/terms/ ",
+          "text": "2015-06-18T00:03:38Z"
+        }
+      ]
+    },
+    "datestamp": "2015-06-17T11:03:48Z",
+    "Statement": {
+      "text": null,
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+        {
+          "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+            {
+              "{http://purl.org/dc/elements/1.1/}title": [],
+              "text": "Oral History of William Nguyen"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}creator": [],
+              "text": "Nguyen, William"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Acculturation"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Army of the Republic of Vietnam (ARVN)"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Boat People"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Communism"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Education"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Healthcare"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Higher education"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Marriage"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Medical professional"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Refugee camp (Philippines)"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Religion"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Sponsors or sponsorship"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Tradition or custom"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Little Saigon (Orange County, California)"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Vietnam, Northern"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}subject": [],
+              "text": "Vietnam, Southern"
+            },
+            {
+              "text": "An oral history with Mr. William Nguyen, born in 1952 in Ha Noi, Vietnam. He was a young medical student before April 30, 1975. After the collapse of South Vietnam, he left his family behind to flee Vietnam by boat. He discusses the troubling times during which he had to move from Ha Noi to Saigon to flee from the communist regime. In addition, he discussed his medical school experiences in Saigon. He shared memories of migration to the Americas and his time in Canada to continue his education. After coming to the United States, he became a family-practice pathologist. He explains his involvement in a medical clinic organization called MEMO in which health fairs for the community is organized to maintain community health. He has two children and lives in Anaheim Hills, California with his wife.",
+              "{http://purl.org/dc/elements/1.1/}description": []
+            },
+            {
+              "text": "Recorded Digitally",
+              "{http://purl.org/dc/elements/1.1/}description": []
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}contributor": [],
+              "text": "Doan, Giang"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}date": [],
+              "text": "2015-02-26"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}type": [],
+              "text": "Sound"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}format": [],
+              "text": "01:00:00"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}identifier": [],
+              "text": "http://hdl.handle.net/10575/11971"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}language": [],
+              "text": "English"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}language": [],
+              "text": "Vietnamese"
+            },
+            {
+              "{http://purl.org/dc/elements/1.1/}coverage": [],
+              "text": "1950-1959"
+            }
+          ],
+          "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+          "text": null
+        }
+      ],
+      "@mimeType": "application/xml; charset=utf-8"
+    },
+    "contributor": [
+      "Doan, Giang"
+    ],
+    "creator": [
+      "Nguyen, William"
+    ],
+    "Component": {
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+        {
+          "text": null,
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+          "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/3/VAOHP0138_F01_Viet.pdf",
+          "@mimeType": "application/pdf"
+        }
+      ],
+      "@id": "uuid-d4a03d5d-26b5-4046-bc55-e513f4d3189a",
+      "text": null
+    },
+    "type": [
+      "Sound"
+    ],
+    "Resource": {
+      "text": null,
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [],
+      "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/11971/3/VAOHP0138_F01_Viet.pdf",
+      "@mimeType": "application/pdf"
+    },
+    "description": [
+      "An oral history with Mr. William Nguyen, born in 1952 in Ha Noi, Vietnam. He was a young medical student before April 30, 1975. After the collapse of South Vietnam, he left his family behind to flee Vietnam by boat. He discusses the troubling times during which he had to move from Ha Noi to Saigon to flee from the communist regime. In addition, he discussed his medical school experiences in Saigon. He shared memories of migration to the Americas and his time in Canada to continue his education. After coming to the United States, he became a family-practice pathologist. He explains his involvement in a medical clinic organization called MEMO in which health fairs for the community is organized to maintain community health. He has two children and lives in Anaheim Hills, California with his wife.",
+      "Recorded Digitally"
+    ],
+    "format": [
+      "01:00:00"
+    ],
+    "dc": [
+      null
+    ],
+    "collection": [
+      {
+        "resource_uri": "/api/v1/collection/26129/",
+        "title": "Community Interviewers",
+        "local_id": "community-interviewers",
+        "staging_notes": "",
+        "rights_statement": "",
+        "name": "Community Interviewers",
+        "url_local": "http://ucispace.lib.uci.edu/handle/10575/11946",
+        "enrichments_item": "/select-id?prop=id,\r\n/oai-to-dpla,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/uci-object-urls,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "harvest_extra_data": "set=hdl_10575_11946&metadataPrefix=didl",
+        "slug": "community-interviewers",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26129",
+        "rights_status": "CR",
+        "extent": null,
+        "metadata_in_dams": false,
+        "url_oac": "",
+        "id": "26129",
+        "hosted": "",
+        "ready_for_publication": false,
+        "featured": false,
+        "qa_completed": false,
+        "dcmi_type": "X",
+        "url_harvest": "http://ucispace-prod.lib.uci.edu:8080/oai/request",
+        "campus": [
+          {
+            "resource_uri": "/api/v1/campus/3/",
+            "google_analytics_tracking_code": "",
+            "slug": "UCI",
+            "@id": "https://registry.cdlib.org/api/v1/campus/3/",
+            "ark": "ark:/13030/tf3f59p4sv",
+            "position": 2,
+            "name": "UC Irvine"
+          }
+        ],
+        "files_in_dams": false,
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description": "",
+        "repository": [
+          {
+            "resource_uri": "/api/v1/repository/15/",
+            "google_analytics_tracking_code": "",
+            "slug": "southeast-asian-archive",
+            "@id": "https://registry.cdlib.org/api/v1/repository/15/",
+            "ark": "ark:/13030/tf529010fv",
+            "campus": [
+              {
+                "resource_uri": "/api/v1/campus/3/",
+                "google_analytics_tracking_code": "",
+                "slug": "UCI",
+                "ark": "ark:/13030/tf3f59p4sv",
+                "position": 2,
+                "name": "UC Irvine"
+              }
+            ],
+            "name": "Southeast Asian Archive"
+          }
+        ],
+        "harvest_type": "OAI"
+      }
+    ],
+    "Descriptor": {
+      "text": null,
+      "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+        {
+          "text": null,
+          "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+            {
+              "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                {
+                  "{http://purl.org/dc/elements/1.1/}title": [],
+                  "text": "Oral History of William Nguyen"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}creator": [],
+                  "text": "Nguyen, William"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Acculturation"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Army of the Republic of Vietnam (ARVN)"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Boat People"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Communism"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Education"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Healthcare"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Higher education"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Marriage"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Medical professional"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Refugee camp (Philippines)"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Religion"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Sponsors or sponsorship"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Tradition or custom"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Little Saigon (Orange County, California)"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Vietnam, Northern"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}subject": [],
+                  "text": "Vietnam, Southern"
+                },
+                {
+                  "text": "An oral history with Mr. William Nguyen, born in 1952 in Ha Noi, Vietnam. He was a young medical student before April 30, 1975. After the collapse of South Vietnam, he left his family behind to flee Vietnam by boat. He discusses the troubling times during which he had to move from Ha Noi to Saigon to flee from the communist regime. In addition, he discussed his medical school experiences in Saigon. He shared memories of migration to the Americas and his time in Canada to continue his education. After coming to the United States, he became a family-practice pathologist. He explains his involvement in a medical clinic organization called MEMO in which health fairs for the community is organized to maintain community health. He has two children and lives in Anaheim Hills, California with his wife.",
+                  "{http://purl.org/dc/elements/1.1/}description": []
+                },
+                {
+                  "text": "Recorded Digitally",
+                  "{http://purl.org/dc/elements/1.1/}description": []
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}contributor": [],
+                  "text": "Doan, Giang"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}date": [],
+                  "text": "2015-02-26"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}type": [],
+                  "text": "Sound"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}format": [],
+                  "text": "01:00:00"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}identifier": [],
+                  "text": "http://hdl.handle.net/10575/11971"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}language": [],
+                  "text": "English"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}language": [],
+                  "text": "Vietnamese"
+                },
+                {
+                  "{http://purl.org/dc/elements/1.1/}coverage": [],
+                  "text": "1950-1959"
+                }
+              ],
+              "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+              "text": null
+            }
+          ],
+          "@mimeType": "application/xml; charset=utf-8"
+        }
+      ]
+    }
+  }
+}
