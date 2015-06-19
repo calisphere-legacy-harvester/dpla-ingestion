@@ -54,25 +54,36 @@
                           }
                       }
                       exports['emit_handler'] = emit_handler;
-                      function emit_paths_values(doc, paths, date) {
+                      function emit_path_value(doc, path, date) {
                           if (doc.ingestType != 'item') {
                               return;
                           }
                           var provider = doc._id.split('--').shift();
-                          var properties = [];
-                          for (i=0; i < paths.length; i++) {
-                            var property = value_by_path(doc, paths[i]);
-                            if (property) {
-                                properties.push(property)
-                            } else {
-                                properties.push('__MISSING__')
+                          var property = value_by_path(doc, path);
+                          if (property) {
+                              if (property.constructor.toString().indexOf('Array') == -1) {
+                                  property = new Array(property);
+                              }
+                              for (i = 0; i < property.length; i++) {
+                                  if (date) {
+                                      emit(
+                                           [
+                                            property[i].displayDate + ' (' +
+                                                property[i].begin + ' to ' +
+                                                property[i].end + ')',
+                                            doc['_id']
+                                           ],
+                                           1
+                                      );
+                                  } else {
+                                      emit([property[i], provider, doc['_id']], 1);
+                                  }
+                              }
+                          } else {
+                              emit(['__MISSING__', provider, doc['_id']], 1);
                           }
-                        }
-
-                        emit([properties, provider, doc['_id']], 1);
                       }
-                      exports['emit_paths_values'] = emit_paths_values;
-                      "
+                      exports['emit_path_value'] = emit_path_value;"
         },
         "sourceResource.specType": {
             "map": "function(doc) {
@@ -127,13 +138,6 @@
             "map": "function(doc) {
                         var emitr = require('views/lib/utils').emit_path_value;
                         emitr(doc, 'isShownBy', false);
-                    }",
-            "reduce": "_count"
-        },
-        "isShownBy_and_type_value": {
-            "map": "function(doc) {
-                        var emitr = require('views/lib/utils').emit_paths_value;
-                        emitr(doc, ['isShownBy', 'sourceResource/type'], false);
                     }",
             "reduce": "_count"
         },
