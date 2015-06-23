@@ -47,6 +47,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['subject'],  [
         {'name': u'Japanese Americans'},
         {'name': u'Uchida'}])
+    TC.assertEqual(srcRes['date'], ["7/21/42", "7/21/72"])
 
 def test_oac_isShownBy():
     '''Test that the isShownBy is correctly grabbed from 

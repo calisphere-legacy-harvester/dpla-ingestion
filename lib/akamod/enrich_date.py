@@ -275,7 +275,7 @@ def convert_dates(data, prop, earliest):
         dates = []
         if exists(data, p):
             v = getprop(data, p)
-            if not isinstance(v, dict):
+            if not isinstance(v, dict) and len(v):
                 if is_year_range_list(v):
                     dates.append( {
                         "begin": v[0],
@@ -307,11 +307,12 @@ def convert_dates(data, prop, earliest):
             dates.sort(key=lambda d: d["begin"] if d["begin"] is not None
                                                 else DEFAULT_DATETIME_STR)
             if dates:
-                if earliest:
-                    value_to_set = dates[0]
-                else:
-                    value_to_set = dates
-                setprop(data, p, value_to_set)
+###                if earliest:
+###                    value_to_set = dates[0]
+###                else:
+###                    value_to_set = dates
+###                setprop(data, p, value_to_set)
+                setprop(data, p, dates)
             else:
                 delprop(data, p)
 
