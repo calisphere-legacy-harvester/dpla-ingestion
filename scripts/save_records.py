@@ -98,10 +98,10 @@ def main(argv):
             total_collections += len(docs) - items
             print "Saved %s documents" % (total_items + total_collections)
 
-            if total_items > sync_point:
-                print "Syncing views"
-                couch.sync_views(couch.dpla_db.name)
-                sync_point = total_items + 10000
+            #if total_items > sync_point:
+            #    print "Syncing views"
+            #    couch.sync_views(couch.dpla_db.name)
+            #    sync_point = total_items + 10000
 
             # Set docs for the next iteration
             docs = file_docs
