@@ -118,8 +118,8 @@ def main(argv):
             total_items += items
             total_collections += len(docs) - items
             print "Saved %s documents" % (total_items + total_collections)
-            print "Syncing views"
-            couch.sync_views(couch.dpla_db.name)
+            #print "Syncing views"
+            #couch.sync_views(couch.dpla_db.name)
 
     print "Total items: %s" % total_items
     print "Total collections: %s" % total_collections
