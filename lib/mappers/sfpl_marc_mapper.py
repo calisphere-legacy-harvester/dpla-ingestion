@@ -1,5 +1,6 @@
 from dplaingestion.selector import setprop
 from dplaingestion.mappers.marc_mapper import PyMARCMapper
+from akara import logger
 
 class SFPLMARCMapper(PyMARCMapper):                                                       
     def __init__(self, provider_data):
@@ -22,8 +23,10 @@ class SFPLMARCMapper(PyMARCMapper):
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
         # Take first one listed
-        if not self.mapped_data.get(prop, None):
+#        logger.error('CURRENT IS SHOWNBY:{}'.format(self.mapped_data.get(prop, None)))
+        if not self.mapped_data.get(prop, None) or ("webbie" not in self.mapped_data.get(prop, None)):
             # not yet set
             if tag == '856':
                 url = self._get_values(_dict, codes)[0]
+                logger.error('SETTING IS SHOWNBY:{}'.format(url))
                 self.mapped_data[prop] = url
