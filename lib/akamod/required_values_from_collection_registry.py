@@ -1,7 +1,7 @@
 from amara.thirdparty import json
 from akara.services import simple_service
 from akara import request, response
-#from akara import logger
+from akara import logger
 from dplaingestion.selector import getprop, setprop, exists
 
 
@@ -30,10 +30,11 @@ RIGHTS_STATEMENT_DEFAULT = 'Please contact the contributing institution for more
 def get_collection(data):
     return getprop(data,'originalRecord/collection')[0]
 
-def set_field_from_value_mode(data, field, mode, value):
+def set_field_from_value_mode(data, field, mode, value, multivalue=True):
     '''Set the value for the data "field" from data in collection
     ckey field with the value passed in.
     '''
+    logger.error('Field:{} mode:{} value:{} mv:{}'.format(field, mode, value, multivalue))
     if value: #no value don't bother
         if mode=='overwrite':
             setprop(data, field, value)
@@ -51,7 +52,9 @@ def set_field_from_value_mode(data, field, mode, value):
                 new_value.append(value)
             setprop(data, field, new_value)
         else: # fill blanks
-            if not exists(data, field):
+            if not exists(data, field) or not getprop(data, field, keyErrorAsNone=True):
+                if multivalue and not isinstance(value, list):
+                    value = [value]
                 setprop(data, field, value)
     return data
 
@@ -77,8 +80,13 @@ def set_type_from_collection(data, mode):
     type_code = collection['dcmi_type']
     dcmi = DCMI_TYPES.get(type_code, None)
     data = set_field_from_value_mode(data, 'sourceResource/type', mode,
-            dcmi)
+            dcmi, multivalue=False)
     return data
+
+def set_title_if_missing(data):
+    data_new = set_field_from_value_mode(data, 'sourceResource/title', 'fill',
+            '(Untitled)')
+    return data_new
 
 @simple_service('POST',
     'http://purl.org/org/cdlib/ucldc/required-values-from-collection-registry',
@@ -91,8 +99,8 @@ def required_values_from_collection_registry(body, ctype, field, mode):
     mode='overwrite' will overwrite existing data
     mode='append' will add the values
     '''
-    if field not in ('rights', 'type'):
-        raise ValueError('Only works for rights or type field')
+    if field not in ('rights', 'type', 'title'):
+        raise ValueError('Only works for rights, type or title field')
     try :
         data = json.loads(body)
     except:
@@ -104,6 +112,8 @@ def required_values_from_collection_registry(body, ctype, field, mode):
         data = set_rights_from_collection(data, mode)
     elif field == 'type':
         data = set_type_from_collection(data, mode)
+    elif field == 'title':
+        data = set_title_if_missing(data)
     #ensure "@context" is there
     if not exists(data, "@context"):
         data["@context"] = "http://dp.la/api/items/context"
