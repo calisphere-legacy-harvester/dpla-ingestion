@@ -51,7 +51,8 @@ def set_field_from_value_mode(data, field, mode, value):
                 new_value.append(value)
             setprop(data, field, new_value)
         else: # fill blanks
-            if not exists(data, field):
+            if not exists(data, field) or not getprop(data,
+                    field,keyErrorAsNone=True):
                 setprop(data, field, value)
     return data
 
@@ -80,6 +81,11 @@ def set_type_from_collection(data, mode):
             dcmi)
     return data
 
+def set_title_for_object(data):
+    data = set_field_from_value_mode(data, 'sourceResource/title', 'fill',
+            'Title unknown')
+    return data
+
 @simple_service('POST',
     'http://purl.org/org/cdlib/ucldc/required-values-from-collection-registry',
                 'required-values-from-collection-registry',
@@ -91,8 +97,6 @@ def required_values_from_collection_registry(body, ctype, field, mode):
     mode='overwrite' will overwrite existing data
     mode='append' will add the values
     '''
-    if field not in ('rights', 'type'):
-        raise ValueError('Only works for rights or type field')
     try :
         data = json.loads(body)
     except:
@@ -104,6 +108,8 @@ def required_values_from_collection_registry(body, ctype, field, mode):
         data = set_rights_from_collection(data, mode)
     elif field == 'type':
         data = set_type_from_collection(data, mode)
+    elif field == 'title':
+        data = set_title_for_object(data)
     #ensure "@context" is there
     if not exists(data, "@context"):
         data["@context"] = "http://dp.la/api/items/context"

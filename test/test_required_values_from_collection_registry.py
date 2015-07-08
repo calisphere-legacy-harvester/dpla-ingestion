@@ -27,7 +27,9 @@ INPUT = { 'originalRecord': { "collection": [
                    "rights_statement": "rights-stmt",
                    "rights_status": "PD"
                }
-           ]}
+           ]},
+           'sourceResource': {}
+           
        }
 
 def test_noFilling():
@@ -169,3 +171,40 @@ def test_overwrite():
     resp, content = _get_server_response(json.dumps(this_input), field='rights',
             mode='overwrite')
     TC.assertEqual(resp.status, 500)
+
+def test_fill_title():
+    this_input = deepcopy(INPUT)
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'],
+                    'Title unknown')
+    this_input['sourceResource']['title'] = 'XX'
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'],
+                    'XX')
+    this_input['sourceResource']['title'] = ''
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'],
+                    'Title unknown')
+    this_input['sourceResource']['title'] = []
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'],
+                    'Title unknown')
+    this_input['sourceResource']['title'] = {}
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'],
+                    'Title unknown')
