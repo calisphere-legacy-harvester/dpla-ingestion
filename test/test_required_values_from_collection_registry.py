@@ -102,7 +102,7 @@ def test_fill_rights_no_status():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
-            u'rights-stmt')
+            [u'rights-stmt'])
     TC.assertEqual(content['sourceResource']['type'], 'this has type')
 
 def test_fill_rights_no_stmt():
@@ -114,8 +114,36 @@ def test_fill_rights_no_stmt():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['rights'],
-            u'public domain')
+            [u'public domain'])
     TC.assertEqual(content['sourceResource']['type'], 'this has type')
+
+def test_fill_blank_rights():
+    this_input = deepcopy(INPUT)
+    this_input['sourceResource'] = {'type': 'this has type', 'rights':[]}
+    this_input['originalRecord']['collection'][0]['rights_statement'] = 'TESTR'
+    this_input['originalRecord']['collection'][0]['rights_status'] = 'CR'
+    resp, content = _get_server_response(json.dumps(this_input), field='rights',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['rights'], ['copyrighted', 'TESTR'])
+
+def test_fill_title():
+    this_input = deepcopy(INPUT)
+    this_input['originalRecord']['title'] = ''
+    this_input['sourceResource'] = {'type': 'type0', 
+            'rights': 'rights0'}
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'], ['(Untitled)'])
+    del this_input['originalRecord']['title']
+    resp, content = _get_server_response(json.dumps(this_input), field='title',
+            mode='fill')
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['sourceResource']['title'], ['(Untitled)'])
 
 def test_append():
     '''Test the append mode, that the values are added to existing data'''
@@ -179,7 +207,7 @@ def test_fill_title():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['title'],
-                    'Title unknown')
+                    ['Title unknown'])
     this_input['sourceResource']['title'] = 'XX'
     resp, content = _get_server_response(json.dumps(this_input), field='title',
             mode='fill')
@@ -193,18 +221,18 @@ def test_fill_title():
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['title'],
-                    'Title unknown')
+                    ['Title unknown'])
     this_input['sourceResource']['title'] = []
     resp, content = _get_server_response(json.dumps(this_input), field='title',
             mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['title'],
-                    'Title unknown')
+                    ['Title unknown'])
     this_input['sourceResource']['title'] = {}
     resp, content = _get_server_response(json.dumps(this_input), field='title',
             mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
     TC.assertEqual(content['sourceResource']['title'],
-                    'Title unknown')
+                    ['Title unknown'])
