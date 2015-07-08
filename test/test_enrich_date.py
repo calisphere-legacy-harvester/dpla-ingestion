@@ -12,11 +12,11 @@ def test_enrich_dates_bogus_date():
         "date" : "could be 1928ish?"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             'begin' : None,
             'end' : None,
             'displayDate' : 'could be 1928ish?'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -35,11 +35,11 @@ def test_enrich_date_single():
         "date" : "1928"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             'begin' : u'1928',
             'end' : u'1928',
             'displayDate' : '1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -58,11 +58,11 @@ def test_enrich_pre_1900_date():
         "date": "1870-01-02T12:00:00"
     }
     EXPECTED = {
-        u'date': {
+        u'date': [{
             'begin': u'1870-01-02',
             'end': u'1870-01-02',
             'displayDate': '1870-01-02T12:00:00'
-        }
+        }]
     }
     url = server() + "enrich_earliest_date?prop=date"
     resp,content = H.request(url,"POST",body=json.dumps(INPUT))
@@ -76,11 +76,15 @@ def test_enrich_date_date_multiple():
         "date" : ["1928", "1406"]
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
                 u'begin':       u'1406',
                 u'end':         u'1406',
                 u'displayDate': u'1406'
-        }
+        },
+        {       u'begin': u'1928',
+                u'displayDate': u'1928',
+                u'end': u'1928'
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -96,11 +100,11 @@ def test_enrich_date_date_parse_format_yyyy_mm_dd():
         "date" : "1928-05-20"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
             'begin' : u'1928-05-20',
             'end' : u'1928-05-20',
             'displayDate' : '1928-05-20'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -119,11 +123,11 @@ def test_enrich_date_parse_format_date_with_slashes():
         "date" : "05/20/1928"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : u'1928-05-20',
             u'end' : u'1928-05-20',
             'displayDate' : '05/20/1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -141,11 +145,11 @@ def test_enrich_date_date_parse_format_natural_string():
         "date" : "May 20, 1928"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
             'begin' : u'1928-05-20',
             'end' : u'1928-05-20',
             'displayDate' : 'May 20, 1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -162,11 +166,11 @@ def test_enrich_date_date_parse_format_natural_string_no_comma():
         "date" : "May 20 1928"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
             'begin' : u'1928-05-20',
             'end' : u'1928-05-20',
             'displayDate' : 'May 20 1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -183,11 +187,11 @@ def test_enrich_date_date_parse_format_ca_string():
         "date" : "ca. May 1928"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
             'begin' : u'1928-05',
             'end' : u'1928-05',
             'displayDate' : 'ca. May 1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -205,11 +209,11 @@ def test_enrich_date_date_parse_format_c_string():
         "date" : "c. 1928"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
             'begin' : u'1928',
             'end' : u'1928',
             'displayDate' : 'c. 1928'
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -226,11 +230,11 @@ def test_enrich_date_parse_format_date_range1():
         "date" : "1960 - 1970"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : u'1960',
             u'end' : u'1970',
             "displayDate" : "1960 - 1970"
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -255,11 +259,11 @@ def test_date_with_single_brackets():
     for r in ranges:
         INPUT = {"date": r}
         EXPECTED = {
-            u'date' : {
+            u'date' : [{
                 u'begin' : u'1960-05-01',
                 u'end' : u'1960-05-01',
                 "displayDate" : u'1960-05-01'
-            }
+            }]
         }
 
         url = server() + "enrich_earliest_date?prop=date"
@@ -280,11 +284,11 @@ def test_date_with_brackets():
     for r in ranges:
         INPUT = {"date": r}
         EXPECTED = {
-            u'date' : {
+            u'date' : [{
                 u'begin' : u'1960-05-01',
                 u'end' : u'1960-05-01',
                 "displayDate" : r
-            }
+            }]
         }
 
         url = server() + "enrich_earliest_date?prop=date"
@@ -306,11 +310,11 @@ def test_range_years_with_brackets():
     for r in ranges:
         INPUT = {"date": r}
         EXPECTED = {
-            u'date' : {
+            u'date' : [{
                 u'begin' : u'1960',
                 u'end' : u'1963',
                 "displayDate" : r
-            }
+            }]
         }
 
         url = server() + "enrich_earliest_date?prop=date"
@@ -334,11 +338,11 @@ def test_range_with_brackets():
     for r in ranges:
         INPUT = {"date": r}
         EXPECTED = {
-            u'date' : {
+            u'date' : [{
                 u'begin' : u'1960-05-01',
                 u'end' : u'1960-05-15',
                 "displayDate" : r
-            }
+            }]
         }
 
         url = server() + "enrich_earliest_date?prop=date"
@@ -355,11 +359,11 @@ def test_enrich_date_parse_format_date_range2():
         "date" : "1960-05-01 - 1960-05-15"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : u'1960-05-01',
             u'end' : u'1960-05-15',
             "displayDate" : "1960-05-01 - 1960-05-15"
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -377,11 +381,11 @@ def test_enrich_date_parse_format_date_range3():
         "date" : "1960-1970"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : u'1960',
             u'end' : u'1970',
             "displayDate" : "1960-1970"
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -399,11 +403,11 @@ def test_enrich_date_parse_format_date_range4():
         "date" : "c. 1960-70"
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : u'1960',
             u'end' : u'1970',
             "displayDate" : "c. 1960-70"
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -412,7 +416,8 @@ def test_enrich_date_parse_format_date_range4():
     assert str(resp.status).startswith("2")
 
     result = json.loads(content)
-    assert result['date'] == EXPECTED[u'date'], "%s != %s" % (result['date'], EXPECTED[u'date'])
+    assert result['date'] == EXPECTED[u'date'], "%s != %s" % (result['date'],
+            EXPECTED[u'date'])
 
 
 
@@ -421,11 +426,11 @@ def test_enrich_date_parse_century_date():
     url = server() + "enrich_earliest_date?prop=date"
     INPUT = {"date": "19th c."}
     EXPECTED = {
-        "date": {
+        "date": [{
             "begin": None,
             "end": None,
             "displayDate": "19th c"  # period stripped assumed OK
-        }
+        }]
     }
     resp,content = H.request(url,"POST",body=json.dumps(INPUT))
     result = json.loads(content)
@@ -433,11 +438,11 @@ def test_enrich_date_parse_century_date():
            "%s != %s" % (result["date"], EXPECTED["date"])
     INPUT = {"date": "19th century"}
     EXPECTED = {
-        "date": {
+        "date": [{
             "begin": None,
             "end": None,
             "displayDate": "19th century"
-        }
+        }]
     }
     resp,content = H.request(url,"POST",body=json.dumps(INPUT))
     result = json.loads(content)
@@ -451,11 +456,11 @@ def test_enrich_date_parse_century_date_with_P():
         "date" : ["19th c.", "P"]
     }
     EXPECTED = {
-        u'date' : {
+        u'date' : [{
             u'begin' : None,
             u'end' : None,
             u"displayDate" : u"19th c"
-        }
+        }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -464,7 +469,8 @@ def test_enrich_date_parse_century_date_with_P():
     assert str(resp.status).startswith("2")
     assert_same_jsons(EXPECTED, content)
     result = json.loads(content)
-    assert result['date'] == EXPECTED[u'date'], "%s != %s" % (result['date'], EXPECTED[u'date'])
+    assert result['date'] == EXPECTED[u'date'], "%s != %s" % (result['date'],
+            EXPECTED[u'date'])
 
 
 def test_enrich_temporal_date():
@@ -511,11 +517,15 @@ def test_enrich_date_date_parse_format_natural_string_for_multiple_dates():
         "date" : "May 20, 1928; 2002-01-01"
     }
     EXPECTED = {
-        'date' : {
+        'date' : [{
               'begin':       u'1928-05-20',
               'end':         u'1928-05-20',
               'displayDate': u'May 20, 1928'
-              }
+              },
+               { u'begin': u'2002-01-01',
+                 u'displayDate': u'2002-01-01',
+                 u'end': u'2002-01-01'
+              }]
     }
 
     url = server() + "enrich_earliest_date?prop=date"
@@ -530,9 +540,9 @@ def test_no_date_field():
     INPUT = {
         "hat" : "fits"
     }
-    EXPECTED = {
+    EXPECTED = [{
         "hat" : "fits"
-    }
+    }]
 
     url = server() + "enrich_earliest_date?prop=date"
 
@@ -556,10 +566,11 @@ def test_dates_with_question_marks():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": EXPECTED[i]}
+        expected = {"date": [EXPECTED[i]]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
+        print "CONTENTE:{}".format(content)
         assert_same_jsons(content, expected)
 
 
@@ -579,7 +590,7 @@ def test_decade_date():
     for i in xrange(len(INPUT)):
         url = server() + "enrich_earliest_date?prop=date"
         input = {"date": INPUT[i]}
-        expected = {"date": EXPECTED[i]}
+        expected = {"date": [EXPECTED[i]]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -593,7 +604,7 @@ def test_bogus_date():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": None, "end": None, "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": None, "end": None, "displayDate": INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -607,7 +618,7 @@ def test_dates_with_between():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": "1840", "end": "1860", "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": "1840", "end": "1860", "displayDate": INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -623,11 +634,11 @@ def test_tricky_dates1():
     for date in INPUT:
         input = {"date": date}
         expected = {
-            "date": {
+            "date": [{
                 "begin": "1850",
                 "end": "1856",
                 "displayDate": date.strip()
-            }
+            }]
         }
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
@@ -642,7 +653,7 @@ def test_tricky_dates2():
     url = server() + "enrich_earliest_date?prop=date"
     for date in INPUT:
         input = {"date": date}
-        expected = {"date": {"begin": "1938-08-23", "end": "1938-08-24", "displayDate": date}}
+        expected = {"date": [{"begin": "1938-08-23", "end": "1938-08-24", "displayDate": date}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -659,7 +670,7 @@ def test_year_month():
     for date in INPUT:
         d = "1940-02"
         input = {"date": date}
-        expected = {"date": {"begin": d, "end": d, "displayDate": date}}
+        expected = {"date": [{"begin": d, "end": d, "displayDate": date}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -673,7 +684,8 @@ def test_day_out_of_range():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": EXPECTED[i], "end": EXPECTED[i], "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": EXPECTED[i], "end": EXPECTED[i],
+            "displayDate": INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -689,7 +701,8 @@ def test_full_date_range():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": "1901-01-01", "end": "1902-01-01", "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": "1901-01-01", "end": "1902-01-01",
+            "displayDate": INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -703,7 +716,8 @@ def test_delim_with_months():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": "2004-07", "end": "2004-08", "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": "2004-07", "end": "2004-08",
+            "displayDate": INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -717,7 +731,8 @@ def test_delim_with_seasons():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-        expected = {"date": {"begin": "2004", "end": "2004", "displayDate": INPUT[i]}}
+        expected = {"date": [{"begin": "2004", "end": "2004", "displayDate":
+            INPUT[i]}]}
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
@@ -726,7 +741,7 @@ def test_delim_with_seasons():
 def test_date_with_parentheses_and_question_mark():
     """Should handle date like 1928 (?)"""
     INPUT = {"date": "1928 (?)"}
-    EXPECTED = {"date": {"begin": "1928", "end": "1928", "displayDate": "1928 (?)"}}
+    EXPECTED = {"date": [{"begin": "1928", "end": "1928", "displayDate": "1928 (?)"}]}
 
     url = server() + "enrich_earliest_date?prop=date"
 
@@ -737,7 +752,7 @@ def test_date_with_parentheses_and_question_mark():
 def test_wordy_date():
     """Should handle very wordy dates"""
     INPUT = {"date": "mid 11th century AH/AD 17th century (Mughal)"}
-    EXPECTED = {"date": {"begin": None, "end": None, "displayDate": INPUT["date"]}}
+    EXPECTED = {"date": [{"begin": None, "end": None, "displayDate": INPUT["date"]}]}
 
     url = server() + "enrich_earliest_date?prop=date"
 
@@ -748,7 +763,7 @@ def test_wordy_date():
 def test_reversed_date_range():
     """Should handle reversed date range"""
     INPUT = {"date": "1911/0140"}
-    EXPECTED = {"date": {"begin": "0140", "end": "1911", "displayDate": INPUT["date"]}}
+    EXPECTED = {"date": [{"begin": "0140", "end": "1911", "displayDate": INPUT["date"]}]}
 
     url = server() + "enrich_earliest_date?prop=date"
 
@@ -759,10 +774,10 @@ def test_reversed_date_range():
 def test_only_begin_or_end_date():
     """Should handle ranges with only begin or end date"""
     INPUT = [{"date": "1970-"}, {"date": "-1970"}, {"date": "19750-"}]
-    EXPECTED = [{"date": {"begin": "1970", "end": None, "displayDate": "1970-"}},
-                {"date": {"begin": None, "end": "1970", "displayDate": "-1970"}},
-                {"date": {"begin": None, "end": None, "displayDate": "19750-"}}]
-
+    EXPECTED = [{"date": [{"begin": "1970", "end": None, "displayDate": "1970-"}]},
+                {"date": [{"begin": None, "end": "1970", "displayDate": "-1970"}]},
+                {"date": [{"begin": None, "end": None, "displayDate": "19750-"}]}
+]
     url = server() + "enrich_earliest_date?prop=date"
 
     for i in range(len(INPUT)):
@@ -773,13 +788,14 @@ def test_only_begin_or_end_date():
 def test_enrich_dates_with_tildes_and_x():
     """Should remove tildes and x characters from dates"""
     INPUT = [{"date": "1946-10x"}, {"date": "1946-10~"}]
-    EXPECTED = [{"date": {"begin": "1946-10", "end": "1946-10", "displayDate": "1946-10x"}},
-                {"date": {"begin": "1946-10", "end": "1946-10", "displayDate": "1946-10~"}}]
+    EXPECTED = [{"date": [{"begin": "1946-10", "end": "1946-10", "displayDate": "1946-10x"}]},
+                {"date": [{"begin": "1946-10", "end": "1946-10", "displayDate": "1946-10~"}]}]
 
     url = server() + "enrich_earliest_date?prop=date"
 
     for i in range(len(INPUT)):
         resp, content = H.request(url, "POST", body=json.dumps(INPUT[i]))
+        print 'CONTENT:{}'.format(content)
         assert str(resp.status).startswith("2")
         assert_same_jsons(EXPECTED[i], content)
 
@@ -788,14 +804,14 @@ def test_invalid_begin_dates():
     INPUT = {
                 "_id": "12345",
                 "date": [
-                    {"begin": "20130-11-12", "end": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"begin": "2013-110-12", "end": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"begin": "20130-11-120", "end": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"begin": "20130-11-a", "end": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"begin": "20130-11-", "end": "2013-11-12", "displaDate": "2013-11-12"}
+                    {"begin": "20130-11-12", "end": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"begin": "2013-110-12", "end": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"begin": "20130-11-120", "end": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"begin": "20130-11-a", "end": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"begin": "20130-11-", "end": "2013-11-12", "displayDate": "2013-11-12"}
                 ]
             }
-    EXPECTED = {"begin": None, "end": "2013-11-12", "displaDate": "2013-11-12"}
+    EXPECTED = {"begin": None, "end": "2013-11-12", "displayDate": "2013-11-12"}
 
     check_date_format(INPUT, "date")
     for date in INPUT["date"]:
@@ -806,14 +822,14 @@ def test_invalid_end_dates():
     INPUT = {
                 "_id": "12345",
                 "date": [
-                    {"end": "20130-11-12", "begin": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"end": "2013-110-12", "begin": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"end": "20130-11-120", "begin": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"end": "20130-11-a", "begin": "2013-11-12", "displaDate": "2013-11-12"},
-                    {"end": "20130-11-", "begin": "2013-11-12", "displaDate": "2013-11-12"}
+                    {"end": "20130-11-12", "begin": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"end": "2013-110-12", "begin": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"end": "20130-11-120", "begin": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"end": "20130-11-a", "begin": "2013-11-12", "displayDate": "2013-11-12"},
+                    {"end": "20130-11-", "begin": "2013-11-12", "displayDate": "2013-11-12"}
                 ]
             }
-    EXPECTED = {"end": None, "begin": "2013-11-12", "displaDate": "2013-11-12"}
+    EXPECTED = {"end": None, "begin": "2013-11-12", "displayDate": "2013-11-12"}
 
     check_date_format(INPUT, "date")
     for date in INPUT["date"]:
@@ -822,7 +838,7 @@ def test_invalid_end_dates():
 def test_enrich_dates_square_brackets():
     """Should remove square brackets"""
     INPUT = {"date": "[199?]-"}
-    EXPECTED = {"date": {"begin": "1990", "end": "1999", "displayDate": "[199?]-"}}
+    EXPECTED = {"date": [{"begin": "1990", "end": "1999", "displayDate": "[199?]-"}]}
 
     url = server() + "enrich_earliest_date?prop=date"
 
@@ -833,14 +849,14 @@ def test_enrich_dates_square_brackets():
 def test_enrich_dates_range_with_u():
     """Should not set begin and/or end if 'u' characters in date"""
     INPUT = [{"date": "18uu-"}, {"date": "-18uu"}, {"date": "18uu-199uu"}]
-    EXPECTED = {"date": {"begin": None, "end": None}}
+    EXPECTED = {"date": [{"begin": None, "end": None}]}
 
     url = server() + "enrich_earliest_date?prop=date"
 
     for i in range(len(INPUT)):
         resp, content = H.request(url, "POST", body=json.dumps(INPUT[i]))
         assert str(resp.status).startswith("2")
-        EXPECTED["date"]["displayDate"] = INPUT[i]["date"]
+        EXPECTED["date"][0]["displayDate"] = INPUT[i]["date"]
         assert_same_jsons(EXPECTED, content)
 
 def test_date_from_timestamp():
@@ -849,23 +865,23 @@ def test_date_from_timestamp():
              {"date": "2003-12-27T09:07:05+01:00"},
              {"date": "2003-12-27T09:07:05-04"},
              {"date": "2003-12-27T09:07:05"}]
-    EXPECTED = {"date": {"end": "2003-12-27", "begin": "2003-12-27"}}
+    EXPECTED = {"date": [{"end": "2003-12-27", "begin": "2003-12-27"}]}
     url = server() + "enrich_earliest_date?prop=date"
     for obj in INPUT:
         print obj["date"]
         resp, content = H.request(url, "POST", body=json.dumps(obj))
-        EXPECTED["date"]["displayDate"] = obj["date"]
+        EXPECTED["date"][0]["displayDate"] = obj["date"]
         assert_same_jsons(EXPECTED, content)
 
 def test_date_with_ellipses():
     """Date values are extracted from uncertain dates (with ellipses)"""
     INPUT = {"date": "[1993-08-05..1993-08-08]"}
     EXPECTED = {
-                "date": {
+                "date": [{
                          "displayDate": INPUT["date"],
                          "end": "1993-08-08",
                          "begin": "1993-08-05"
-                        }
+                        }]
                 }
     url = server() + "enrich_earliest_date?prop=date"
     resp, content = H.request(url, "POST", body=json.dumps(INPUT))
@@ -875,11 +891,11 @@ def test_year_range_list():
     """Date values are extracted from a list of year values"""
     INPUT = {"date": ["2000", "2002", "2004", "2010"]}
     EXPECTED = {
-        "date": {
+        "date": [{
             "displayDate": "2000-2010",
             "end": "2010",
             "begin": "2000"
-        }
+        }]
     }
     url = server() + "enrich_earliest_date?prop=date"
     resp, content = H.request(url, "POST", body=json.dumps(INPUT))
@@ -891,11 +907,22 @@ def test_non_increasing_year_list():
     """
     INPUT = {"date": ["2000", "2002", "2004", "2010", "2009"]}
     EXPECTED = {
-        "date": {
-            "displayDate": "2000",
-            "end": "2000",
-            "begin": "2000"
-        }
+        "date": [ { u'begin': u'2000',
+                    u'displayDate': u'2000',
+                    u'end': u'2000'},
+                  { u'begin': u'2002',
+                    u'displayDate': u'2002',
+                    u'end': u'2002'},
+                  { u'begin': u'2004',
+                    u'displayDate': u'2004',
+                    u'end': u'2004'},
+                  { u'begin': u'2009',
+                    u'displayDate': u'2009',
+                    u'end': u'2009'},
+                  { u'begin': u'2010',
+                    u'displayDate': u'2010',
+                    u'end': u'2010'}
+       ]
     }
     url = server() + "enrich_earliest_date?prop=date"
     resp, content = H.request(url, "POST", body=json.dumps(INPUT))
