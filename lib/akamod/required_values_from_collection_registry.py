@@ -34,10 +34,16 @@ def set_field_from_value_mode(data, field, mode, value, multivalue=True):
     '''Set the value for the data "field" from data in collection
     ckey field with the value passed in.
     '''
-    logger.error('Field:{} mode:{} value:{} mv:{}'.format(field, mode, value, multivalue))
+    logger.debug('Field:{} mode:{} value:{} mv:{}'.format(field, mode, value, multivalue))
     if value: #no value don't bother
         if mode=='overwrite':
-            setprop(data, field, value)
+            if exists(data, field):
+                setprop(data, field, value)
+            else:
+                pp,pn = tuple(field.lstrip('/').split('/',1))
+                if not pp in data:
+                    data[pp] = {}
+                data[pp][pn] = value
         elif mode=='append':
             new_value = []
             if exists(data, field):

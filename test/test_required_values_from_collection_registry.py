@@ -192,13 +192,13 @@ def test_overwrite():
                 {'rights_statement':'', 'rights_status':''}]})
     resp, content = _get_server_response(json.dumps(this_input), field='rights',
             mode='overwrite')
-    TC.assertEqual(resp.status, 500)
+    TC.assertEqual(resp.status, 200)
     this_input = dict(originalRecord={'collection':[
                 {'rights_statement':'xxxx', 'rights_status':'I',
                     'dcmi_type':''}]})
     resp, content = _get_server_response(json.dumps(this_input), field='rights',
             mode='overwrite')
-    TC.assertEqual(resp.status, 500)
+    TC.assertEqual(resp.status, 200)
 
 def test_fill_title():
     this_input = deepcopy(INPUT)
