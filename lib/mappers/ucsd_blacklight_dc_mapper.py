@@ -91,15 +91,16 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         # how to handle array of different type date objects, for now just
         # use creation for now, or first if creation not available
         date_list = self.provider_data_source.get('date_json_tesim', [])
-        for date_obj in date_list:
-            if date_obj['type'] == 'creation':
-                break
-        else: # no creation date, use first date
-            date_obj = date_list[0]
-        date_mapped = dict(end=date_obj['endDate'],
-                           begin=date_obj['beginDate'],
-                           displayDate=date_obj['value'])
-        self.update_source_resource({'date': [date_mapped]})
+        if len(date_list):
+            for date_obj in date_list:
+                if date_obj['type'] == 'creation':
+                    break
+            else: # no creation date, use first date
+                date_obj = date_list[0]
+            date_mapped = dict(end=date_obj['endDate'],
+                               begin=date_obj['beginDate'],
+                               displayDate=date_obj['value'])
+            self.update_source_resource({'date': [date_mapped]})
 
     def parse_otherNotes(self, note_type, display_label=None):
         '''Pull out values for the note_type from the otherNote_json_tesim.
