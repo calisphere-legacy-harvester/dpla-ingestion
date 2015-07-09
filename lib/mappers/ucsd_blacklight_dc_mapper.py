@@ -90,7 +90,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         # make DPLA style date object
         # how to handle array of different type date objects, for now just
         # use creation for now, or first if creation not available
-        date_list = self.provider_data_source.get('date_json_tesim')
+        date_list = self.provider_data_source.get('date_json_tesim', [])
         for date_obj in date_list:
             if date_obj['type'] == 'creation':
                 break
