@@ -28,10 +28,10 @@ def test_ucsd_dc_mapping():
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['title'],
             ['Camp Matthews, Rifle range, shed, storage'])
-    TC.assertEqual(srcRes['date'],  { "displayDate": "1964",
+    TC.assertEqual(srcRes['date'],  [{ "displayDate": "1964",
                                       "end": "1964-12-31",
                                       "begin": "1964-01-01",
-                                      })
+                                      }])
     TC.assertEqual(srcRes['description'],
             ["a test description (added for testing)",
              "A Thesis title",
@@ -98,3 +98,14 @@ def test_missing_language():
     TC.assertEqual(obj['sourceResource']['creator'],
                    [ "Jackson, William Henry, 1843-1942", ])
 
+def test_missing_files_tesim():
+    fixture = path.join(DIR_FIXTURES,
+              'ucsd-blacklight-missions-alta-california-obj-jsonfied-files_tesim-removed.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    # was failing and deleting sourceResource
+    TC.assertIn('sourceResource', obj)

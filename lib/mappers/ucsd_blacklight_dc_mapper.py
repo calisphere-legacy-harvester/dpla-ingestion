@@ -21,7 +21,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
         TODO: handle complex objects
         '''
-        for obj in self.provider_data['files_tesim']:
+        for obj in self.provider_data.get('files_tesim', []):
             if obj['use'] == 'image-service':
                 fid = obj['id']
                 break
@@ -99,7 +99,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         date_mapped = dict(end=date_obj['endDate'],
                            begin=date_obj['beginDate'],
                            displayDate=date_obj['value'])
-        self.update_source_resource({'date': date_mapped})
+        self.update_source_resource({'date': [date_mapped]})
 
     def parse_otherNotes(self, note_type, display_label=None):
         '''Pull out values for the note_type from the otherNote_json_tesim.
