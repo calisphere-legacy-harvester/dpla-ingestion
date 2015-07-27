@@ -140,7 +140,8 @@ class UCLDCNuxeoMapper(Mapper):
 
     def map_title(self):
         if exists(self.provider_data_source, 'dc:title'):
-            self.update_source_resource({'title': self.provider_data_source.get('dc:title')})    
+            titles = [self.provider_data_source.get('dc:title')]
+            self.update_source_resource({'title': titles})
 
     def map_type(self):
         if exists(self.provider_data_source, 'ucldc_schema:type'):
