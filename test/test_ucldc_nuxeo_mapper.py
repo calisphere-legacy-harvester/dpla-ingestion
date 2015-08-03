@@ -34,7 +34,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertNotIn('extent', srcRes)
         TC.assertEqual(srcRes['format'], "Photographic print")
         TC.assertEqual(srcRes['genre'], [])
-        TC.assertEqual(srcRes['identifier'], ["633"])
+        TC.assertEqual(srcRes['identifier'], ["testID", "633"])
         TC.assertEqual(srcRes['language'], [])
         TC.assertEqual(srcRes['spatial'],[{"text": "Santa Ana (Calif.)"}])
         TC.assertEqual(srcRes['publisher'], [])

@@ -82,8 +82,14 @@ class UCLDCNuxeoMapper(Mapper):
             self.update_source_resource({'genre': genres})
 
     def map_identifier(self):
+        identifiers = []
+        if exists(self.provider_data_source, 'ucldc_schema:identifier'):
+            identifiers.append(self.provider_data_source.get('ucldc_schema:identifier'))
         if exists(self.provider_data_source, 'ucldc_schema:localidentifier'):
-            self.update_source_resource({'identifier': self.provider_data_source.get('ucldc_schema:localidentifier')})
+            localids = self.provider_data_source.get('ucldc_schema:localidentifier')
+            identifiers.extend(localids)
+        if identifiers:
+            self.update_source_resource({'identifier': identifiers})
 
     def map_language(self):
         languages = []
