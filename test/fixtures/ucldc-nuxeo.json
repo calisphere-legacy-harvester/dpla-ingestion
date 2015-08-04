@@ -45,7 +45,7 @@
     ],
     "dc:valid": null,
     "dc:coverage": null,
-    "ucldc_schema:identifier": null,
+    "ucldc_schema:identifier": "testID",
     "dc:language": null,
     "picture:cropCoords": null,
     "dc:lastContributor": "Administrator",
