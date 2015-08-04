@@ -232,6 +232,7 @@ class type_conversion:
         # And, yes, "MovingImage" is a valid DC type.
         ('movingimage', 'moving image'),
         ('image', 'image'),
+        ('stillimage', 'image'),
         ('drawing', 'image'),
         ('print', 'image'),
         ('painting', 'image'),
@@ -258,11 +259,15 @@ class type_conversion:
         ('finding aid', 'collection'),
         ('online collection', 'collection'),
         ('online exhibit', 'interactive resource'),
+        ('moving image', 'moving image'),
         ('motion picture', 'moving image'),
+        ('cellulose nitrate film', 'image'), #fix for UCLA
+        ('nitrate film', 'image'), #fix for UCLA
         ('film', 'moving image'),
         ('video game', 'interactive resource'),
         ('video', 'moving image')
     ]
+
 
 class enrich_type(type_conversion):
     pass

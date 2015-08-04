@@ -8,6 +8,31 @@ def _get_server_response(body, default=None):
         url += "?default=" + default
     return H.request(url, "POST", body=body)
 
+def test_UCLA_problems():
+    '''UCLA problem with "film"'''
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "cellulose nitrate film"
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'image'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT['sourceResource']['type'] = "nitrate film"
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT['sourceResource']['type'] = "film"
+    EXPECTED['sourceResource']['type'] = "moving image"
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    assert_same_jsons(EXPECTED, json.loads(content))
+
 def test_remove_type():
     """Should remove type"""
     INPUT = {
