@@ -42,7 +42,7 @@ def test_map_oac_dc_meta():
     srcRes = content_obj['sourceResource']
     TC.assertEqual(len(srcRes['format']), 1) # suppresses q="x"
     TC.assertEqual(srcRes['format'], ['painting'])
-    TC.assertEqual(len(srcRes['relation']), 7)
+    TC.assertNotIn('relation', srcRes)
     TC.assertEqual(len(srcRes['subject']), 2) # suppresses q="series"
     TC.assertEqual(srcRes['subject'],  [
         {'name': u'Japanese Americans'},

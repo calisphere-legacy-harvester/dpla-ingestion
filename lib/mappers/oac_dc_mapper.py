@@ -125,3 +125,8 @@ class OAC_DCMapper(DublinCoreMapper):
                 suppress_attribs={'q':'series'})
         subject_objs = [{'name': s} for s in subject_values]
         self.update_source_resource({"subject": subject_objs})
+
+    def map_relation(self):
+        # drop relation items
+        pass
+
