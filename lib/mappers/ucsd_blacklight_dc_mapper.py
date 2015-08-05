@@ -130,6 +130,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         descriptions= []
         for note_type in otherNote_types:
             descriptions.extend(self.parse_otherNotes(note_type))
+        scopeContent = self.provider_data_source.get('scopeContentNote_json_tesim', [])
+        for sc in scopeContent:
+            try:
+                j = json.loads(sc)
+                value = j.get('value', None)
+            except ValueError, TypeError:
+                pass
+            if value:
+                descriptions.append(value)
         if len(descriptions):
             self.update_source_resource({'description':descriptions})
 

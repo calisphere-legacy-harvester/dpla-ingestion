@@ -59,7 +59,9 @@ def test_ucsd_dc_mapping():
             u'technical requirements-val',
             u'A Thesis title',
             u'thesis-val',
-            u'venue-val']
+            u'venue-val',
+            u'This data represent a snapshot, or instant in time, from the cosmology simulation. This snapshot was taken at a redshift of 1.5, which is 4.2 billion years after the Big Bang. At this point, the simulation had created 207,076 grids and 374 galaxy clusters with masses of at least 10^14 solar masses. The primary contents are the parameter files, hierarchy file (description of grid sizes and spatial locations), and grid data. For a complete description of the contents, refer to the Scope and Contents note for the collection. In the Derived Data subcomponent, there are text, binary, and images files representing halo properties and the projections of various physical fields.'
+            ]
     )
     TC.assertEqual(srcRes['creator'],  ['Mark Redar test creator'])
     TC.assertEqual(srcRes['contributor'],  ["Mark Redar test contrib",
