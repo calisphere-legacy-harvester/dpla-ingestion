@@ -32,10 +32,35 @@ def test_ucsd_dc_mapping():
                                       "end": "1964-12-31",
                                       "begin": "1964-01-01",
                                       }])
+    print "DESC:--->{}".format(srcRes['description'])
+    print "LEN:{}".format(len(srcRes['description']))
     TC.assertEqual(srcRes['description'],
-            ["a test description (added for testing)",
-             "A Thesis title",
-             "A bibliography"])
+           [ u'arrangement-val',
+            u'A bibliography',
+            u'bibliography-val',
+            u'biography-val',
+            u'credits-val',
+            u'custodial history-val',
+            u'a test description (added for testing)',
+            u'description-val',
+            u'digital origin',
+            u'edition-val',
+            u'inscription-val',
+            u'local attribution-val',
+            u'location of originals-val',
+            u'material details-val',
+            u'performers-val',
+            u'preferred citation-val',
+            u'publication-val',
+            u'scope and content-val',
+            u'series-val',
+            u'statement of responsibility-val',
+            u'table of contents-val',
+            u'technical requirements-val',
+            u'A Thesis title',
+            u'thesis-val',
+            u'venue-val']
+    )
     TC.assertEqual(srcRes['creator'],  ['Mark Redar test creator'])
     TC.assertEqual(srcRes['contributor'],  ["Mark Redar test contrib",
                                             "Mark Redar test2 contrib",

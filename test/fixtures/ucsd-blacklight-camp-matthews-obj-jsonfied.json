@@ -152,6 +152,116 @@
       "value": "This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)",
       "type": "existence and location of originals",
       "displayLabel": "Location of Originals"
+    },
+    {
+      "value": "arrangement-val",
+      "type": "arrangement", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "bibliography-val", 
+      "type": "bibliography", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "biography-val",
+      "type": "biography",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "credits-val", 
+      "type": "credits", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "custodial history-val", 
+      "type": "custodial history", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "description-val", 
+      "type": "description", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "digital origin",
+      "type": "digital origin",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "edition-val", 
+      "type": "edition", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "inscription-val", 
+      "type": "inscription", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "local attribution-val",
+      "type": "local attribution",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "location of originals-val", 
+      "type": "location of originals", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "material details-val", 
+      "type": "material details", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "performers-val",
+      "type": "performers",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "preferred citation-val", 
+      "type": "preferred citation", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "publication-val", 
+      "type": "publication", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "scope and content-val",
+      "type": "scope and content",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "series-val", 
+      "type": "series", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "statement of responsibility-val", 
+      "type": "statement of responsibility", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "table of contents-val",
+      "type": "table of contents",
+      "displayLabel": "negative"
+    },
+    {
+      "value": "technical requirements-val", 
+      "type": "technical requirements", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "thesis-val", 
+      "type": "thesis", 
+      "displayLabel": "negative"
+    },
+    {
+      "value": "venue-val",
+      "type": "venue",
+      "displayLabel": "negative"
     }
   ],
   "language_json_tesim": [

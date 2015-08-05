@@ -118,18 +118,19 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                     values.append(note['value'])
         return values if len(values) else []
 
-    def get_otherNotes_field(self, field, display_label=None):
-        '''Get a field from that is in the otherNotes.
-        '''
-        values = self.parse_otherNotes(field)
-        if values:
-            self.update_source_resource({field: values})
-
     def map_description(self):
-        descriptions = self.parse_otherNotes('description')
-        descriptions.extend(self.parse_otherNotes('thesis'))
-        descriptions.extend(self.parse_otherNotes('bibliography'))
-        if descriptions:
+        otherNote_types = ['arrangement', 'bibliography', 'biography',
+               'credits', 'custodial history', 'description', 'digital origin',
+               'edition', 'inscription', 'local attribution',
+               'location of originals', 'material details', 'performers',
+               'preferred citation', 'publication', 'scope and content',
+               'series', 'statement of responsibility', 'table of contents',
+               'technical requirements', 'thesis', 'venue',
+            ]
+        descriptions= []
+        for note_type in otherNote_types:
+            descriptions.extend(self.parse_otherNotes(note_type))
+        if len(descriptions):
             self.update_source_resource({'description':descriptions})
 
     def map_extent(self):
