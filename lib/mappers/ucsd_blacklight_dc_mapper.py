@@ -146,7 +146,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             self.update_source_resource({'genre':genres})
 
     def map_identifier(self):
-        self.get_otherNotes_field('identifier')
+        pass
 
 ###    def map_is_part_of(self):
 ###        pass

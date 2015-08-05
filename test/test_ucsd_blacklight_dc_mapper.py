@@ -41,10 +41,7 @@ def test_ucsd_dc_mapping():
                                             "Mark Redar test2 contrib",
                                             "Redar, Mark collector 1",
                                             "Redar, Mark collector 2.",])
-    TC.assertEqual(srcRes['identifier'],  [ "039.tif",
-                        "http://libraries.ucsd.edu/ark:/20775/bb0922726p",
-                        "an3_r4025_39",
-                        ])
+    TC.assertNotIn('identifier', srcRes)
     TC.assertEqual(srcRes['format'],
             ["1 2.25 inch black and white negative",
              "black and white photograph"])
