@@ -79,16 +79,6 @@ def test_ucsd_dc_mapping():
     TC.assertEqual(srcRes['rights'][0],  "Under copyright")
     TC.assertEqual(srcRes['rights'][1][:21], "Constraint(s) on Use:")
     TC.assertEqual(srcRes['rights'][2][:27], "Use: This work is available")
-    TC.assertEqual(srcRes['subject'], [
-        {"name":"University of California, San Diego--Buildings, structures, etc"},
-        {"name":"Camp Matthews (Calif.)--Buildings, structures, etc"},
-        {"name":"University of California, San Diego--History"},
-        {"name":"La Jolla (San Diego, Calif.)--Photographs"},
-        {"name":"Camp Matthews (Calif.)--Photographs"},
-        {"name":"Camp Matthews (Calif.)--History"},
-        {"name": "test topic 1"},
-        {"name": "test topic 2"}
-        ])
     TC.assertEqual(srcRes['type'], 'image')
     TC.assertEqual(obj['isShownAt'],
             'https://library.ucsd.edu/dc/object/bb0922726p')
@@ -101,6 +91,54 @@ def test_ucsd_dc_mapping():
             "DeWitt Higgs",
             "Kathryn M. Ringrose"
       ])
+
+    TC.assertEqual(srcRes['subject'], [
+        {u'name': u'University of California, San Diego--Buildings, structures, etc'},
+        {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},
+        {u'name': u'University of California, San Diego--History'},
+        {u'name': u'La Jolla (San Diego, Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--History'},
+        {u'name': u'test topic 1'},
+        {u'name': u'test topic 2'},
+        {u'name': u'Rappaport, Ann'},
+        {u'name': u'San Diego Supercomputer Center.'},
+        {u'name': u'University of California, San Diego. Center for Astrophysics and Space Sciences'},
+        {u'name': u'University of Colorado (System). Dept. of Astrophysics and Planetary Sciences. Center for Astrophysics and Space Astronomy'},
+        {u'name': u'Lawrence Livermore Laboratory'},
+        {u'name': u'University of California, San Diego--Buildings, structures, etc'},
+        {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},
+        {u'name': u'University of California, San Diego--History'},
+        {u'name': u'La Jolla (San Diego, Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--History'},
+        {u'name': u'Camp Matthews, Rifle range, shed, storage'},
+        {u'name': 1964},
+        {u'name': u'1964-01-01'},
+        {u'name': u'1964-12-31'},
+        {u'name': u'creation'},
+        {u'name': u'w3cdtf'},
+        {u'name': u'No linguistic content'},
+        {u'name': u'1 2.25 inch black and white negative'},
+        {u'name': u'039.tif'},
+        {u'name': u'http://libraries.ucsd.edu/ark:/20775/bb0922726p'},
+        {u'name': u'reformatted digital'},
+        {u'name': u'Mandeville Special Collections Library, University of California, San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/locations/mscl/)'},
+        {u'name': u'an3_r4025_39'},
+        {u'name': u'This digital image is a surrogate of Neg. No. an3_r4025_39 from the Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Buildings Photographs (RSS 4025)'},
+        {u'name': u'"Camp Matthews, Rifle range, shed, storage". Office of the Assistant Vice Chancellor. Facilities Design and Construction Camp Matthews Building Photographs. RSS 4025. Mandeville Special Collections Library, UC San Diego'},
+        {u'name': u'University of California, San Diego--Buildings, structures, etc'},
+        {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},
+        {u'name': u'University of California, San Diego--History'},
+        {u'name': u'La Jolla (San Diego, Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--Photographs'},
+        {u'name': u'Camp Matthews (Calif.)--History'},
+        {u'name': u'Library Digital Collections'},
+        {u'name': u'dlp'},
+        {u'name': u'Camp Matthews Photographs and Plans'},
+        {u'name': u'image'}
+      ]
+    )
 
 def test_missing_language():
     fixture = path.join(DIR_FIXTURES,

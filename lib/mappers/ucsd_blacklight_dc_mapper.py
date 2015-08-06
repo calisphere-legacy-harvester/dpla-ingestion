@@ -204,18 +204,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             self.mapped_data['originalRecord']['rightsHolder'] = self.provider_data_source['rightsHolder_tesim']
 
     def map_subject(self):
-        provider_prop = 'subject_tesim'
+        source_fields = ['subject_tesim', 'topic_tesim', 'personalName_tesim',
+                'corporateName_tesim', 'subject_topic_tesim',
+                'complexSubject_tesim', 'all_fields_tesim' ]
         srcRes_prop = 'subject'
-        if exists(self.provider_data_source, provider_prop):
-            subject_objs = [ {'name': s } for s in getprop(self.provider_data_source, provider_prop)]
-            self.update_source_resource({srcRes_prop: subject_objs })
-        if exists(self.provider_data_source, "topic_tesim"):
-            subject_objs = [ {'name': s } for s in getprop(self.provider_data_source, "topic_tesim")]
-            if srcRes_prop in self.mapped_data['sourceResource']:
-                self.mapped_data['sourceResource'][srcRes_prop].extend(subject_objs)
-            else:
-                self.mapped_data['sourceResource'][srcRes_prop] = subject_objs
-
+        subject_objs = []
+        for sfield in source_fields:
+            if exists(self.provider_data_source, sfield):
+                subject_objs.extend([ {'name': s } for s in getprop(self.provider_data_source, sfield)])
+        self.update_source_resource({srcRes_prop: subject_objs })
 
 ### TODO:    def map_temporal(self):
 ###        pass

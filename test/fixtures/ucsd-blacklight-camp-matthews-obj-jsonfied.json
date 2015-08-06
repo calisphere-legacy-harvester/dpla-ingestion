@@ -85,6 +85,12 @@
       "dateCreated": "2013-05-11T03:44:25-0700"
     }
   ],
+  "corporateName_tesim": [
+      "San Diego Supercomputer Center.",
+      "University of California, San Diego. Center for Astrophysics and Space Sciences",
+      "University of Colorado (System). Dept. of Astrophysics and Planetary Sciences. Center for Astrophysics and Space Astronomy",
+      "Lawrence Livermore Laboratory"
+  ],
   "complexSubject_tesim": [
     "University of California, San Diego--Buildings, structures, etc",
     "Camp Matthews (Calif.)--Buildings, structures, etc",
@@ -269,6 +275,9 @@
   ],
   "related_resource_json_tesim": [
     "{\"type\":\"\",\"uri\":\"http://example.edu\",\"description\":\"\"}"
+  ],
+  "personalName_tesim": [
+           "Rappaport, Ann"
   ],
   "language_json_tesim": [
     {
