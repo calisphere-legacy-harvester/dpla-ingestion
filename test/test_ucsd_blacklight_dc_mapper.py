@@ -32,8 +32,6 @@ def test_ucsd_dc_mapping():
                                       "end": "1964-12-31",
                                       "begin": "1964-01-01",
                                       }])
-    print "DESC:--->{}".format(srcRes['description'])
-    print "LEN:{}".format(len(srcRes['description']))
     TC.assertEqual(srcRes['description'],
            [ u'arrangement-val',
             u'A bibliography',
@@ -68,6 +66,7 @@ def test_ucsd_dc_mapping():
                                             "Mark Redar test2 contrib",
                                             "Redar, Mark collector 1",
                                             "Redar, Mark collector 2.",])
+    TC.assertEqual(srcRes['relation'],  [u'http://example.edu'])
     TC.assertNotIn('identifier', srcRes)
     TC.assertEqual(srcRes['format'],
             ["1 2.25 inch black and white negative",

@@ -177,7 +177,18 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_prop_from_provider_json_tesim('publisher')
 
     def map_relation(self):
-        self.source_resource_prop_from_provider_json_tesim('relation')
+        related_res = self.provider_data_source.get('related_resource_json_tesim', [])
+        related = []
+        for rel in related_res:
+            try:
+                j = json.loads(rel)
+                value = j.get('uri', None)
+            except ValueError, TypeError:
+                pass
+            if value:
+                related.append(value)
+        if len(related):
+            self.update_source_resource({'relation':related})
 
     def map_rights(self):
         values = []
