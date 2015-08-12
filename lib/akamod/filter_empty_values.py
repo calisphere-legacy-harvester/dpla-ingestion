@@ -89,9 +89,15 @@ def filter_dict(_dict, cleaner_func, *args):
     d = copy.deepcopy(_dict)
     hash_before = hash(str(d))
     hash_current = None
-    while hash_before != hash_current:
+    data_changed = True
+    while data_changed:
+        dprev = copy.deepcopy(d)
         hash_before = hash_current
         hash_current = hash(str(cleaner_func(d, *args)))
+        if hash_before == hash_current:
+            data_changed = False
+        if dprev == d:
+            data_changed = False
     return d
 
 def filter_path(_dict, path):
