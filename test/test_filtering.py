@@ -69,6 +69,35 @@ def test_filtering_with_given_keys():
 
     assert json.loads(content) == EXPECTED
 
+def test_filtering_with_given_keys():
+    """
+    Filtering with given keys
+    """
+
+    INPUT = {
+        "id": "999",
+        "prop1": "value1",
+        "empty_key": "",
+        "filter_me": {'notempty':['a','b','c'],
+            'empty': '',
+            'none': None,
+            'crumb': ['x', None, 'y', '']
+            }
+    }
+    EXPECTED = {
+        "id": "999",
+        "prop1": "value1",
+        "empty_key": "",
+        "filter_me": {'notempty':['a','b','c'],
+            'crumb': ['x', 'y']
+            }
+    }
+    url = server() + "filter_fields?keys=filter_me"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert str(resp.status).startswith("2")
+
+    assert json.loads(content) == EXPECTED
+
 
 def test_artstor_doc_filtering_optimistic():
     """
