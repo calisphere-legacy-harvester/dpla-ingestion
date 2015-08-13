@@ -39,7 +39,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertEqual(srcRes['spatial'],[{"text": "Santa Ana (Calif.)"}])
         TC.assertEqual(srcRes['publisher'], [])
         TC.assertNotIn('relation', srcRes)
-        TC.assertEqual(srcRes['rights'], ["copyrighted", "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The creators of the material or their heirs may retain copyright to this material."])
+        TC.assertEqual(srcRes['rights'], ["Copyrighted", "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The creators of the material or their heirs may retain copyright to this material."])
         TC.assertEqual(srcRes['subject'], ["Photographers -- Photographs"])
         TC.assertEqual(srcRes['temporalCoverage'], [])
         TC.assertEqual(srcRes['title'],

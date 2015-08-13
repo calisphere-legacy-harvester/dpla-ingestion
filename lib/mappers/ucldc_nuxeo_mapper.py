@@ -115,10 +115,24 @@ class UCLDCNuxeoMapper(Mapper):
         if relations:
             self.update_source_resource({'relation': relations})
 
+    def map_rights_codes(self, rights_str):
+        '''Map the "coded" values of the rights status to a nice one for 
+        display
+        '''
+        decoded = rights_str
+        if rights_str == 'copyrighted':
+            decoded = 'Copyrighted'
+        elif rights_str == 'publicdomain':
+            decoded = 'Public Domain'
+        elif rights_str == 'unknown':
+            decoded = 'Copyright Unknown'
+        return decoded
+
     def map_rights(self):
         rights = []
         if exists(self.provider_data_source, 'ucldc_schema:rightsstatus'):
-            rights.append(self.provider_data_source.get('ucldc_schema:rightsstatus'))
+            rights_status = self.provider_data_source.get('ucldc_schema:rightsstatus') 
+            rights.append(self.map_rights_codes(rights_status))
         if exists(self.provider_data_source, 'ucldc_schema:rightsstatement'):
             rights.append(self.provider_data_source.get('ucldc_schema:rightsstatement'))
         self.update_source_resource({'rights': rights}) 
