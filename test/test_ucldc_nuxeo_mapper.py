@@ -71,9 +71,11 @@ def test_ucldc_nuxeo_mapping_typed_descriptions():
     TC.assertIn('sourceResource', obj)
     srcRes = obj['sourceResource']
     TC.assertIn('originalRecord', obj)
-    print "DESC:::::{}".format(srcRes['description'])
     TC.assertEqual(srcRes['description'], 
         [u'Medium: Silk, plain weave, stencil-printed warp and weft threads (heiy\u0139\x8d-gasuri meisen)',
          u'Annotations/Markings: No signature, seals, or inscriptions.',
-         u'Acquisition: Partial Gift/Partial Purchase from Natalie Fitz-Gerald']
+         u'Acquisition: Partial Gift/Partial Purchase from Natalie Fitz-Gerald',
+         u'Exhibitions: Japan & Beyond: The Yoshida Family Legacy in Japanese Woodblock Prints',
+         u'Biography/History: 20th century artist',
+         ]
       )

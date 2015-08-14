@@ -71,6 +71,8 @@ class UCLDCNuxeoMapper(Mapper):
             'acquisition': 'Acquisition',
             'bibliography': 'Bibliography',
             'bioghist': 'Biography/History',
+            'biography': 'Biography/History',
+            'biographical': 'Biography/History',
             'citereference': 'Citation/Reference',
             'conservation': 'Conservation History',
             'creationprod': 'Creation/Production Credits',
@@ -90,12 +92,13 @@ class UCLDCNuxeoMapper(Mapper):
     def unpack_description_data(self, data):
         '''See if dict or basestring and unpack value'''
         unpacked = None
-        logger.error('UNPACK THIS->{}'.format(data)) 
         if isinstance(data, dict):
             #make robust to not break
-            data_type = data.get('type', '')
+            data_type = data.get('type', '').strip()
+            logger.error("Data CODE:{}".format(data_type))
             if data_type:
                 data_type = self.type_labels.get(data_type, '')
+                logger.error("Data Readable:{}".format(data_type))
             item = data.get('item', '')
             unpacked = u'{}: {}'.format(data_type, item)
         else:
@@ -107,7 +110,6 @@ class UCLDCNuxeoMapper(Mapper):
         if exists(self.provider_data_source, 'ucldc_schema:description'):
             raw_data = self.provider_data_source.get('ucldc_schema:description')
             if isinstance(raw_data, list):
-                logger.error( "DATA IS LIST::::{}".format(raw_data))
                 for d in raw_data:
                     desc_data.append(self.unpack_description_data(d))
             else:
