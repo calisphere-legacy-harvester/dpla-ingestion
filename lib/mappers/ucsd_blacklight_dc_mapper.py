@@ -206,7 +206,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_subject(self):
         source_fields = ['subject_tesim', 'topic_tesim', 'personalName_tesim',
                 'corporateName_tesim', 'subject_topic_tesim',
-                'complexSubject_tesim', 'all_fields_tesim' ]
+                'complexSubject_tesim', ]
         srcRes_prop = 'subject'
         subject_objs = []
         for sfield in source_fields:
