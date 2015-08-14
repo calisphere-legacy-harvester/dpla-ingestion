@@ -1,13 +1,61 @@
 {
+  "entity-type": "document",
+  "facets": [
+    "Picture",
+    "Commentable",
+    "Asset",
+    "MultiviewPicture",
+    "Versionable",
+    "Publishable",
+    "HasRelatedText",
+    "Folderish",
+    "Orderable"
+  ],
+  "lastModified": "2014-03-04T22:51:17.42Z",
+  "title": "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph",
+  "repository": "default",
+  "uid": "40677ed1-f7c2-476f-886d-bf79c3fec8c4",
   "properties": {
-    "ucldc_schema:physlocation": "Box 6 : Folder 3",
-    "dc:title": "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph",
-    "ucldc_schema:subjectname": [],
-    "dc:rights": null,
-    "dc:description": null,
-    "picture:typage": null,
-    "ucldc_schema:physdesc": "Photographic print",
+    "ucldc_schema:type": "image",
+    "dc:publisher": null,
+    "dc:contributors": [
+      "system",
+      "Administrator"
+    ],
+    "ucldc_schema:formgenre": [],
+    "dc:created": "2014-01-23T08:26:49.59Z",
+    "dc:lastContributor": "Administrator",
+    "picture:cropCoords": null,
+    "dc:language": null,
+    "ucldc_schema:identifier": "testID",
+    "dc:coverage": null,
+    "dc:valid": null,
+    "ucldc_schema:date": [
+      {
+        "inclusivestart": "1919",
+        "date": "1919 - 1949",
+        "single": null,
+        "datetype": "created",
+        "inclusiveend": "1949"
+      }
+    ],
+    "dc:subjects": [
+      "California",
+      "Photographs",
+      "test subject"
+    ],
+    "picture:genre": null,
+    "ucldc_schema:contributor": [],
+    "ucldc_schema:rightsnotice": null,
+    "dc:source": null,
     "ucldc_schema:accessrestrict": null,
+    "ucldc_schema:physdesc": "Photographic print",
+    "picture:typage": null,
+    "dc:description": null,
+    "dc:rights": null,
+    "ucldc_schema:subjectname": [],
+    "dc:title": "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph",
+    "ucldc_schema:physlocation": "Box 6 : Folder 3",
     "ucldc_schema:alternativetitle": [],
     "dc:format": null,
     "picture:origin": null,
@@ -19,43 +67,13 @@
     "dc:creator": "system",
     "ucldc_schema:creator": [
       {
-        "source": null,
-        "name": "Cochems, Edward W. (Edward William), 1874-1949",
-        "role": "Photographer",
+        "nametype": "persname",
         "authorityid": null,
-        "nametype": "persname"
+        "role": "Photographer",
+        "name": "Cochems, Edward W. (Edward William), 1874-1949",
+        "source": null
       }
     ],
-    "dc:source": null,
-    "ucldc_schema:rightsnotice": null,
-    "ucldc_schema:contributor": [],
-    "picture:genre": null,
-    "dc:subjects": ["California",
-     "Photographs",
-     "test subject"
-    ],
-    "ucldc_schema:date": [
-      {
-        "inclusiveend": "1949",
-        "datetype": "created",
-        "single": null,
-        "date": "1919 - 1949",
-        "inclusivestart": "1919"
-      }
-    ],
-    "dc:valid": null,
-    "dc:coverage": null,
-    "ucldc_schema:identifier": "testID",
-    "dc:language": null,
-    "picture:cropCoords": null,
-    "dc:lastContributor": "Administrator",
-    "dc:created": "2014-01-23T08:26:49.59Z",
-    "ucldc_schema:formgenre": [],
-    "dc:contributors": [
-      "system",
-      "Administrator"
-    ],
-    "dc:publisher": null,
     "ucldc_schema:description": "First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model",
     "picture:language": null,
     "picture:source": null,
@@ -75,10 +93,10 @@
     "ucldc_schema:rightsstatement": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The creators of the material or their heirs may retain copyright to this material.",
     "ucldc_schema:place": [
       {
-        "coordinates": null,
-        "name": "Santa Ana (Calif.)",
+        "source": null,
         "authorityid": null,
-        "source": null
+        "name": "Santa Ana (Calif.)",
+        "coordinates": null
       }
     ],
     "picture:byline": null,
@@ -90,84 +108,84 @@
     "ucldc_schema:rightscontact": null,
     "picture:views": [
       {
-        "filename": "Medium_MS-R016_1092.jpg",
-        "tag": "medium",
-        "width": "550",
-        "content": {
-          "digest": "9009e936786f6f0a18fc5052e933c6af",
-          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B0%5D%2Fcontent",
-          "length": "71752",
-          "mime-type": "image/jpeg",
-          "encoding": null,
-          "name": "Medium_MS-R016_1092.jpg"
-        },
-        "height": "379",
+        "description": "Medium Size",
         "title": "Medium",
-        "description": "Medium Size"
+        "height": "379",
+        "content": {
+          "name": "Medium_MS-R016_1092.jpg",
+          "encoding": null,
+          "mime-type": "image/jpeg",
+          "length": "71752",
+          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B0%5D%2Fcontent",
+          "digest": "9009e936786f6f0a18fc5052e933c6af"
+        },
+        "width": "550",
+        "tag": "medium",
+        "filename": "Medium_MS-R016_1092.jpg"
       },
       {
-        "filename": "Original_MS-R016_1092.tif",
-        "tag": "original",
-        "width": "6419",
-        "content": {
-          "digest": "b332221b28a2fc4bd455698c4d17a418",
-          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B1%5D%2Fcontent",
-          "length": "28466304",
-          "mime-type": "image/tiff",
-          "encoding": null,
-          "name": "Original_MS-R016_1092.tif"
-        },
-        "height": "4431",
+        "description": null,
         "title": "Original",
-        "description": null
-      },
-      {
-        "filename": "Small_MS-R016_1092.jpg",
-        "tag": "small",
-        "width": "280",
-        "content": {
-          "digest": "2c64a02531a19e3ac686a004efb97e37",
-          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B2%5D%2Fcontent",
-          "length": "38629",
-          "mime-type": "image/jpeg",
-          "encoding": null,
-          "name": "Small_MS-R016_1092.jpg"
-        },
-        "height": "193",
-        "title": "Small",
-        "description": "Small Size"
-      },
-      {
-        "filename": "Thumbnail_MS-R016_1092.jpg",
-        "tag": "thumb",
-        "width": "100",
-        "content": {
-          "digest": "bd62d5f826c45247e4e8c3d5aac5bbbb",
-          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B3%5D%2Fcontent",
-          "length": "26456",
-          "mime-type": "image/jpeg",
-          "encoding": null,
-          "name": "Thumbnail_MS-R016_1092.jpg"
-        },
-        "height": "69",
-        "title": "Thumbnail",
-        "description": "Thumbnail Size"
-      },
-      {
-        "filename": "OriginalJpeg_MS-R016_1092.jpg",
-        "tag": "originalJpeg",
-        "width": "6419",
-        "content": {
-          "digest": "b4e8ea760491675a95c561ccc16706d7",
-          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B4%5D%2Fcontent",
-          "length": "4005319",
-          "mime-type": "image/jpeg",
-          "encoding": null,
-          "name": "OriginalJpeg_MS-R016_1092.jpg"
-        },
         "height": "4431",
+        "content": {
+          "name": "Original_MS-R016_1092.tif",
+          "encoding": null,
+          "mime-type": "image/tiff",
+          "length": "28466304",
+          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B1%5D%2Fcontent",
+          "digest": "b332221b28a2fc4bd455698c4d17a418"
+        },
+        "width": "6419",
+        "tag": "original",
+        "filename": "Original_MS-R016_1092.tif"
+      },
+      {
+        "description": "Small Size",
+        "title": "Small",
+        "height": "193",
+        "content": {
+          "name": "Small_MS-R016_1092.jpg",
+          "encoding": null,
+          "mime-type": "image/jpeg",
+          "length": "38629",
+          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B2%5D%2Fcontent",
+          "digest": "2c64a02531a19e3ac686a004efb97e37"
+        },
+        "width": "280",
+        "tag": "small",
+        "filename": "Small_MS-R016_1092.jpg"
+      },
+      {
+        "description": "Thumbnail Size",
+        "title": "Thumbnail",
+        "height": "69",
+        "content": {
+          "name": "Thumbnail_MS-R016_1092.jpg",
+          "encoding": null,
+          "mime-type": "image/jpeg",
+          "length": "26456",
+          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B3%5D%2Fcontent",
+          "digest": "bd62d5f826c45247e4e8c3d5aac5bbbb"
+        },
+        "width": "100",
+        "tag": "thumb",
+        "filename": "Thumbnail_MS-R016_1092.jpg"
+      },
+      {
+        "description": "Original Picture in JPEG format",
         "title": "OriginalJpeg",
-        "description": "Original Picture in JPEG format"
+        "height": "4431",
+        "content": {
+          "name": "OriginalJpeg_MS-R016_1092.jpg",
+          "encoding": null,
+          "mime-type": "image/jpeg",
+          "length": "4005319",
+          "data": "files/40677ed1-f7c2-476f-886d-bf79c3fec8c4?path=%2Fviews%2Fitem%5B4%5D%2Fcontent",
+          "digest": "b4e8ea760491675a95c561ccc16706d7"
+        },
+        "width": "6419",
+        "tag": "originalJpeg",
+        "filename": "OriginalJpeg_MS-R016_1092.jpg"
       }
     ],
     "ucldc_schema:rightsstartdate": null,
@@ -179,15 +197,14 @@
     "picture:headline": null,
     "ucldc_schema:subjecttopic": [
       {
-        "headingtype": "topic",
-        "heading": "Photographers -- Photographs",
+        "source": null,
         "authorityid": null,
-        "source": null
+        "heading": "Photographers -- Photographs",
+        "headingtype": "topic"
       }
     ],
     "ucldc_schema:source": null,
-    "ucldc_schema:relatedresource": [],
-    "ucldc_schema:type": "image"
+    "ucldc_schema:relatedresource": []
   },
   "type": "SampleCustomPicture",
   "path": "/asset-library/UCI/Cochems/MS-R016_1092.tif",
@@ -195,21 +212,5 @@
   "isCheckedOut": true,
   "state": "project",
   "versionLabel": "0.0",
-  "changeToken": "1393973477428",
-  "uid": "40677ed1-f7c2-476f-886d-bf79c3fec8c4",
-  "repository": "default",
-  "title": "Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph",
-  "lastModified": "2014-03-04T22:51:17.42Z",
-  "facets": [
-    "Picture",
-    "Commentable",
-    "Asset",
-    "MultiviewPicture",
-    "Versionable",
-    "Publishable",
-    "HasRelatedText",
-    "Folderish",
-    "Orderable"
-  ],
-  "entity-type": "document"
+  "changeToken": "1393973477428"
 }

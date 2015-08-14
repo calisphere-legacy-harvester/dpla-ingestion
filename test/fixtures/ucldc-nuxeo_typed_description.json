@@ -1,0 +1,185 @@
+{
+  "properties": {
+    "ucldc_schema:physlocation": null,
+    "ucldc_schema:type": "image",
+    "ucldc_schema:relatedresource": [],
+    "dc:rights": null,
+    "dc:description": null,
+    "ucldc_schema:transcription": null,
+    "picture:typage": null,
+    "ucldc_schema:physdesc": "1 kimono; 143 x 121 cm.",
+    "ucldc_schema:accessrestrict": null,
+    "ucldc_schema:alternativetitle": [],
+    "dc:format": null,
+    "picture:origin": null,
+    "ucldc_schema:publisher": [
+      "Japan"
+    ],
+    "ucldc_schema:localidentifier": [
+      "2005.058"
+    ],
+    "picture:credit": null,
+    "dc:creator": "system",
+    "ucldc_schema:creator": [],
+    "dc:source": null,
+    "ucldc_schema:description": [
+      {
+        "type": "medium",
+        "item": "Silk, plain weave, stencil-printed warp and weft threads (heiyĹ-gasuri meisen)"
+      },
+      {
+        "type": "marks",
+        "item": "No signature, seals, or inscriptions."
+      },
+      {
+        "type": "acquisition",
+        "item": "Partial Gift/Partial Purchase from Natalie Fitz-Gerald"
+      }
+    ],
+    "dc:title": "Woman's kimono with geometric pattern",
+    "ucldc_schema:contributor": [],
+    "picture:genre": null,
+    "dc:subjects": [],
+    "ucldc_schema:date": [
+      {
+        "inclusiveend": "1950",
+        "datetype": null,
+        "single": null,
+        "date": "[between 1900 and 1950]",
+        "inclusivestart": "1900"
+      }
+    ],
+    "dc:valid": null,
+    "dc:coverage": null,
+    "ucldc_schema:identifier": null,
+    "dc:language": null,
+    "picture:cropCoords": null,
+    "dc:lastContributor": "Adrian.Turner@ucop.edu",
+    "dc:created": "2014-07-02T17:30:36.01Z",
+    "ucldc_schema:extent": null,
+    "dc:contributors": [
+      "system",
+      "Administrator",
+      "elin@ucmerced.edu",
+      "Adrian.Turner@ucop.edu"
+    ],
+    "dc:publisher": null,
+    "ucldc_schema:subjecttopic": [
+      {
+        "headingtype": "topic",
+        "heading": "allover patterns",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "headingtype": "topic",
+        "heading": "geometric patterns",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "headingtype": "topic",
+        "heading": "abstraction",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "headingtype": "topic",
+        "heading": "bluish gray",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "headingtype": "topic",
+        "heading": "moderate yellow",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "headingtype": "topic",
+        "heading": "moderate yellowish pink",
+        "authorityid": null,
+        "source": null
+      }
+    ],
+    "ucldc_schema:subjectname": [],
+    "ucldc_schema:rightsnotice": null,
+    "picture:language": null,
+    "picture:source": null,
+    "ucldc_schema:collection": [
+      "https://registry.cdlib.org/api/v1/collection/65/"
+    ],
+    "ucldc_schema:campusunit": [
+      "https://registry.cdlib.org/api/v1/repository/18/"
+    ],
+    "picture:dateline": null,
+    "dc:expired": null,
+    "ucldc_schema:rightsdeterminationdate": null,
+    "picture:subheadline": null,
+    "ucldc_schema:rightsnote": null,
+    "ucldc_schema:provenance": [],
+    "dc:nature": null,
+    "ucldc_schema:rightsstatement": "Material is made available for the purposes of research, teaching, and private study. Materials may not be used for any commercial purpose, be republished in print or electronic form, or mounted on a server without prior written permission from the Clark Center for Japanese Art & Culture.",
+    "ucldc_schema:place": [],
+    "picture:byline": null,
+    "dc:modified": "2015-05-27T19:49:14.82Z",
+    "ucldc_schema:rightsjurisdiction": null,
+    "ucldc_schema:rightsstatus": "copyrighted",
+    "picture:slugline": null,
+    "picture:caption": null,
+    "ucldc_schema:rightscontact": null,
+    "picture:views": [],
+    "ucldc_schema:rightsstartdate": null,
+    "ucldc_schema:rightsenddate": null,
+    "dc:issued": null,
+    "ucldc_schema:temporalcoverage": [
+      "20th century, meisen"
+    ],
+    "ucldc_schema:rightsholder": [],
+    "ucldc_schema:language": [],
+    "picture:headline": null,
+    "ucldc_schema:formgenre": [
+      {
+        "heading": "kimonos",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "heading": "20th century",
+        "authorityid": null,
+        "source": null
+      },
+      {
+        "heading": "meisen",
+        "authorityid": null,
+        "source": null
+      }
+    ],
+    "ucldc_schema:source": ""
+  },
+  "type": "SampleCustomPicture",
+  "path": "/asset-library/UCM/LIJA-metadata-completed/LIJA/UCM_LI_2005_058",
+  "contextParameters": {},
+  "parentRef": "4f451046-479d-4edb-a995-ae64b7f0ebb8",
+  "isCheckedOut": true,
+  "state": "project",
+  "versionLabel": "0.4+",
+  "changeToken": "1432756154829",
+  "uid": "ff0c00b9-b798-4b09-ae6d-17965acb8c7b",
+  "repository": "default",
+  "title": "Woman's kimono with geometric pattern",
+  "lastModified": "2015-05-27T19:49:14.82Z",
+  "facets": [
+    "Picture",
+    "Commentable",
+    "MultiviewPicture",
+    "Versionable",
+    "Publishable",
+    "DocumentsSizeStatistics",
+    "HasRelatedText",
+    "Folderish",
+    "NotCollectionMember",
+    "Orderable"
+  ],
+  "entity-type": "document"
+}

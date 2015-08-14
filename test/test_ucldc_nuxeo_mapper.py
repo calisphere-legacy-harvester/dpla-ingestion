@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os.path as path
 from unittest import TestCase
 from server_support import server, H
@@ -30,7 +31,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertEqual(srcRes['contributor'], [])
         TC.assertEqual(srcRes['creator'], ["Cochems, Edward W. (Edward William), 1874-1949"])
         TC.assertEqual(srcRes['date'], [{'displayDate': '1919 - 1949'}])
-        TC.assertEqual(srcRes['description'], "First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model")
+        TC.assertEqual(srcRes['description'], ["First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model"])
         TC.assertNotIn('extent', srcRes)
         TC.assertEqual(srcRes['format'], "Photographic print")
         TC.assertEqual(srcRes['genre'], [])
@@ -52,3 +53,27 @@ def test_ucldc_nuxeo_mapping():
         TC.assertNotIn('rightsNote', origRec)
         TC.assertNotIn('dateCopyrighted', origRec)
         TC.assertNotIn('transcription', origRec)
+
+def test_ucldc_nuxeo_mapping_typed_descriptions():
+    '''Test when the "typed" values of description from ucldc schema are 
+    in the metadata.
+    Records of this type have  dc.des
+    '''
+    fixture = path.join(DIR_FIXTURES, 'ucldc-nuxeo_typed_description.json')
+    INPUT = open(fixture).read()
+    resp, content = _get_server_response(INPUT)
+    assert resp.status == 200
+    obj = json.loads(content)
+    TC.assertIn('isShownAt', obj)
+    TC.assertIn('isShownBy', obj)
+    TC.assertEqual(obj['isShownBy'],
+            'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/ff0c00b9-b798-4b09-ae6d-17965acb8c7b/Medium:content/')
+    TC.assertIn('sourceResource', obj)
+    srcRes = obj['sourceResource']
+    TC.assertIn('originalRecord', obj)
+    print "DESC:::::{}".format(srcRes['description'])
+    TC.assertEqual(srcRes['description'], 
+        [u'Medium: Silk, plain weave, stencil-printed warp and weft threads (heiy\u0139\x8d-gasuri meisen)',
+         u'Annotations/Markings: No signature, seals, or inscriptions.',
+         u'Acquisition: Partial Gift/Partial Purchase from Natalie Fitz-Gerald']
+      )

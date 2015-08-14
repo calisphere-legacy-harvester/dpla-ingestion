@@ -1,6 +1,8 @@
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.selector import exists
 from jsonpath import jsonpath
+from akara import logger
+
 
 #TODO: get from akara.ini?
 url_nuxeo_base = 'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/'
@@ -63,10 +65,54 @@ class UCLDCNuxeoMapper(Mapper):
         if exists(self.provider_data_source, 'ucldc_schema:date'):
             dates = [date['date'] for date in self.provider_data_source.get('ucldc_schema:date')]
             self.update_source_resource({'date': [{'displayDate': d} for d in dates]})
+    
+    type_labels = {
+            'scopecontent': 'Scope/Content',
+            'acquisition': 'Acquisition',
+            'bibliography': 'Bibliography',
+            'bioghist': 'Biography/History',
+            'citereference': 'Citation/Reference',
+            'conservation': 'Conservation History',
+            'creationprod': 'Creation/Production Credits',
+            'date': 'Date Note',
+            'exhibitions': 'Exhibitions',
+            'funding': 'Funding',	
+            'marks': 'Annotations/Markings',
+            'language': 'Language',
+            'performers': 'Performers',
+            'prefercite': 'Preferred Citation',
+            'venue': 'Venue',
+            'condition': 'Condition',
+            'medium': 'Medium',
+            'technique': 'Technique'
+    }
+
+    def unpack_description_data(self, data):
+        '''See if dict or basestring and unpack value'''
+        unpacked = None
+        logger.error('UNPACK THIS->{}'.format(data)) 
+        if isinstance(data, dict):
+            #make robust to not break
+            data_type = data.get('type', '')
+            if data_type:
+                data_type = self.type_labels.get(data_type, '')
+            item = data.get('item', '')
+            unpacked = u'{}: {}'.format(data_type, item)
+        else:
+            unpacked = data
+        return unpacked
 
     def map_description(self):
+        desc_data = []
         if exists(self.provider_data_source, 'ucldc_schema:description'):
-            self.update_source_resource({'description':self.provider_data_source.get('ucldc_schema:description')})
+            raw_data = self.provider_data_source.get('ucldc_schema:description')
+            if isinstance(raw_data, list):
+                logger.error( "DATA IS LIST::::{}".format(raw_data))
+                for d in raw_data:
+                    desc_data.append(self.unpack_description_data(d))
+            else:
+                desc_data.append(self.unpack_description_data(raw_data))
+            self.update_source_resource({'description':desc_data})
 
     def map_extent(self):
         if exists(self.provider_data_source, 'ucldc_schema:extent'):
