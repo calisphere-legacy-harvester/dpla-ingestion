@@ -41,8 +41,6 @@ class UCLDCNuxeoMapper(Mapper):
     # root mapping
     def map_is_shown_at(self):
         self.mapped_data.update({"isShownAt": 'http://example.edu'})
-        self.mapped_data.update({"isShownBy": 
-                url_nuxeo_pic_template_med_sz.format(self.provider_data['uid'])})
 
     # sourceResource mapping
     def map_contributor(self):

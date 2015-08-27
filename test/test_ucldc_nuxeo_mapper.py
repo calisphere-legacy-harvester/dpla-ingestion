@@ -21,8 +21,6 @@ def test_ucldc_nuxeo_mapping():
         assert resp.status == 200
         obj = json.loads(content)
         TC.assertIn('isShownAt', obj)
-        TC.assertIn('isShownBy', obj)
-        TC.assertEqual(obj['isShownBy'], 'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/40677ed1-f7c2-476f-886d-bf79c3fec8c4/Medium:content/')
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertIn('originalRecord', obj)
@@ -65,9 +63,6 @@ def test_ucldc_nuxeo_mapping_typed_descriptions():
     assert resp.status == 200
     obj = json.loads(content)
     TC.assertIn('isShownAt', obj)
-    TC.assertIn('isShownBy', obj)
-    TC.assertEqual(obj['isShownBy'],
-            'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/ff0c00b9-b798-4b09-ae6d-17965acb8c7b/Medium:content/')
     TC.assertIn('sourceResource', obj)
     srcRes = obj['sourceResource']
     TC.assertIn('originalRecord', obj)
