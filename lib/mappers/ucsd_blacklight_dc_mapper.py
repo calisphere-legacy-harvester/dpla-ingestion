@@ -2,6 +2,7 @@ import json
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
+from akara import logger
 
 class UCSDBlacklightDCMapper(DublinCoreMapper):                                                       
     def __init__(self, provider_data): 
@@ -132,11 +133,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             descriptions.extend(self.parse_otherNotes(note_type))
         scopeContent = self.provider_data_source.get('scopeContentNote_json_tesim', [])
         for sc in scopeContent:
+            value = None
             try:
-                j = json.loads(sc)
-                value = j.get('value', None)
-            except ValueError, TypeError:
-                pass
+                value = sc['value']
+            except TypeError:
+                try:
+                    j = json.loads(sc)
+                    value = j.get('value', None)
+                except (ValueError, TypeError):
+                    pass
             if value:
                 descriptions.append(value)
         if len(descriptions):
@@ -180,11 +185,15 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         related_res = self.provider_data_source.get('related_resource_json_tesim', [])
         related = []
         for rel in related_res:
+            value = None
             try:
-                j = json.loads(rel)
-                value = j.get('uri', None)
-            except ValueError, TypeError:
-                pass
+                value = rel['uri']
+            except TypeError:
+                try:
+                    j = json.loads(rel)
+                    value = j.get('uri', None)
+                except (ValueError, TypeError):
+                    pass
             if value:
                 related.append(value)
         if len(related):
