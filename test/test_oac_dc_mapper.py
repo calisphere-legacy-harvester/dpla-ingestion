@@ -41,7 +41,7 @@ def test_map_oac_dc_meta():
     content_obj = json.loads(content)
     srcRes = content_obj['sourceResource']
     TC.assertEqual(len(srcRes['format']), 1) # suppresses q="x"
-    TC.assertEqual(srcRes['format'], ['painting'])
+    TC.assertEqual(srcRes['format'], ['painting: b&w ;'])
     TC.assertNotIn('relation', srcRes)
     TC.assertEqual(len(srcRes['subject']), 2) # suppresses q="series"
     TC.assertEqual(srcRes['subject'],  [
