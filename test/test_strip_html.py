@@ -11,7 +11,8 @@ def test_strip_html():
         },
         'c': '  \n <p>string three</p>',
         'd': {},
-        'e': 1
+        'e': 1,
+        'f': '1 film negative: b&w ;'
     }
     expected_result = {
         'a': {
@@ -19,7 +20,8 @@ def test_strip_html():
         },
         'c': u'string three',
         'd': {},  # unaltered
-        'e': 1    # unaltered
+        'e': 1,    # unaltered
+        'f': '1 film negative: b&w ;' #unaltered
     }
     url = server() + 'strip_html'
     resp_meta, resp_body = H.request(url, 'POST',
