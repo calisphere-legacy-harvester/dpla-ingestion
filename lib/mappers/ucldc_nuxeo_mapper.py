@@ -41,6 +41,9 @@ class UCLDCNuxeoMapper(Mapper):
     # root mapping
     def map_is_shown_at(self):
         self.mapped_data.update({"isShownAt": 'http://example.edu'})
+        logger.error("keys in PDS:{}".format(self.provider_data.keys())) 
+        self.mapped_data.update({"isShownBy":
+                                  self.provider_data.get('isShownBy')})
 
     # sourceResource mapping
     def map_contributor(self):

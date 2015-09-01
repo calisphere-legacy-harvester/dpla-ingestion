@@ -212,5 +212,6 @@
   "isCheckedOut": true,
   "state": "project",
   "versionLabel": "0.0",
+  "isShownBy": "http://example.edu/this/is/image/URL",
   "changeToken": "1393973477428"
 }

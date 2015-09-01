@@ -21,6 +21,8 @@ def test_ucldc_nuxeo_mapping():
         assert resp.status == 200
         obj = json.loads(content)
         TC.assertIn('isShownAt', obj)
+        TC.assertIn('isShownBy', obj)
+        TC.assertEqual(obj['isShownBy'], "http://example.edu/this/is/image/URL")
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertIn('originalRecord', obj)
