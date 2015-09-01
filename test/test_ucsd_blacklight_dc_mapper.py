@@ -66,7 +66,7 @@ def test_ucsd_dc_mapping():
                                             "Mark Redar test2 contrib",
                                             "Redar, Mark collector 1",
                                             "Redar, Mark collector 2.",])
-    TC.assertEqual(srcRes['relation'],  [u'http://example.edu'])
+    TC.assertNotIn('relation', srcRes)
     TC.assertNotIn('identifier', srcRes)
     TC.assertEqual(srcRes['format'],
             ["1 2.25 inch black and white negative",
