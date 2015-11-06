@@ -23,3 +23,4 @@ class UCSF_Solr_FeedTestCase(TestCase):
         self.assertEqual(resp.status, 200)
         obj = json.loads(content)
         self.assertEqual(obj['_id'], '26100--yxt12j00')
+        self.assertEqual(obj['id'], '61a45b97cd0975de7db0d2e7bbbe5f8b')
