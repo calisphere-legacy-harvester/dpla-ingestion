@@ -100,6 +100,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucsf_xml_mapper import UCSFXMLFeedMapper
         return UCSFXMLFeedMapper(data)
 
+    def _create_ucsf_solr_mapper(data):
+        from dplaingestion.mappers.ucsf_solr_mapper import UCSFSolrFeedMapper
+        return UCSFSolrFeedMapper(data)
+
     def _create_ucsb_aleph_mapper(data):
         from dplaingestion.mappers.ucsb_aleph_marc import UCSBAlephMarcMapper
         return UCSBAlephMarcMapper(data)
@@ -122,6 +126,7 @@ def create_mapper(mapper_type, data):
         'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
         'oac_dc_suppress_publisher': lambda d: _create_oac_dc_mapper_suppress_publisher(d),
         'ucsf_xml': lambda d: _create_ucsf_xml_mapper(d),
+        'ucsf_solr': lambda d: _create_ucsf_solr_mapper(d),
         'ucsb_aleph_marc': lambda d: _create_ucsb_aleph_mapper(d),
         'missouri':     lambda d: _create_missouri_mapper(d),
         'mapv3_json':   lambda d: _create_mapv3_json_mapper(d),
