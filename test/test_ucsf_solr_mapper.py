@@ -14,7 +14,6 @@ class UCSF_Solr_FeedTestCase(TestCase):
         url = server() + "dpla_mapper?mapper_type=ucsf_solr"
         return H.request(url, "POST", body=body)
 
-
     def testMappings(self):
         fixture = path.join(DIR_FIXTURES, 'ucsf-solr-doc.json')
         with open(fixture) as f:
@@ -22,5 +21,25 @@ class UCSF_Solr_FeedTestCase(TestCase):
             resp, content = self._get_server_response(INPUT)
         self.assertEqual(resp.status, 200)
         obj = json.loads(content)
-        self.assertEqual(obj['_id'], '26100--yxt12j00')
-        self.assertEqual(obj['id'], '61a45b97cd0975de7db0d2e7bbbe5f8b')
+        self.assertEqual(obj['_id'], '26100--ctg37j00')
+        self.assertEqual(obj['id'], 'e78f57840bb57365ca30e57e1af2ae26')
+        self.assertEqual(obj['isShownAt'],
+            'https://industrydocuments.library.ucsf.edu/tobacco/docs/#id=kylw0221')
+        srcRes = obj['sourceResource']
+        self.assertEqual(srcRes['title'], ['In Re: Engle Progeny Cases \
+Tobacco Litigation. Pertains to Andy R. Allen, Sr., \
+as Personal Representative for the Estate of Patricia \
+L. Allen. Jury Trial'] )
+        self.assertEqual(srcRes['extent'], '155 pages')
+        self.assertEqual(srcRes['creator'], ["GANNON, SEAN L."])
+        self.assertEqual(srcRes['date'], ["2014 November 25"])
+        self.assertEqual(srcRes['description'],[
+                "ATCH, ATTACHMENTS MISSING", "MARG, MARGINALIA"])
+        self.assertEqual(srcRes['genre'], ["trial transcript"])
+        self.assertEqual(srcRes['identifier'], [u'kylw0221', u'ctg37j00',
+                u'figlarj20141125',
+                u'Engle Progeny; Andy R. Allen, Sr. and Patricia L. Allen, \
+Case No. 16-2007-CA-008311-BXXX-MA, Case No. 2008-CA-15000'])
+        #NEED SAMPLE self.assertEqual(srcRes['language'], [])
+        self.assertEqual(srcRes['subject'], [u'CAMEL', u'ABC TV', u'ABC',
+            u'ACEP', u'AECA', u'AIR SUPPLY', u'AMERICA', u'BEST TALK IN TOWN'])

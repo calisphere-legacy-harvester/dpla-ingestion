@@ -12,7 +12,7 @@ class UCSFXMLFeedMapper(Mapper):
 
     def __init__(self, provider_data, key_prefix=None):
         super(UCSFXMLFeedMapper, self).__init__(provider_data, key_prefix)
-        self.metadata = self.provider_data['metadata']
+        self.metadata = self.provider_data.get('metadata', self.provider_data)
 
     def map_is_shown_at(self, index=None):
         '''Set is_shownBy as well'''
@@ -132,7 +132,6 @@ class UCSFXMLFeedMapper(Mapper):
         '''
         values = self.get_metadata_values(('brd', 'men', 'meno',
                                   'menp', 'org', 'per', ))
-
         value_objs = [{'name': v} for v in values]
         self.update_source_resource({'subject': value_objs}) 
         

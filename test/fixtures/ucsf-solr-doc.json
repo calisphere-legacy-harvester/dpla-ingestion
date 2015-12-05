@@ -1,49 +1,23 @@
 {
-  "score": 8.034109,
-  "_version_": 1516254061744095200,
-  "ti": "[Letter from Norman BS Jack to M Khosrowahahi regarding enquiry for brands for on Kish Island Free zone]",
-  "ct": "Cyprus; Iran",
   "availability": [
     "no restrictions",
     "public"
   ],
-  "availabilitystatus_facet": [
-    "no restrictions"
+  "mentioned": [
+    "ABC TV",
+    "ABC",
+    "ACEP",
+    "AECA",
+    "AIR SUPPLY",
+    "AMERICA",
+    "BEST TALK IN TOWN"
   ],
-  "availabilitystatus": [
-    "no restrictions"
+  "brand": [
+    "CAMEL"
   ],
-  "dt_facet": [
-    "letter"
-  ],
-  "dt": [
-    "letter"
-  ],
-  "cat": "PUBLIC",
-  "id": "ffbl0189",
-  "id_int": 12431616,
-  "tid": "yxt12j00",
-  "bn": "GA02900",
-  "pgmap": [
-    "GA02900"
-  ],
-  "industry": "TOBACCO",
   "collection": [
     {
-      "url_oac": "",
-      "url_local": "http://legacy.library.ucsf.edu/",
-      "url_harvest": "http://legacy.library.ucsf.edu/action/search/xml?q=ddu%3A20*&asf=ddu&asd=&fd=1&_hd=&hd=on&sf=&_rs=&_ef=&ef=on&sd=&ed=&c=ga",
-      "staging_notes": "",
-      "slug": "gallaher-collection-from-2005-until-2008-gallaher",
-      "rights_status": "CR",
-      "rights_statement": "This item is protected by the U.S. Copyright Law (Title 17, U.S.C.). Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user",
-      "harvest_extra_data": "",
-      "files_in_hand": false,
-      "files_in_dams": false,
-      "extent": null,
-      "enrichments_item": "",
-      "description": "From 2005 until 2008, Gallaher, a UK-based tobacco company which was later bought by Japan Tobacco International (JTI), spent three years in a bitter legal battle against its former Middle Eastern distributor. More than 20,000 internal documents were disclosed in the course of the litigation between Gallaher and the Cypriot company, Tlais Enterprises. This collection is a subset of those documents. During the trial, Gallaher was accused of \"complicity in facilitating worldwide smuggling, sanction-busting in Iraq, and the dumping of sub-standard cigarettes in Africa and Afghanistan,\" according to the British press.\r\n",
-      "dcmi_type": "T",
+      "harvest_type": "TBD",
       "campus": [
         {
           "slug": "UCSF",
@@ -53,55 +27,45 @@
           "ark": "ark:/13030/tf3x0nb742"
         }
       ],
-      "harvest_type": "TBD",
+      "dcmi_type": "T",
+      "description": "From 2005 until 2008, Gallaher, a UK-based tobacco company which was later bought by Japan Tobacco International (JTI), spent three years in a bitter legal battle against its former Middle Eastern distributor. More than 20,000 internal documents were disclosed in the course of the litigation between Gallaher and the Cypriot company, Tlais Enterprises. This collection is a subset of those documents. During the trial, Gallaher was accused of \"complicity in facilitating worldwide smuggling, sanction-busting in Iraq, and the dumping of sub-standard cigarettes in Africa and Afghanistan,\" according to the British press.\r\n",
+      "enrichments_item": "",
+      "extent": null,
+      "files_in_dams": false,
+      "harvest_extra_data": "",
       "hosted": "",
       "metadata_in_dams": false,
       "name": "Gallaher Collection",
       "qa_completed": false,
       "ready_for_publication": false,
       "repository": [],
-      "resource_uri": "/api/v1/collection/26100/"
+      "resource_uri": "/api/v1/collection/26100/",
+      "rights_statement": "This item is protected by the U.S. Copyright Law (Title 17, U.S.C.). Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user",
+      "rights_status": "CR",
+      "slug": "gallaher-collection-from-2005-until-2008-gallaher",
+      "staging_notes": "",
+      "url_harvest": "http://legacy.library.ucsf.edu/action/search/xml?q=ddu%3A20*&asf=ddu&asd=&fd=1&_hd=&hd=on&sf=&_rs=&_ef=&ef=on&sd=&ed=&c=ga",
+      "url_local": "http://legacy.library.ucsf.edu/",
+      "url_oac": "",
+      "files_in_hand": false
     }
   ],
-  "__COMMMENT__collection": [
-    "Gallaher"
+  "tid": "ctg37j00",
+  "id": "kylw0221",
+  "pages": 155,
+  "bates": "figlarj20141125",
+  "type": [
+    "trial transcript"
   ],
-  "collection_facet": [
-    "Gallaher"
+  "author": [
+    "GANNON, SEAN L."
   ],
-  "dddatelatest": "2001-02-16T00:00:00Z",
-  "dd": "2001 February 16",
-  "dddate": [
-    "2001-02-16T00:00:00Z"
-  ],
-  "pg": 1,
-  "ddudatelatest": "2013-02-21T00:00:00Z",
-  "ddu": "2013 February 21",
-  "ddudate": [
-    "2013-02-21T00:00:00Z"
-  ],
-  "attach": [
-    "[{\"name\":\"ffbl0189.tif\",\"mediaType\":\"image/tiff\",\"size\":17376},{\"name\":\"ffbl0189.ocr\",\"mediaType\":\"text/plain\",\"size\":830},{\"name\":\"ffbl0189.pdf\",\"mediaType\":\"application/pdf\",\"size\":23874},{\"name\":\"ffbl0189_thumb.png\",\"mediaType\":\"image/png\",\"size\":20840}]"
-  ],
+  "documentdate": "2014 November 25",
+  "title": "In Re: Engle Progeny Cases Tobacco Litigation. Pertains to Andy R. Allen, Sr., as Personal Representative for the Estate of Patricia L. Allen. Jury Trial",
   "case": [
-    "Gallaher v Tlais 2005 Folio 185"
+    "Engle Progeny; Andy R. Allen, Sr. and Patricia L. Allen, Case No. 16-2007-CA-008311-BXXX-MA, Case No. 2008-CA-15000"
   ],
-  "availability_facet": "public",
-  "per_facet": [
-    "Jack, Norman BS",
-    "Clarke, M",
-    "Khosrowahahi, M"
-  ],
-  "au": [
-    "Jack, Norman BS"
-  ],
-  "au_mlt": [
-    "Jack, Norman BS"
-  ],
-  "men": [
-    "Clarke, M",
-    "Khosrowahahi, M"
-  ],
-  "ot": "Confidential document disclosed in litigation: Gallaher International Limited -v-Tlais Enterprises Limited 2005 Folio 185\n\nMr M Khosrowahahi\n\nAziz Trading Company\n\nPOBox 11365-1794\n\nTeheran\n\nIran                                                                                                      16 February 2001\n\nDear Sir\n\nThank you for your enquiry for our brands for sale on Kish Island Free Zone. As we have regional representation, I have passed your particulars to them. If you wish to make contact yourself, our agent is Mr M Clarke, Namelex Trading Agencies in Cyprus, whose contact numbers are:\n\nTel:     +357 4 655218 Fax:     +357 4 658029\n\nI hope we will be able to engage in some mutually beneficial business.\n\nYours faithfully\n\nNorman B S Jack\n\nDivisional Director, Trading\n\n02900#12;pgNbr=1\n",
-  "signature": "d7a735c843589f14"
+  "dateaddeducsf": "2015 March 05",
+  "description": "ATCH, ATTACHMENTS MISSING; MARG, MARGINALIA",
+  "witness": "Figlar, James, Ph.D."
 }
