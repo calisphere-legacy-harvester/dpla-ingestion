@@ -43,3 +43,6 @@ Case No. 16-2007-CA-008311-BXXX-MA, Case No. 2008-CA-15000'])
         #NEED SAMPLE self.assertEqual(srcRes['language'], [])
         self.assertEqual(srcRes['subject'], [u'CAMEL', u'ABC TV', u'ABC',
             u'ACEP', u'AECA', u'AIR SUPPLY', u'AMERICA', u'BEST TALK IN TOWN'])
+        self.assertEqual(srcRes['spatial'], [{'text':'South Africa'},
+            {'text': 'Iran'}, {'text': 'Germany'}]),
+        self.assertEqual(srcRes['relation'], ["Gallaher"])

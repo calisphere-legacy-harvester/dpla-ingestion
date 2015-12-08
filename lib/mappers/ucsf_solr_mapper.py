@@ -67,11 +67,8 @@ class UCSFSolrFeedMapper(Mapper):
         self.update_source_resource({'identifier':ids})
 
     def map_relation(self):
-        '''Need to move the "collection" field from them to "collection_src" 
-        in manager then use collection_src.
-        Othewise our "collection" registry data will overwrite.
-        '''
-        pass
+        self.update_source_resource({'relation':
+            self.metadata['source_collection_name']})
 
     def map_subject(self):
         '''brand, mentioned, organization & person'''
@@ -86,6 +83,12 @@ class UCSFSolrFeedMapper(Mapper):
             subjects.extend(self.metadata['person'])
         if subjects:
             self.update_source_resource({'subject': subjects})
+
+    def map_spatial(self):
+        countries = self.metadata.get('country', '').split(';')
+        if countries:
+            self.update_source_resource({'spatial':
+                [ {'text': c.strip() } for c in countries]})
 
     def map_type(self):
         '''Map type & genre'''
