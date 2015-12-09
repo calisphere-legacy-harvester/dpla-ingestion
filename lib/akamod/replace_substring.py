@@ -25,11 +25,16 @@ def replace_substring(body, ctype, prop=None, old=None, new=None):
         response.add_header('content-type', 'text/plain')
         return "Unable to parse body as JSON"
 
-    if not old or not new:
-        logger.error("No old or new parameters were provided")
+    print "DATA IN REPLACE", str(data)
+    if not old:
+        logger.error("No old parameters were provided")
     else:
+        if not new:
+            logger.debug("NO New parameter, will replace with empty string")
+            new = ''
         if exists(data, prop):
             v = getprop(data, prop)
+            print "V IN REPLACE SUBSTING", v
             setprop(data, prop, v.replace(old, new))
 
     return json.dumps(data)

@@ -7,6 +7,9 @@ CT_JSON = {"Content-Type": "application/json"}
 
 H = httplib2.Http()
 
+def _get_server_response_raw_query(url, body):
+    return H.request(url, "POST", body=body, headers=CT_JSON)
+
 def _get_server_response(body, prop=None, old=None, new=None):
     url = server() + "replace_substring"
     if prop:
@@ -15,7 +18,7 @@ def _get_server_response(body, prop=None, old=None, new=None):
         url = "%s&old=%s" % (url, old)
     if new:
         url = "%s&new=%s" % (url, new)
-    return H.request(url, "POST", body=body, headers=CT_JSON)
+    return _get_server_response_raw_query(url, body)
 
 def test_replace_string1():
     """Should do nothing since old/new is not set"""
@@ -62,5 +65,20 @@ def test_replace_string3():
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
+def test_replace_string_blank():
+    INPUT = {
+            'sourceResource': {'title': 'Bicyclist [graphic]'}
+    }
+    EXPECTED = {
+            'sourceResource': {'title': 'Bicyclist '}
+    }
+    url = server() + "replace_substring"
+    url = "{0}?prop=sourceResource%2Ftitle&old=[graphic]&new=".format(url)
+    resp, content = _get_server_response_raw_query(url, json.dumps(INPUT))
+    assert resp.status == 200
+    print json.loads(content)
+    assert json.loads(content) == EXPECTED
+
+    
 if __name__ == "__main__":
     raise SystemExit("Use nosetest")
