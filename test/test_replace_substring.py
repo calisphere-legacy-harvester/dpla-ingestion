@@ -1,7 +1,10 @@
 import sys
+from unittest import TestCase
 from server_support import server, print_error_log
 from amara.thirdparty import httplib2
 from amara.thirdparty import json
+
+TC = TestCase('__init__')
 
 CT_JSON = {"Content-Type": "application/json"}
 
@@ -44,8 +47,8 @@ def test_replace_string2():
 
     resp,content = _get_server_response(json.dumps(INPUT), prop=prop, old=old,
                                         new=new)
-    assert resp.status == 200
-    assert json.loads(content) == INPUT
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), INPUT)
 
 def test_replace_string3():
     """Should replace old with new"""
@@ -62,23 +65,57 @@ def test_replace_string3():
 
     resp,content = _get_server_response(json.dumps(INPUT), prop=prop, old=old,
                                         new=new)
-    assert resp.status == 200
-    assert json.loads(content) == EXPECTED
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), EXPECTED)
 
-def test_replace_string_blank():
+def test_replace_basestring_blank():
     INPUT = {
             'sourceResource': {'title': 'Bicyclist [graphic]'}
     }
     EXPECTED = {
-            'sourceResource': {'title': 'Bicyclist '}
+            'sourceResource': {'title': 'Bicyclist'}
     }
     url = server() + "replace_substring"
     url = "{0}?prop=sourceResource%2Ftitle&old=[graphic]&new=".format(url)
     resp, content = _get_server_response_raw_query(url, json.dumps(INPUT))
-    assert resp.status == 200
-    print json.loads(content)
-    assert json.loads(content) == EXPECTED
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), EXPECTED)
 
+def test_replace_list():
+    '''Test replacing substrings when field is a list
+    '''
+    INPUT = {
+            'sourceResource': {'title': ['Bicyclist [graphic]',
+                'Victorian [graphic] 1880s', 'no replace']}
+    }
+    EXPECTED = {
+            'sourceResource': {'title': ['Bicyclist',
+                'Victorian  1880s', 'no replace']}
+    }
+    url = server() + "replace_substring"
+    url = "{0}?prop=sourceResource%2Ftitle&old=[graphic]&new=".format(url)
+    resp, content = _get_server_response_raw_query(url, json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), EXPECTED)
     
+def test_replace_list_subdicts():
+    '''Test replacing substrings when field is a list of with dicts
+    '''
+    INPUT = {
+            'sourceResource': {'subject': [{'name':'Bicyclist [graphic]'},
+                {'name':'Victorian [graphic] 1880s'}, 
+                {'name':'no replace'}]}
+    }
+    EXPECTED = {
+            'sourceResource': {'subject': [{'name':'Bicyclist'},
+                {'name':'Victorian  1880s'}, 
+                {'name':'no replace'}]}
+    }
+    url = server() + "replace_substring"
+    url = "{0}?prop=sourceResource%2Fsubject&old=[graphic]&new=".format(url)
+    resp, content = _get_server_response_raw_query(url, json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), EXPECTED)
+
 if __name__ == "__main__":
     raise SystemExit("Use nosetest")
