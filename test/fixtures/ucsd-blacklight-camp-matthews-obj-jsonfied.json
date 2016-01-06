@@ -200,6 +200,11 @@
       "displayLabel": "negative"
     },
     {
+      "value": "funding-val", 
+      "type": "funding", 
+      "displayLabel": "negative"
+    },
+    {
       "value": "inscription-val", 
       "type": "inscription", 
       "displayLabel": "negative"
@@ -235,6 +240,11 @@
       "displayLabel": "negative"
     },
     {
+      "value": "related publications-val", 
+      "type": "related publications", 
+      "displayLabel": "negative"
+    },
+    {
       "value": "scope and content-val",
       "type": "scope and content",
       "displayLabel": "negative"
@@ -243,6 +253,11 @@
       "value": "series-val", 
       "type": "series", 
       "displayLabel": "negative"
+    },
+    {
+      "value": "site-val", 
+      "type": "site", 
+      "displayLabel": "site display label"
     },
     {
       "value": "statement of responsibility-val", 

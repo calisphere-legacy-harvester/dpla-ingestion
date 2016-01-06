@@ -122,10 +122,12 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_description(self):
         otherNote_types = ['arrangement', 'bibliography', 'biography',
                'credits', 'custodial history', 'description', 'digital origin',
-               'edition', 'inscription', 'local attribution',
+               'edition', 'funding', 'inscription', 'local attribution',
                'location of originals', 'material details', 'performers',
-               'preferred citation', 'publication', 'scope and content',
-               'series', 'statement of responsibility', 'table of contents',
+               'preferred citation', 'publication', 'related publications',
+               'scope and content',
+               'series', 'site', 'statement of responsibility',
+               'table of contents',
                'technical requirements', 'thesis', 'venue',
             ]
         descriptions= []
