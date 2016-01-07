@@ -197,9 +197,14 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
             self.mapped_data['originalRecord']['rightsHolder'] = self.provider_data_source['rightsHolder_tesim']
 
     def map_subject(self):
-        source_fields = ['subject_tesim', 'topic_tesim', 'personalName_tesim',
-                'corporateName_tesim', 'subject_topic_tesim',
-                'complexSubject_tesim', ]
+        source_fields = ['subject_tesim', 'topic_tesim', 'subject_topic_tesim',
+                'complexSubject_tesim', 
+                'anatomy_tesim', 'commonName_tesim', 'conferenceName_tesim',
+                'corporateName_tesim', 'culturalContext_tesim', 'cruise_tesim',
+                'familyName_tesim', 'genreForm_tesim', 'geographic_tesim',
+                'lithology_tesim', 'occupation_tesim', 'personalName_tesim',
+                'scientificName_tesim', 'series_tesim', 'temporal_tesim',
+                ]
         srcRes_prop = 'subject'
         subject_objs = []
         for sfield in source_fields:

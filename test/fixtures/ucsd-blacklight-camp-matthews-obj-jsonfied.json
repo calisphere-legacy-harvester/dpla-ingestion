@@ -294,6 +294,39 @@
   "personalName_tesim": [
            "Rappaport, Ann"
   ],
+  "anatomy_tesim": [
+           "anatomy test tesim"
+  ],
+  "commonName_tesim": [
+           "commonName test tesim"
+  ],
+  "conferenceName_tesim": [
+           "conferenceName test tesim"
+  ],
+  "culturalContext_tesim": [
+           "culturalContext test tesim"
+  ],
+  "cruise_tesim": [
+           "cruise test tesim"
+  ],
+  "familyName_tesim": [
+           "familyName test tesim"
+  ],
+  "lithology_tesim": [
+           "lithology test tesim"
+  ],
+  "occupation_tesim": [
+           "occupation test tesim"
+  ],
+  "scientificName_tesim": [
+           "scientificName test tesim"
+  ],
+  "series_tesim": [
+           "series test tesim"
+  ],
+  "temporal_tesim": [
+           "temporal test tesim"
+  ],
   "language_json_tesim": [
     {
       "externalAuthority": "http://id.loc.gov/vocabulary/iso639-2/zxx",

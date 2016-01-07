@@ -97,7 +97,7 @@ def test_ucsd_dc_mapping():
     print "SUBJ:{}".format(srcRes['subject'])
     TC.assertEqual(srcRes['subject'], 
         [
-          {u'name': u'University of California, San Diego--Buildings, structures, etc'},
+{u'name': u'University of California, San Diego--Buildings, structures, etc'},
 {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},
 {u'name': u'University of California, San Diego--History'},
 {u'name': u'La Jolla (San Diego, Calif.)--Photographs'},
@@ -105,17 +105,33 @@ def test_ucsd_dc_mapping():
 {u'name': u'Camp Matthews (Calif.)--History'},
 {u'name': u'test topic 1'},
 {u'name': u'test topic 2'},
-{u'name': u'Rappaport, Ann'},
-{u'name': u'San Diego Supercomputer Center.'},
-{u'name': u'University of California, San Diego. Center for Astrophysics and Space Sciences'},
-{u'name': u'University of Colorado (System). Dept. of Astrophysics and Planetary Sciences. Center for Astrophysics and Space Astronomy'},
-{u'name': u'Lawrence Livermore Laboratory'},
 {u'name': u'University of California, San Diego--Buildings, structures, etc'},
 {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},
 {u'name': u'University of California, San Diego--History'},
 {u'name': u'La Jolla (San Diego, Calif.)--Photographs'},
 {u'name': u'Camp Matthews (Calif.)--Photographs'},
-{u'name': u'Camp Matthews (Calif.)--History'}]
+{u'name': u'Camp Matthews (Calif.)--History'},
+{u'name': u'anatomy test tesim'},
+{u'name': u'commonName test tesim'},
+{u'name': u'conferenceName test tesim'},
+{u'name': u'San Diego Supercomputer Center.'},
+{u'name': u'University of California, San Diego. Center for Astrophysics and Space Sciences'},
+{u'name': u'University of Colorado (System). Dept. of Astrophysics and Planetary Sciences. Center for Astrophysics and Space Astronomy'},
+{u'name': u'Lawrence Livermore Laboratory'},
+{u'name': u'culturalContext test tesim'},
+{u'name': u'cruise test tesim'},
+{u'name': u'familyName test tesim'},
+{u'name': u'Data tables'},
+{u'name': u'Point cloud'},
+{u'name': u'Camp Matthews, San Diego'},
+{u'name': u'Test spatial'},
+{u'name': u'lithology test tesim'},
+{u'name': u'occupation test tesim'},
+{u'name': u'Rappaport, Ann'},
+{u'name': u'scientificName test tesim'},
+{u'name': u'series test tesim'},
+{u'name': u'temporal test tesim'}
+]
     )
 
 def test_missing_language():
