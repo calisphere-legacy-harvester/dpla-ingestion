@@ -34,7 +34,7 @@ class UCSFSolrFeedMapper(Mapper):
         self.update_source_resource({'creator': self.metadata.get('author')})
 
     def map_title(self):
-        self.update_source_resource({'title': [self.metadata['title']]})
+        self.update_source_resource({'title': [self.metadata.get('title', None)]})
 
     def map_date(self):
         self.update_source_resource({'date': [self.metadata.get('documentdate',
@@ -68,7 +68,7 @@ class UCSFSolrFeedMapper(Mapper):
 
     def map_relation(self):
         self.update_source_resource({'relation':
-            self.metadata['source_collection_name']})
+            self.metadata.get('source_collection_name')})
 
     def map_subject(self):
         '''brand, mentioned, organization & person'''
