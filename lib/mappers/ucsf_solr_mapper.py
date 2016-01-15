@@ -17,7 +17,7 @@ class UCSFSolrFeedMapper(Mapper):
     def map_ids(self):
         collection_id = self.provider_data['collection'][0]['resource_uri']
         collection_id = collection_id.rsplit('/')[-2]
-        doc_id = self.provider_data['tid']
+        doc_id = self.provider_data['id']
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id  = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id

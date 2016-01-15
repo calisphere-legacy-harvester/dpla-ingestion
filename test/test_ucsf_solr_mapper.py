@@ -21,8 +21,8 @@ class UCSF_Solr_FeedTestCase(TestCase):
             resp, content = self._get_server_response(INPUT)
         self.assertEqual(resp.status, 200)
         obj = json.loads(content)
-        self.assertEqual(obj['_id'], '26100--ctg37j00')
-        self.assertEqual(obj['id'], 'e78f57840bb57365ca30e57e1af2ae26')
+        self.assertEqual(obj['_id'], '26100--kylw0221')
+        self.assertEqual(obj['id'], 'f76bd424f444bf30b2649a6b4a504cce')
         self.assertEqual(obj['isShownAt'],
             'https://industrydocuments.library.ucsf.edu/tobacco/docs/#id=kylw0221')
         self.assertEqual(obj['isShownBy'],
