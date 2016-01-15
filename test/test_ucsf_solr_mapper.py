@@ -25,6 +25,8 @@ class UCSF_Solr_FeedTestCase(TestCase):
         self.assertEqual(obj['id'], 'e78f57840bb57365ca30e57e1af2ae26')
         self.assertEqual(obj['isShownAt'],
             'https://industrydocuments.library.ucsf.edu/tobacco/docs/#id=kylw0221')
+        self.assertEqual(obj['isShownBy'],
+                'https://s3-us-west-2.amazonaws.com/edu.ucsf.library.iddl.artifacts/t/s/w/b/kylw0221/kylw0221_thumb.png')
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['title'], ['In Re: Engle Progeny Cases \
 Tobacco Litigation. Pertains to Andy R. Allen, Sr., \

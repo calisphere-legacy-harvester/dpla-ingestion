@@ -27,8 +27,10 @@ class UCSFSolrFeedMapper(Mapper):
         '''Set is_shownBy as well'''
         id_local = self.metadata['id']
         is_shown_at = 'https://industrydocuments.library.ucsf.edu/tobacco/docs/#id={}'.format(id_local)
+        is_shown_by = 'https://s3-us-west-2.amazonaws.com/edu.ucsf.library.iddl.artifacts/t/s/w/b/{}/{}_thumb.png'.format(id_local,
+                id_local)
         self.mapped_data.update({"isShownAt": is_shown_at})
-        #self.mapped_data.update({"isShownBy": os.path.join(is_shown_at, 'pdf')})
+        self.mapped_data.update({"isShownBy": is_shown_by})
 
     def map_creator(self):
         self.update_source_resource({'creator': self.metadata.get('author')})
