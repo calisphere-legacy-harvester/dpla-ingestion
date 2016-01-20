@@ -112,10 +112,13 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.oac_dc_mapper_suppress_publisher import OAC_DCMapperSuppressPublisher
         return OAC_DCMapperSuppressPublisher(data)
 
-    def _create_lmu_oai_dc(data):
-        from dplaingestion.mappers.lmu_oai_dc import LUM_OAI_Mapper
-        return LUM_OAI_Mapper(data)
+    def _create_lmu_oai_dc_mapper(data):
+        from dplaingestion.mappers.lmu_oai_dc import LMU_OAI_Mapper
+        return LMU_OAI_Mapper(data)
 
+    def _create_contentdm_oai_dc_mapper(data):
+        from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
+        return CONTENTdm_OAI_Mapper(data)
 
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
@@ -136,6 +139,7 @@ def create_mapper(mapper_type, data):
         'mapv3_json':   lambda d: _create_mapv3_json_mapper(d),
         'mdl_json':     lambda d: _create_mdl_json_mapper(d),
         'cdl_json':     lambda d: _create_cdl_json_mapper(d),
+        'contentdm_oai_dc':   lambda d: _create_contentdm_oai_dc_mapper(d),
         'lmu_oai_dc':   lambda d: _create_lmu_oai_dc_mapper(d)
     }
 

@@ -1,0 +1,99 @@
+  {
+    "subject": [
+      "Business; Black, J. D. (John David), 1893-1960; Coffin, H. R.; Water rights--California--Owens Valley; Water rights--California--Los Angeles",
+      "Metabolic Studio; Los Angeles Aqueduct; LA Aqueduct; Acquaduct "
+    ],
+    "collection": [
+      {
+        "resource_uri": "/api/v1/collection/2287/",
+        "ingestType": "collection",
+        "title": "J. D. Black Papers",
+        "files_in_hand": false,
+        "local_id": "black-j-d-papers",
+        "staging_notes": "",
+        "id": "2287",
+        "rights_statement": "",
+        "url_harvest": "http://digitalcollections.lmu.edu/oai/oai.php",
+        "name": "J. D. Black Papers",
+        "campus": [],
+        "metadata_in_dams": false,
+        "harvest_extra_data": "johndblack",
+        "extent": null,
+        "ready_for_publication": false,
+        "featured": false,
+        "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=lmu_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "url_local": "http://digitalcollections.lmu.edu/cdm/landingpage/collection/johndblack",
+        "hosted": "",
+        "repository": [
+          {
+            "resource_uri": "/api/v1/repository/85/",
+            "google_analytics_tracking_code": "",
+            "campus": [],
+            "@id": "https://registry.cdlib.org/api/v1/repository/85/",
+            "ark": "ark:/13030/kt9k402381",
+            "id": 85,
+            "name": "Loyola Marymount University, Department of Archives and Special Collections, William H. Hannon Library",
+            "slug": "loyola-marymount-university-department-of-archives"
+          }
+        ],
+        "dcmi_type": "X",
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/2287/",
+        "slug": "black-j-d-papers",
+        "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/kt3w1022nb",
+        "description": "These on-line selections from the J. D. Black Papers (CSLA-15)",
+        "qa_completed": false,
+        "harvest_type": "OAI",
+        "files_in_dams": false
+      }
+    ],
+    "format": [
+      "2 pages",
+      "image/tiff"
+    ],
+    "type": [
+      "Letters",
+      "Text"
+    ],
+    "rights": [
+      "http://library.lmu.edu/generalinformation/departments/digitallibraryprogram/copyrightandreproductionpolicy/"
+    ],
+    "language": [
+      "eng"
+    ],
+    "description": [
+      "Letter from J. D. Black in Big Pine to H. R. Coffin", 
+      "J. D. Black (1893-1960), also known as Jack"
+    ],
+    "date": [
+      "1924-07-24",
+      "1920-1929"
+    ],
+    "datestamp": "2013-08-28",
+    "source": [
+      "Department of Archives and Special Collections, William H. Hannon Library, Loyola Marymount University"
+    ],
+    "relation": [
+      "J. D. Black Papers",
+      "CSLA-15",
+      "Series 1.; Box No. 8; Folder No. 4"
+    ],
+    "coverage": [
+      "Los Angeles (Calif.); Big Pine (Calif.)"
+    ],
+    "contributor": [
+      "Support provided by the Metabolic Studio."
+    ],
+    "title": [
+      "Letter from J. D. Black to H. R. Coffin"
+    ],
+    "identifier": [
+      "sc_jdbp001110001",
+      "sc_jdbp00111",
+      "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262"
+    ],
+    "creator": [
+      "Coffin, H. R."
+    ],
+    "id": "oai:digitalcollections.lmu.edu:johndblack/262"
+  }
