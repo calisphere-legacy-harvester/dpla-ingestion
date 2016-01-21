@@ -64,3 +64,5 @@ def test_contentdm_oai_dc_mapping():
     ])
     TC.assertEqual(obj['isShownAt'], 
       "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262")
+    TC.assertEqual(obj['isShownBy'], 
+      "http://digitalcollections.lmu.edu/utils/getthumbnail/collection/johndblack/id/262")
