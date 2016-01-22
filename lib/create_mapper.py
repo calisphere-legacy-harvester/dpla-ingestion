@@ -120,6 +120,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
         return CONTENTdm_OAI_Mapper(data)
 
+    def _create_cavpp_contentdm_oai_dc_mapper(data):
+        from dplaingestion.mappers.cavpp_contentdm_oai_dc_mapper import CAVPP_CONTENTdm_OAI_Mapper
+        return CAVPP_CONTENTdm_OAI_Mapper(data)
+
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
@@ -140,6 +144,7 @@ def create_mapper(mapper_type, data):
         'mdl_json':     lambda d: _create_mdl_json_mapper(d),
         'cdl_json':     lambda d: _create_cdl_json_mapper(d),
         'contentdm_oai_dc':   lambda d: _create_contentdm_oai_dc_mapper(d),
+        'cavpp_contentdm_oai_dc':   lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
         'lmu_oai_dc':   lambda d: _create_lmu_oai_dc_mapper(d)
     }
 

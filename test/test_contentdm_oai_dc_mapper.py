@@ -58,6 +58,7 @@ def test_contentdm_oai_dc_mapping():
         u'http://library.lmu.edu/generalinformation/departments/digitallibraryprogram/copyrightandreproductionpolicy/'])
     TC.assertEqual(srcRes['format'], ["2 pages", "image/tiff"])
     TC.assertEqual(srcRes['identifier'], [ 
+      'http://archive.org/details/cubanc_000177',
       "sc_jdbp001110001",
       "sc_jdbp00111",
       "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262"

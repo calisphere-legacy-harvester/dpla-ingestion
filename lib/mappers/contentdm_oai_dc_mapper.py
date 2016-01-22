@@ -28,39 +28,34 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         self.update_source_resource({srcRes_prop: values})
 
 
+    def get_identifier_match(self, string_in):
+        '''Return the identifier that has the given string in it'''
+        idents = getprop(self.provider_data_source, 'identifier')
+        for i in idents:
+            if string_in in i:
+                return i
+        return None
+
     def map_is_shown_by(self):
         '''Can only reliably get a small tumbnail from the CONTENTdm
         with the metadata in the OAI feed
         Can parse the OAI id to get infor we need.
-        The isShownAt will have base URL we need'''
         '''
-    "id": "oai:digitalcollections.lmu.edu:johndblack/262"
-      "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262"
-      ttp://cdm15972.contentdm.oclc.org/utils/getthumbnail/collection/p15972coll1/id/0 
-      '''
-        isShownAt = self.mapped_data.get('isShownAt', None)
-        if isShownAt:
-            base_url, i, j, k, collid, l, objid = isShownAt.rsplit('/', 6)
+        ident = self.get_identifier_match('cdm/ref')
+        if ident:
+            base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
             thumbnail_url = '/'.join((base_url, 'utils', 'getthumbnail',
                 'collection', collid, 'id', objid))
             self.mapped_data.update({'isShownBy': thumbnail_url})
-
-
-
-
 
     def map_is_shown_at(self):
         '''The identifier that points to the OAI server & has cdm/ref in the
         path is the path to object.
         Can get harvest base URL from the "collection" object
         '''
-        idents = getprop(self.provider_data_source, 'identifier')
-        isShownAt = None
-        for i in idents:
-            if 'cdm/ref' in i:
-                isShownAt = i
+        isShownAt = self.get_identifier_match('cdm/ref')
         if isShownAt:
-                self.mapped_data.update({'isShownAt': isShownAt})
+            self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_contributor(self):
         self.to_source_resource_with_split('contributor', 'contributor')
