@@ -37,7 +37,10 @@ def test_ucla_mapping():
         TC.assertEqual(len(srcRes['description']), 4)
         TC.assertEqual(srcRes['description'][0], "Text from nitrate negative sleeve: 1823 - 1824 253R1694 2 negs, 1929.  Photo by Adelbert Bartlett, 535 15th Street, Santa Monica, Calif.  Drum Barracks, 1862-68, offcers qtrs. U.S. Army, Wilmington (now in Los Angeles at L.A. Harbor) Calif. (see story attached)")
         TC.assertEqual(srcRes['format'], [u'1 p.',])
-        TC.assertEqual(srcRes['identifier'], [u'edu.ucla.library.specialCollections.bartlett:1747', u'uclamss_1300_1775i', u'1775i'])
+        TC.assertEqual(srcRes['identifier'],
+                [u'edu.ucla.library.specialCollections.bartlett:1747',
+                    u'uclamss_1300_1775i', u'1775i', 
+                    "ark:/21198/zz002bxnxg"])
         TC.assertEqual(srcRes['language'], [u'eng'])
         TC.assertEqual(srcRes['relation'], [u'Adelbert Bartlett Papers. Department of Special Collections, Charles E. Young Research Library, UCLA.'])
         TC.assertEqual(srcRes['title'], [u'Photograph of 3rd page of Los Angeles Times Sunday Magazine story about Drum Barracks, "When Camels Carried Mail to California," by Basil Heathcote, 1930'])
