@@ -27,7 +27,12 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                 fid = obj['id']
                 break
         else:
-            return None
+            for obj in self.provider_data.get('component_1_files_tesim', []):
+                if obj['use'] == 'image-service':
+                    fid = '1_' + obj['id']
+                    break
+            else:
+                return None
         obj_id =  self.provider_data['id_t']
         is_shown_by = ''.join(('https://library.ucsd.edu/dc/object/',
                 obj_id, '/_', fid))

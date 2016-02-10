@@ -12,6 +12,26 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=ucsd_blacklight_dc"
     return H.request(url, "POST", body=body)
 
+def test_complex_object_isShownBy():
+    '''Complex objects have their image information in fields like
+    component_1_files_tesim rather than in files_tesim.
+    Test that the grabber of the component_1_files_tesim info works correctly
+    '''
+    fixture = path.join(DIR_FIXTURES,
+            'ucsd-blacklight-complex-object-jsonfied.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
+    TC.assertEqual(obj['sourceResource']['title'], [u'National Broadcasting Company Brochure'])
+    TC.assertEqual(obj['isShownBy'],
+            'https://library.ucsd.edu/dc/object/bb0342272g/_1_2.jpg')
+
 def test_ucsd_dc_mapping():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
