@@ -61,7 +61,8 @@ def test_contentdm_oai_dc_mapping():
       'http://archive.org/details/cubanc_000177',
       "sc_jdbp001110001",
       "sc_jdbp00111",
-      "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262"
+      "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262",
+      "http://cdm15972.contentdm.oclc.org/bogus"
     ])
     TC.assertEqual(obj['isShownAt'], 
       "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262")
