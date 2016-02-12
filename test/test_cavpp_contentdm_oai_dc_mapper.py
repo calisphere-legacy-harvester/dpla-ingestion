@@ -36,3 +36,21 @@ def test_cavpp_overrides():
                              u'sc_jdbp00111',
 u'http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262'])
             
+    TC.assertEqual(srcRes['type'],[u'Letters', u'Text'])
+
+def test_cavpp_suppress_sound_thumbs():
+    '''For type "sound", remove the isShownBy value so no image will be
+    harvested.
+    '''
+    fixture = path.join(DIR_FIXTURES,
+            'cavpp_contentdm_oai.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    TC.assertEqual(obj['sourceResource']['type'], ['Sound']) 
+    TC.assertNotIn('isShownBy', obj)
