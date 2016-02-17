@@ -159,8 +159,6 @@ class UCLDCNuxeoMapper(Mapper):
         relations = []
         if exists(self.provider_data_source, 'ucldc_schema:relatedresource'):
             relations = [rr for rr in self.provider_data_source.get('ucldc_schema:relatedresource')]
-        if exists(self.provider_data_source, 'ucldc_schema:source'):
-            relations.append(self.provider_data_source.get('ucldc_schema:source'))
         if relations:
             self.update_source_resource({'relation': relations})
 
