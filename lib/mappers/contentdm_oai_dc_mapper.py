@@ -73,3 +73,16 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
 
     def map_type(self):
         self.to_source_resource_with_split('type', 'type')
+        rec_type = self.mapped_data['sourceResource']['type']
+        is_sound_object = False
+        if isinstance(rec_type, basestring):
+            if 'sound' == rec_type.lower():
+                is_sound_object = True
+        else: #list type
+            for val in rec_type:
+                if 'sound' == val.lower():
+                    is_sound_object = True
+                    break
+        if is_sound_object:
+            if 'isShownBy' in self.mapped_data:
+                del self.mapped_data['isShownBy']

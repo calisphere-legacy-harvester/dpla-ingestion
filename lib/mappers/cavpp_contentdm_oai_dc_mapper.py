@@ -32,5 +32,5 @@ class CAVPP_CONTENTdm_OAI_Mapper(CONTENTdm_OAI_Mapper):
                     is_sound_object = True
                     break
         if is_sound_object:
-             del self.mapped_data['isShownBy']
-
+            if 'isShownBy' in self.mapped_data:
+                del self.mapped_data['isShownBy']
