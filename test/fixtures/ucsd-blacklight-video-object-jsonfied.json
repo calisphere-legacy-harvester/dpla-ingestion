@@ -1,0 +1,394 @@
+{
+  "active_fedora_model_ssi": "DamsObject",
+  "all_fields_tesim": [
+    "Making Tags",
+    2005,
+    "2005-01-01",
+    "2005-12-31",
+    "creation",
+    "James Nieh",
+    "Author",
+    "Research Data Curation Program, UC San Diego, La Jolla, 92093-0175  (http://libraries.ucsd.edu/services/data-curation/)",
+    "Research methods",
+    "UCSD Research Data Collections",
+    "rdcp",
+    "Bee Research Methods: Video Demonstrations",
+    "video"
+  ],
+  "copyright_tesim": [
+    {
+      "status": "Under copyright",
+      "endDate": "",
+      "beginDate": "",
+      "jurisdiction": "us",
+      "purposeNote": "Use: This work is available from the UC San Diego Library. This digital copy of the work is intended to support research, teaching, and private study.",
+      "note": "Constraint(s) on Use: This work is protected by the U.S. Copyright Law (Title 17, U.S.C.). Use of this work beyond that allowed by \"fair use\" requires written permission of the copyright holder(s). Responsibility for obtaining permissions and any use and distribution of this work rests exclusively with the user and not the UC San Diego Library. Inquiries can be made to the UC San Diego Library program having custody of the work.",
+      "date": "",
+      "id": "bb5086751x"
+    }
+  ],
+  "title_tesim": [
+    "Making Tags"
+  ],
+  "thumbnail_tesim": [
+    "http://library.ucsd.edu/ark:/20775/bb0274541g/4.jpg"
+  ],
+  "title_ssi": "making tags",
+  "rightsHolder_tesim": [
+    "UC Regents"
+  ],
+  "note_tesim": [
+    "Research Data Curation Program, UC San Diego, La Jolla, 92093-0175  (http://libraries.ucsd.edu/services/data-curation/)"
+  ],
+  "has_model_ssim": [
+    "info:fedora/afmodel:DamsObject"
+  ],
+  "collections_tesim": [
+    "bb5291666j"
+  ],
+  "edit_access_group_ssim": [
+    "dams-rci",
+    "dams-manager-admin"
+  ],
+  "id": "bb0274541g",
+  "resource_type_tesim": [
+    "video"
+  ],
+  "relationship_json_tesim": [
+    {
+      "Author": [
+        "James Nieh"
+      ]
+    }
+  ],
+  "system_modified_dtsi": "2013-07-10T05:16:04Z",
+  "object_state_ssi": "A",
+  "score": 10.992536,
+  "id_t": "bb0274541g",
+  "read_access_group_ssim": [
+    "public",
+    "dams-rci",
+    "dams-manager-admin"
+  ],
+  "system_create_dtsi": "2013-07-10T05:16:04Z",
+  "title_json_tesim": [
+    {
+      "translationVariant": "",
+      "expansionVariant": "",
+      "subtitle": "",
+      "name": "Making Tags",
+      "partName": "",
+      "variant": "",
+      "value": "Making Tags",
+      "abbreviationVariant": "",
+      "external": [],
+      "acronymVariant": "",
+      "partNumber": "",
+      "nonSort": ""
+    }
+  ],
+  "otherNote_tesim": [
+    "Research Data Curation Program, UC San Diego, La Jolla, 92093-0175  (http://libraries.ucsd.edu/services/data-curation/)"
+  ],
+  "component_map_tesim": [
+    {}
+  ],
+  "timestamp": "2015-10-29T20:24:43.293Z",
+  "unit_json_tesim": [
+    {
+      "code": "rdcp",
+      "id": "bb6827300d",
+      "name": "UCSD Research Data Collections"
+    }
+  ],
+  "collection_name_tesim": [
+    "Bee Research Methods: Video Demonstrations"
+  ],
+  "name_tesim": [
+    "James Nieh"
+  ],
+  "date_json_tesim": [
+    {
+      "type": "creation",
+      "beginDate": "2005-01-01",
+      "endDate": "2005-12-31",
+      "value": "2005",
+      "encoding": ""
+    }
+  ],
+  "collection_json_tesim": [
+    {
+      "type": "ProvenanceCollection",
+      "id": "bb5291666j",
+      "visibility": "public",
+      "name": "Bee Research Methods: Video Demonstrations"
+    }
+  ],
+  "object_create_dtsi": "2005-01-01T00:00:00Z",
+  "topic_tesim": [
+    "Research methods"
+  ],
+  "otherNote_json_tesim": [
+    {
+      "displayLabel": "digital object made available by",
+      "type": "local attribution",
+      "id": "b",
+      "value": "Research Data Curation Program, UC San Diego, La Jolla, 92093-0175  (http://libraries.ucsd.edu/services/data-curation/)",
+      "internalOnly": ""
+    }
+  ],
+  "rdfxml_ssi": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:ns0=\"http://library.ucsd.edu/ontology/dams#\" xmlns:ns1=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:ns2=\"http://www.loc.gov/mads/rdf/v1#\">\n  <ns0:Object rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g\">\n    <ns0:copyright rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb5086751x\"/>\n    <ns0:date>\n      <ns0:Date>\n        <ns0:beginDate>2005-01-01</ns0:beginDate>\n        <ns0:endDate>2005-12-31</ns0:endDate>\n        <ns0:type>creation</ns0:type>\n        <ns1:value>2005</ns1:value>\n      </ns0:Date>\n    </ns0:date>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd04839064\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd07926147\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd11314518\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd1952388t\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd20554258\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd2428393n\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd24296074\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd24308510\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd24625126\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd28732074\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd3352725q\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd3727792v\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd4545839k\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd4546265p\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5366031n\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd66629719\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd69389349\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd7548274d\"/>\n    <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd7893468r\"/>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g/1.mov\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>f84d188a</ns0:crc32checksum>\n        <ns0:dateCreated>2014-08-26T02:02:36-0700</ns0:dateCreated>\n        <ns0:duration>00:00:47</ns0:duration>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd24998374\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd26673054\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd38991852\"/>\n        <ns0:formatName>bytestream</ns0:formatName>\n        <ns0:md5checksum>92af8f7113536e9c580679b92fa3861f</ns0:md5checksum>\n        <ns0:mimeType>application/octet-stream</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>video: rpza, 720x480, 33497 kb/s, 29.59 fps; audio: pcm_s16be, 44100 Hz, stereo, s16, 1411 kb/s</ns0:quality>\n        <ns0:sha1checksum>e356e25e536a9dda17a25b54e1d98239905a2644</ns0:sha1checksum>\n        <ns0:size>203690169</ns0:size>\n        <ns0:sourceFileName>makingtagsfinal.mov</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/02/74/54/1g</ns0:sourcePath>\n        <ns0:use>video-source</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g/2.mp4\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>8f44e822</ns0:crc32checksum>\n        <ns0:dateCreated>2014-08-27T10:16:28-0700</ns0:dateCreated>\n        <ns0:duration>00:00:47</ns0:duration>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd37967787\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5161994c\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5807286d\"/>\n        <ns0:formatName>bytestream</ns0:formatName>\n        <ns0:md5checksum>634f01d687ea456c74d9f7ff16e3a48c</ns0:md5checksum>\n        <ns0:mimeType>application/octet-stream</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>video: h264 (Constrained Baseline), 1280x720, 3958 kb/s, 29.97 fps; audio: aac, 44100 Hz, stereo, fltp, 192 kb/s</ns0:quality>\n        <ns0:sha1checksum>fd5fad13a67aae64174de38526081bfa74a04fb5</ns0:sha1checksum>\n        <ns0:size>24243311</ns0:size>\n        <ns0:sourceFileName>20775-bb0274541g-0-2.mp4</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/02/74/54/1g</ns0:sourcePath>\n        <ns0:use>video-service</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g/3.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>baed5a24</ns0:crc32checksum>\n        <ns0:dateCreated>2015-08-25T09:54:01-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd0488361t\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd91915122\"/>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>27932ec62a39ea0dd22fe0b677719285</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>450x337</ns0:quality>\n        <ns0:sha1checksum>693420dff25fd37452bc873c75271e7241ee820e</ns0:sha1checksum>\n        <ns0:size>81232</ns0:size>\n        <ns0:sourceFileName>20775-bb0274541g-0-3.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/02/74/54/1g</ns0:sourcePath>\n        <ns0:use>image-preview</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g/4.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>0138f33e</ns0:crc32checksum>\n        <ns0:dateCreated>2015-08-25T09:54:03-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd6597631w\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd78945720\"/>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>92afb33fe879172ac066827c9d581410</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>150x112</ns0:quality>\n        <ns0:sha1checksum>e07df0a734c0fc541adb91c565d89468ac2bed9b</ns0:sha1checksum>\n        <ns0:size>13482</ns0:size>\n        <ns0:sourceFileName>20775-bb0274541g-0-4.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/02/74/54/1g</ns0:sourcePath>\n        <ns0:use>image-thumbnail</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:hasFile>\n      <ns0:File rdf:about=\"http://library.ucsd.edu/ark:/20775/bb0274541g/5.jpg\">\n        <ns0:compositionLevel>0</ns0:compositionLevel>\n        <ns0:crc32checksum>828ecacf</ns0:crc32checksum>\n        <ns0:dateCreated>2015-08-25T09:54:12-0700</ns0:dateCreated>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd40378823\"/>\n        <ns0:event rdf:resource=\"http://library.ucsd.edu/ark:/20775/bd5334824b\"/>\n        <ns0:formatName>JPEG</ns0:formatName>\n        <ns0:formatVersion>1.01</ns0:formatVersion>\n        <ns0:md5checksum>27c8a3366c88917a3bac7944bcaa4a27</ns0:md5checksum>\n        <ns0:mimeType>image/jpeg</ns0:mimeType>\n        <ns0:objectCategory>file</ns0:objectCategory>\n        <ns0:preservationLevel>full</ns0:preservationLevel>\n        <ns0:quality>65x49</ns0:quality>\n        <ns0:sha1checksum>6b0c9005f20b55f03d7793cf728b3973a04264ff</ns0:sha1checksum>\n        <ns0:size>3589</ns0:size>\n        <ns0:sourceFileName>20775-bb0274541g-0-5.jpg</ns0:sourceFileName>\n        <ns0:sourcePath>/pub/data2/dams/localStore/bb/02/74/54/1g</ns0:sourcePath>\n        <ns0:use>image-icon</ns0:use>\n      </ns0:File>\n    </ns0:hasFile>\n    <ns0:note>\n      <ns0:Note rdf:about=\"http://library.ucsd.edu/ark:/20775/bb22540565\"/>\n    </ns0:note>\n    <ns0:provenanceCollection rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb5291666j\"/>\n    <ns0:relationship>\n      <ns0:Relationship>\n        <ns0:personalName rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb54281756\"/>\n        <ns0:role rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb2834089g\"/>\n      </ns0:Relationship>\n    </ns0:relationship>\n    <ns0:rightsHolderCorporate rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb9421331f\"/>\n    <ns0:title>\n      <ns2:Title>\n        <ns2:authoritativeLabel>Making Tags</ns2:authoritativeLabel>\n        <ns2:elementList rdf:parseType=\"Collection\">\n          <ns2:MainTitleElement>\n            <ns2:elementValue>Making Tags</ns2:elementValue>\n          </ns2:MainTitleElement>\n        </ns2:elementList>\n      </ns2:Title>\n    </ns0:title>\n    <ns0:topic>\n      <ns2:Topic>\n        <ns2:authoritativeLabel>Research methods</ns2:authoritativeLabel>\n        <ns2:elementList rdf:parseType=\"Collection\">\n          <ns2:TopicElement>\n            <ns2:elementValue>Research methods</ns2:elementValue>\n          </ns2:TopicElement>\n        </ns2:elementList>\n      </ns2:Topic>\n    </ns0:topic>\n    <ns0:typeOfResource>moving image</ns0:typeOfResource>\n    <ns0:unit rdf:resource=\"http://library.ucsd.edu/ark:/20775/bb6827300d\"/>\n  </ns0:Object>\n  <ns2:PersonalName rdf:about=\"http://library.ucsd.edu/ark:/20775/bb54281756\"/>\n  <ns2:Authority rdf:about=\"http://library.ucsd.edu/ark:/20775/bb2834089g\"/>\n</rdf:RDF>\n",
+  "files_tesim": [
+    {
+      "mimeType": "application/octet-stream",
+      "use": "video-source",
+      "sourcePath": "/pub/data2/dams/localStore/bb/02/74/54/1g",
+      "label": "",
+      "formatName": "bytestream",
+      "filestore": "",
+      "sourceFileName": "makingtagsfinal.mov",
+      "dateCreated": "2014-08-26T02:02:36-0700",
+      "quality": "video: rpza, 720x480, 33497 kb/s, 29.59 fps; audio: pcm_s16be, 44100 Hz, stereo, s16, 1411 kb/s",
+      "id": "1.mov",
+      "size": "203690169"
+    },
+    {
+      "mimeType": "application/octet-stream",
+      "use": "video-service",
+      "sourcePath": "/pub/data2/dams/localStore/bb/02/74/54/1g",
+      "label": "",
+      "formatName": "bytestream",
+      "filestore": "",
+      "sourceFileName": "20775-bb0274541g-0-2.mp4",
+      "dateCreated": "2014-08-27T10:16:28-0700",
+      "quality": "video: h264 (Constrained Baseline), 1280x720, 3958 kb/s, 29.97 fps; audio: aac, 44100 Hz, stereo, fltp, 192 kb/s",
+      "id": "2.mp4",
+      "size": "24243311"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "use": "image-preview",
+      "sourcePath": "/pub/data2/dams/localStore/bb/02/74/54/1g",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "",
+      "sourceFileName": "20775-bb0274541g-0-3.jpg",
+      "dateCreated": "2015-08-25T09:54:01-0700",
+      "quality": "450x337",
+      "id": "3.jpg",
+      "size": "81232"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "use": "image-thumbnail",
+      "sourcePath": "/pub/data2/dams/localStore/bb/02/74/54/1g",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "",
+      "sourceFileName": "20775-bb0274541g-0-4.jpg",
+      "dateCreated": "2015-08-25T09:54:03-0700",
+      "quality": "150x112",
+      "id": "4.jpg",
+      "size": "13482"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "use": "image-icon",
+      "sourcePath": "/pub/data2/dams/localStore/bb/02/74/54/1g",
+      "label": "",
+      "formatName": "JPEG",
+      "filestore": "",
+      "sourceFileName": "20775-bb0274541g-0-5.jpg",
+      "dateCreated": "2015-08-25T09:54:12-0700",
+      "quality": "65x49",
+      "id": "5.jpg",
+      "size": "3589"
+    }
+  ],
+  "discover_access_group_ssim": [
+    "public",
+    "dams-rci",
+    "dams-manager-admin"
+  ],
+  "object_profile_ssm": [
+    {
+      "datastreams": {
+        "rightsMetadata": {
+          "dsLabel": null,
+          "dsLocation": "bb0274541g+rightsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml",
+          "dsVersionable": false,
+          "dsChecksum": "none",
+          "dsSize": 48975,
+          "dsCreateDate": "2015-01-29T05:28:19+00:00",
+          "dsVersionID": "rightsMetadata",
+          "dsControlGroup": "X"
+        },
+        "_2.mp4": {
+          "dsLabel": "/2.mp4",
+          "dsLocation": "bb0274541g+_2.mp4",
+          "dsLocationType": null,
+          "dsChecksumType": "fd5fad13a67aae64174de38526081bfa74a04fb5",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/octet-stream",
+          "dsVersionable": false,
+          "dsChecksum": "SHA-1",
+          "dsSize": 24243311,
+          "dsCreateDate": "2014-08-27T10:16:28-07:00",
+          "dsVersionID": "_2.mp4",
+          "dsControlGroup": "X"
+        },
+        "_3.jpg": {
+          "dsLabel": "/3.jpg",
+          "dsLocation": "bb0274541g+_3.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "693420dff25fd37452bc873c75271e7241ee820e",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg",
+          "dsVersionable": false,
+          "dsChecksum": "SHA-1",
+          "dsSize": 81232,
+          "dsCreateDate": "2015-08-25T09:54:01-07:00",
+          "dsVersionID": "_3.jpg",
+          "dsControlGroup": "X"
+        },
+        "_4.jpg": {
+          "dsLabel": "/4.jpg",
+          "dsLocation": "bb0274541g+_4.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "e07df0a734c0fc541adb91c565d89468ac2bed9b",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg",
+          "dsVersionable": false,
+          "dsChecksum": "SHA-1",
+          "dsSize": 13482,
+          "dsCreateDate": "2015-08-25T09:54:03-07:00",
+          "dsVersionID": "_4.jpg",
+          "dsControlGroup": "X"
+        },
+        "DC": {
+          "dsLabel": null,
+          "dsLocation": "bb0274541g+DC",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml",
+          "dsVersionable": false,
+          "dsChecksum": "none",
+          "dsSize": 48975,
+          "dsCreateDate": "2015-01-29T05:28:19+00:00",
+          "dsVersionID": "DC",
+          "dsControlGroup": "X"
+        },
+        "_1.mov": {
+          "dsLabel": "/1.mov",
+          "dsLocation": "bb0274541g+_1.mov",
+          "dsLocationType": null,
+          "dsChecksumType": "e356e25e536a9dda17a25b54e1d98239905a2644",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/octet-stream",
+          "dsVersionable": false,
+          "dsChecksum": "SHA-1",
+          "dsSize": 203690169,
+          "dsCreateDate": "2014-08-26T02:02:36-07:00",
+          "dsVersionID": "_1.mov",
+          "dsControlGroup": "X"
+        },
+        "damsMetadata": {
+          "dsLabel": null,
+          "dsLocation": "bb0274541g+damsMetadata",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml",
+          "dsVersionable": false,
+          "dsChecksum": "none",
+          "dsSize": 48975,
+          "dsCreateDate": "2015-01-29T05:28:19+00:00",
+          "dsVersionID": "damsMetadata",
+          "dsControlGroup": "X"
+        },
+        "_rdf.xml": {
+          "dsLabel": "/rdf.xml",
+          "dsLocation": "bb0274541g+_rdf.xml",
+          "dsLocationType": null,
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsVersionable": false,
+          "dsVersionID": "_rdf.xml",
+          "dsControlGroup": "X"
+        },
+        "_5.jpg": {
+          "dsLabel": "/5.jpg",
+          "dsLocation": "bb0274541g+_5.jpg",
+          "dsLocationType": null,
+          "dsChecksumType": "6b0c9005f20b55f03d7793cf728b3973a04264ff",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "image/jpeg",
+          "dsVersionable": false,
+          "dsChecksum": "SHA-1",
+          "dsSize": 3589,
+          "dsCreateDate": "2015-08-25T09:54:12-07:00",
+          "dsVersionID": "_5.jpg",
+          "dsControlGroup": "X"
+        },
+        "RELS-EXT": {
+          "dsLabel": null,
+          "dsLocation": "bb0274541g+RELS-EXT",
+          "dsLocationType": null,
+          "dsChecksumType": "DISABLED",
+          "dsState": "A",
+          "dsInfoType": null,
+          "dsFormatURI": null,
+          "dsMIME": "application/rdf+xml",
+          "dsVersionable": false,
+          "dsChecksum": "none",
+          "dsSize": 48975,
+          "dsCreateDate": "2015-01-29T05:28:19+00:00",
+          "dsVersionID": "RELS-EXT",
+          "dsControlGroup": "X"
+        }
+      },
+      "objCreateDate": "2013-07-10T05:16:04+00:00",
+      "objOwnerId": "foo",
+      "objState": "A",
+      "objModels": [
+        "info:fedora/afmodel:Object",
+        "info:fedora/fedora-system:FedoraObject-3.0"
+      ],
+      "objLabel": null,
+      "objItemIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0274541g/methods/fedora-system%3A3/viewItemIndex",
+      "objDissIndexViewURL": "http://localhost:8080/dams/fedora/objects/bb0274541g/methods/fedora-system%3A3/viewMethodIndex",
+      "objLastModDate": "2013-07-10T05:16:04+00:00"
+    }
+  ],
+  "date_tesim": [
+    2005,
+    "2005-01-01",
+    "2005-12-31",
+    "creation"
+  ],
+  "unit_code_tesim": [
+    "rdcp"
+  ]
+}

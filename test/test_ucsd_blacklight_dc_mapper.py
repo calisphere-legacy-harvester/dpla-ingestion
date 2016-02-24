@@ -32,6 +32,25 @@ def test_complex_object_isShownBy():
     TC.assertEqual(obj['isShownBy'],
             'https://library.ucsd.edu/dc/object/bb0342272g/_1_2.jpg')
 
+def test_video_object_isShownBy():
+    '''Video objects need to have isShownBy set to the image-preview use in
+    files tesim
+    '''
+    fixture = path.join(DIR_FIXTURES,
+            'ucsd-blacklight-video-object-jsonfied.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
+    TC.assertEqual(obj['sourceResource']['title'], [u'Making Tags'])
+    TC.assertEqual(obj['isShownBy'],
+            'https://library.ucsd.edu/dc/object/bb0274541g/_3.jpg')
+
 def test_ucsd_dc_mapping():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
