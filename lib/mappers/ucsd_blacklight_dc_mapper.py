@@ -462,7 +462,6 @@ contributor_role_list = [
 'Proofreader',
 'Provider',
 'Publication place',
-'Publisher',
 'Publishing director',
 'Puppeteer',
 'Radio director',
