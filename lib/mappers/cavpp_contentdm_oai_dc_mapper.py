@@ -6,6 +6,8 @@ class CAVPP_CONTENTdm_OAI_Mapper(CONTENTdm_OAI_Mapper):
         '''
         isShownAt = self.get_identifier_match('archive.org')
         if isShownAt:
+            if not isShownAt.startswith('http'):
+                isShownAt = 'http://' + isShownAt
             self.mapped_data.update({'isShownAt': isShownAt})
         if not isShownAt:
             super(CAVPP_CONTENTdm_OAI_Mapper, self).map_is_shown_at()
