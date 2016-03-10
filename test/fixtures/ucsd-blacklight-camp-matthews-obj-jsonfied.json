@@ -105,6 +105,20 @@
   ],
   "otherNote_json_tesim": [
     {
+      "value": "a test note (added for testing)",
+      "type": "note",
+      "displayLabel": "",
+      "internalOnly": "",
+      "id": "_"
+    },
+    {
+      "value": "a test classification (added for testing)",
+      "type": "classification",
+      "displayLabel": "",
+      "internalOnly": "",
+      "id": "_"
+    },
+    {
       "value": "a test description (added for testing)",
       "type": "description",
       "displayLabel": "Description"
