@@ -97,6 +97,13 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
              else:
                  self.map_relationship(creator_role_list, 'creator')
 
+    def map_relation(self):
+        related_resource = self.provider_data_source.get(
+                'related_resource_json_tesim', [])
+        for relation in related_resource:
+            if relation.get('type', None) == 'online finding aid':
+                self.update_source_resource({'relation':[relation['uri']]})
+
     def map_date(self):
         # make DPLA style date object
         # how to handle array of different type date objects, for now just
