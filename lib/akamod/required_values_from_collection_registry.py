@@ -15,11 +15,13 @@ DCMI_TYPES = {'C': 'Collection',
             'D': 'Dataset',
             'E': 'Event',
             'I': 'Image',
+            'F': 'Moving Image',
             'R': 'Interactive Resource',
             'V': 'Service',
             'S': 'Software',
             'A': 'Sound', # A for audio
             'T': 'Text',
+            'P': 'Physical Object',
             #'X': 'type unknown' # default, not set
             }
 
