@@ -36,6 +36,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                     break
                 if obj['use'] == 'image-preview':
                     fid = obj['id']
+            if not fid: #TODO: this is temp fix, but will help
+                fid = '1_3.jpg'
         if not fid:
             return None
         obj_id =  self.provider_data['id_t']
