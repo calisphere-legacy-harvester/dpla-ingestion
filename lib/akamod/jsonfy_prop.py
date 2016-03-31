@@ -10,12 +10,18 @@ def jsonfy_obj(obj):
     Unpacks string json objects buried in some blacklight/solr feeds.
     '''
     obj_jsonfied = {}
+    if isinstance(obj, basestring):
+        try:
+            x = json.loads(obj)
+        except (ValueError, TypeError) as e:
+            x = obj
+        return x
     for key, value in obj.items():
         if isinstance(value, list):
             new_list = []
             for v in value:
                 try:
-                    x = json.loads(v)
+                    x = jsonfy_obj(v)
                     new_list.append(x)
                 except (ValueError, TypeError) as e:
                     new_list.append(v)

@@ -58,3 +58,11 @@ def test_jsonfy_originalRecord():
     TC.assertEqual(obj[prop]['title_json_tesim'][0]['name'],
             'Mission San Carlos')
     
+def test_jsonfy_ucsd_multi_video():
+    '''Test the jsonfy with a multi-component video object from UCSD'''
+    INPUT = get_fixture('ucsd-blacklight-multi-component-video-object.json')
+    resp, content = _get_server_response(INPUT)
+    assert resp.status == 200
+    obj = json.loads(content)
+    prop = obj['component_1_files_tesim']
+    TC.assertEqual(prop[2]['use'], 'image-preview')
