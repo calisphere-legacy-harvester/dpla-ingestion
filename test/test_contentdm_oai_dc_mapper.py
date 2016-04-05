@@ -1,5 +1,6 @@
 import os.path as path
 from unittest import TestCase
+from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
 
@@ -85,3 +86,23 @@ def test_suppress_sound_thumbs():
     TC.assertIn('originalRecord', obj)
     TC.assertEqual(obj['sourceResource']['type'], ['Sound']) 
     TC.assertNotIn('isShownBy', obj)
+
+@attr(uses_network='yes')
+def test_get_larger_image():
+    '''For type "image", there is usually (always?) a larger image available.
+    This should only be tested when network available, couldn't get httpretty
+    to work in this context.
+    '''
+    fixture = path.join(DIR_FIXTURES,
+            'contentdm_oai_image_type.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    TC.assertEqual(obj['sourceResource']['type'], ['Still Image']) 
+    TC.assertEqual(obj['isShownBy'], 
+            "http://cdm16745.contentdm.oclc.org/utils/ajaxhelper?CISOROOT=brubeckcollection&CISOPTR=103&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE=66")

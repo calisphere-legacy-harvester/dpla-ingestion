@@ -19,3 +19,4 @@ git+https://github.com/mredar/markupsafe.git#egg=MarkupSafe
 #MarkupSafe==0.23
 pyrax
 git+https://github.com/mredar/jsonpath.git#egg=jsonpath
+requests

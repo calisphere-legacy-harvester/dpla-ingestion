@@ -1,0 +1,82 @@
+{
+   "publisher": [
+       "Holt-Atherton Special Collections, University of the Pacific Library"
+   ],
+   "language": [
+       "eng"
+   ],
+   "rights": [
+       "To purchase copies of images and/or obtain permission to publish them, see  http://www.pacific.edu/Library/Find/Holt-Atherton-Special-Collections/Fees-and-Forms-.html"
+   ],
+   "format": [
+       "image/jpeg"
+   ],
+   "collection": [
+       {
+           "dcmi_type": "X",
+           "qa_completed": false,
+           "featured": false,
+           "ready_for_publication": false,
+           "hosted": "",
+           "id": "26310",
+           "url_oac": "",
+           "metadata_in_dams": false,
+           "url_harvest": "http://cdm16745.contentdm.oclc.org/oai/oai.php",
+           "campus": [
+           ],
+           "files_in_dams": false,
+           "files_in_hand": false,
+           "ingestType": "collection",
+           "description": "The Brubeck Collection contains thousands of photographs and videos that visually document Brubeck's bands and career. The collection includes extensive images of notable tours such as a 1958 State Department sponsored tour of Europe and Asia, and the ground breaking 1987 tour of the Soviet Union. The images and video presented here are but a fraction of entire photographic and video assets of the Brubeck Collection.",
+           "repository": [
+               {
+                   "name": "University of the Pacific",
+                   "campus": [
+                   ],
+                   "slug": "university-of-the-pacific",
+                   "ark": "ark:/13030/tf609nb7wg",
+                   "@id": "https://registry.cdlib.org/api/v1/repository/136/",
+                   "id": 136,
+                   "google_analytics_tracking_code": "UA-54977503-2",
+                   "resource_uri": "/api/v1/repository/136/"
+               }
+           ],
+           "url_local": "http://www.pacific.edu/Library/Find/Holt-Atherton-Special-Collections/Digital-Collections/Brubeck-Collection-Medley.html",
+           "extent": null,
+           "rights_status": "X",
+           "@id": "https://registry.cdlib.org/api/v1/collection/26310/",
+           "slug": "brubeck-gallery-records-the-brubeck-collection-con",
+           "name": "Brubeck Gallery Records",
+           "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=contentdm_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+           "harvest_type": "OAI",
+           "harvest_extra_data": "brubeckcollection",
+           "rights_statement": "",
+           "staging_notes": "",
+           "local_id": "brubeck-gallery-records",
+           "title": "Brubeck Gallery Records",
+           "resource_uri": "/api/v1/collection/26310/"
+       }
+   ],
+   "date": [
+       "1994",
+       "2009"
+   ],
+   "relation": [
+       "This item is part of the Brubeck Collection, MSS 004."
+   ],
+   "datestamp": "2010-08-18",
+   "title": [
+       "1994: Bill Clinton, Iola and Dave Brubeck. National Endowment for the Arts"
+   ],
+   "identifier": [
+       "dbp 94-230  d&i w clinton.tif",
+       "http://cdm16745.contentdm.oclc.org/cdm/ref/collection/brubeckcollection/id/103"
+   ],
+   "type": [
+       "Still Image"
+   ],
+   "id": "oai:cdm16745.contentdm.oclc.org:brubeckcollection/103",
+   "subject": [
+       "Jazz musicians"
+   ]
+}

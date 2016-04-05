@@ -1,3 +1,4 @@
+import requests
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 
@@ -40,6 +41,14 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         '''Can only reliably get a small tumbnail from the CONTENTdm
         with the metadata in the OAI feed
         Can parse the OAI id to get infor we need.
+
+        As it turns out, for "image" type objects, larger images are 
+        available.
+        The creation of the URL to grab the image needs to check the image
+        object information before setting the URL. ContentDM has an image
+        server that will resize the image on demand. We want images whose max
+        dimension in height or width is 1024. Need to first get image info at
+        the base URL then request an appropriately scaled image.
         '''
         ident = self.get_identifier_match('cdm/ref')
         if ident:
@@ -75,14 +84,40 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         self.to_source_resource_with_split('type', 'type')
         rec_type = self.mapped_data['sourceResource']['type']
         is_sound_object = False
+        is_image_object = False
         if isinstance(rec_type, basestring):
             if 'sound' == rec_type.lower():
                 is_sound_object = True
+            elif 'image' in rec_type.lower():
+                is_image_object = True
         else: #list type
             for val in rec_type:
                 if 'sound' == val.lower():
                     is_sound_object = True
-                    break
+                elif 'image' in val.lower():
+                    is_image_object = True
+        if is_image_object:
+            ident = self.get_identifier_match('cdm/ref')
+            if ident:
+                base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
+                #url_image_info give json data about image for record
+                url_image_info = '/'.join((base_url, 'utils', 'ajaxhelper'))
+                url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(
+                        url_image_info, collid, objid)
+                image_info = requests.get(url_image_info).json()['imageinfo']
+                if image_info['height'] > 0: #if 0 only thumb available
+                    #figure scaling
+                    max_dim = 1024.0
+                    scale = 100
+                    print "HEIGHT:{}".format(image_info['height'])
+                    if image_info['height'] >= image_info['width']:
+                        scale = int((max_dim / image_info['height']) * 100)
+                    else:
+                        scale = int((max_dim / image_info['width']) * 100)
+                    scale = 100 if scale > 100 else scale
+                    thumbnail_url = '{}&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE={}'.format(
+                            url_image_info, scale)
+                    self.mapped_data.update({'isShownBy': thumbnail_url})
         if is_sound_object:
             if 'isShownBy' in self.mapped_data:
                 del self.mapped_data['isShownBy']
