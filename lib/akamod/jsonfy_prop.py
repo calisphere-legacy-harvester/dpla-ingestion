@@ -1,3 +1,4 @@
+import numbers
 from akara import logger
 from akara import response
 from akara.services import simple_service
@@ -10,6 +11,8 @@ def jsonfy_obj(obj):
     Unpacks string json objects buried in some blacklight/solr feeds.
     '''
     obj_jsonfied = {}
+    if isinstance(obj, numbers.Number) or isinstance(obj, bool):
+        return obj
     if isinstance(obj, basestring):
         try:
             x = json.loads(obj)

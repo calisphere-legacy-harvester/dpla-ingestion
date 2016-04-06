@@ -66,3 +66,7 @@ def test_jsonfy_ucsd_multi_video():
     obj = json.loads(content)
     prop = obj['component_1_files_tesim']
     TC.assertEqual(prop[2]['use'], 'image-preview')
+    prop = obj['component_3_children_isim']
+    TC.assertEqual(prop[0], 4)
+    TC.assertEqual(obj['test_bool_obj'], True)
+    TC.assertEqual(obj['test_bool_list'], [True, False])
