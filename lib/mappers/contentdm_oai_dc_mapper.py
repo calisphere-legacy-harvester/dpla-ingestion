@@ -84,19 +84,16 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         self.to_source_resource_with_split('type', 'type')
         rec_type = self.mapped_data['sourceResource']['type']
         is_sound_object = False
-        is_image_object = False
         if isinstance(rec_type, basestring):
             if 'sound' == rec_type.lower():
                 is_sound_object = True
-            elif 'image' in rec_type.lower():
-                is_image_object = True
         else: #list type
             for val in rec_type:
                 if 'sound' == val.lower():
                     is_sound_object = True
-                elif 'image' in val.lower():
-                    is_image_object = True
-        if is_image_object:
+        if not is_sound_object:
+            # Try to get a bigger image than the thumbnail.
+            # Some "text" types have a large image
             ident = self.get_identifier_match('cdm/ref')
             if ident:
                 base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
@@ -109,7 +106,6 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
                     #figure scaling
                     max_dim = 1024.0
                     scale = 100
-                    print "HEIGHT:{}".format(image_info['height'])
                     if image_info['height'] >= image_info['width']:
                         scale = int((max_dim / image_info['height']) * 100)
                     else:
