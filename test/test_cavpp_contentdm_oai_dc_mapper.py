@@ -1,5 +1,6 @@
 import os.path as path
 from unittest import TestCase
+from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
 
@@ -12,6 +13,7 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=cavpp_contentdm_oai_dc"
     return H.request(url, "POST", body=body)
 
+@attr(uses_network='yes')
 def test_cavpp_overrides():
     fixture = path.join(DIR_FIXTURES,
             'contentdm_oai.json')

@@ -1,5 +1,6 @@
 import os.path as path
 from unittest import TestCase
+from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
 
@@ -12,6 +13,7 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=csudh_contentdm_oai_dc"
     return H.request(url, "POST", body=body)
 
+@attr(uses_network='yes')
 def test_csudh_contentdm_title_with_local_id():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
@@ -35,6 +37,7 @@ def test_csudh_contentdm_title_with_local_id():
        "csudh_ish_0032"
     ])
 
+@attr(uses_network='yes')
 def test_csudh_contentdm_title_with_ARK():
     fixture = path.join(DIR_FIXTURES,
             'csudh_contentdm_oai_2.json')

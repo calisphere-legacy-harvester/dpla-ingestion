@@ -49,6 +49,8 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         server that will resize the image on demand. We want images whose max
         dimension in height or width is 1024. Need to first get image info at
         the base URL then request an appropriately scaled image.
+        This needs to be done after the sourceResouce/type is mapped, so it
+        happens in update_mapped_fields
         '''
         ident = self.get_identifier_match('cdm/ref')
         if ident:
@@ -81,7 +83,50 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
         self.to_source_resource_with_split('coverage', 'spatial')
 
     def map_type(self):
+        '''TOOD:Funky, but map_type comes after the is_shown_by, should change order
+        '''
         self.to_source_resource_with_split('type', 'type')
+
+    def get_url_image_info(self):
+        image_info = {'height': 0, 'width': 0 }
+        ident = self.get_identifier_match('cdm/ref')
+        base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
+        #url_image_info give json data about image for record
+        url_image_info = '/'.join((base_url, 'utils', 'ajaxhelper'))
+        url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(
+                url_image_info, collid, objid)
+        return url_image_info
+
+    def get_image_info(self):
+        '''Return image info for the contentdm object'''
+        image_info = {'height': 0, 'width': 0 }
+        ident = self.get_identifier_match('cdm/ref')
+        if ident:
+            image_info = requests.get(self.get_url_image_info()).json()['imageinfo']
+        return image_info
+
+    def get_larger_preview_image(self):
+        # Try to get a bigger image than the thumbnail.
+        # Some "text" types have a large image
+        image_info = self.get_image_info()
+        if image_info['height'] > 0: #if 0 only thumb available
+            #figure scaling
+            max_dim = 1024.0
+            scale = 100
+            if image_info['height'] >= image_info['width']:
+                scale = int((max_dim / image_info['height']) * 100)
+            else:
+                scale = int((max_dim / image_info['width']) * 100)
+            scale = 100 if scale > 100 else scale
+            thumbnail_url = '{}&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE={}'.format(
+                    self.get_url_image_info(), scale)
+            self.mapped_data.update({'isShownBy': thumbnail_url})
+
+    def update_mapped_fields(self):
+        ''' To run post mapping. For this one, is_shown_by needs
+        sourceResource/type'''
+        import sys
+        print >> sys.stderr, "IN UPDATE MAPPED FIELDS"
         rec_type = self.mapped_data['sourceResource']['type']
         is_sound_object = False
         if isinstance(rec_type, basestring):
@@ -92,28 +137,7 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
                 if 'sound' == val.lower():
                     is_sound_object = True
         if not is_sound_object:
-            # Try to get a bigger image than the thumbnail.
-            # Some "text" types have a large image
-            ident = self.get_identifier_match('cdm/ref')
-            if ident:
-                base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
-                #url_image_info give json data about image for record
-                url_image_info = '/'.join((base_url, 'utils', 'ajaxhelper'))
-                url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(
-                        url_image_info, collid, objid)
-                image_info = requests.get(url_image_info).json()['imageinfo']
-                if image_info['height'] > 0: #if 0 only thumb available
-                    #figure scaling
-                    max_dim = 1024.0
-                    scale = 100
-                    if image_info['height'] >= image_info['width']:
-                        scale = int((max_dim / image_info['height']) * 100)
-                    else:
-                        scale = int((max_dim / image_info['width']) * 100)
-                    scale = 100 if scale > 100 else scale
-                    thumbnail_url = '{}&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE={}'.format(
-                            url_image_info, scale)
-                    self.mapped_data.update({'isShownBy': thumbnail_url})
-        if is_sound_object:
+            self.get_larger_preview_image()
+        else:
             if 'isShownBy' in self.mapped_data:
                 del self.mapped_data['isShownBy']

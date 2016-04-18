@@ -13,6 +13,7 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=contentdm_oai_dc"
     return H.request(url, "POST", body=body)
 
+@attr(uses_network='yes')
 def test_contentdm_oai_dc_mapping():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource

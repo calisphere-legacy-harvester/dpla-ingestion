@@ -21,18 +21,17 @@ class CAVPP_CONTENTdm_OAI_Mapper(CONTENTdm_OAI_Mapper):
                 new_ids.append(ident)
         self.mapped_data['sourceResource']['identifier'] = new_ids
 
-    def map_type(self):
-        super(CAVPP_CONTENTdm_OAI_Mapper, self).map_type()
+    def update_mapped_fields(self):
+        super(CAVPP_CONTENTdm_OAI_Mapper, self).update_mapped_fields()
         rec_type = self.mapped_data['sourceResource']['type']
-        is_sound_object = False
+        is_moving_image = False
         if isinstance(rec_type, basestring):
-            if 'sound' == rec_type.lower():
-                is_sound_object = True
+            if 'moving image' == rec_type.lower():
+                is_moving_image = True
         else: #list type
             for val in rec_type:
-                if 'sound' == val.lower():
-                    is_sound_object = True
+                if 'moving image' == val.lower():
+                    is_moving_image = True
                     break
-        if is_sound_object:
-            if 'isShownBy' in self.mapped_data:
-                del self.mapped_data['isShownBy']
+        if is_moving_image:
+            self.map_is_shown_by()
