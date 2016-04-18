@@ -1,8 +1,8 @@
 import requests
-from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
+from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
 from dplaingestion.selector import exists, getprop
 
-class CONTENTdm_OAI_Mapper(DublinCoreMapper):
+class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
     '''A base mapper for CONTENTdm OAI feeds. Should work for most OAI
     feeds from CONTENTdm data sources.
     
@@ -14,20 +14,6 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
 
     def __init__(self, provider_data):
         super(CONTENTdm_OAI_Mapper, self).__init__(provider_data)
-
-    def split_values(self, prop):
-        new_values = []
-        if exists(self.provider_data_source, prop):
-            for value in getprop(self.provider_data_source, prop):
-                new_values.extend([ s.strip() for s in value.split(';')])
-        return new_values
-
-    def to_source_resource_with_split(self, provider_prop, srcRes_prop):
-        '''Copy the provider_prop to the srcRes_prop & split on ; in
-        data values'''
-        values = self.split_values(provider_prop)
-        self.update_source_resource({srcRes_prop: values})
-
 
     def get_identifier_match(self, string_in):
         '''Return the identifier that has the given string in it'''
@@ -125,8 +111,6 @@ class CONTENTdm_OAI_Mapper(DublinCoreMapper):
     def update_mapped_fields(self):
         ''' To run post mapping. For this one, is_shown_by needs
         sourceResource/type'''
-        import sys
-        print >> sys.stderr, "IN UPDATE MAPPED FIELDS"
         rec_type = self.mapped_data['sourceResource']['type']
         is_sound_object = False
         if isinstance(rec_type, basestring):
