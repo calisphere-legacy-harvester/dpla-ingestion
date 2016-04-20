@@ -36,7 +36,7 @@ def test_chapman_oai_dc_mapping():
     TC.assertEqual(obj['isShownAt'],
             "http://digitalcommons.chapman.edu/upi_vietnam/1")
     TC.assertEqual(obj['isShownBy'],
-            "http://digitalcommons.chapman.edu/context/upi_vietnam/article/1000/type/native/viewcontent")
+            "http://digitalcommons.chapman.edu/upi_vietnam/1000/preview.jpg")
     TC.assertEqual(srcRes['identifier'],[
             "http://digitalcommons.chapman.edu/upi_vietnam/1",
             ])

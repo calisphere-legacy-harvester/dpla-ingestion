@@ -6,15 +6,6 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
     
     OAI has a number of strange mappings to description & identifier
     '''
-
-    def get_identifier_match(self, string_in):
-        '''Return the identifier that has the given string in it'''
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if string_in in i:
-                return i
-        return None
-
     def map_is_shown_by(self):
         '''Can only reliably get a small tumbnail from the CONTENTdm
         with the metadata in the OAI feed
@@ -30,9 +21,12 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
         This needs to be done after the sourceResouce/type is mapped, so it
         happens in update_mapped_fields
         '''
-        ident = self.get_identifier_match('context')
-        if ident:
-            self.mapped_data.update({'isShownBy': ident})
+        descs = getprop(self.provider_data_source, 'description')
+        for d in descs:
+            if 'thumbnail' in d:
+                url_preview = d.replace('thumbnail', 'preview')
+                self.mapped_data.update({'isShownBy': url_preview})
+                break
 
     def map_is_shown_at(self):
         '''The identifier that points to the OAI server & has cdm/ref in the
