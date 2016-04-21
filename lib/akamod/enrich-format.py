@@ -89,6 +89,8 @@ def enrichformat(body, ctype, action="enrich-format",
                     exists(data, "hasView/format") and \
                                 cleaned not in hasview_format:
                     hasview_format.append(cleaned)
+                if cleaned not in format:
+                    format.append(cleaned)
             else:
                 # Retain non-IMT values in sourceResource/format, non-cleaned
                 if s not in format:

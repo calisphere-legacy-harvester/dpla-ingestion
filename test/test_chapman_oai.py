@@ -43,6 +43,7 @@ def test_chapman_oai_dc_mapping():
     TC.assertEqual(srcRes['description'],[
     "Santa Barbara, Calif: National Guardsmen sit in their jeeps at the command post near the Isla Vista section near the University of California at Santa Barbara. The guard was ordered out by Gov. Reagan to help local authorities restore order following three nights of rioting.",
     ])
+    TC.assertEqual(srcRes['format'],[ 'image/jpeg' ])
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
