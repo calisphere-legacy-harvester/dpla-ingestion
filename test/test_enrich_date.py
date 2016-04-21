@@ -716,12 +716,8 @@ def test_delim_with_months():
     url = server() + "enrich_earliest_date?prop=date"
     for i in range(len(INPUT)):
         input = {"date": INPUT[i]}
-<<<<<<< HEAD
         expected = {"date": [{"begin": "2004-07", "end": "2004-08",
             "displayDate": INPUT[i]}]}
-=======
-        expected = {"date": {"begin": "2004-07-01", "end": "2004-08-01", "displayDate": INPUT[i]}}
->>>>>>> master
 
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
