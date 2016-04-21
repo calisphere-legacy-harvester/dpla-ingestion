@@ -279,6 +279,15 @@ def test_shred15():
     FETCHED = json.loads(content)
     assert FETCHED == INPUT, DictDiffer(INPUT, FETCHED).diff()
 
+def test_shred_br():
+    INPUT = { "h": "line 1<br>line2<br>line3"}
+    EXPECTED = { "h":["line 1", "line2", "line3"]}
+    url = server() + "shred?prop=h&delim=%3Cbr%3E"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert str(resp.status).startswith("2"), content
+    FETCHED = json.loads(content)
+    assert FETCHED == EXPECTED
+
 def test_unshred1():
     "Valid unshredding"
 
