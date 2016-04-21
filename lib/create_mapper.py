@@ -132,6 +132,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chapman_oai_mapper import Chapman_OAI_Mapper
         return Chapman_OAI_Mapper(data)
 
+    def _create_contentdm_oai_dc_mapper_suppress_description(data):
+        from dplaingestion.mappers.contentdm_oai_dc_mapper_suppress_description import CONTENTdm_OAI_Suppress_Description_Mapper
+        return CONTENTdm_OAI_Suppress_Description_Mapper(data)
+
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
@@ -155,6 +159,7 @@ def create_mapper(mapper_type, data):
         'cavpp_contentdm_oai_dc':   lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
         'csudh_contentdm_oai_dc':   lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
         'lmu_oai_dc':   lambda d: _create_lmu_oai_dc_mapper(d),
+        'contentdm_oai_dc_suppress_description':   lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d)
     }
 
