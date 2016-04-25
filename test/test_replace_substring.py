@@ -117,5 +117,23 @@ def test_replace_list_subdicts():
     TC.assertEqual(resp.status, 200)
     TC.assertEqual(json.loads(content), EXPECTED)
 
+def test_replace_regex():
+    '''Test replacing a regex'''
+    INPUT = {
+            'sourceResource': {'subject': [{'name':'Bicyclist $z'},
+                {'name':'Victorian $x 1880s'}, 
+                {'name':'no replace'}]}
+    }
+    EXPECTED = {
+            'sourceResource': {'subject': [{'name':'Bicyclist --'},
+                {'name':'Victorian -- 1880s'}, 
+                {'name':'no replace'}]}
+    }
+    url = server() + "replace_regex"
+    url = "{0}?prop=sourceResource%2Fsubject&regex=\$\S&new=--".format(url)
+    resp, content = _get_server_response_raw_query(url, json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    TC.assertEqual(json.loads(content), EXPECTED)
+
 if __name__ == "__main__":
     raise SystemExit("Use nosetest")
