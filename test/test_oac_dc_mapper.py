@@ -134,6 +134,7 @@ def test_map_spatial():
     TC.assertEqual(content['sourceResource']['spatial'], ['Oakland'])
     INPUT = {'originalRecord':{'coverage':[{'text':'Oakland', 'attrib':''},
         {'text':'ark:/12345/bogusark', 'attrib':''},
+        {'text':'A1000', 'attrib':'spatial'},
         {'text':'Uptown', 'attrib':''}]}}
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
@@ -142,6 +143,7 @@ def test_map_spatial():
     INPUT = {'originalRecord':{'coverage':[
         {'text':'Oakland', 'attrib':''},
         {'text':'ark:/12345/bogusark', 'attrib':''},
+        {'text':'A1000', 'attrib':'spatial'},
         {'text':'Uptown', 'attrib':''}]}}
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)

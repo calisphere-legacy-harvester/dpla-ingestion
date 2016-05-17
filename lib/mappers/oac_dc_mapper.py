@@ -1,4 +1,5 @@
 import os
+import re
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
@@ -9,6 +10,10 @@ URL_OAC_CONTENT_BASE = module_config().get(
                         os.environ.get('URL_OAC_CONTENT_BASE',
                                         'http://content.cdlib.org')
                         )
+
+# collection 25496 has coverage values like A0800 & A1000
+# drop these
+Anum_re = re.compile('A\d\d\d\d')
 
 class OAC_DCMapper(DublinCoreMapper):
     '''Mapper for OAC xml feed objects'''
@@ -114,6 +119,7 @@ class OAC_DCMapper(DublinCoreMapper):
                 #remove arks from data
                 # and move the "text" value to 
                 coverage_data = [ c['text'] for c in coverage_data if (not isinstance(c,basestring) and not c['text'].startswith('ark:'))]
+                coverage_data = [ c for c in coverage_data if not Anum_re.match(c)]
                 self.update_source_resource({"spatial":coverage_data})
 
     def map_format(self):
