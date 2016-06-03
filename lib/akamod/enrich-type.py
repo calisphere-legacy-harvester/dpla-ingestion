@@ -52,9 +52,12 @@ def enrichtype(body, ctype,
         return body
     if sr_type:
         for t in sr_type if (type(sr_type) == list) else [sr_type]:
+            t_flat = t
             if type(t) == dict:
-                t = t.get('#text', '')
-            type_strings.append(t.lower())
+                t_flat = t.get('#text', None)
+                if not t_flat:
+                    t_flat = t.get('text', '')
+            type_strings.append(t_flat.lower())
     if sr_format:
         for f in sr_format if (type(sr_format) == list) else [sr_format]:
             format_strings.append(f.lower())

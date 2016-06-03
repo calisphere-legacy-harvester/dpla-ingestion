@@ -33,6 +33,40 @@ def test_UCLA_problems():
     assert resp.status == 200
     assert_same_jsons(EXPECTED, json.loads(content))
 
+def test_type_has_priority():
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": [ {
+               "text": "text",
+               "attrib": {
+               }
+           },
+           {
+               "text": "text",
+               "attrib": {
+                   "q": "mods"
+               }
+           },
+           {
+               "text": "postcards",
+               "attrib": {
+                   "q": "genreform"
+               }
+           }
+       ],
+            "format":"postcard"
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {"type": "text",
+            "format": "postcard"}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    assert_same_jsons(EXPECTED, json.loads(content))
+
 def test_remove_type():
     """Should remove type"""
     INPUT = {
