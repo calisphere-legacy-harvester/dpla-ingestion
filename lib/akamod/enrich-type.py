@@ -61,8 +61,8 @@ def enrichtype(body, ctype,
     try:
         data['sourceResource']['type'] = \
                 itemtype.type_for_strings_and_mappings([
+                    (type_strings, type_for_type_keyword),
                     (format_strings, type_for_format_keyword),
-                    (type_strings, type_for_type_keyword)
                 ])
     except itemtype.NoTypeError:
         id_for_msg = data.get('_id', '[no id]')
