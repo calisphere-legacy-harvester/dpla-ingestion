@@ -10,7 +10,7 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 def _get_server_response(body):
-    url = server() + "select-oac-id"
+    url = server() + "select-cmis-atom-id"
     return H.request(url, "POST", body=body,
             headers={'Source': 'NUMERIC-ID'}
             )

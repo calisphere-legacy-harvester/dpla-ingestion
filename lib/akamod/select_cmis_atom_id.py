@@ -11,7 +11,8 @@ from dplaingestion.selector import getprop, setprop, exists
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src,lname))
 COUCH_REC_ID_BUILDER = lambda src, id_handle: COUCH_ID_BUILDER(src,id_handle.strip().replace(" ","__"))
 
-@simple_service('POST', 'http://purl.org/la/dp/select-oac-id', 'select-oac-id',
+@simple_service('POST', 'http://purl.org/la/dp/select-cmis-atom-id',
+'select-cmis-atom-id',
                 'application/json')
 def selectid(body, ctype):
     '''   
