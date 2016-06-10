@@ -25,6 +25,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(resp.status, 200)
     content_obj = json.loads(content)
     srcRes = content_obj['sourceResource']
+    TC.assertEqual(srcRes['stateLocatedIn'], 'California'),
     TC.assertEqual(len(srcRes['title']), 1)
     TC.assertEqual(srcRes['title'],
             ['The Phyllis Wheatley Reporter vol. 1 no. 1'])
@@ -49,7 +50,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['spatial'], [{'name': 'Coverage Test Value'}])
     TC.assertEqual(srcRes['rights'][0][:12], "Copyrighted.")
     TC.assertEqual(content_obj['isShownAt'],
-            'https://oakland.access.preservica.com/file/sdb:digitalFile|sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/file/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")

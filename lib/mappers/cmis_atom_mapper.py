@@ -4,7 +4,7 @@ from dplaingestion.mappers.mapper import Mapper
 #from dplaingestion.utilities import iterify
 #from akara import module_config
 
-URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/sdb:digitalFile|'
+URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/'
 class CMISAtomDCMapper(Mapper):  
     def __init__(self, provider_data, key_prefix=None):
         super(CMISAtomDCMapper, self).__init__(provider_data, key_prefix)
@@ -39,18 +39,11 @@ class CMISAtomDCMapper(Mapper):
         defaultdict with list values
         so I'm not overriding the various map_<field> methods.
         '''
-        self.mapped_data.update({'stateLocatedIn':'California'})
+        self.mapped_data['sourceResource'].update({'stateLocatedIn':'California'})
         DC_elements = [ 'contributor', 'coverage', 'creator', 'date',
                     'description', 'format', 'identifier', 'language',
                     'publisher', 'relation', 'rights', 'source', 'subject',
                     'title', 'type',]
-###        sourceResource_fields = ['contributor', 'creator', 'date',
-###                'description', 'extent', 'format', 'identifier', 
-###                'language', 'publisher', 'relation', 'rights',
-###                'spatial', 'subject', 'temporal', 'title', 'type']
-        #self.map_state_located_in()
-        #self.map_spec_type()
-        #self.map_is_part_of()
         for item in self.provider_data_source:
             field = item["{http://www.tessella.com/sdb/cmis/metadata}name"]
             field = field.get('$', None)
