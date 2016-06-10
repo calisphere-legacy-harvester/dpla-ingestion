@@ -18,7 +18,7 @@ def _get_server_response(body):
 def test_id_selected():
     '''Test that the id is grabbed '''
     INPUT = json.load(open(DIR_FIXTURES+'/preservica-cmis-atom-entry.json'))
-    EXPECTED = 'NUMERIC-ID--sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b'
+    EXPECTED = 'NUMERIC-ID--ddf962b3-e763-4838-b149-f87eef10504b'
     resp, content = _get_server_response(json.dumps(INPUT))
     TC.assertEqual(resp.status, 200)
     TC.assertEqual(json.loads(content)['_id'], EXPECTED)

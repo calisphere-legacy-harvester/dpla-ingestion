@@ -22,6 +22,8 @@ def select_id(source_name, data):
     if not objid:
         raise ValueError("Couldn't find property to extract id")
 
+    objid = objid.split('|')[1]
+
     data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, objid)
     data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
 

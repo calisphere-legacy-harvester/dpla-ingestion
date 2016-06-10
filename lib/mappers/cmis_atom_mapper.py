@@ -4,7 +4,10 @@ from dplaingestion.mappers.mapper import Mapper
 #from dplaingestion.utilities import iterify
 #from akara import module_config
 
-URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/'
+    
+URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/sdb:digitalFile|'
+URL_BASE_SHOWN_BY = 'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile='
+
 class CMISAtomDCMapper(Mapper):  
     def __init__(self, provider_data, key_prefix=None):
         super(CMISAtomDCMapper, self).__init__(provider_data, key_prefix)
@@ -30,7 +33,9 @@ class CMISAtomDCMapper(Mapper):
                 {'isShownAt': URL_BASE_SHOWN_AT + objid })
 
     def map_is_shown_by(self):
-        pass
+        objid = self.mapped_data['_id'].split('--')[1]
+        self.mapped_data.update(
+                {'isShownBy': URL_BASE_SHOWN_BY + objid })
 
     def map_source_resource(self):
         '''Because of the format of the data, it is going to be easier to loop
