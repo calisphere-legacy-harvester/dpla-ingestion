@@ -11,6 +11,20 @@ from dplaingestion.selector import getprop, setprop, exists
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src,lname))
 COUCH_REC_ID_BUILDER = lambda src, id_handle: COUCH_ID_BUILDER(src,id_handle.strip().replace(" ","__"))
 
+def select_id(source_name, data):
+    objid = None
+    #the json representation is crazy
+    vlist = data["{http://www.w3.org/2005/Atom}entry"]["{http://docs.oasis-open.org/ns/cmis/restatom/200908/}object"]["{http://docs.oasis-open.org/ns/cmis/core/200908/}properties"]["{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyId"]
+    for v in vlist:
+        if v.get("@propertyDefinitionId",'') ==  "cmis:objectId":
+            objid = v["{http://docs.oasis-open.org/ns/cmis/core/200908/}value"]["$"]
+
+    if not objid:
+        raise ValueError("Couldn't find property to extract id")
+
+    data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, objid)
+    data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
+
 @simple_service('POST', 'http://purl.org/la/dp/select-cmis-atom-id',
 'select-cmis-atom-id',
                 'application/json')
@@ -28,24 +42,15 @@ def selectid(body, ctype):
 
     request_headers = copy_headers_to_dict(request.environ)
     source_name = request_headers.get('Source')
-
-    objid = None
-    #the json representation is crazy
-    vlist = data["{http://www.w3.org/2005/Atom}entry"]["{http://docs.oasis-open.org/ns/cmis/restatom/200908/}object"]["{http://docs.oasis-open.org/ns/cmis/core/200908/}properties"]["{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyId"]
-    print >> sys.stderr, "VLIST:{}".format(vlist)
-    for v in vlist:
-        if v.get("@propertyDefinitionId",'') ==  "cmis:objectId":
-            objid = v["{http://docs.oasis-open.org/ns/cmis/core/200908/}value"]["$"]
-
-    if not objid:
+    try:
+        select_id(source_name, data)
+    except ValueError, e:
         response.code = 500
         response.add_header('content-type', 'text/plain')
         return "No id property was found"
 
-    data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, objid)
-    data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
-
     return json.dumps(data)
+
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

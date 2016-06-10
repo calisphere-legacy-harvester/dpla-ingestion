@@ -140,6 +140,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.cca_vault_oai_dc_mapper import CCA_VaultOAIMapper
         return CCA_VaultOAIMapper(data)
 
+    def _create_cmis_atom_dc_mapper(data):
+        from dplaingestion.mappers.cmis_atom_mapper import CMISAtomDCMapper
+        return CMISAtomDCMapper(data)
+
     mappers = {
         'marc':         lambda d: _create_pymarc_mapper(d),
         'dublin_core':  lambda d: _create_dublin_core_mapper(d),
@@ -166,6 +170,7 @@ def create_mapper(mapper_type, data):
         'contentdm_oai_dc_suppress_description':   lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d),
         'cca_vault_oai_dc': lambda d: _create_vault_oai_dc_mapper(d),
+        'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

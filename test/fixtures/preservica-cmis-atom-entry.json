@@ -412,7 +412,9 @@
                 "{http://www.tessella.com/sdb/cmis/metadata}name": {
                   "$": "coverage"
                 },
-                "{http://www.tessella.com/sdb/cmis/metadata}value": {}
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Coverage Test Value"
+                }
               },
               {
                 "{http://www.tessella.com/sdb/cmis/metadata}name": {
