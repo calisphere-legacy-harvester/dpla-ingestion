@@ -5,7 +5,6 @@ class UCSBAlephMarcMapper(PyMARCMapper):
     def _map_is_at_values(self, prop, _dict, tag, codes):
         self.extend_prop(prop, _dict, codes)
         usethis = ''
-        print '{} ======= {}'.format(prop, self.mapped_data[prop])
         for data in self.mapped_data[prop]:
             if 'http://www.library.ucsb.edu/OBJID/' in data:
                 usethis = data

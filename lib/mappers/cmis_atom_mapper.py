@@ -25,8 +25,6 @@ class CMISAtomDCMapper(Mapper):
         self.provider_data_source = metadata_root["{http://www.tessella.com/sdb/cmis/metadata}group"][0]["{http://www.tessella.com/sdb/cmis/metadata}item"]
 
     def map_is_shown_at(self):
-        print 'PROVIDER DATA KEYS:{}'.format(self.provider_data.keys())
-        print 'MAPPED DATA KEYS:{}'.format(self.mapped_data.keys())
         objid = self.mapped_data['_id'].split('--')[1]
         self.mapped_data.update(
                 {'isShownAt': URL_BASE_SHOWN_AT + objid })
