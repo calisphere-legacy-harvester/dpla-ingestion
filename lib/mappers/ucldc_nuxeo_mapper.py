@@ -9,6 +9,8 @@ url_nuxeo_base = 'https://nuxeo.cdlib.org/Nuxeo/nxpicsfile/default/'
 
 url_nuxeo_pic_template_med_sz = ''.join((url_nuxeo_base, '{}/Medium:content/'))
 
+url_calisphere_item_base = 'https://calisphere.org/item/'
+
 class UCLDCNuxeoMapper(Mapper):
 
     def __init__(self, provider_data):
@@ -40,7 +42,10 @@ class UCLDCNuxeoMapper(Mapper):
 
     # root mapping
     def map_is_shown_at(self):
-        self.mapped_data.update({"isShownAt": 'http://example.edu'})
+        # these live on calisphere. so the isShownAt is:
+        # https://calisphere.org/item/<ID>
+        self.mapped_data.update({"isShownAt": url_calisphere_item_base +
+            self.provider_data.get('uid', None)})
         logger.error("keys in PDS:{}".format(self.provider_data.keys())) 
         self.mapped_data.update({"isShownBy":
                                   self.provider_data.get('isShownBy')})

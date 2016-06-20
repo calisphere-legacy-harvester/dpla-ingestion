@@ -23,6 +23,8 @@ def test_ucldc_nuxeo_mapping():
         TC.assertIn('isShownAt', obj)
         TC.assertIn('isShownBy', obj)
         TC.assertEqual(obj['isShownBy'], "http://example.edu/this/is/image/URL")
+        TC.assertEqual(obj['isShownAt'],
+                "https://calisphere.org/item/40677ed1-f7c2-476f-886d-bf79c3fec8c4")
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertIn('originalRecord', obj)
