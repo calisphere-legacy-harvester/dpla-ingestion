@@ -310,6 +310,14 @@
               },
               {
                 "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "creator"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": 1971
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
                   "$": "subject"
                 },
                 "{http://www.tessella.com/sdb/cmis/metadata}value": {
@@ -358,6 +366,14 @@
                 },
                 "{http://www.tessella.com/sdb/cmis/metadata}value": {
                   "$": "1960-03"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "date"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": 1960
                 }
               },
               {

@@ -56,6 +56,7 @@ class CMISAtomDCMapper(Mapper):
             value = value.get('$', None)
             if not (field and value):
                 continue
+            value = unicode(value)
             if field in DC_elements:
                 field_map_sr = field
                 d = value

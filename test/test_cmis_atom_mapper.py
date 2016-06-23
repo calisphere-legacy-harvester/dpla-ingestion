@@ -28,7 +28,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['stateLocatedIn'], 'California'), TC.assertEqual(len(srcRes['title']), 1)
     TC.assertEqual(srcRes['title'],
             ['The Phyllis Wheatley Reporter vol. 1 no. 1'])
-    TC.assertEqual(srcRes['creator'], [u'Phyllis Wheatley YWCA.'])
+    TC.assertEqual(srcRes['creator'], [u'Phyllis Wheatley YWCA.', u'1971'])
     TC.assertEqual(srcRes['subject'],  [
                 {u'name': u'African American women--Societies and clubs.'},
                 {u'name': u'Phyllis Wheatley YWCA--History.'},])
@@ -37,7 +37,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['publisher'],
             [u'African American Museum & Library at Oakland (Oakland, Calif.)'])
     TC.assertNotIn('contributor', srcRes)
-    TC.assertEqual(srcRes['date'], [u'1960-03'])
+    TC.assertEqual(srcRes['date'], [u'1960-03', u'1960'])
     TC.assertEqual(srcRes['type'], [u'text'])
     TC.assertEqual(srcRes['format'], [u'newsletters'])
     TC.assertEqual(srcRes['identifier'], [u'MS110_B01_F07_002'])
