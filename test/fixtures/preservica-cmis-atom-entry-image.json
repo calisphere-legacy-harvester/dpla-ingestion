@@ -1,0 +1,517 @@
+{
+  "{http://www.w3.org/2005/Atom}entry": {
+    "{http://www.w3.org/2005/Atom}author": {
+      "{http://www.w3.org/2005/Atom}name": {
+        "$": "sheyliger@oaklandlibrary.org"
+      }
+    },
+    "{http://www.w3.org/2005/Atom}id": {
+      "$": "http://chemistry.apache.org/c2RiOmRpZ2l0YWxGaWxlfGRkZjk2MmIzLWU3NjMtNDgzOC1iMTQ5LWY4N2VlZjEwNTA0Yg=="
+    },
+    "{http://www.w3.org/2005/Atom}published": {
+      "$": "2016-03-27T00:46:02Z"
+    },
+    "{http://www.w3.org/2005/Atom}title": {
+      "$": "MS110_B01_F07_002.pdf"
+    },
+    "{http://www.w3.org/2007/app}edited": {
+      "$": "2016-03-31T21:16:09Z"
+    },
+    "{http://www.w3.org/2005/Atom}updated": {
+      "$": "2016-03-31T21:16:09Z"
+    },
+    "{http://www.w3.org/2005/Atom}content": {
+      "@src": "https://us.preservica.com/cmis-server/atom/sdb/content/MS110_B01_F07_002.pdf?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+      "@type": "application/pdf"
+    },
+    "{http://docs.oasis-open.org/ns/cmis/restatom/200908/}object": {
+      "{http://docs.oasis-open.org/ns/cmis/core/200908/}properties": {
+        "{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyId": [
+          {
+            "@localName": "cmis:objectId",
+            "@queryName": "cmis:objectId",
+            "@displayName": "cmis:objectId",
+            "@propertyDefinitionId": "cmis:objectId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b"
+            }
+          },
+          {
+            "@localName": "cmis:secondaryObjectTypeIds",
+            "@queryName": "cmis:secondaryObjectTypeIds",
+            "@displayName": "cmis:secondaryObjectTypeIds",
+            "@propertyDefinitionId": "cmis:secondaryObjectTypeIds"
+          },
+          {
+            "@localName": "cmis:baseTypeId",
+            "@queryName": "cmis:baseTypeId",
+            "@displayName": "cmis:baseTypeId",
+            "@propertyDefinitionId": "cmis:baseTypeId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "cmis:document"
+            }
+          },
+          {
+            "@localName": "cmis:objectTypeId",
+            "@queryName": "cmis:objectTypeId",
+            "@displayName": "cmis:objectTypeId",
+            "@propertyDefinitionId": "cmis:objectTypeId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "cmis:document"
+            }
+          },
+          {
+            "@localName": "sdbcmis:parentId",
+            "@queryName": "sdbcmis:parentId",
+            "@displayName": "sdbcmis:parentId",
+            "@propertyDefinitionId": "sdbcmis:parentId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sdb:deliverableUnit|7eb08662-4b5d-4222-beca-41433368680a"
+            }
+          },
+          {
+            "@localName": "sdbcmis:collectionId",
+            "@queryName": "sdbcmis:collectionId",
+            "@displayName": "sdbcmis:collectionId",
+            "@propertyDefinitionId": "sdbcmis:collectionId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sdb:collection|191fc4ec-304c-4824-a637-72cc82d48f8b"
+            }
+          },
+          {
+            "@localName": "cmis:versionSeriesId",
+            "@queryName": "cmis:versionSeriesId",
+            "@displayName": "cmis:versionSeriesId",
+            "@propertyDefinitionId": "cmis:versionSeriesId",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b"
+            }
+          },
+          {
+            "@localName": "cmis:contentStreamId",
+            "@queryName": "cmis:contentStreamId",
+            "@displayName": "cmis:contentStreamId",
+            "@propertyDefinitionId": "cmis:contentStreamId"
+          }
+        ],
+        "{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyString": [
+          {
+            "@localName": "cmis:name",
+            "@queryName": "cmis:name",
+            "@displayName": "cmis:name",
+            "@propertyDefinitionId": "cmis:name",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+            }
+          },
+          {
+            "@localName": "cmis:createdBy",
+            "@queryName": "cmis:createdBy",
+            "@displayName": "cmis:createdBy",
+            "@propertyDefinitionId": "cmis:createdBy",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sheyliger@oaklandlibrary.org"
+            }
+          },
+          {
+            "@localName": "cmis:lastModifiedBy",
+            "@queryName": "cmis:lastModifiedBy",
+            "@displayName": "cmis:lastModifiedBy",
+            "@propertyDefinitionId": "cmis:lastModifiedBy",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "sheyliger@oaklandlibrary.org"
+            }
+          },
+          {
+            "@localName": "cmis:changeToken",
+            "@queryName": "cmis:changeToken",
+            "@displayName": "cmis:changeToken",
+            "@propertyDefinitionId": "cmis:changeToken"
+          },
+          {
+            "@localName": "cmis:description",
+            "@queryName": "cmis:description",
+            "@displayName": "cmis:description",
+            "@propertyDefinitionId": "cmis:description",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+            }
+          },
+          {
+            "@localName": "sdbcmis:parentName",
+            "@queryName": "sdbcmis:parentName",
+            "@displayName": "sdbcmis:parentName",
+            "@propertyDefinitionId": "sdbcmis:parentName",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "Young Women's Christian Association Collection"
+            }
+          },
+          {
+            "@localName": "sdbcmis:collectionName",
+            "@queryName": "sdbcmis:collectionName",
+            "@displayName": "sdbcmis:collectionName",
+            "@propertyDefinitionId": "sdbcmis:collectionName",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "Young Women's Christian Association Collection"
+            }
+          },
+          {
+            "@localName": "cmis:versionLabel",
+            "@queryName": "cmis:versionLabel",
+            "@displayName": "cmis:versionLabel",
+            "@propertyDefinitionId": "cmis:versionLabel",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "MS110_B01_F07_002.pdf"
+            }
+          },
+          {
+            "@localName": "cmis:versionSeriesCheckedOutBy",
+            "@queryName": "cmis:versionSeriesCheckedOutBy",
+            "@displayName": "cmis:versionSeriesCheckedOutBy",
+            "@propertyDefinitionId": "cmis:versionSeriesCheckedOutBy"
+          },
+          {
+            "@localName": "cmis:versionSeriesCheckedOutId",
+            "@queryName": "cmis:versionSeriesCheckedOutId",
+            "@displayName": "cmis:versionSeriesCheckedOutId",
+            "@propertyDefinitionId": "cmis:versionSeriesCheckedOutId"
+          },
+          {
+            "@localName": "cmis:checkinComment",
+            "@queryName": "cmis:checkinComment",
+            "@displayName": "cmis:checkinComment",
+            "@propertyDefinitionId": "cmis:checkinComment",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {}
+          },
+          {
+            "@localName": "cmis:contentStreamMimeType",
+            "@queryName": "cmis:contentStreamMimeType",
+            "@displayName": "cmis:contentStreamMimeType",
+            "@propertyDefinitionId": "cmis:contentStreamMimeType",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "application/pdf"
+            }
+          },
+          {
+            "@localName": "cmis:contentStreamFileName",
+            "@queryName": "cmis:contentStreamFileName",
+            "@displayName": "cmis:contentStreamFileName",
+            "@propertyDefinitionId": "cmis:contentStreamFileName",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "MS110_B01_F07_002.pdf"
+            }
+          }
+        ],
+        "{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyDateTime": [
+          {
+            "@localName": "cmis:creationDate",
+            "@queryName": "cmis:creationDate",
+            "@displayName": "cmis:creationDate",
+            "@propertyDefinitionId": "cmis:creationDate",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "2016-03-27T00:46:02Z"
+            }
+          },
+          {
+            "@localName": "cmis:lastModificationDate",
+            "@queryName": "cmis:lastModificationDate",
+            "@displayName": "cmis:lastModificationDate",
+            "@propertyDefinitionId": "cmis:lastModificationDate",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": "2016-03-31T21:16:09Z"
+            }
+          }
+        ],
+        "{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyBoolean": [
+          {
+            "@localName": "cmis:isImmutable",
+            "@queryName": "cmis:isImmutable",
+            "@displayName": "cmis:isImmutable",
+            "@propertyDefinitionId": "cmis:isImmutable",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": true
+            }
+          },
+          {
+            "@localName": "cmis:isLatestVersion",
+            "@queryName": "cmis:isLatestVersion",
+            "@displayName": "cmis:isLatestVersion",
+            "@propertyDefinitionId": "cmis:isLatestVersion",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": true
+            }
+          },
+          {
+            "@localName": "cmis:isMajorVersion",
+            "@queryName": "cmis:isMajorVersion",
+            "@displayName": "cmis:isMajorVersion",
+            "@propertyDefinitionId": "cmis:isMajorVersion",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": true
+            }
+          },
+          {
+            "@localName": "cmis:isLatestMajorVersion",
+            "@queryName": "cmis:isLatestMajorVersion",
+            "@displayName": "cmis:isLatestMajorVersion",
+            "@propertyDefinitionId": "cmis:isLatestMajorVersion",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": true
+            }
+          },
+          {
+            "@localName": "cmis:isVersionSeriesCheckedOut",
+            "@queryName": "cmis:isVersionSeriesCheckedOut",
+            "@displayName": "cmis:isVersionSeriesCheckedOut",
+            "@propertyDefinitionId": "cmis:isVersionSeriesCheckedOut",
+            "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+              "$": false
+            }
+          }
+        ],
+        "{http://docs.oasis-open.org/ns/cmis/core/200908/}propertyInteger": {
+          "@localName": "cmis:contentStreamLength",
+          "@queryName": "cmis:contentStreamLength",
+          "@displayName": "cmis:contentStreamLength",
+          "@propertyDefinitionId": "cmis:contentStreamLength",
+          "{http://docs.oasis-open.org/ns/cmis/core/200908/}value": {
+            "$": 8158949
+          }
+        }
+      },
+      "{http://www.tessella.com/sdb/cmis/metadata}metadata": {
+        "{http://www.tessella.com/sdb/cmis/metadata}title": {
+          "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+        },
+        "{http://www.tessella.com/sdb/cmis/metadata}description": {
+          "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+        },
+        "{http://www.tessella.com/sdb/cmis/metadata}group": [
+          {
+            "{http://www.tessella.com/sdb/cmis/metadata}title": {
+              "$": "Dublin Core Metadata"
+            },
+            "{http://www.tessella.com/sdb/cmis/metadata}item": [
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "title"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "creator"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Phyllis Wheatley YWCA."
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "creator"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": 1971
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "subject"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "African American women--Societies and clubs."
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "subject"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Phyllis Wheatley YWCA--History."
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "subject"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {}
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "description"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "The Phyllis Wheatley Reporter vol. 1 no. 1"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "publisher"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "African American Museum & Library at Oakland (Oakland, Calif.)"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "contributor"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {}
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "date"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "1960-03"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "date"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": 1960
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "type"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "image"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "format"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "newsletters"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "identifier"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "MS110_B01_F07_002"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "source"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Young Women's Christian Association Collection"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "language"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "eng"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "relation"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "http://www.oac.cdlib.org/findaid/ark:/13030/c84b3311/"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "coverage"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Coverage Test Value"
+                }
+              },
+              {
+                "{http://www.tessella.com/sdb/cmis/metadata}name": {
+                  "$": "rights"
+                },
+                "{http://www.tessella.com/sdb/cmis/metadata}value": {
+                  "$": "Copyrighted. Rights are owned by the African American Museum & Library at Oakland. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owner. In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+                }
+              }
+            ]
+          },
+          {
+            "{http://www.tessella.com/sdb/cmis/metadata}title": {
+              "$": "Properties"
+            }
+          }
+        ]
+      },
+      "{http://www.w3.org/2005/Atom}link": {
+        "@href": "https://us.preservica.com/Render/render/external?entity=TypeFile&entityRef=ddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "View PDF",
+        "@rel": "render"
+      }
+    },
+    "{http://www.w3.org/2005/Atom}link": [
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb?repositoryId=sdb",
+        "@type": "application/atomsvc+xml",
+        "@rel": "service"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/entry?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/atom+xml;type=entry",
+        "@{http://docs.oasis-open.org/ns/cmis/restatom/200908/}id": "sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b",
+        "@rel": "self"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/entry?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/atom+xml;type=entry",
+        "@rel": "enclosure"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/entry?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/atom+xml;type=entry",
+        "@rel": "edit"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/type?id=cmis%3Adocument",
+        "@type": "application/atom+xml;type=entry",
+        "@rel": "describedby"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/allowableactions?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/cmisallowableactions+xml",
+        "@rel": "http://docs.oasis-open.org/ns/cmis/link/200908/allowableactions"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/parents?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/atom+xml;type=feed",
+        "@rel": "up"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/versions?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b&versionSeries=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/atom+xml;type=feed",
+        "@rel": "version-history"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/content?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/pdf",
+        "@rel": "edit-media"
+      },
+      {
+        "@href": "https://us.preservica.com/cmis-server/atom/sdb/acl?id=sdb%3AdigitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "application/cmisacl+xml",
+        "@rel": "http://docs.oasis-open.org/ns/cmis/link/200908/acl"
+      },
+      {
+        "@href": "https://us.preservica.com/Render/render/external?entity=TypeFile&entityRef=ddf962b3-e763-4838-b149-f87eef10504b",
+        "@type": "View PDF",
+        "@rel": "render"
+      }
+    ]
+  }
+}

@@ -7,6 +7,7 @@ from dplaingestion.mappers.mapper import Mapper
     
 URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/sdb:digitalFile|'
 URL_BASE_SHOWN_BY = 'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile='
+URL_BASE_SHOWN_BY_TEXT =  'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|'
 
 class CMISAtomDCMapper(Mapper):  
     def __init__(self, provider_data, key_prefix=None):
@@ -71,6 +72,11 @@ class CMISAtomDCMapper(Mapper):
                 else:
                     vlist = [d]
                 self.mapped_data['sourceResource'][field_map_sr] = vlist
+                if field_map_sr == 'type' and vlist == ['text']:
+                    objid = self.mapped_data['_id'].split('--')[1]
+                    self.mapped_data.update(
+                        {'isShownBy': URL_BASE_SHOWN_BY_TEXT + objid })
+
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

@@ -51,7 +51,19 @@ def test_map_oac_dc_meta():
     TC.assertEqual(content_obj['isShownAt'],
             'https://oakland.access.preservica.com/file/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
     TC.assertEqual(content_obj['isShownBy'],
-    'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile=ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+
+def test_image_type_isShownBy():
+    fixture = path.join(DIR_FIXTURES, 'preservica-cmis-atom-entry-image.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+    dobj=json.loads(INPUT)
+    select_id('CNUMERICID', dobj)
+    resp, content = _get_server_response(json.dumps(dobj))
+    TC.assertEqual(resp.status, 200)
+    content_obj = json.loads(content)
+    TC.assertEqual(content_obj['isShownBy'],
+        'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile=ddf962b3-e763-4838-b149-f87eef10504b')
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")
