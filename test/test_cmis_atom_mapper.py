@@ -63,7 +63,8 @@ def test_image_type_isShownBy():
     TC.assertEqual(resp.status, 200)
     content_obj = json.loads(content)
     TC.assertEqual(content_obj['isShownBy'],
-        'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile=ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+        #'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile=ddf962b3-e763-4838-b149-f87eef10504b')
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")
