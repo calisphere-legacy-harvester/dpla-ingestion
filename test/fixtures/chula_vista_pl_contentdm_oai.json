@@ -1,0 +1,64 @@
+{
+  "title": [
+    "The Sail"
+  ],
+  "collection": [
+    {
+      "dcmi_type": "I",
+      "qa_completed": false,
+      "featured": false,
+      "ready_for_publication": false,
+      "hosted": "",
+      "campus": [],
+      "url_oac": "",
+      "custom_facet": [],
+      "metadata_in_dams": false,
+      "url_harvest": "http://archives.chulavistalibrary.com:2009/cgi-bin/oai.exe/oai.php",
+      "id": "26477",
+      "files_in_dams": false,
+      "files_in_hand": false,
+      "ingestType": "collection",
+      "description": "",
+      "repository": [
+        {
+          "name": "Chula Vista Public Library",
+          "campus": [],
+          "slug": "chula-vista-public-library",
+          "ark": "ark:/13030/kt100019rv",
+          "@id": "https://registry.cdlib.org/api/v1/repository/59/",
+          "id": 59,
+          "google_analytics_tracking_code": "",
+          "resource_uri": "/api/v1/repository/59/"
+        }
+      ],
+      "harvest_type": "OAI",
+      "extent": null,
+      "rights_status": "X",
+      "@id": "https://registry.cdlib.org/api/v1/collection/26477/",
+      "slug": "chula-vista-public-library-art-collection",
+      "harvest_extra_data": "CVPublicArt",
+      "enrichments_item": "select-id?prop=id,\r\n/dpla_mapper?mapper_type=contentdm_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=overwrite,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+      "url_local": "http://archives.chulavistalibrary.com:2009/cdm4/browse.php?CISOROOT=%2FCVPublicArt",
+      "name": "Chula Vista Public Library Art Collection",
+      "rights_statement": "",
+      "staging_notes": "",
+      "local_id": "",
+      "title": "Chula Vista Public Library Art Collection",
+      "resource_uri": "/api/v1/collection/26477/"
+    }
+  ],
+  "datestamp": "2007-03-21",
+  "coverage": [
+    "San Diego Region"
+  ],
+  "contributor": [
+    "City of Chula Vista"
+  ],
+  "identifier": [
+    "http://archives.chulavistalibrary.com:2009/u?/CVPublicArt,100"
+  ],
+  "id": "oai:archives.chulavistalibrary.com:CVPublicArt/100",
+  "subject": [
+    "Sailing"
+  ]
+}

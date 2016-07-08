@@ -128,6 +128,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.csudh_contentdm_oai_dc_mapper import CSUDH_CONTENTdm_OAI_Mapper
         return CSUDH_CONTENTdm_OAI_Mapper(data)
 
+    def _create_chula_vista_pl_contentdm_oai_dc_mapper(data):
+        from dplaingestion.mappers.chula_vista_pl_contentdm_oai_dc_mapper import CVPL_CONTENTdm_OAI_Mapper
+        return CVPL_CONTENTdm_OAI_Mapper(data)
+
     def _create_chapman_oai_dc(data):
         from dplaingestion.mappers.chapman_oai_mapper import Chapman_OAI_Mapper
         return Chapman_OAI_Mapper(data)
@@ -166,6 +170,7 @@ def create_mapper(mapper_type, data):
         'contentdm_oai_dc':   lambda d: _create_contentdm_oai_dc_mapper(d),
         'cavpp_contentdm_oai_dc':   lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
         'csudh_contentdm_oai_dc':   lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
+        'chula_vista_pl_contentdm_oai_dc':   lambda d: _create_chula_vista_pl_contentdm_oai_dc_mapper(d),
         'lmu_oai_dc':   lambda d: _create_lmu_oai_dc_mapper(d),
         'contentdm_oai_dc_suppress_description':   lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d),
