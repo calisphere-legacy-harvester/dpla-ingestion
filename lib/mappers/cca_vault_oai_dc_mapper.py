@@ -6,9 +6,9 @@ class CCA_VaultOAIMapper(OAIDublinCoreMapper):
 
     base_url = 'https://vault.cca.edu/'
     def map_is_shown_by(self):
-        self.mapped_data.update({"isShownBy":
-            self.mapped_data['isShownAt'].replace('items',
-            'thumbs')+'?gallery=preview'})
+        base_url = self.mapped_data['isShownAt'].replace('https', 'http')
+        image_url = base_url.replace('items', 'thumbs')+'?gallery=preview'
+        self.mapped_data.update({"isShownBy": image_url})
 
 
     def map_is_shown_at(self):

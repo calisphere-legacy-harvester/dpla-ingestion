@@ -29,7 +29,7 @@ def test_cca_vault_oai_dc_mapping():
     TC.assertEqual(obj['isShownAt'],
     'https://vault.cca.edu/items/52167916-597c-4bbd-8af2-ce33bf6e4659/0/')
     TC.assertEqual(obj['isShownBy'],
-    'https://vault.cca.edu/thumbs/52167916-597c-4bbd-8af2-ce33bf6e4659/0/?gallery=preview')
+    'http://vault.cca.edu/thumbs/52167916-597c-4bbd-8af2-ce33bf6e4659/0/?gallery=preview')
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['title'],
             ["Reading Room",])
