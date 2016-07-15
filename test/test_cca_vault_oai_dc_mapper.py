@@ -36,6 +36,21 @@ def test_cca_vault_oai_dc_mapping():
     TC.assertEqual(srcRes['description'],[
         "Mural and scroll installation involving poetry by Chinese-American immigrants held at the Chinese Affirmative Action Community Room, Kuo Building. In same file as Resident Alien."])
 
+def test_cca_vault_text_type_mapping():
+    fixture = path.join(DIR_FIXTURES,
+            'cca_vault_text.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    TC.assertEqual(obj['isShownAt'],
+         'https://vault.cca.edu/items/adad0025-fba9-4a0b-8ff5-bfe0b21e82cd/0/')
+    TC.assertNotIn('isShownBy', obj)
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
