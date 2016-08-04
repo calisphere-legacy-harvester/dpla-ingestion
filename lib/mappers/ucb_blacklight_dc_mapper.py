@@ -4,9 +4,7 @@ from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 
 class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_is_shown_at(self, index=None):
-        pass
-        # is_shown_at = ''
-        # self.mapped_data.update({"isShownAt": is_shown_at})
+        self.mapped_data.update({'isShownAt': 'http://example.edu'})
 
     def map_is_shown_by(self):
         self.mapped_data.update({"isShownBy": self.provider_data["imageFile"]}
@@ -19,6 +17,9 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_creator(self):
         self.source_resource_orig_to_prop('name_Sphotographer_namePart',
                                           'creator')
+
+    def map_type(self):
+        self.source_resource_orig_to_prop('format', 'type')
 
 
 # Copyright © 2016, Regents of the University of California

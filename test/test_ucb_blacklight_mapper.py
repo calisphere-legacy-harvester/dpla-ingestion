@@ -37,18 +37,9 @@ def test_ucb_blacklight_mapping():
         "http://digitalassets.lib.berkeley.edu/vtm/ucb/images/"
         "VTM00008024a_j.jpg")
     TC.assertEqual(srcRes['creator'], "Wieslander, Albert Everett")
-    TC.assertEqual(obj['isShownAt'],
-                   'https://library.ucsd.edu/dc/object/bb0922726p')
-    TC.assertEqual(srcRes['relation'], ["http://example.edu/findingaid"])
-    TC.assertNotIn('identifier', srcRes)
-    TC.assertEqual(srcRes['type'], 'image')
-    TC.assertEqual(srcRes['stateLocatedIn'][0]['name'], 'California')
-    TC.assertEqual(srcRes['spatial'], [{'name': "Camp Matthews, San Diego"},
-                                       {"name": "Test spatial"}])
-    TC.assertEqual(obj['originalRecord']['rightsHolder'], [
-            "DeWitt Higgs",
-            "Kathryn M. Ringrose"
-      ])
+    # TC.assertEqual(obj['isShownAt'],
+    #               'https://library.ucsd.edu/dc/object/bb0922726p')
+    TC.assertEqual(srcRes['type'], 'still image')
 
 
 # Copyright © 2016, Regents of the University of California
