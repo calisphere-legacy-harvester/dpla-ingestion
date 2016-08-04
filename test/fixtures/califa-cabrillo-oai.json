@@ -1,0 +1,77 @@
+{
+  "publisher": [
+    "Cabrillo College Archives"
+  ],
+  "description": [
+    "Allen Illick, at piano, rehearses with jazz singers."
+  ],
+  "rights": [
+    "Copyright Cabrillo College, all rights reserved."
+  ],
+  "format": [
+    "4.5h x 6.25w inches"
+  ],
+  "collection": [
+    {
+      "dcmi_type": "I",
+      "qa_completed": false,
+      "featured": false,
+      "ready_for_publication": false,
+      "hosted": "",
+      "id": "26483",
+      "url_oac": "",
+      "custom_facet": [],
+      "metadata_in_dams": false,
+      "url_harvest": "http://contentdm.califa.org/cgi-bin/oai.exe",
+      "campus": [],
+      "files_in_dams": false,
+      "files_in_hand": false,
+      "ingestType": "collection",
+      "description": "",
+      "repository": [
+        {
+          "name": "Cabrillo College Library",
+          "campus": [],
+          "slug": "cabrillo-college-library",
+          "ark": "ark:/13030/c84172n3",
+          "@id": "https://registry.cdlib.org/api/v1/repository/222/",
+          "id": 222,
+          "google_analytics_tracking_code": "",
+          "resource_uri": "/api/v1/repository/222/"
+        }
+      ],
+      "url_local": "http://contentdm.califa.org/cdm4/browse.php?CISOROOT=%2Fcapc",
+      "extent": null,
+      "rights_status": "X",
+      "@id": "https://registry.cdlib.org/api/v1/collection/26483/",
+      "slug": "cabrillo-college-library-collection",
+      "name": "Cabrillo College Library Collection",
+      "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=cca_vault_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+      "harvest_type": "OAI",
+      "harvest_extra_data": "capc",
+      "rights_statement": "",
+      "staging_notes": "",
+      "local_id": "",
+      "title": "Cabrillo College Library Collection",
+      "resource_uri": "/api/v1/collection/26483/"
+    }
+  ],
+  "date": [
+    "1985-02-20"
+  ],
+  "datestamp": "2009-04-30",
+  "title": [
+    "'Al Illeks [sic] Jazz singers class, 2/20/85'"
+  ],
+  "identifier": [
+    "ph04_76b.tif",
+    "http://contentdm.califa.org/u?/capc,1638"
+  ],
+  "type": [
+    "Photographs"
+  ],
+  "id": "oai:contentdm.califa.org:capc/1638",
+  "subject": [
+    "Courses; Departments; Faculty"
+  ]
+}

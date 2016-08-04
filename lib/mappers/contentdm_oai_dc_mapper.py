@@ -5,15 +5,16 @@ from dplaingestion.selector import exists, getprop
 class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
     '''A base mapper for CONTENTdm OAI feeds. Should work for most OAI
     feeds from CONTENTdm data sources.
-    
-    isShownAt & isShownBy are in standard locations relative to the 
+
+    isShownAt & isShownBy are in standard locations relative to the
     base URL for the feed.
-    
+
     Values are split on semicolons (";") and each one put in new list
     item for a given field.'''
 
-    def __init__(self, provider_data):
+    def __init__(self, provider_data, ident_match='cdm/ref'):
         super(CONTENTdm_OAI_Mapper, self).__init__(provider_data)
+        self._ident_match = ident_match
 
     def get_identifier_match(self, string_in):
         '''Return the identifier that has the given string in it'''
@@ -28,7 +29,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         with the metadata in the OAI feed
         Can parse the OAI id to get infor we need.
 
-        As it turns out, for "image" type objects, larger images are 
+        As it turns out, for "image" type objects, larger images are
         available.
         The creation of the URL to grab the image needs to check the image
         object information before setting the URL. ContentDM has an image
@@ -38,7 +39,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         This needs to be done after the sourceResouce/type is mapped, so it
         happens in update_mapped_fields
         '''
-        ident = self.get_identifier_match('cdm/ref')
+        ident = self.get_identifier_match(self._ident_match)
         if ident:
             base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
             thumbnail_url = '/'.join((base_url, 'utils', 'getthumbnail',
@@ -50,7 +51,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         path is the path to object.
         Can get harvest base URL from the "collection" object
         '''
-        isShownAt = self.get_identifier_match('cdm/ref')
+        isShownAt = self.get_identifier_match(self._ident_match)
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
