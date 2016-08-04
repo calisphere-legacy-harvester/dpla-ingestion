@@ -233,6 +233,8 @@ class type_conversion:
         ('photograph', 'image'),
         ('sample book', 'image'),
         ('book', 'text'),
+		('document', 'text'),
+		('documents', 'text'),
         ('specimen', 'image'),
         ('electronic resource', 'interactive resource'),
         # Keep "textile" above "text"
