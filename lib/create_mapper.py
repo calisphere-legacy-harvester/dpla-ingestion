@@ -77,7 +77,8 @@ def create_mapper(mapper_type, data):
         return SFPLMARCMapper(data)
 
     def _create_ucldc_nuxeo_dc_mapper(data):
-        from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import UCLDCNuxeoMapper
+        from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import \
+                UCLDCNuxeoMapper
         return UCLDCNuxeoMapper(data)
 
     def _create_ucldc_nuxeo_mapper(data):
@@ -85,7 +86,8 @@ def create_mapper(mapper_type, data):
         return UCLDCNuxeoMapper(data)
 
     def _create_ucsd_blacklight_dc_mapper(data):
-        from dplaingestion.mappers.ucsd_blacklight_dc_mapper import UCSDBlacklightDCMapper
+        from dplaingestion.mappers.ucsd_blacklight_dc_mapper import \
+                UCSDBlacklightDCMapper
         return UCSDBlacklightDCMapper(data)
 
     def _create_oac_dc_mapper(data):
@@ -93,7 +95,8 @@ def create_mapper(mapper_type, data):
         return OAC_DCMapper(data)
 
     def _create_oac_dc_mapper_suppress_desc_2(data):
-        from dplaingestion.mappers.oac_dc_mapper_suppress_description_2 import OAC_DCMapperSuppressDescription2
+        from dplaingestion.mappers.oac_dc_mapper_suppress_description_2 \
+            import OAC_DCMapperSuppressDescription2
         return OAC_DCMapperSuppressDescription2(data)
 
     def _create_ucsf_xml_mapper(data):
@@ -109,7 +112,8 @@ def create_mapper(mapper_type, data):
         return UCSBAlephMarcMapper(data)
 
     def _create_oac_dc_mapper_suppress_publisher(data):
-        from dplaingestion.mappers.oac_dc_mapper_suppress_publisher import OAC_DCMapperSuppressPublisher
+        from dplaingestion.mappers.oac_dc_mapper_suppress_publisher import \
+                OAC_DCMapperSuppressPublisher
         return OAC_DCMapperSuppressPublisher(data)
 
     def _create_lmu_oai_dc_mapper(data):
@@ -117,19 +121,23 @@ def create_mapper(mapper_type, data):
         return LMU_OAI_Mapper(data)
 
     def _create_contentdm_oai_dc_mapper(data):
-        from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
+        from dplaingestion.mappers.contentdm_oai_dc_mapper import \
+                CONTENTdm_OAI_Mapper
         return CONTENTdm_OAI_Mapper(data)
 
     def _create_cavpp_contentdm_oai_dc_mapper(data):
-        from dplaingestion.mappers.cavpp_contentdm_oai_dc_mapper import CAVPP_CONTENTdm_OAI_Mapper
+        from dplaingestion.mappers.cavpp_contentdm_oai_dc_mapper import \
+                CAVPP_CONTENTdm_OAI_Mapper
         return CAVPP_CONTENTdm_OAI_Mapper(data)
 
     def _create_csudh_contentdm_oai_dc_mapper(data):
-        from dplaingestion.mappers.csudh_contentdm_oai_dc_mapper import CSUDH_CONTENTdm_OAI_Mapper
+        from dplaingestion.mappers.csudh_contentdm_oai_dc_mapper import \
+                CSUDH_CONTENTdm_OAI_Mapper
         return CSUDH_CONTENTdm_OAI_Mapper(data)
 
     def _create_chula_vista_pl_contentdm_oai_dc_mapper(data):
-        from dplaingestion.mappers.chula_vista_pl_contentdm_oai_dc_mapper import CVPL_CONTENTdm_OAI_Mapper
+        from dplaingestion.mappers.chula_vista_pl_contentdm_oai_dc_mapper \
+                import CVPL_CONTENTdm_OAI_Mapper
         return CVPL_CONTENTdm_OAI_Mapper(data)
 
     def _create_chapman_oai_dc(data):
@@ -137,11 +145,14 @@ def create_mapper(mapper_type, data):
         return Chapman_OAI_Mapper(data)
 
     def _create_contentdm_oai_dc_mapper_suppress_description(data):
-        from dplaingestion.mappers.contentdm_oai_dc_mapper_suppress_description import CONTENTdm_OAI_Suppress_Description_Mapper
+        from dplaingestion.mappers. \
+                contentdm_oai_dc_mapper_suppress_description \
+                import CONTENTdm_OAI_Suppress_Description_Mapper
         return CONTENTdm_OAI_Suppress_Description_Mapper(data)
 
     def _create_vault_oai_dc_mapper(data):
-        from dplaingestion.mappers.cca_vault_oai_dc_mapper import CCA_VaultOAIMapper
+        from dplaingestion.mappers.cca_vault_oai_dc_mapper import \
+                CCA_VaultOAIMapper
         return CCA_VaultOAIMapper(data)
 
     def _create_cmis_atom_dc_mapper(data):
@@ -152,34 +163,46 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.califa_oai_dc_mapper import Califa_OAIMapper
         return Califa_OAIMapper(data)
 
+    def _create_ucb_blacklight_dc_mapper(data):
+        from dplaingestion.mappers.ucb_blacklight_dc_mapper import \
+            UCBBlacklightDCMapper
+        return UCBBlacklightDCMapper(data)
+
     mappers = {
-        'marc':         lambda d: _create_pymarc_mapper(d),
-        'dublin_core':  lambda d: _create_dublin_core_mapper(d),
-        'lapl_marc':    lambda d: _create_lapl_marc_mapper(d),
-        'sfpl_marc':    lambda d: _create_sfpl_marc_mapper(d),
+        'marc': lambda d: _create_pymarc_mapper(d),
+        'dublin_core': lambda d: _create_dublin_core_mapper(d),
+        'lapl_marc': lambda d: _create_lapl_marc_mapper(d),
+        'sfpl_marc': lambda d: _create_sfpl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucldc_nuxeo': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucsd_blacklight_dc': lambda d: _create_ucsd_blacklight_dc_mapper(d),
-        'oac_dc':       lambda d: _create_oac_dc_mapper(d),
-        'oac_dc_suppress_desc_2': lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
-        'oac_dc_suppress_publisher': lambda d: _create_oac_dc_mapper_suppress_publisher(d),
+        'oac_dc': lambda d: _create_oac_dc_mapper(d),
+        'oac_dc_suppress_desc_2':
+            lambda d: _create_oac_dc_mapper_suppress_desc_2(d),
+        'oac_dc_suppress_publisher':
+            lambda d: _create_oac_dc_mapper_suppress_publisher(d),
         'ucsf_xml': lambda d: _create_ucsf_xml_mapper(d),
         'ucsf_solr': lambda d: _create_ucsf_solr_mapper(d),
         'ucsb_aleph_marc': lambda d: _create_ucsb_aleph_mapper(d),
-        'missouri':     lambda d: _create_missouri_mapper(d),
-        'mapv3_json':   lambda d: _create_mapv3_json_mapper(d),
-        'mdl_json':     lambda d: _create_mdl_json_mapper(d),
-        'cdl_json':     lambda d: _create_cdl_json_mapper(d),
-        'contentdm_oai_dc':   lambda d: _create_contentdm_oai_dc_mapper(d),
-        'cavpp_contentdm_oai_dc':   lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
-        'csudh_contentdm_oai_dc':   lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
-        'chula_vista_pl_contentdm_oai_dc':   lambda d: _create_chula_vista_pl_contentdm_oai_dc_mapper(d),
-        'lmu_oai_dc':   lambda d: _create_lmu_oai_dc_mapper(d),
-        'contentdm_oai_dc_suppress_description':   lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
+        'missouri': lambda d: _create_missouri_mapper(d),
+        'mapv3_json': lambda d: _create_mapv3_json_mapper(d),
+        'mdl_json': lambda d: _create_mdl_json_mapper(d),
+        'cdl_json': lambda d: _create_cdl_json_mapper(d),
+        'contentdm_oai_dc': lambda d: _create_contentdm_oai_dc_mapper(d),
+        'cavpp_contentdm_oai_dc':
+            lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
+        'csudh_contentdm_oai_dc':
+            lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
+        'chula_vista_pl_contentdm_oai_dc':
+            lambda d: _create_chula_vista_pl_contentdm_oai_dc_mapper(d),
+        'lmu_oai_dc': lambda d: _create_lmu_oai_dc_mapper(d),
+        'contentdm_oai_dc_suppress_description':
+            lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d),
         'cca_vault_oai_dc': lambda d: _create_vault_oai_dc_mapper(d),
         'califa_oai_dc': lambda d: _create_califa_oai_dc_mapper(d),
+        'ucb_blacklight': lambda d: _create_ucb_blacklight_dc_mapper(d),
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
     }
 
