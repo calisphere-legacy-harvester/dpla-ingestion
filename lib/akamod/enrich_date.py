@@ -95,7 +95,7 @@ day_range = re.compile("(?P<year>^\d{4})[-/](?P<month>\d{1,2})[-/](?P<day_begin>
 circa_range = re.compile("(?P<century>\d{2})(?P<year_begin>\d{2})[-/](?P<year_end>\d{1,2})")
 # ie 9-1970
 month_year = re.compile("(?P<month>\d{1,2})[-/](?P<year>\d{4})")
-# ie 195- 
+# ie 195-
 decade_date = re.compile("(?P<year>\d{3})-")
 # ie 1920s
 decade_date_s = re.compile("(?P<year>\d{4})s")
@@ -257,7 +257,8 @@ def is_year_range_list(value):
     """
     return isinstance(value, list) and \
            all(v.isdigit() for v in value) and \
-           value == sorted(value, key=int)
+           value == sorted(value, key=int) and \
+           len(value) > 1
 
 def convert_dates(data, prop, earliest):
     """Converts dates.

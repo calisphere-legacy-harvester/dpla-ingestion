@@ -722,7 +722,7 @@ def test_delim_with_months():
         resp, content = H.request(url, "POST", body=json.dumps(input))
         assert str(resp.status).startswith("2")
         assert_same_jsons(expected, content)
-   
+
 def test_delim_with_seasons():
     """Should handle date with delim in seasons"""
     INPUT = ["2004 Fall/Winter", "Fall/Winter 2004",
@@ -924,6 +924,19 @@ def test_non_increasing_year_list():
                     u'end': u'2010'}
        ]
     }
+    url = server() + "enrich_earliest_date?prop=date"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert_same_jsons(EXPECTED, content)
+
+def test_enrich_date_dup_start_date():
+    """Recreate bug found"""
+    INPUT = {'date': ['1930']}
+    EXPECTED = { 'date': [
+        { u'begin': u'1930',
+          u'end': u'1930',
+          u'displayDate': u'1930' }
+        ]
+        }
     url = server() + "enrich_earliest_date?prop=date"
     resp, content = H.request(url, "POST", body=json.dumps(INPUT))
     assert_same_jsons(EXPECTED, content)
