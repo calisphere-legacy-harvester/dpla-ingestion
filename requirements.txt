@@ -5,7 +5,7 @@ git+https://github.com/dpla/xmltodict#egg=xmltodict
 git+https://github.com/dpla/zen.git#egg=zen
 
 argparse
-python-dateutil
+python-dateutil==2.4.2
 timelib
 simplejson
 six>=1.8.0,<1.9
