@@ -36,6 +36,9 @@ def test_ucb_blacklight_mapping():
         obj['isShownBy'],
         "http://digitalassets.lib.berkeley.edu/vtm/ucb/images/"
         "VTM00008024a_j.jpg")
+    TC.assertEqual(
+        obj['isShownAt'],
+        "http://dc.lib.berkeley.edu/catalog/VTM_vtm1_3024_photo")
     TC.assertEqual(srcRes['creator'], "Wieslander, Albert Everett")
     # TC.assertEqual(obj['isShownAt'],
     #               'https://library.ucsd.edu/dc/object/bb0922726p')

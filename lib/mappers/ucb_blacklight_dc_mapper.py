@@ -4,7 +4,9 @@ from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 
 class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_is_shown_at(self, index=None):
-        self.mapped_data.update({'isShownAt': 'http://example.edu'})
+        base_url = 'http://dc.lib.berkeley.edu/catalog/'
+        self.mapped_data.update(
+                {'isShownAt': base_url+self.provider_data['id']})
 
     def map_is_shown_by(self):
         self.mapped_data.update({"isShownBy": self.provider_data["imageFile"]}
