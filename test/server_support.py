@@ -17,6 +17,10 @@ import ConfigParser
 # XXX I only use one function from here. Bring it into this file?
 import python_support
 
+DIR_THIS_FILE_PARENT = os.path.abspath(os.path.join(
+    os.path.split(__file__)[0],
+    '..'))
+
 ##############################################################################
 
 class MyHttp:
@@ -58,7 +62,7 @@ def _override_server_uri():
         return None
     assert "/" not in server
     return "http://" + server + "/"
-    
+
 SERVER_URI = _override_server_uri()
 config_root = None
 config_filename = None
@@ -69,216 +73,36 @@ server_did_not_start = False
 # Needs a configuration .ini file and the logs subdirectory.
 def create_server_dir(port):
     global config_root, config_filename
-    
+
     config_root = tempfile.mkdtemp(prefix="akara_test_")
     config_filename = os.path.join(config_root, "akara_test.config")
 
     ini = ConfigParser.ConfigParser()
-    ini.optionxform=str  # Maintain case for configuration keys 
+    ini.optionxform=str  # Maintain case for configuration keys
     ini.read(os.path.dirname(os.path.realpath(__file__)) + "/../akara.ini")
     bing_apikey = "notset"
     if (ini.has_section("Bing") \
-        and ini.has_option("Bing", "ApiKey")): 
+        and ini.has_option("Bing", "ApiKey")):
         bing_apikey = ini.get("Bing", "ApiKey")
     geonames_username = "notset"
     geonames_token = "notset"
     if (ini.has_section("Geonames")):
-        if ini.has_option("Geonames", "Username"): 
+        if ini.has_option("Geonames", "Username"):
             geonames_username = ini.get("Geonames", "Username")
-        if ini.has_option("Geonames", "Token"): 
+        if ini.has_option("Geonames", "Token"):
             geonames_token = ini.get("Geonames", "Token")
 
+    # Use the template & replace values as needed.
+    # Used to have a whole copy of akara.conf inline here, bad, not DRY
+    akara_conf = open(DIR_THIS_FILE_PARENT+'/akara.conf.template').read()
+    akara_conf = akara_conf.replace('${Akara__Port}',
+            "'localhost:{port}'\n    InternalServerRoot = 'http://localhost:{port}/'\n".format(port = port))
+    akara_conf = akara_conf.replace('${Akara__LogLevel}', "DEBUG")
+    akara_conf = akara_conf.replace('ConfigRoot = "."',
+        'ConfigRoot = "{config_root}"'.format(config_root = config_root))
+
     f = open(config_filename, "w")
-    f.write("""
-class Akara:
-  ConfigRoot = %(config_root)r
-  InternalServerRoot = 'http://localhost:%(port)s/'
-  Listen = 'localhost:%(port)s'
-  LogLevel = 'DEBUG'
-  MinSpareServers = 3
-  # These affect test_server.py:test_restart
-  MaxServers = 5
-  MaxRequestsPerServer = 500
-
-MODULES = [
-    "dplaingestion.couch",
-    "dplaingestion.create_mapper",
-    "dplaingestion.mappers.mapper",
-    "dplaingestion.mappers.dublin_core_mapper",
-    "dplaingestion.mappers.mods_mapper",
-    "dplaingestion.akamod.enrich",
-    "dplaingestion.akamod.enrich-subject",
-    "dplaingestion.akamod.enrich-type",
-    "dplaingestion.akamod.enrich-format",
-    "dplaingestion.akamod.enrich_date",
-    "dplaingestion.akamod.select-id",
-    "dplaingestion.akamod.shred",
-    "dplaingestion.akamod.geocode",
-    "dplaingestion.akamod.filter_empty_values",
-    "dplaingestion.akamod.contentdm_identify_object",
-    "dplaingestion.akamod.cdl_identify_object",
-    "dplaingestion.akamod.move_date_values",
-    "dplaingestion.akamod.enrich_location",
-    "dplaingestion.akamod.lookup",
-    "dplaingestion.akamod.copy_prop",
-    "dplaingestion.akamod.cleanup_value",
-    "dplaingestion.akamod.set_prop",
-    "dplaingestion.akamod.enrich_language",
-    "dplaingestion.akamod.dc_clean_invalid_dates",
-    "dplaingestion.akamod.dc_clean_invalid_dates",
-    "dplaingestion.akamod.decode_html",
-    "dplaingestion.akamod.dedup_value",
-    "dplaingestion.akamod.set_type_from_physical_format",
-    "dplaingestion.akamod.capitalize_value",
-    "dplaingestion.akamod.replace_substring",
-    "dplaingestion.akamod.remove_list_values",
-    "dplaingestion.akamod.set_spec_type",
-    "dplaingestion.akamod.compare_with_schema",
-    "dplaingestion.marc_code_to_relator",
-    "dplaingestion.akamod.validate_mapv3",
-    "dplaingestion.akamod.dpla_mapper",
-    "dplaingestion.akamod.set_context",
-    "dplaingestion.akamod.strip_html",
-    "dplaingestion.akamod.lapl_marc_id",
-    "dplaingestion.akamod.select_oac_id",
-    "dplaingestion.akamod.select_cmis_atom_id",
-    "dplaingestion.akamod.oai-to-dpla",
-    "dplaingestion.akamod.dedupe_sourceresource",
-    "dplaingestion.akamod.lapl_oai_isShown_26096",
-    "dplaingestion.akamod.jsonfy_prop",
-    "dplaingestion.akamod.required_values_from_collection_registry",
-    "dplaingestion.akamod.set_ucldc_dataprovider",
-    "dplaingestion.akamod.sfpl_marc_id",
-    "dplaingestion.akamod.ucsb_aleph_marc_id",
-    "dplaingestion.akamod.uci_object_urls",
-    "dplaingestion.akamod.unescape_xhtml_entities",
-    ]
-
-
-class geocode: 
-    bing_api_key = '%(bing_apikey)s'
-    geonames_username = '%(geonames_username)s'
-    geonames_token = '%(geonames_token)s'
-
-class lookup:
-    lookup_mapping = {
-        'test': 'test_subst',
-        'test2': 'test_2_subst',
-        'iso639_3': 'iso639_3_subst',
-        'scdl_fix_format': 'SCDL_FIX_FORMAT'
-    }
-
-class identify_object:
-    IGNORE = 0
-    PENDING = 1
-
-class contentdm_identify_object(identify_object):
-    pass
-
-class indiana_identify_object(identify_object):
-    pass
-
-class kentucky_identify_object(identify_object):
-    pass
-
-class artstor_identify_object(identify_object):
-    pass
-
-class georgia_identify_object(identify_object):
-    pass
-
-class nypl_identify_object(identify_object):
-    pass
-
-class ia_identify_object(identify_object):
-    pass
-
-class hathi_identify_object(identify_object):
-    pass
-
-class type_conversion:
-    # Map of "format" or "physical description" substring to
-    # sourceResource.type.  This format field is considered first, and these
-    # values should be as specific as possible, to avoid false assignments,
-    # because this field is usually pretty free-form, unlike the type fields.
-    type_for_phys_keyword = [
-        ('holiday card', 'image'),
-        ('christmas card', 'image'),
-        ('mail art', 'image'),
-        ('postcard', 'image'),
-    ]
-    # Map of type-related substring to desired sourceResource.type.
-    # For simple "if substr in str" matching.  Place more specific
-    # patterns higher up, before more general ones.
-    type_for_ot_keyword = [
-        ('photograph', 'image'),
-        ('sample book', 'image'),
-        ('book', 'text'),
-        ('specimen', 'image'),
-        ('electronic resource', 'interactive resource'),
-        # Keep "textile" above "text"
-        ('textile', 'image'),
-        ('text', 'text'),
-        ('frame', 'image'),
-        ('costume', 'image'),
-        ('object', 'physical object'),
-        ('statue', 'image'),
-        ('sculpture', 'image'),
-        ('container', 'image'),
-        ('jewelry', 'image'),
-        ('furnishing', 'image'),
-        ('furniture', 'image'),
-        # Keep "moving image" above "image"
-        ('moving image', 'moving image'),
-        # And, yes, "MovingImage" is a valid DC type.
-        ('movingimage', 'moving image'),
-        ('image', 'image'),
-        ('stillimage', 'image'),
-        ('drawing', 'image'),
-        ('print', 'image'),
-        ('painting', 'image'),
-        ('illumination', 'image'),
-        ('poster', 'image'),
-        ('appliance', 'image'),
-        ('tool', 'image'),
-        ('electronic component', 'image'),
-        ('publication', 'text'),
-        ('magazine', 'text'),
-        ('journal', 'text'),
-        ('postcard', 'image'),
-        ('correspondence', 'text'),
-        ('writing', 'text'),
-        ('manuscript', 'text'),
-        # keep "equipment" above "audio" ("Audiovisual equipment")
-        ('equipment', 'image'),
-        ('cartographic', 'image'),
-        ('notated music', 'image'),
-        ('mixed material', ['image', 'text']),
-        ('audio', 'sound'),
-        ('sound', 'sound'),
-        ('oral history recording', 'sound'),
-        ('finding aid', 'collection'),
-        ('online collection', 'collection'),
-        ('online exhibit', 'interactive resource'),
-        ('moving image', 'moving image'),
-        ('motion picture', 'moving image'),
-        ('cellulose nitrate film', 'image'), #fix for UCLA
-        ('nitrate film', 'image'), #fix for UCLA
-        ('film', 'moving image'),
-        ('video game', 'interactive resource'),
-        ('video', 'moving image')
-    ]
-
-
-class enrich_type(type_conversion):
-    pass
-
-""" % dict(config_root = config_root,
-           port = port,
-           bing_apikey = bing_apikey,
-           geonames_username = geonames_username,
-           geonames_token = geonames_token
-           ))
+    f.write(akara_conf)
     f.close()
 
     os.mkdir(os.path.join(config_root, "logs"))

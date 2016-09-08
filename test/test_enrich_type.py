@@ -1,4 +1,4 @@
-from server_support import server, H, print_error_log 
+from server_support import server, H, print_error_log
 from amara.thirdparty import json
 from dict_differ import DictDiffer, assert_same_jsons, pinfo
 
@@ -201,6 +201,23 @@ def test_type_set_format():
     resp, content = H.request(url, "POST", body=json.dumps(INPUT))
     assert resp.status == 200
     assert_same_jsons(EXPECTED, json.loads(content))
+
+def test_type_document_supported():
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "Document",
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'text'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    print "CONTENT:", content
+    assert_same_jsons(EXPECTED, json.loads(content))
+
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetest")
