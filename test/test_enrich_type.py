@@ -202,11 +202,67 @@ def test_type_set_format():
     assert resp.status == 200
     assert_same_jsons(EXPECTED, json.loads(content))
 
-def test_type_document_supported():
+def test_type_ucldc_supported():
     INPUT = {
         "id": "123",
         "sourceResource": {
             "type": "Document",
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'text'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    print "CONTENT:", content
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "Pamphlet",
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'text'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    print "CONTENT:", content
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "Newsletter",
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'text'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    print "CONTENT:", content
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "Essay",
+        }
+    }
+    EXPECTED = {
+        "id": "123",
+        "sourceResource": {'type':'text'}
+    }
+    resp, content = _get_server_response(json.dumps(INPUT))
+    assert resp.status == 200
+    print "CONTENT:", content
+    assert_same_jsons(EXPECTED, json.loads(content))
+    INPUT = {
+        "id": "123",
+        "sourceResource": {
+            "type": "Transcript",
         }
     }
     EXPECTED = {
