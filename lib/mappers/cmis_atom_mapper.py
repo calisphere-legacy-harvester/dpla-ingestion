@@ -4,14 +4,14 @@ from dplaingestion.mappers.mapper import Mapper
 #from dplaingestion.utilities import iterify
 #from akara import module_config
 
-    
-URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/sdb:digitalFile|'
+
+URL_BASE_SHOWN_AT = 'https://oakland.access.preservica.com/file/sdb:digitalFile%7C'
 #NOTE: we started with this, but it was behind an authentication wall and
 # not much bigger than the publically accessible "thumbnails"
 #URL_BASE_SHOWN_BY_IMAGE = 'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile='
-URL_BASE_SHOWN_BY =  'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|'
+URL_BASE_SHOWN_BY = 'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile%7C'
 
-class CMISAtomDCMapper(Mapper):  
+class CMISAtomDCMapper(Mapper):
     def __init__(self, provider_data, key_prefix=None):
         super(CMISAtomDCMapper, self).__init__(provider_data, key_prefix)
         metadata_root = self.provider_data["{http://www.w3.org/2005/Atom}entry"]["{http://docs.oasis-open.org/ns/cmis/restatom/200908/}object"]["{http://www.tessella.com/sdb/cmis/metadata}metadata"]

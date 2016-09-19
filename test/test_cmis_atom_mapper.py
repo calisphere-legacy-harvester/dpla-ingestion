@@ -32,7 +32,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['subject'],  [
                 {u'name': u'African American women--Societies and clubs.'},
                 {u'name': u'Phyllis Wheatley YWCA--History.'},])
-    TC.assertEqual(srcRes['description'], 
+    TC.assertEqual(srcRes['description'],
                 ["The Phyllis Wheatley Reporter vol. 1 no. 1"])
     TC.assertEqual(srcRes['publisher'],
             [u'African American Museum & Library at Oakland (Oakland, Calif.)'])
@@ -49,9 +49,9 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['spatial'], [{'name': 'Coverage Test Value'}])
     TC.assertEqual(srcRes['rights'][0][:12], "Copyrighted.")
     TC.assertEqual(content_obj['isShownAt'],
-            'https://oakland.access.preservica.com/file/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/file/sdb:digitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b')
     TC.assertEqual(content_obj['isShownBy'],
-            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b')
 
 def test_image_type_isShownBy():
     fixture = path.join(DIR_FIXTURES, 'preservica-cmis-atom-entry-image.json')
@@ -63,7 +63,7 @@ def test_image_type_isShownBy():
     TC.assertEqual(resp.status, 200)
     content_obj = json.loads(content)
     TC.assertEqual(content_obj['isShownBy'],
-            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile|ddf962b3-e763-4838-b149-f87eef10504b')
+            'https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile%7Cddf962b3-e763-4838-b149-f87eef10504b')
         #'https://us.preservica.com/Render/render/jpegImage?content=true&typeFile=ddf962b3-e763-4838-b149-f87eef10504b')
 
 if __name__=="__main__":
