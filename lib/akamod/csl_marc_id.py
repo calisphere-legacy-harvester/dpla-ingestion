@@ -22,11 +22,8 @@ def csl_marc_id(body, ctype):
 
     ident = None
     for field in data['fields']:
-        if '505' in field:
-            subfields = field['505']['subfields']
-            for subf in subfields:
-                if 'a' in subf:
-                    ident = subf['a']
+        if '001' in field:
+            ident = field['001']
 
     if not ident:
         response.code = 500
