@@ -6,7 +6,7 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_is_shown_at(self, index=None):
         base_url = 'http://dc.lib.berkeley.edu/catalog/'
         self.mapped_data.update(
-                {'isShownAt': base_url+self.provider_data['id']})
+            {'isShownAt': base_url+self.provider_data['originalRecord']['id']})
 
     def map_is_shown_by(self):
         self.mapped_data.update({"isShownBy": self.provider_data["imageFile"]}
