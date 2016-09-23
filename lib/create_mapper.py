@@ -168,6 +168,11 @@ def create_mapper(mapper_type, data):
             UCBBlacklightDCMapper
         return UCBBlacklightDCMapper(data)
 
+    def _create_cabrillo_mapper(data):
+        from dplaingestion.mappers.cabrillo_suppress_description import \
+            Cabrillo_suppress_description
+        return Cabrillo_suppress_description(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -204,6 +209,7 @@ def create_mapper(mapper_type, data):
         'califa_oai_dc': lambda d: _create_califa_oai_dc_mapper(d),
         'ucb_blacklight': lambda d: _create_ucb_blacklight_dc_mapper(d),
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
+        'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

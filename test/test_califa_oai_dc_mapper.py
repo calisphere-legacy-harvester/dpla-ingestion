@@ -35,8 +35,11 @@ def test_cca_vault_oai_dc_mapping():
     TC.assertEqual(srcRes['title'],
                    [u"'Al Illeks [sic] Jazz singers class, 2/20/85'"])
     TC.assertEqual(
-        srcRes['description'],
-        ["Allen Illick, at piano, rehearses with jazz singers."])
+        srcRes['description'][0],
+        "Allen Illick, at piano, rehearses with jazz singers.")
+    TC.assertEqual(
+        srcRes['description'][1][:10],
+        "xxxxxxxxxx")
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
