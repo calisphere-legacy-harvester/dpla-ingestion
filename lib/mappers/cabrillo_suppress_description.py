@@ -5,7 +5,7 @@ class Cabrillo_suppress_description(Califa_OAIMapper):
     '''They have transcripts in description fields, need to drop ones
     longer than about 100 characters
     '''
-    char_count_cutoff = 100
+    char_count_cutoff = 150
     def map_description(self):
         descs = self.provider_data_source.get('description')
         new_descs = []
