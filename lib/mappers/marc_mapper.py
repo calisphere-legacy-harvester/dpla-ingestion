@@ -699,7 +699,7 @@ class MARCMapper(Mapper):
                 if tag == "001":
                     self.control_001 = item[tag]
                     self.add_identifier(item[tag])
-                elif tag == "007":
+                if tag == "007":
                     self.control_format_char = item[tag][0]
                     try:
                         self.control_007_01 = item[tag][1]
