@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from akara import logger
+from dplaingestion.selector import exists, getprop
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 
 
@@ -6,7 +8,7 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_is_shown_at(self, index=None):
         base_url = 'http://dc.lib.berkeley.edu/catalog/'
         self.mapped_data.update(
-                {'isShownAt': base_url+self.provider_data['id']})
+            {'isShownAt': base_url+self.provider_data['originalRecord']['id']})
 
     def map_is_shown_by(self):
         self.mapped_data.update({"isShownBy": self.provider_data["imageFile"]}
@@ -22,6 +24,32 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
 
     def map_type(self):
         self.source_resource_orig_to_prop('format', 'type')
+
+    def map_date(self):
+        self.source_resource_orig_to_prop('originInfo_dateCreated', 'date')
+
+    def map_format(self):
+        format_values = []
+        if "relatedItem_Toriginal_typeOfResource" in self.provider_data_source:
+            format_values.append(
+                    self.provider_data_source[
+                        "relatedItem_Toriginal_typeOfResource"])
+        if "format" in self.provider_data_source:
+            format_values.append(self.provider_data_source["format"])
+        if format_values:
+            self.update_source_resource({'format': format_values})
+
+    def map_identifier(self):
+        self.source_resource_orig_to_prop('identifier_TlocalId_SphotoNo',
+                                          'identifier')
+
+    def map_spatial(self):
+        self.source_resource_orig_to_prop('relatedItem_titleInfo_Tid_SquadName',
+                                          'spatial')
+
+    def map_subject(self):
+        self.source_resource_orig_to_prop('note_Tspecie',
+                                          'subject')
 
 
 # Copyright © 2016, Regents of the University of California

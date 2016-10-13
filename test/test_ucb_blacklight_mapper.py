@@ -28,7 +28,7 @@ def test_ucb_blacklight_mapping():
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']
-    TC.assertEqual(srcRes['format'], 'still image')
+    TC.assertEqual(srcRes['format'], ["Photo", "still image"])
     TC.assertEqual(srcRes['rights'][:16],  "[\n  All requests")
     TC.assertEqual(srcRes['title'],
                    "Looking east.  Coulter pine-canyon live oak type.")
@@ -40,9 +40,12 @@ def test_ucb_blacklight_mapping():
         obj['isShownAt'],
         "http://dc.lib.berkeley.edu/catalog/VTM_vtm1_3024_photo")
     TC.assertEqual(srcRes['creator'], "Wieslander, Albert Everett")
-    # TC.assertEqual(obj['isShownAt'],
-    #               'https://library.ucsd.edu/dc/object/bb0922726p')
     TC.assertEqual(srcRes['type'], 'still image')
+    TC.assertEqual(srcRes['date'], "04-14-1928")
+    TC.assertEqual(srcRes['identifier'], "X-501")
+    TC.assertEqual(srcRes['spatial'], "Rock Creek")
+    TC.assertEqual(srcRes['subject'], ["Pinus coulteri",
+                                       "Quercus chrysolepis"])
 
 
 # Copyright © 2016, Regents of the University of California
