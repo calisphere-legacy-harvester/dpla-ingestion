@@ -24,11 +24,18 @@ def test_csl_marc_mapper():
     with open(fixture) as f:
         INPUT = f.read()
         TC.assertIn('001', INPUT)
-        resp, content = _get_server_response(INPUT)
+        TC.assertIn('856', INPUT)
+    resp, content = _get_server_response(INPUT)
     assert str(resp.status).startswith("2"), str(resp) + "\n" + content
 
     doc = json.loads(content)
 
     TC.assertEqual(
         doc['isShownAt'],
-        'http://catalog.library.ca.gov/F/?func=find-b&request=001409080&find_code=SYS')
+        'http://catalog.library.ca.gov/F/?func=find-b&request=001409080&find_code=SYS'
+    )
+
+    TC.assertEqual(
+        doc['isShownBy'],
+        'http://catalog.library.ca.gov/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26/1992-4833_000094379.jpg'
+    )

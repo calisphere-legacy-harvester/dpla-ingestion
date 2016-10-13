@@ -6,16 +6,17 @@ from dplaingestion.selector import getprop
 from collections import OrderedDict
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.utilities import strip_unclosed_brackets
+from akara import logger
 
 
-class MARCMapper(Mapper):                                                       
-
-    def __init__(self, provider_data, key_prefix=None,
-            datafield_tag='datafield',
-            controlfield_tag='controlfield',
-            pymarc=False):
+class MARCMapper(Mapper):
+    def __init__(self,
+                 provider_data,
+                 key_prefix=None,
+                 datafield_tag='datafield',
+                 controlfield_tag='controlfield',
+                 pymarc=False):
         super(MARCMapper, self).__init__(provider_data, key_prefix)
-
 
         # Fields controlfield, datafield, and leader may be nested within the
         # metadata/record field for DPLA fetcher items
@@ -49,111 +50,87 @@ class MARCMapper(Mapper):
         # prefix it with a "!": [("format", "!cd")] will exclude the "c"
         # "d" codes (see method _get_values).
         self.mapping_dict = {
-            lambda t: t == "856":               [(self.map_is_shown_at, "u"),
-                                                 (self.map_is_shown_by, "u")],
-            lambda t: t == "041":               [(self.map_language, "a")],
-            lambda t: t == "260":               [(self.map_display_date, "c"),
-                                                 (self.map_publisher, "ab")],
-
-            lambda t: t == "300":               [(self.map_extent, "ac")],
-            lambda t: t in ("337", "338"):      [(self.map_format, "a")],
-
-            lambda t: t == "340":               [(self.map_extent, "b"),
-                                                 (self.map_format, "a")],
-
-            lambda t: t == "050":               [(self.map_identifier, "ab")],
-            lambda t: t in ("020", "022",
-                            "035"):             [(self.map_identifier, "a")],
-
-            lambda t: t in ("100", "110",
-                            "111"):             [(self.map_creator, None)],
-            lambda t: (760 <= int(t) <= 787):   [(self.map_relation, None)],
-
-            lambda t: (t != "538" and
-                       t.startswith("5")):      [(self.map_description, "a")],
-
-            lambda t: t in ("506", "540"):      [(self.map_rights, None)],
-            lambda t: t == "648":               [(self.map_temporal, None)],
-
-            lambda t: t in ("700", "710",
-                            "711", "720"):      [(self.map_contributor, None)],
-
-            lambda t: t == "245":               [(self.map_title, 0, "!c")],
-            lambda t: t == "242":               [(self.map_title, 1, None)],
-            lambda t: t == "240":               [(self.map_title, 2, None)],
-            lambda t: t == "651":               [(self.map_spatial, "a")],
-
-            lambda t: (int(t) in
-                       set([600, 630, 650, 651] +
-                           range(610, 620) +
-                           range(653, 659) +
-                           range(690, 700))):   [(self.map_subject, None),
-                                                 (self.map_format, "v"),
-                                                 (self.map_temporal, "y"),
-                                                 (self.map_spatial, "z")],
+            lambda t: t == "856": [(self.map_is_shown_at, "u"),
+                                   (self.map_is_shown_by, "u")],
+            lambda t: t == "041": [(self.map_language, "a")],
+            lambda t: t == "260": [(self.map_display_date, "c"),
+                                   (self.map_publisher, "ab")],
+            lambda t: t == "300": [(self.map_extent, "ac")],
+            lambda t: t in ("337", "338"): [(self.map_format, "a")],
+            lambda t: t == "340": [(self.map_extent, "b"),
+                                   (self.map_format, "a")],
+            lambda t: t == "050": [(self.map_identifier, "ab")],
+            lambda t: t in ("020", "022", "035"): [(self.map_identifier, "a")],
+            lambda t: t in ("100", "110", "111"): [(self.map_creator, None)],
+            lambda t: (760 <= int(t) <= 787): [(self.map_relation, None)],
+            lambda t: (t != "538" and t.startswith("5")):
+            [(self.map_description, "a")],
+            lambda t: t in ("506", "540"): [(self.map_rights, None)],
+            lambda t: t == "648": [(self.map_temporal, None)],
+            lambda t: t in ("700", "710", "711", "720"):
+            [(self.map_contributor, None)],
+            lambda t: t == "245": [(self.map_title, 0, "!c")],
+            lambda t: t == "242": [(self.map_title, 1, None)],
+            lambda t: t == "240": [(self.map_title, 2, None)],
+            lambda t: t == "651": [(self.map_spatial, "a")],
+            lambda t: (int(t) in set([600, 630, 650, 651] + range(610, 620) + range(653, 659) + range(690, 700))):
+            [(self.map_subject, None), (self.map_format, "v"),
+             (self.map_temporal, "y"), (self.map_spatial, "z")],
         }
 
         self.type_mapping = {
-            "datafield": OrderedDict([
-                ("AJ", ("Journal", "Text")),
-                ("AN", ("Newspaper", "Text")),
-                ("BI", ("Biography", "Text")),
-                ("BK", ("Book", "Text")),
-                ("CF", ("Computer File", "Interactive Resource")),
-                ("CR", ("CDROM", "Interactive Resource")),
-                ("CS", ("Software", "Software")),
-                ("DI", ("Dictionaries", "Text")),
-                ("DR", ("Directories", "Text")),
-                ("EN", ("Encyclopedias", "Text")),
-                ("HT", ("HathiTrust", None)),
-                ("MN", ("Maps-Atlas", "Image")),
-                ("MP", ("Map", "Image")),
-                ("MS", ("Musical Score", "Text")),
-                ("MU", ("Music", "Text")),
-                ("MV", ("Archive", "Collection")),
-                ("MW", ("Manuscript", "Text")),
-                ("MX", ("Mixed Material", "Collection")),
-                ("PP", ("Photograph/Pictorial Works", "Image")),
-                ("RC", ("Audio CD", "Sound")),
-                ("RL", ("Audio LP", "Sound")),
-                ("RM", ("Music", "Sound")),
-                ("RS", ("Spoken word", "Sound")),
-                ("RU", (None, "Sound")),
-                ("SE", ("Serial", "Text")),
-                ("SX", ("Serial", "Text")),
-                ("VB", ("Video (Blu-ray)", "Moving Image")),
-                ("VD", ("Video (DVD)", "Moving Image")),
-                ("VG", ("Video Games", "Moving Image")),
-                ("VH", ("Video (VHS)", "Moving Image")),
-                ("VL", ("Motion Picture", "Moving Image")),
-                ("VM", ("Visual Material", "Image")),
-                ("WM", ("Microform", "Text")),
-                ("XC", ("Conference", "Text")),
-                ("XS", ("Statistics", "Text"))
-            ]),
-            "leader": OrderedDict([
-                ("am", ("Book", "Text")),
-                ("asn", ("Newspapers", "Text")),
-                ("as", ("Serial", "Text")),
-                ("aa", ("Book", "Text")),
-                ("a(?![mcs])", ("Serial", "Text")),
-                ("[cd].*", ("Musical Score", "Text")),
-                ("t.*", ("Manuscript", "Text")),
-                ("[ef].*", ("Maps", "Image")),
-                ("g.[st]", ("Photograph/Pictorial Works", "Image")),
-                ("g.[cdfo]", ("Film/Video", "Moving Image")),
-                ("g.*", (None, "Image")),
-                ("k.*", ("Photograph/Pictorial Works", "Image")),
-                ("i.*", ("Nonmusic", "Sound")),
-                ("j.*", ("Music", "Sound")),
-                ("r.*", (None, "Physical object")),
-                ("p[cs].*", (None, "Collection")),
-                ("m.*", (None, "Interactive Resource")),
-                ("o.*", (None, "Collection"))
-            ])
+            "datafield": OrderedDict(
+                [("AJ", ("Journal", "Text")), ("AN", ("Newspaper", "Text")),
+                 ("BI", ("Biography", "Text")), ("BK", ("Book", "Text")),
+                 ("CF", ("Computer File", "Interactive Resource")),
+                 ("CR", ("CDROM", "Interactive Resource")),
+                 ("CS", ("Software", "Software")), ("DI",
+                                                    ("Dictionaries", "Text")),
+                 ("DR", ("Directories", "Text")), ("EN",
+                                                   ("Encyclopedias", "Text")),
+                 ("HT", ("HathiTrust", None)), ("MN", ("Maps-Atlas", "Image")),
+                 ("MP", ("Map", "Image")), ("MS", ("Musical Score", "Text")),
+                 ("MU", ("Music", "Text")), ("MV", ("Archive", "Collection")),
+                 ("MW",
+                  ("Manuscript", "Text")), ("MX",
+                                            ("Mixed Material", "Collection")),
+                 ("PP", ("Photograph/Pictorial Works", "Image")),
+                 ("RC", ("Audio CD", "Sound")), ("RL", ("Audio LP", "Sound")),
+                 ("RM", ("Music", "Sound")), ("RS", ("Spoken word", "Sound")),
+                 ("RU", (None, "Sound")), ("SE", ("Serial", "Text")),
+                 ("SX",
+                  ("Serial", "Text")), ("VB",
+                                        ("Video (Blu-ray)", "Moving Image")),
+                 ("VD", ("Video (DVD)", "Moving Image")),
+                 ("VG", ("Video Games", "Moving Image")),
+                 ("VH", ("Video (VHS)", "Moving Image")), ("VL", (
+                     "Motion Picture", "Moving Image")), ("VM", (
+                         "Visual Material", "Image")), ("WM",
+                                                        ("Microform", "Text")),
+                 ("XC", ("Conference", "Text")), ("XS",
+                                                  ("Statistics", "Text"))]),
+            "leader": OrderedDict(
+                [("am", ("Book", "Text")), ("asn", ("Newspapers", "Text")),
+                 ("as", ("Serial", "Text")), ("aa", ("Book", "Text")),
+                 ("a(?![mcs])",
+                  ("Serial", "Text")), ("[cd].*", ("Musical Score", "Text")),
+                 ("t.*", ("Manuscript", "Text")), ("[ef].*",
+                                                   ("Maps", "Image")),
+                 ("g.[st]", ("Photograph/Pictorial Works", "Image")),
+                 ("g.[cdfo]",
+                  ("Film/Video", "Moving Image")), ("g.*", (None, "Image")),
+                 ("k.*", ("Photograph/Pictorial Works", "Image")),
+                 ("i.*", ("Nonmusic", "Sound")), ("j.*", ("Music", "Sound")),
+                 ("r.*", (None, "Physical object")), ("p[cs].*",
+                                                      (None, "Collection")),
+                 ("m.*",
+                  (None, "Interactive Resource")), ("o.*",
+                                                    (None, "Collection"))])
         }
 
     def extend_prop(self, prop, _dict, codes, label=None, values=None):
+
+        logger.error('This has to be here for some reason too')
         if values is None:
             values = self._get_values(_dict, codes)
 
@@ -205,6 +182,12 @@ class MARCMapper(Mapper):
         else:
             return
 
+    def _get_mainfields(self, _dict):
+
+        # Get high-level MARC values (i.e. NOT subfields)
+        mainfield = _dict.values()[0]
+        return mainfield
+
     def _get_values(self, _dict, codes):
         """
         Extracts the appropriate "#text" values from _dict given a string of
@@ -222,12 +205,14 @@ class MARCMapper(Mapper):
             codes = codes[1:]
 
         for subfield in self._get_subfields(_dict):
+            logger.error(subfield)
             if self.pymarc:
                 if not codes:
                     pass
                 elif not exclude and (subfield.keys()[0] in codes):
                     pass
-                elif exclude and len(subfield.keys()) == 1 and (subfield.keys()[0] not in codes):
+                elif exclude and len(subfield.keys()) == 1 and (
+                        subfield.keys()[0] not in codes):
                     pass
                 else:
                     continue
@@ -235,16 +220,20 @@ class MARCMapper(Mapper):
             else:
                 if not codes:
                     pass
-                elif not exclude and ("code" in subfield and subfield["code"] in
-                                      codes):
+                elif not exclude and ("code" in subfield and
+                                      subfield["code"] in codes):
                     pass
-                elif exclude and ("code" in subfield and subfield["code"] not in
-                                  codes):
+                elif exclude and ("code" in subfield and
+                                  subfield["code"] not in codes):
                     pass
                 else:
                     continue
 
-            values.append(subfield[code]) if self.pymarc else values.append(subfield["#text"])
+            values.append(subfield[code]) if self.pymarc else values.append(
+                subfield["#text"])
+
+        if "subfield" not in _dict:
+            values.append(self._get_mainfields(_dict))
 
         return values
 
@@ -256,14 +245,19 @@ class MARCMapper(Mapper):
         """
         if self.pymarc:
             try:
-                subfields = [sf[code] for sf in self._get_subfields(_dict) if sf.keys()[0] == code]
+                subfields = [
+                    sf[code] for sf in self._get_subfields(_dict)
+                    if sf.keys()[0] == code
+                ]
                 return subfields[0]
             except (KeyError, IndexError), e:
                 return None
         else:
             try:
-                subfields = [sf["#text"] for sf in self._get_subfields(_dict)
-                             if sf["code"] == code]
+                subfields = [
+                    sf["#text"] for sf in self._get_subfields(_dict)
+                    if sf["code"] == code
+                ]
                 return subfields[0]  # assume there's just one
             except (KeyError, IndexError), e:
                 return None
@@ -273,6 +267,7 @@ class MARCMapper(Mapper):
         Extracts the "#text" values from _dict for the subject field and
         incrementally joins the values by the tag/code dependent delimiter
         """
+
         def _delimiters(tag, code):
             """
             Returns the appropriate delimiter(s) based on the tag and code
@@ -284,10 +279,9 @@ class MARCMapper(Mapper):
                     return [" [", "]"]
                 elif code == "d":
                     return ["--"]
-            elif ((tag == "653") or
-                  (int(tag) in range(690, 700)) or
-                  (code == "b" and tag in ("654", "655")) or
-                  (code in ("v", "x", "y", "z"))):
+            elif ((tag == "653") or (int(tag) in range(690, 700)) or
+                  (code == "b" and tag in
+                   ("654", "655")) or (code in ("v", "x", "y", "z"))):
                 return ["--"]
             elif code == "d":
                 return [", "]
@@ -296,7 +290,8 @@ class MARCMapper(Mapper):
 
         values = []
         for subfield in self._get_subfields(_dict):
-            code = subfield.get("code", "") if not self.pymarc else subfield.keys()[0]
+            code = subfield.get("code",
+                                "") if not self.pymarc else subfield.keys()[0]
             if not code or code.isdigit():
                 # Skip codes that are numeric
                 continue
@@ -332,14 +327,15 @@ class MARCMapper(Mapper):
                         if not codes or code in codes:
                             values.append(subfield[code])
             else:
-                if not codes or ("code" in subfield and subfield["code"] in codes):
+                if not codes or ("code" in subfield and
+                                 subfield["code"] in codes):
                     if "#text" in subfield:
                         values.append(subfield["#text"])
-    
-                # Do not any _dict subfield values if the _dict contains #text of
-                # "aut" or "cre" for code "e"
-                if (subfield.get("code") == "e" and subfield.get("#text") in
-                    ("aut", "cre")):
+
+    # Do not any _dict subfield values if the _dict contains #text of
+    # "aut" or "cre" for code "e"
+                if (subfield.get("code") == "e" and
+                        subfield.get("#text") in ("aut", "cre")):
                     return []
 
         return values
@@ -363,14 +359,14 @@ class MARCMapper(Mapper):
             """Splits the language values every third character"""
             language = []
             for lang_str in values:
-                language.extend([lang_str[i:i+3] for i in
-                                 range(0, len(lang_str), 3)])
+                language.extend(
+                    [lang_str[i:i + 3] for i in range(0, len(lang_str), 3)])
             return language
 
         prop = "sourceResource/language"
         values = self._get_values(_dict, codes)
         if tag == "041":
-          values = _extract_codes(values)
+            values = _extract_codes(values)
         self.extend_prop(prop, _dict, codes, values=values)
 
     def map_display_date(self, _dict, tag, codes):
@@ -423,12 +419,11 @@ class MARCMapper(Mapper):
 
     def map_spatial(self, _dict, tag, codes):
         prop = "sourceResource/spatial"
-        values = [re.sub("\.$", "", v) for v in
-                  self._get_values(_dict, codes)]
+        values = [re.sub("\.$", "", v) for v in self._get_values(_dict, codes)]
         non_dupes = []
         [non_dupes.append(v) for v in values if v not in non_dupes]
         self.extend_prop(prop, _dict, codes, values=non_dupes)
-    
+
     def map_subject(self, _dict, tag, codes):
         prop = "sourceResource/subject"
         values = [{'name': v} for v in self._get_subject_values(_dict, tag)]
@@ -441,7 +436,7 @@ class MARCMapper(Mapper):
         prop = "sourceResource/contributor"
         values = self._get_contributor_values(_dict, codes)
         self.extend_prop(prop, _dict, codes, values=values)
-   
+
     def map_title(self, _dict, tag, index, codes):
         prop = "sourceResource/title"
         if not exists(self.mapped_data, prop):
@@ -544,7 +539,7 @@ class MARCMapper(Mapper):
                 break
 
         if (self.control_008_28 in ("a", "c", "f", "i", "l", "m", "o", "s") or
-            self.datafield_086_or_087):
+                self.datafield_086_or_087):
             spec_type.append("Government Document")
 
         ret_dict = {}
@@ -557,7 +552,7 @@ class MARCMapper(Mapper):
 
     def update_is_shown_at(self):
         pass
-        
+
     def add_identifier(self, value):
         pass
 
@@ -600,7 +595,7 @@ class MARCMapper(Mapper):
     def cf8_multiple_dates(self, s):
         """Begin and end dates for MARC control field 008, Type of Date "m" """
         begin = s[7:11]
-        end   = s[11:15]
+        end = s[11:15]
         return (begin, end)
 
     def cf8_detailed_date(self, s):
@@ -608,10 +603,10 @@ class MARCMapper(Mapper):
 
         Since this contains one date, begin and end are the same.
         """
-        year  = s[7:11]
+        year = s[7:11]
         month = s[11:13]
-        day   = s[13:15]
-        date  = "%s-%s-%s" % (year, month, day)
+        day = s[13:15]
+        date = "%s-%s-%s" % (year, month, day)
         return (date, date)
 
     def cf8_single_date(self, s):
@@ -650,7 +645,7 @@ class MARCMapper(Mapper):
         # The MARC spec says the end year is supposed to be "9999", but I've
         # seen otherwise, and the current year looks better.  Since "9999" is
         # a bogus value, anyway, I'm using the current year.
-        end   = str(datetime.datetime.today().year)
+        end = str(datetime.datetime.today().year)
         return (begin, end)
 
     def cf8_serial_item_ceased_pub(self, s):
@@ -659,7 +654,7 @@ class MARCMapper(Mapper):
         Serial item that has ceased publication
         """
         begin = s[7:11]
-        end   = s[11:15]
+        end = s[11:15]
         return (begin, end)
 
     def display_date_for_none_given(self, begin, end):
@@ -684,15 +679,15 @@ class MARCMapper(Mapper):
 
     def map_controlfield_tags(self):
         date_func = {
-                     "m": "cf8_multiple_dates",
-                     "q": "cf8_multiple_dates",
-                     "s": "cf8_single_date",
-                     "e": "cf8_detailed_date",
-                     "r": "cf8_reissue_date",
-                     "t": "cf8_pub_copy_date",
-                     "d": "cf8_serial_item_ceased_pub",
-                     "c": "cf8_serial_item_current"
-                    }
+            "m": "cf8_multiple_dates",
+            "q": "cf8_multiple_dates",
+            "s": "cf8_single_date",
+            "e": "cf8_detailed_date",
+            "r": "cf8_reissue_date",
+            "t": "cf8_pub_copy_date",
+            "d": "cf8_serial_item_ceased_pub",
+            "c": "cf8_serial_item_current"
+        }
         for item in self.provider_data['fields']:
             tag = item.keys()[0]
             if tag.startswith('00'):
@@ -736,11 +731,13 @@ class MARCMapper(Mapper):
         self.map_controlfield_tags()
         self.update_mapped_fields()
 
+
 # the pymarc version of marc_mapper
 # TODO: should pull out differences here
-class PyMARCMapper(MARCMapper):                                                       
+class PyMARCMapper(MARCMapper):
     def __init__(self, provider_data):
-        super(PyMARCMapper, self).__init__(provider_data,
-                datafield_tag='fields',
-                controlfield_tag='fields',
-                pymarc=True)
+        super(PyMARCMapper, self).__init__(
+            provider_data,
+            datafield_tag='fields',
+            controlfield_tag='fields',
+            pymarc=True)
