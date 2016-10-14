@@ -130,7 +130,6 @@ class MARCMapper(Mapper):
 
     def extend_prop(self, prop, _dict, codes, label=None, values=None):
 
-        logger.error('This has to be here for some reason too')
         if values is None:
             values = self._get_values(_dict, codes)
 
@@ -205,7 +204,6 @@ class MARCMapper(Mapper):
             codes = codes[1:]
 
         for subfield in self._get_subfields(_dict):
-            logger.error(subfield)
             if self.pymarc:
                 if not codes:
                     pass
