@@ -48,6 +48,8 @@ class DublinCoreMapper(Mapper):
         '''
         values = []
         for field in original_fields:
+            field = field if not self.prefix else ''.join(
+                    (self.prefix, field))
             if exists(self.provider_data_source, field):
                 values.extend(getprop(self.provider_data_source, field))
         if values:

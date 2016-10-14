@@ -27,6 +27,22 @@ class OAIDublinCoreMapper(DublinCoreMapper):
         values = self.split_values(provider_prop)
         self.update_source_resource({srcRes_prop: values})
 
+    def source_resource_orig_list_to_prop_with_split(
+            self,
+            original_fields,
+            srcRes_prop):
+        '''for a list of fields in the providers original data, append the
+        values into a single sourceResource field
+        Split the values on ;
+        '''
+        values = []
+        for field in original_fields:
+            if exists(self.provider_data_source, field):
+                split_src_value = self.split_values(field)
+                values.extend(split_src_value)
+        if values:
+            self.update_source_resource({srcRes_prop: values})
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without

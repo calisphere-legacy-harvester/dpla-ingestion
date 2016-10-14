@@ -67,7 +67,8 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         self.update_source_resource({'subject': subject_objs})
 
     def map_spatial(self):
-        self.to_source_resource_with_split('coverage', 'spatial')
+        fields = ('coverage', 'spatial')
+        self.source_resource_orig_list_to_prop_with_split(fields, 'spatial')
 
     def map_type(self):
         '''TOOD:Funky, but map_type comes after the is_shown_by, should change order

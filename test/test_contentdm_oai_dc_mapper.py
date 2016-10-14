@@ -3,6 +3,7 @@ from unittest import TestCase
 from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
+import httpretty
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -18,7 +19,7 @@ def test_contentdm_oai_dc_mapping():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
     fixture = path.join(DIR_FIXTURES,
-            'contentdm_oai.json')
+            'contentdm_oai_dc_only.json')
     with open(fixture) as f:
         INPUT = f.read()
         TC.assertIn('id', INPUT)
@@ -52,23 +53,23 @@ def test_contentdm_oai_dc_mapping():
                             u'CSLA-15',
                             u'Series 1.; Box No. 8; Folder No. 4'])
     TC.assertEqual(srcRes['description'], [
-      "Letter from J. D. Black in Big Pine to H. R. Coffin", 
+      "Letter from J. D. Black in Big Pine to H. R. Coffin",
       "J. D. Black (1893-1960), also known as Jack"])
     TC.assertEqual(srcRes['type'], [ "Letters", "Text"])
     TC.assertEqual(srcRes['language'], ['eng'])
     TC.assertEqual(srcRes['rights'], [
         u'http://library.lmu.edu/generalinformation/departments/digitallibraryprogram/copyrightandreproductionpolicy/'])
     TC.assertEqual(srcRes['format'], ["2 pages", "image/tiff"])
-    TC.assertEqual(srcRes['identifier'], [ 
+    TC.assertEqual(srcRes['identifier'], [
       'http://archive.org/details/cubanc_000177',
       "sc_jdbp001110001",
       "sc_jdbp00111",
       "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262",
       "http://cdm15972.contentdm.oclc.org/bogus"
     ])
-    TC.assertEqual(obj['isShownAt'], 
+    TC.assertEqual(obj['isShownAt'],
       "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262")
-    TC.assertEqual(obj['isShownBy'], 
+    TC.assertEqual(obj['isShownBy'],
       "http://digitalcollections.lmu.edu/utils/getthumbnail/collection/johndblack/id/262")
 
 def test_suppress_sound_thumbs():
@@ -85,7 +86,7 @@ def test_suppress_sound_thumbs():
     obj = json.loads(content)
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
-    TC.assertEqual(obj['sourceResource']['type'], ['Sound']) 
+    TC.assertEqual(obj['sourceResource']['type'], ['Sound'])
     TC.assertNotIn('isShownBy', obj)
 
 @attr(uses_network='yes')
@@ -104,6 +105,6 @@ def test_get_larger_image():
     obj = json.loads(content)
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
-    TC.assertEqual(obj['sourceResource']['type'], ['Still Image']) 
-    TC.assertEqual(obj['isShownBy'], 
+    TC.assertEqual(obj['sourceResource']['type'], ['Still Image'])
+    TC.assertEqual(obj['isShownBy'],
             "http://cdm16745.contentdm.oclc.org/utils/ajaxhelper?CISOROOT=brubeckcollection&CISOPTR=103&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE=66")
