@@ -75,6 +75,10 @@ def create_mapper(mapper_type, data):
     def _create_sfpl_marc_mapper(data):
         from dplaingestion.mappers.sfpl_marc_mapper import SFPLMARCMapper
         return SFPLMARCMapper(data)
+        
+    def _create_csl_marc_mapper(data):
+        from dplaingestion.mappers.csl_marc_mapper import CSLMARCMapper
+        return CSLMARCMapper(data)
 
     def _create_ucldc_nuxeo_dc_mapper(data):
         from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import \
@@ -178,6 +182,7 @@ def create_mapper(mapper_type, data):
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
         'lapl_marc': lambda d: _create_lapl_marc_mapper(d),
         'sfpl_marc': lambda d: _create_sfpl_marc_mapper(d),
+        'csl_marc': lambda d: _create_csl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucldc_nuxeo': lambda d: _create_ucldc_nuxeo_mapper(d),

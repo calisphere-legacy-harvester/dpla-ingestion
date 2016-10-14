@@ -1,0 +1,685 @@
+{
+    "campus": [],
+    "collection": [
+        {
+            "name": "Picture Catalog",
+            "title": "Picture Catalog",
+            "dcmi_type": "X",
+            "ingestType": "collection",
+            "@id": "https://registry.cdlib.org/api/v1/collection/26559/",
+            "id": "26559"
+        }
+    ],
+    "fields": [
+        {
+            "001": "001409080"
+        }, {
+            "005": "20130226082529.0"
+        }, {
+            "007": "kh bo "
+        }, {
+            "008": "100107q19231936caunnn            kneng d"
+        }, {
+            "040": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "C"
+                    }, {
+                        "c": "C"
+                    }
+                ]
+            }
+        }, {
+            "043": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "n-us-ca"
+                    }
+                ]
+            }
+        }, {
+            "245": {
+                "ind1": "0",
+                "ind2": "0",
+                "subfields": [
+                    {
+                        "a":
+                        "[Interior views of Bullock's Willshire building] (18 views)"
+                    }, {
+                        "h": "[graphic]"
+                    }
+                ]
+            }
+        }, {
+            "260": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "Los Angeles, Calif. :"
+                    }, {
+                        "b": "Mott Studios,"
+                    }, {
+                        "c": "[between 1923 and 1936]"
+                    }
+                ]
+            }
+        }, {
+            "300": "18 photographic prints ;"
+        }, {
+            "520": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a":
+                        "Interior views of Bullock's Wilshire store on 3050 Wilshire Boulevard. Architect: John and Donald Parkinson. Mott no. 564 refers to Bullock's, 565 refers to Solar Lighting Fixture Co."
+                    }
+                ]
+            }
+        }, {
+            "500": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "File proof no.: G-4-l."
+                    }
+                ]
+            }
+        }, {
+            "505": {
+                "ind1": "0",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a":
+                        "1992-4832 (564-31). Second floor, period style room in classic architecture features decorative pillars, chandeliers, wingback sofa and chairs -- 1992-4833 (564-32). Second floor, period room in classical style featurs large paintings on wall, fireplace with large mirror, and crown molding -- 1992-4834 (564-97). Main floor, east wing, Shoe Dept. Room features circular ceiling with pillars, display tables with womens shoes, and upholstered chairs -- 1992-4835 (564-104). Third floor, modern style interior features decorative ceiling and flooring. Display cases feature womens shoes and handbags -- 1992-4836 (564-146). Second floor lobby. Space features display cases with womens shoes and purses. A mannequin with pajamas sits on sette with large blanket -- 1992-4837 (564-147). Lobby, second floor. Space features display cases with slippers and perfumes, mannequins throughout feature womans sleepwear --"
+                    }
+                ]
+            }
+        }, {
+            "505": {
+                "ind1": "0",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a":
+                        "1992-4838 (564-149). Period room, second floor. Period room in classical style with built in hutch featuring hand bags and perfume bottles. Decorative wall panels with molding -- 1992-4839 (564-150). Period room, second floor. Period room in classical style features decorative upholstered chairs, large column, crown molding, and chandeliars -- 1992-4840 (564-151). Fur room, second floor. Space features rounded walls and ceiling with decorative hanging lights and display featuring fur coat and shawl -- 1992-4841 (564-159). Lingerie Dept. Retail space features modern style design light panels, wall tiles and clock and carpet. Display tables feature womens blouses -- 1992-4842 (564-162). Lingerie Dept. Space features modern style decorative glass panel wall with built in display shelves -- 1992-4843 (564-163). Lingerie Dept. Detail of large three section glass display cabinet featuring coats --"
+                    }
+                ]
+            }
+        }, {
+            "505": {
+                "ind1": "0",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a":
+                        "1992-4844 (564-267). Beauty shop, light cabinet -- 1992-4845 (564-301). Space features merchandise from the Eleanor Beard collection of quilted things -- 1992-4846 (564-336). Large room features several desks and chairs with mirrors, display cases throughout feature womens hats. Dated 8/15/36 on index card -- 1992-4847 (564-343). Large oval display counter features displays for shoes, handbags, and hats (8/15/36) -- 1992-4848 (564-344). Room features sofa, fancy chandeliar, and arched entrance to dressing room -- 1992-4849 (565-14). Large room with high tiered rounded ceiling, multiple doors surround space."
+                    }
+                ]
+            }
+        }, {
+            "530": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a":
+                        "Also have negative: no. 24,313 (4x5 in.) for 1992-4832; no. 25,856 (4x5 in.) for 1992-4833; no. 24,316 (4x5 in.) for 1992-4834; no. 24,253 (4x5 in.) for 1992-4835; no. 24,224 (5x4 in.) for 1992-4840; no. 24,306 (4x5 in.) for 1992-4841; no. 24, 252 (4x5 in.) for 1992-4842; no. 25,866 (5x4 in.) for 1992-4844; and, no. 24,308 (4x5 in.) for 1992-4845."
+                    }
+                ]
+            }
+        }, {
+            "610": {
+                "ind1": "2",
+                "ind2": "0",
+                "subfields": [
+                    {
+                        "a": "Bullock's Wilshire (Department store)"
+                    }, {
+                        "v": "Photographs."
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Department stores"
+                    }, {
+                        "z": "California"
+                    }, {
+                        "z": "Los Angeles."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Merchandise displays"
+                    }, {
+                        "z": "California"
+                    }, {
+                        "z": "Los Angeles."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Lingerie."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Chandeliers."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Beauty shops"
+                    }, {
+                        "z": "California"
+                    }, {
+                        "z": "Los Angeles."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Millinery."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "650": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Light fixtures."
+                    }, {
+                        "2": "lctgm"
+                    }
+                ]
+            }
+        }, {
+            "651": {
+                "ind1": " ",
+                "ind2": "0",
+                "subfields": [
+                    {
+                        "a": "Los Angeles (Calif.)"
+                    }, {
+                        "v": "Photographs."
+                    }
+                ]
+            }
+        }, {
+            "655": {
+                "ind1": " ",
+                "ind2": "7",
+                "subfields": [
+                    {
+                        "a": "Photographic prints."
+                    }, {
+                        "2": "gmgpc"
+                    }
+                ]
+            }
+        }, {
+            "700": {
+                "ind1": "1",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "Parkinson, Donald B."
+                    }, {
+                        "q": "(Donald Berthold),"
+                    }, {
+                        "d": "1895-1945."
+                    }
+                ]
+            }
+        }, {
+            "700": {
+                "ind1": "1",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "Parkinson, John,"
+                    }, {
+                        "d": "1861-1935"
+                    }
+                ]
+            }
+        }, {
+            "710": {
+                "ind1": "2",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "Mott Studios."
+                    }
+                ]
+            }
+        }, {
+            "730": {
+                "ind1": "0",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "a": "Mott-Merge Collection."
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4833)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4833_000094379.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0001&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4834)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4834_000094382.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0002&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4835)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4835_000094385.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0003&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4836)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4836_000094388.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0004&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4837)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4837_000094391.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0005&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4838)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4838_000094394.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0006&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4839)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4839_000094397.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0007&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4840)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4840_000094400.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0008&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4841)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4841_000094403.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0009&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4842)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4842_000094406.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0010&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4832)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4832_000094409.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0011&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4843)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4843_000094412.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0012&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4844)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4844_000094415.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0013&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4845)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4845_000094418.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0014&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4846)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4846_000094421.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0015&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4847)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4847_000094424.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0016&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4848)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4848_000094427.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0017&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }, {
+            "856": {
+                "ind1": " ",
+                "ind2": " ",
+                "subfields": [
+                    {
+                        "y": "Bullock's Willshire building (1992-4849)"
+                    }, {
+                        "m": "Photographs"
+                    }, {
+                        "b":
+                        "/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26"
+                    }, {
+                        "t": "1992-4849_000094430.jpg"
+                    }, {
+                        "x":
+                        "http://catalog.library.ca.gov:80/F?func=service&doc_library=CSL01&local_base=CSL01&doc_number=001409080&line_number=0018&func_code=DB_RECORDS&service_type=MEDIA"
+                    }
+                ]
+            }
+        }
+    ],
+    "leader": "09806nkc a2200589 a 4500",
+    "repository": [
+        {
+            "name": "California State Library",
+            "@id": "https://registry.cdlib.org/api/v1/repository/51/"
+        }
+    ]
+}
