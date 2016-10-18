@@ -1,6 +1,7 @@
 import re
 import timelib
 import datetime
+from collections import OrderedDict
 from akara import logger
 from akara import response
 from akara.services import simple_service
@@ -290,6 +291,8 @@ def convert_dates(data, prop, earliest):
         dates = []
         if exists(data, p):
             v = getprop(data, p)
+            if isinstance(v, list):  # fix for duplicate values in list
+                v = list(OrderedDict.fromkeys(v))
             if not isinstance(v, dict) and len(v):
                 if is_year_range_list(v):
                     dates.append({

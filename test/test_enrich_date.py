@@ -1131,5 +1131,33 @@ def test_enrich_date_dup_start_date():
     assert_same_jsons(EXPECTED, content)
 
 
+def test_enrich_date_dup_start_date_list():
+    """Recreate bug found"""
+    # make sure we don't break it
+    INPUT = {'date': ['1930', '1938']}
+    EXPECTED = {
+        'date': [{
+            u'begin': u'1930',
+            u'end': u'1938',
+            u'displayDate': u'1930-1938'
+        }]
+    }
+    url = server() + "enrich_earliest_date?prop=date"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert_same_jsons(EXPECTED, content)
+    # this is the fix
+    INPUT = {'date': ['1930', '1930']}
+    EXPECTED = {
+        'date': [{
+            u'begin': u'1930',
+            u'end': u'1930',
+            u'displayDate': u'1930'
+        }]
+    }
+    url = server() + "enrich_earliest_date?prop=date"
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert_same_jsons(EXPECTED, content)
+
+
 if __name__ == "__main__":
     raise SystemExit("Use nosetests")
