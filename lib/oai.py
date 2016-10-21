@@ -67,7 +67,9 @@ metadata_field_map = {
         "dcterms:extent": lambda (v): {"extent": v},
         "dcterms:hasFormat": lambda (v): {"hasFormat": v},
         "dcterms:isPartOf": lambda (v): {"isPartOf": v},
+        "dcterms:mediator": lambda (v): {"mediator": v},
         "dcterms:medium": lambda (v): {"medium": v},
+        "dcterms:provenance": lambda (v): {"provenance": v},
         "dcterms:spatial": lambda (v): {"spatial": v},
         "dcterms:temporal": lambda (v): {"temporal": v}
     }
@@ -262,7 +264,7 @@ class oaiservice(object):
         mapping, but silently ignore fields that are not.
         """
         map_key = prefix.lower()
-        if map_key == "oai_qdc":
+        if map_key in ["oai_qdc", "oai_qdc_imdpla"]:
             map_key = "qdc"
         mfm = metadata_field_map.get(map_key)
         hfm = header_field_map.get(map_key)
