@@ -30,14 +30,16 @@ out.close()
 # Standard setup.py follows
 from distutils.core import setup
 
-setup( name = 'ingestion',
+setup( name = 'dplaingestion',
        version = '33.8.7',
        description='DPLA Ingestion System',
        author='Digital Public Library of America',
        author_email='tech@dp.la',
        url='http://dp.la',
-       package_dir={'dplaingestion':'lib'},
+       package_dir={'dplaingestion':'lib',
+           'dplaingestion.scripts':'scripts'},
        packages=['dplaingestion','dplaingestion.akamod',
-                 'dplaingestion.fetchers', 'dplaingestion.mappers'],
+                 'dplaingestion.fetchers', 'dplaingestion.mappers',
+                 'dplaingestion.scripts'],
        scripts=['scripts/rollback_ingestion'],
 )
