@@ -1,6 +1,7 @@
 import requests
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
-from dplaingestion.selector import exists, getprop
+from dplaingestion.selector import getprop
+
 
 class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
     '''A base mapper for CONTENTdm OAI feeds. Should work for most OAI
@@ -43,7 +44,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         if ident:
             base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
             thumbnail_url = '/'.join((base_url, 'utils', 'getthumbnail',
-                'collection', collid, 'id', objid))
+                                      'collection', collid, 'id', objid))
             self.mapped_data.update({'isShownBy': thumbnail_url})
 
     def map_is_shown_at(self):
@@ -63,11 +64,12 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
 
     def map_subject(self):
         values = self.split_values('subject')
-        subject_objs = [ {'name': v } for v in values]
+        subject_objs = [{'name': v} for v in values]
         self.update_source_resource({'subject': subject_objs})
 
     def map_spatial(self):
-        self.to_source_resource_with_split('coverage', 'spatial')
+        fields = ('coverage', 'spatial')
+        self.source_resource_orig_list_to_prop_with_split(fields, 'spatial')
 
     def map_type(self):
         '''TOOD:Funky, but map_type comes after the is_shown_by, should change order
@@ -75,29 +77,30 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         self.to_source_resource_with_split('type', 'type')
 
     def get_url_image_info(self):
-        image_info = {'height': 0, 'width': 0 }
+        image_info = {'height': 0, 'width': 0}
         ident = self.get_identifier_match('cdm/ref')
         base_url, i, j, k, collid, l, objid = ident.rsplit('/', 6)
-        #url_image_info give json data about image for record
+        # url_image_info give json data about image for record
         url_image_info = '/'.join((base_url, 'utils', 'ajaxhelper'))
-        url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(
-                url_image_info, collid, objid)
+        url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(url_image_info,
+                                                            collid, objid)
         return url_image_info
 
     def get_image_info(self):
         '''Return image info for the contentdm object'''
-        image_info = {'height': 0, 'width': 0 }
+        image_info = {'height': 0, 'width': 0}
         ident = self.get_identifier_match('cdm/ref')
         if ident:
-            image_info = requests.get(self.get_url_image_info()).json()['imageinfo']
+            image_info = requests.get(self.get_url_image_info()).json()[
+                'imageinfo']
         return image_info
 
     def get_larger_preview_image(self):
         # Try to get a bigger image than the thumbnail.
         # Some "text" types have a large image
         image_info = self.get_image_info()
-        if image_info['height'] > 0: #if 0 only thumb available
-            #figure scaling
+        if image_info['height'] > 0:  # if 0 only thumb available
+            # figure scaling
             max_dim = 1024.0
             scale = 100
             if image_info['height'] >= image_info['width']:
@@ -106,7 +109,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
                 scale = int((max_dim / image_info['width']) * 100)
             scale = 100 if scale > 100 else scale
             thumbnail_url = '{}&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE={}'.format(
-                    self.get_url_image_info(), scale)
+                self.get_url_image_info(), scale)
             self.mapped_data.update({'isShownBy': thumbnail_url})
 
     def update_mapped_fields(self):
@@ -117,7 +120,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         if isinstance(rec_type, basestring):
             if 'sound' == rec_type.lower():
                 is_sound_object = True
-        else: #list type
+        else:  # list type
             for val in rec_type:
                 if 'sound' == val.lower():
                     is_sound_object = True
