@@ -1,0 +1,214 @@
+{
+  "collection": [
+    {
+      "dcmi_type": "X",
+      "qa_completed": false,
+      "featured": false,
+      "ready_for_publication": true,
+      "hosted": "",
+      "id": "2206",
+      "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c8p55p86",
+      "custom_facet": [],
+      "metadata_in_dams": false,
+      "url_harvest": "http://digitalcollections.lmu.edu/oai/oai.php",
+      "campus": [],
+      "files_in_dams": false,
+      "files_in_hand": false,
+      "ingestType": "collection",
+      "description": "The Big Pine Citizen was the weekly newspaper of Big Pine, California, a town in the northern Owens Valley of the California Sierras. The Big Pine Citizen Newspaper Collection (CSLA-30) holds issues from the years 1922, and 1924 to 1928, the decade in which the Owens Valley Water Wars between the City of Los Angeles and the people of the Owens Valley over the control of land and corresponding water rights was at its height. Thus, the newspapers here contain much information, from the viewpoint of Owens Valley residents, on Los Angeles' control of the Owens Valley water supply.",
+      "repository": [
+        {
+          "name": "Loyola Marymount University, Department of Archives and Special Collections, William H. Hannon Library",
+          "campus": [],
+          "slug": "loyola-marymount-university-department-of-archives",
+          "ark": "ark:/13030/kt9k402381",
+          "@id": "https://registry.cdlib.org/api/v1/repository/85/",
+          "id": 85,
+          "google_analytics_tracking_code": "UA-43608409-2",
+          "resource_uri": "/api/v1/repository/85/"
+        }
+      ],
+      "url_local": "http://digitalcollections.lmu.edu/cdm/landingpage/collection/bigpine",
+      "extent": null,
+      "rights_status": "X",
+      "@id": "https://registry.cdlib.org/api/v1/collection/2206/",
+      "slug": "big-pine-citizen-newspaper-collection",
+      "name": "Big Pine Citizen Newspaper Collection",
+      "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=contentdm_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=overwrite,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+      "harvest_type": "OAI",
+      "harvest_extra_data": "bigpine",
+      "rights_statement": "Materials in the Department of Archives and Special Collections may be subject to copyright. Unless explicitly stated otherwise, Loyola Marymount University does not claim ownership of the copyright of any materials in its collections. Please refer to: http://library.lmu.edu/generalinformation/departments/digitallibraryprogram/copyrightandreproductionpolicy/",
+      "staging_notes": "",
+      "local_id": "CSLA-30 ",
+      "title": "Big Pine Citizen Newspaper Collection",
+      "resource_uri": "/api/v1/collection/2206/"
+    }
+  ],
+  "abstract": [
+    "TEST abstract"
+  ],
+  "accessRights": [
+    "TEST accessRights"
+  ],
+  "accrualMethod": [
+    "TEST accrualMethod"
+  ],
+  "accrualPeriodicity": [
+    "TEST accrualPeriodicity"
+  ],
+  "accrualPolicy": [
+    "TEST accrualPolicy"
+  ],
+  "alternative": [
+    "TEST alternative"
+  ],
+  "audience": [
+    "TEST audience"
+  ],
+  "available": [
+    "TEST available"
+  ],
+  "bibliographicCitation": [
+    "TEST bibliographicCitation"
+  ],
+  "conformsTo": [
+    "TEST conformsTo"
+  ],
+  "contributor": [
+    "TEST contributor"
+  ],
+  "coverage": [
+    "TEST coverage"
+  ],
+  "created": [
+    "TEST created"
+  ],
+  "creator": [
+    "TEST creator"
+  ],
+  "date": [
+    "TEST date"
+  ],
+  "dateAccepted": [
+    "TEST dateAccepted"
+  ],
+  "dateCopyrighted": [
+    "TEST dateCopyrighted"
+  ],
+  "dateSubmitted": [
+    "TEST dateSubmitted"
+  ],
+  "description": [
+    "TEST description"
+  ],
+  "educationLevel": [
+    "TEST educationLevel"
+  ],
+  "extent": [
+    "TEST extent"
+  ],
+  "format": [
+    "TEST format"
+  ],
+  "hasFormat": [
+    "TEST hasFormat"
+  ],
+  "hasPart": [
+    "TEST hasPart"
+  ],
+  "hasVersion": [
+    "TEST hasVersion"
+  ],
+  "identifier": [
+    "TEST identifier"
+  ],
+  "instructionalMethod": [
+    "TEST instructionalMethod"
+  ],
+  "isFormatOf": [
+    "TEST isFormatOf"
+  ],
+  "isPartOf": [
+    "TEST isPartOf"
+  ],
+  "isReferencedBy": [
+    "TEST isReferencedBy"
+  ],
+  "isReplacedBy": [
+    "TEST isReplacedBy"
+  ],
+  "isRequiredBy": [
+    "TEST isRequiredBy"
+  ],
+  "issued": [
+    "TEST issued"
+  ],
+  "isVersionOf": [
+    "TEST isVersionOf"
+  ],
+  "language": [
+    "TEST language"
+  ],
+  "license": [
+    "TEST license"
+  ],
+  "mediator": [
+    "TEST mediator"
+  ],
+  "medium": [
+    "TEST medium"
+  ],
+  "modified": [
+    "TEST modified"
+  ],
+  "provenance": [
+    "TEST provenance"
+  ],
+  "publisher": [
+    "TEST publisher"
+  ],
+  "references": [
+    "TEST references"
+  ],
+  "relation": [
+    "TEST relation"
+  ],
+  "replaces": [
+    "TEST replaces"
+  ],
+  "requires": [
+    "TEST requires"
+  ],
+  "rights": [
+    "TEST rights"
+  ],
+  "rightsHolder": [
+    "TEST rightsHolder"
+  ],
+  "source": [
+    "TEST source"
+  ],
+  "spatial": [
+    "TEST spatial"
+  ],
+  "subject": [
+    "TEST subject"
+  ],
+  "tableOfContents": [
+    "TEST tableOfContents"
+  ],
+  "temporal": [
+    "TEST temporal"
+  ],
+  "title": [
+    "TEST title"
+  ],
+  "type": [
+    "TEST type"
+  ],
+  "valid": [
+    "TEST valid"
+  ],
+  "datestamp": "2013-10-02",
+  "id": "oai:digitalcollections.lmu.edu:bigpine/10"
+}

@@ -4,8 +4,8 @@ from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
 from akara import logger
 
-class UCSDBlacklightDCMapper(DublinCoreMapper):                                                       
-    def __init__(self, provider_data): 
+class UCSDBlacklightDCMapper(DublinCoreMapper):
+    def __init__(self, provider_data):
         super(UCSDBlacklightDCMapper, self).__init__(provider_data)
 
     # root mapping
@@ -81,7 +81,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_relationship(self, relation_role_list, field):
         relationships = self.provider_data_source.get('relationship_json_tesim')[0]
         values = []
-        for relation, value in relationships.items(): 
+        for relation, value in relationships.items():
             if relation in relation_role_list:
                 values.extend(value)
         if len(values):
@@ -124,7 +124,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     def parse_otherNotes(self, note_type, display_label=None):
         '''Pull out values for the note_type from the otherNote_json_tesim.
-        If display_label is specified, only take values when the 
+        If display_label is specified, only take values when the
         displayLabel equals the given display_label
         return the values for the note type
         '''
@@ -235,7 +235,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 
     def map_subject(self):
         source_fields = ['subject_tesim', 'topic_tesim', 'subject_topic_tesim',
-                'complexSubject_tesim', 
+                'complexSubject_tesim',
                 'anatomy_tesim', 'commonName_tesim', 'conferenceName_tesim',
                 'corporateName_tesim', 'culturalContext_tesim', 'cruise_tesim',
                 'familyName_tesim', 'genreForm_tesim', 'geographic_tesim',

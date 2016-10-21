@@ -51,6 +51,8 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_orig_to_prop('note_Tspecie',
                                           'subject')
 
+    def map_rights(self):
+        self.source_resource_prop_to_prop('rights')
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
