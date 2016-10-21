@@ -75,7 +75,7 @@ def create_mapper(mapper_type, data):
     def _create_sfpl_marc_mapper(data):
         from dplaingestion.mappers.sfpl_marc_mapper import SFPLMARCMapper
         return SFPLMARCMapper(data)
-        
+
     def _create_csl_marc_mapper(data):
         from dplaingestion.mappers.csl_marc_mapper import CSLMARCMapper
         return CSLMARCMapper(data)
@@ -167,6 +167,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.califa_oai_dc_mapper import Califa_OAIMapper
         return Califa_OAIMapper(data)
 
+    def _create_csa_omeka_mapper(data):
+        from dplaingestion.mappers.csa_omeka_mapper import CSA_OAIMapper
+        return CSA_OAIMapper(data)
+
     def _create_ucb_blacklight_dc_mapper(data):
         from dplaingestion.mappers.ucb_blacklight_dc_mapper import \
             UCBBlacklightDCMapper
@@ -212,6 +216,7 @@ def create_mapper(mapper_type, data):
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d),
         'cca_vault_oai_dc': lambda d: _create_vault_oai_dc_mapper(d),
         'califa_oai_dc': lambda d: _create_califa_oai_dc_mapper(d),
+        'csa_omeka': lambda d: _create_csa_omeka_mapper(d),
         'ucb_blacklight': lambda d: _create_ucb_blacklight_dc_mapper(d),
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
         'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
