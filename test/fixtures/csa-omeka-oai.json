@@ -1,0 +1,79 @@
+{
+    "publisher": [
+        "California State Archives, a division of the California Secretary of State's Office"
+    ],
+    "description": ["Capital Store, Java Coffee "],
+    "language": ["English"],
+    "format": ["jpeg"],
+    "rights": [
+        "There are no known copyright restrictions associated with these digital images.  We encourage the use of these images for personal, study, and educational purposes. Please credit “Courtesy of California State Archives.”  The California State Archives and the Friends of California Archives cannot be responsible for any use of these images, or any liability resulting from their use. The Archives is interested in learning about any possible copyright restrictions and will gladly remove any image that is in violation."
+    ],
+    "contributor": ["F. L. H. Weber"],
+    "collection": [{
+        "dcmi_type": "X",
+        "qa_completed": false,
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "id": "26673",
+        "url_oac": "",
+        "custom_facet": [],
+        "metadata_in_dams": false,
+        "url_harvest": "http://exhibits.sos.ca.gov/oai-pmh-repository/request",
+        "campus": [],
+        "files_in_dams": false,
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "This collection highlights California's early years of trademark filings under the state's Trademark Registration Act (Chapter 129, Statutes of 1863). California began registering certain container brands in 1861, but trademark registration for all types of products began in 1863, seven years prior to federal legislation. California was the first state in the Union to allow trademark registration, and today those doing business in California still register their trademarks with the Secretary of State.\r\n\r\nThe California State Archives, in conjunction with The Friends of California Archives, is pleased to unveil the results of a National Historical Publications and Records Commission (NHPRC) funded project. The NHPRC awarded The Friends of California Archives money to support “For Their Protection: Digitizing California's 19th Century Trademark Files,” a project to digitize approximately 24,000 pages from the collection of Trademark Registrations and Specimens, Old Series, 1861-1900 at the California State Archives. The results of that digitization project are displayed here.\r\n\r\nTrademark applications or claims typically contain the filing date, a trademark specimen (a label, sketch, or facsimile), the name(s) of the applicant(s), the name of the company, and may include the business address, identification of product, and a detailed description of the trademark. Legitimate producers registered their trademarks in part as an effort to protect themselves and the public from those who sought to sell counterfeit merchandise. Often ephemeral and truly “signs of the times,” trademarks give us an idea of the types of products sold and consumed in California in the past and offer us a glimpse of life in the Golden State as it was in bygone days.",
+        "repository": [{
+            "name": "California State Archives",
+            "campus": [],
+            "slug": "california-state-archives",
+            "ark": "ark:/13030/tf6g5012g8",
+            "@id": "https://registry.cdlib.org/api/v1/repository/153/",
+            "id": 153,
+            "google_analytics_tracking_code": "UA-72168208-1",
+            "resource_uri": "/api/v1/repository/153/"
+        }],
+        "url_local": "http://exhibits.sos.ca.gov/collections/show/1",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26673/",
+        "slug": "old-series-trademarks-this-collection-highlights-c",
+        "name": "\"Old Series\" Trademarks",
+        "enrichments_item":
+        "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=contentdm_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "harvest_type": "OAI",
+        "harvest_extra_data": "",
+        "rights_statement": "",
+        "staging_notes": "",
+        "local_id": "trademarks",
+        "title": "\"Old Series\" Trademarks",
+        "resource_uri": "/api/v1/collection/26673/"
+    }],
+    "datestamp": "2016-04-08T17:46:41Z",
+    "creator": ["California Secretary of State's Office"],
+    "relation": ["Part of Trademark and Service Mark Records"],
+    "source": [
+        "Image from original trademark filings at the California State Archives, digitized through a grant from the National Historical Publications and Records Commission (NHPRC)"
+    ],
+    "coverage": ["Sacramento, CA"],
+    "date": ["1883"],
+    "title": ["Old Series Trademark No. 1006"],
+    "identifier": [
+        "http://exhibits.sos.ca.gov/items/show/1006",
+        "http://exhibits.sos.ca.gov/files/original/fa02cbf716a936b673a812e1cdd693c9.jpg",
+        "http://exhibits.sos.ca.gov/files/original/5ab3557fbb8845fcccb71ee8de956e32.jpg",
+        "http://exhibits.sos.ca.gov/files/original/2a728f0e8530e772f19b9fa6ce5e2d45.jpg",
+        "http://exhibits.sos.ca.gov/files/original/be214438fda9bda8fa0a6d572979f680.jpg",
+        "http://exhibits.sos.ca.gov/files/original/f7becaa5c0e01a0bb248bef4d676d863.jpg",
+        "http://exhibits.sos.ca.gov/files/original/6f935c63be33d2933bac7aaed17427ed.jpg",
+        "http://exhibits.sos.ca.gov/files/original/cec51f73cb7f9ff282006ec2d6258cc6.jpg",
+        "http://exhibits.sos.ca.gov/files/original/3c5d99794c8558606672842d36912f65.jpg",
+        "http://exhibits.sos.ca.gov/files/original/969f35b7b10f5cff879fcfeaa75f645e.jpg"
+    ],
+    "type": ["Image"],
+    "id": "oai:exhibits.sos.ca.gov:1006",
+    "subject": ["Java Coffee"]
+}
