@@ -2,6 +2,7 @@ import requests
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 
+
 class OAIDublinCoreMapper(DublinCoreMapper):
     '''Dublin core mapper with a split on semicolons function.
     Many OAI feeds seem to do this.
@@ -17,7 +18,7 @@ class OAIDublinCoreMapper(DublinCoreMapper):
         new_values = []
         if exists(self.provider_data_source, prop):
             for value in getprop(self.provider_data_source, prop):
-                new_values.extend([ s.strip() for s in value.split(';')])
+                new_values.extend([s.strip() for s in value.split(';')])
         return new_values
 
     def to_source_resource_with_split(self, provider_prop, srcRes_prop):
@@ -25,6 +26,22 @@ class OAIDublinCoreMapper(DublinCoreMapper):
         data values'''
         values = self.split_values(provider_prop)
         self.update_source_resource({srcRes_prop: values})
+
+    def source_resource_orig_list_to_prop_with_split(
+            self,
+            original_fields,
+            srcRes_prop):
+        '''for a list of fields in the providers original data, append the
+        values into a single sourceResource field
+        Split the values on ;
+        '''
+        values = []
+        for field in original_fields:
+            if exists(self.provider_data_source, field):
+                split_src_value = self.split_values(field)
+                values.extend(split_src_value)
+        if values:
+            self.update_source_resource({srcRes_prop: values})
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
@@ -49,4 +66,3 @@ class OAIDublinCoreMapper(DublinCoreMapper):
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-
