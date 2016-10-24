@@ -76,6 +76,9 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         '''
         self.to_source_resource_with_split('type', 'type')
 
+    def map_language(self):
+        self.to_source_resource_with_split('language', 'language')
+
     def get_url_image_info(self):
         image_info = {'height': 0, 'width': 0}
         ident = self.get_identifier_match('cdm/ref')
