@@ -37,7 +37,7 @@ def cleanup(value, prop):
         Converted string.
     """
     # Do not remove double quotes from title
-    dquote = '' if prop == "sourceResource/title" else '"'
+    dquote = '' if prop == "sourceResource/title" or prop == "sourceResource/description" else '"'
 
     # Remove dot at the end if field name is not in the
     # DONT_STRIP_DOT_END table.
@@ -63,6 +63,7 @@ def cleanup(value, prop):
 
     return value
 
+
 """
 Fields which should not be changed:
 -- format (there are often dimensions in this field)
@@ -73,35 +74,27 @@ Fields which should not be changed:
 
 """
 DONT_STRIP_DOT_END = [
-    "hasView/format",
-    "sourceResource/format",
-    "sourceResource/extent",
-    "sourceResource/description",
-    "sourceResource/rights",
-    "sourceResource/place",
-    "sourceResource/collection/title"
+    "hasView/format", "sourceResource/format", "sourceResource/extent",
+    "sourceResource/description", "sourceResource/rights",
+    "sourceResource/place", "sourceResource/collection/title"
 ]
 
 # Below fields should have removed do at the end.
 DEFAULT_PROP = [
-    "sourceResource/language",
-    "sourceResource/title",
-    "sourceResource/creator",
-    "sourceResource/relation",
-    "sourceResource/publisher",
-    "sourceResource/subject",
-    "sourceResource/date",
-    "sourceResource/description",
-    "sourceResource/collection/title",
-    "sourceResource/collection/description",
-    "sourceResource/contributor",
-    "sourceResource/spatial/name"
+    "sourceResource/language", "sourceResource/title",
+    "sourceResource/creator", "sourceResource/relation",
+    "sourceResource/publisher", "sourceResource/subject",
+    "sourceResource/date", "sourceResource/description",
+    "sourceResource/collection/title", "sourceResource/collection/description",
+    "sourceResource/contributor", "sourceResource/spatial/name"
 ]
 
 
 @simple_service('POST', 'http://purl.org/la/dp/cleanup_value', 'cleanup_value',
                 'application/json')
-def cleanup_value(body, ctype, action="cleanup_value",
+def cleanup_value(body,
+                  ctype,
+                  action="cleanup_value",
                   prop=",".join(DEFAULT_PROP + DONT_STRIP_DOT_END)):
     '''
     Service that accepts a JSON document and enriches the prop field of that document by:
