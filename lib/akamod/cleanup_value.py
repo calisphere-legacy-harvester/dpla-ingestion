@@ -75,7 +75,7 @@ Fields which should not be changed:
 """
 DONT_STRIP_DOT_END = [
     "hasView/format", "sourceResource/format", "sourceResource/extent",
-    "sourceResource/description", "sourceResource/rights",
+    "sourceResource/rights",
     "sourceResource/place", "sourceResource/collection/title"
 ]
 
@@ -84,7 +84,7 @@ DEFAULT_PROP = [
     "sourceResource/language", "sourceResource/title",
     "sourceResource/creator", "sourceResource/relation",
     "sourceResource/publisher", "sourceResource/subject",
-    "sourceResource/date", "sourceResource/description",
+    "sourceResource/date",
     "sourceResource/collection/title", "sourceResource/collection/description",
     "sourceResource/contributor", "sourceResource/spatial/name"
 ]
