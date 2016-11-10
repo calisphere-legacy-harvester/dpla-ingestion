@@ -21,7 +21,8 @@ def test_ucsb_aleph_marc_id_select():
         INPUT = f.read()
         TC.assertIn('035', INPUT)
         resp, content = _get_server_response(INPUT)
-        assert resp.status == 200
-        obj = json.loads(content)
-        TC.assertEqual(obj['isShownAt'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
-        TC.assertEqual(obj['isShownBy'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
+    assert resp.status == 200
+    obj = json.loads(content)
+    TC.assertEqual(obj['isShownAt'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
+    TC.assertEqual(obj['isShownBy'], 'http://www.library.ucsb.edu/OBJID/Cylinder0002')
+    TC.assertEqual(obj['sourceResource']['title'], [u'Sailor\'s hornpipe medley'])
