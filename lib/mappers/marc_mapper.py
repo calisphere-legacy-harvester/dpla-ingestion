@@ -6,7 +6,6 @@ from dplaingestion.selector import getprop
 from collections import OrderedDict
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.utilities import strip_unclosed_brackets
-from akara import logger
 
 
 class MARCMapper(Mapper):
@@ -86,21 +85,20 @@ class MARCMapper(Mapper):
                  ("CR", ("CDROM", "Interactive Resource")),
                  ("CS", ("Software", "Software")), ("DI",
                                                     ("Dictionaries", "Text")),
-                 ("DR", ("Directories", "Text")), ("EN",
-                                                   ("Encyclopedias", "Text")),
-                 ("HT", ("HathiTrust", None)), ("MN", ("Maps-Atlas", "Image")),
-                 ("MP", ("Map", "Image")), ("MS", ("Musical Score", "Text")),
-                 ("MU", ("Music", "Text")), ("MV", ("Archive", "Collection")),
-                 ("MW",
-                  ("Manuscript", "Text")), ("MX",
-                                            ("Mixed Material", "Collection")),
+                 ("DR", ("Directories", "Text")), (
+                     "EN", ("Encyclopedias", "Text")), ("HT",
+                                                        ("HathiTrust", None)),
+                 ("MN", ("Maps-Atlas", "Image")), ("MP", ("Map", "Image")),
+                 ("MS", ("Musical Score", "Text")), ("MU", ("Music", "Text")),
+                 ("MV", ("Archive", "Collection")), (
+                     "MW", ("Manuscript", "Text")), (
+                         "MX", ("Mixed Material", "Collection")),
                  ("PP", ("Photograph/Pictorial Works", "Image")),
                  ("RC", ("Audio CD", "Sound")), ("RL", ("Audio LP", "Sound")),
                  ("RM", ("Music", "Sound")), ("RS", ("Spoken word", "Sound")),
-                 ("RU", (None, "Sound")), ("SE", ("Serial", "Text")),
-                 ("SX",
-                  ("Serial", "Text")), ("VB",
-                                        ("Video (Blu-ray)", "Moving Image")),
+                 ("RU", (None, "Sound")), ("SE", ("Serial", "Text")), (
+                     "SX", ("Serial", "Text")), (
+                         "VB", ("Video (Blu-ray)", "Moving Image")),
                  ("VD", ("Video (DVD)", "Moving Image")),
                  ("VG", ("Video Games", "Moving Image")),
                  ("VH", ("Video (VHS)", "Moving Image")), ("VL", (
@@ -116,16 +114,15 @@ class MARCMapper(Mapper):
                   ("Serial", "Text")), ("[cd].*", ("Musical Score", "Text")),
                  ("t.*", ("Manuscript", "Text")), ("[ef].*",
                                                    ("Maps", "Image")),
-                 ("g.[st]", ("Photograph/Pictorial Works", "Image")),
-                 ("g.[cdfo]",
-                  ("Film/Video", "Moving Image")), ("g.*", (None, "Image")),
+                 ("g.[st]", ("Photograph/Pictorial Works", "Image")), (
+                     "g.[cdfo]",
+                     ("Film/Video", "Moving Image")), ("g.*", (None, "Image")),
                  ("k.*", ("Photograph/Pictorial Works", "Image")),
                  ("i.*", ("Nonmusic", "Sound")), ("j.*", ("Music", "Sound")),
-                 ("r.*", (None, "Physical object")), ("p[cs].*",
-                                                      (None, "Collection")),
-                 ("m.*",
-                  (None, "Interactive Resource")), ("o.*",
-                                                    (None, "Collection"))])
+                 ("r.*", (None, "Physical object")), (
+                     "p[cs].*", (None, "Collection")), (
+                         "m.*", (None, "Interactive Resource")), (
+                             "o.*", (None, "Collection"))])
         }
 
     def extend_prop(self, prop, _dict, codes, label=None, values=None):
@@ -278,8 +275,8 @@ class MARCMapper(Mapper):
                 elif code == "d":
                     return ["--"]
             elif ((tag == "653") or (int(tag) in range(690, 700)) or
-                  (code == "b" and tag in
-                   ("654", "655")) or (code in ("v", "x", "y", "z"))):
+                  (code == "b" and
+                   tag in ("654", "655")) or (code in ("v", "x", "y", "z"))):
                 return ["--"]
             elif code == "d":
                 return [", "]
@@ -442,6 +439,9 @@ class MARCMapper(Mapper):
 
         values = self._get_values(_dict, codes)
         if values:
+            # removing trailing slash and leading/trailing whitespaces
+            values = [x.rstrip('/') for x in values]
+            values = [x.strip() for x in values]
             title = getprop(self.mapped_data, prop)
             t = title[index]
             if t:

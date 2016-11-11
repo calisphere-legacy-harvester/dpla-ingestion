@@ -3,7 +3,6 @@ from unittest import TestCase
 from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
-import httpretty
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
