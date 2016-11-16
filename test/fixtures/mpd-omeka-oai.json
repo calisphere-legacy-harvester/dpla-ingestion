@@ -1,0 +1,71 @@
+{
+    "description": [
+        "<p>Program from the premiere season of Ballet Caravan, featuring<br /> Lew Christensen's first choreographic works, 1936</p>\n<p>LC-0171-A (cover)</p>\n<p>LC-0171-B (program notes)</p>\n<p>LC-0171-C-D (stills from repertory. Photographs by George Platt Lynes)</p>\n<p>LC-0171-E (back cover)</p>"
+    ],
+    "datestamp": "2014-10-14T06:35:06Z",
+    "creator": ["Unknown"],
+    "rights": [
+        "Copyright Status Unknown. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owner. In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+    ],
+    "collection": [{
+        "dcmi_type": "X",
+        "qa_completed": false,
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "campus": [],
+        "url_oac": "",
+        "custom_facet": [],
+        "metadata_in_dams": false,
+        "url_harvest":
+        "http://christensenfamilycollection.omeka.net/oai-pmh-repository/request",
+        "id": "26676",
+        "files_in_dams": false,
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "The Christensen Family Digital Archive consists of images and documents chronicling the life and career of Lew Christensen and his brothers, Willam and Harold. Materials in this digital archive were curated from two collections at the Museum of Performance + Design: the Christensen-Caccialanza Papers and the Henrietta McDowell Memorial Photography Collection. The majority of the materials comes from Christensen-Caccialanza Papers, focusing primarily on Lew Christensen and his wife Gisella Caccialanza. The digital archive also includes materials related to Lew's brothers, Harold Christensen and Willam Christensen and their spouses, Ruby Asquith and Mignon Lee [Willam's first wife] respectively.\r\n\r\nIncludes performance programs.",
+        "repository": [{
+            "name":
+            "Museum of Performance and Design, Performing Arts Library",
+            "campus": [],
+            "slug": "museum-of-performance-and-design-performing-arts-l",
+            "ark": "ark:/13030/kt7h4nc71x",
+            "@id": "https://registry.cdlib.org/api/v1/repository/93/",
+            "id": 93,
+            "google_analytics_tracking_code": "UA-41931535-2",
+            "resource_uri": "/api/v1/repository/93/"
+        }],
+        "harvest_type": "OAI",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26676/",
+        "slug": "christensen-family-digital-archive-programs-the-ch",
+        "harvest_extra_data": "7",
+        "enrichments_item":
+        "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=csa_omeka,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "url_local":
+        "http://christensenfamilycollection.omeka.net/collections/show/7",
+        "name": "Christensen Family Digital Archive Programs",
+        "rights_statement": "",
+        "staging_notes": "",
+        "local_id": "christensen_programs",
+        "title": "Christensen Family Digital Archive Programs",
+        "resource_uri": "/api/v1/collection/26676/"
+    }],
+    "source": ["Christensen-Caccialanza Collection"],
+    "date": ["1936"],
+    "title": ["Program from the premiere season of Ballet Caravan in 1936"],
+    "identifier": [
+        "LC-0171.TIF",
+        "http://christensenfamilycollection.omeka.net/items/show/205",
+        "https://s3.amazonaws.com/omeka-net/12774/archive/files/fe7dcd3e801e665fce0b0c15720c0573.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=5DWGbcbxqL01IiY8bmVd9Go8zUc%3D",
+        "https://s3.amazonaws.com/omeka-net/12774/archive/files/4fc0b53542d73c01d8d76982c79e99ee.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=IC4fF8OTzwo8SffMzfljfaXQwHo%3D",
+        "https://s3.amazonaws.com/omeka-net/12774/archive/files/628f879e55f6743e7e844c17f32d022b.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=VAYwiC6M%2BmfoVm%2FLi1tL%2Bhmqxqk%3D",
+        "https://s3.amazonaws.com/omeka-net/12774/archive/files/c03145f3a74657c7f41bf38d76d31679.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=nHPG%2FhYhybzixzoWvmJuMbsdMd4%3D",
+        "https://s3.amazonaws.com/omeka-net/12774/archive/files/3986f870664e69808cd91fa77cc4132b.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=C%2FhCetiNdrXgNDJfe1Xb2H75ERQ%3D"
+    ],
+    "type": ["Text"],
+    "id": "oai:christensenfamilycollection.omeka.net:205",
+    "subject": ["Ballet Caravan, Inc. (New York, N.Y.)\t"]
+}
