@@ -50,7 +50,7 @@ def test_map_is_shown_at():
                        "http://jpg1.lapl.org/sola1/00000001.jpg")
     TC.assertEqual(_MAPPER.mapped_data['isShownBy'],
                        "http://jpg1.lapl.org/sola1/00000001.jpg")
-            
+
 def test_map_creator():
     TC.assertEqual(_MAPPER.mapped_data['sourceResource']['creator'],
                         ['Schultheis, Herman.'])
@@ -72,13 +72,13 @@ def test_full_marc_doc():
     doc = json.loads(content)
     TC.assertIn(u'sourceResource', doc)
     TC.assertIn(u'title', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['title'], ["Sailor's hornpipe medley [sound recording]."]) 
+    TC.assertEqual(doc['sourceResource']['title'], ["Sailor's hornpipe medley [sound recording]."])
     #NOTE: regular marc mapper grabs first 856$u field
     TC.assertEqual(doc['isShownAt'], "http://digilib.syr.edu/u?/cylinder,364")
     TC.assertEqual(doc['isShownBy'], "http://digilib.syr.edu/u?/cylinder,364")
     TC.assertEqual(doc['sourceResource']['contributor'], [u"D'Almaine, Charles, 1871-1943. itr"])
     TC.assertEqual(doc['sourceResource']['date'], {u'begin': u'1912', u'end': u'1912', u'displayDate': u'[1912]'})
-    TC.assertEqual(doc['sourceResource']['description'], 
+    TC.assertEqual(doc['sourceResource']['description'],
                 [u'Edison Amberol: 960.',
                  u'Year of release from "The Edison Phonograph Monthly," v.10 (1912).',
                  u'Introduces "Jenny Linn," "Lockers," "Acrobat," "Champion" and "Autograph."',
@@ -87,7 +87,7 @@ def test_full_marc_doc():
                  u'Todd collection.',
                  u'Also available online via the Internet.'])
     TC.assertEqual(doc['sourceResource']['extent'],
-            [u'1 cylinder (ca. 4 min.) : 2 1/4 x 4 in.'])
+            [u'1 cylinder (ca. 4 min.) : 160 rpm ; 2 1/4 x 4 in. audio cylinder'])
     TC.assertEqual(doc['sourceResource']['format'],
             [u'Electronic resource'])
     #TODO: this is broken return spaces    TC.assertEqual(doc['sourceResource']['language'], '')

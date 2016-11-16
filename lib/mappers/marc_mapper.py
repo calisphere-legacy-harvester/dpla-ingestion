@@ -54,7 +54,7 @@ class MARCMapper(Mapper):
             lambda t: t == "041": [(self.map_language, "a")],
             lambda t: t == "260": [(self.map_display_date, "c"),
                                    (self.map_publisher, "ab")],
-            lambda t: t == "300": [(self.map_extent, "ac")],
+            lambda t: t == "300": [(self.map_extent, None)],
             lambda t: t in ("337", "338"): [(self.map_format, "a")],
             lambda t: t == "340": [(self.map_extent, "b"),
                                    (self.map_format, "a")],

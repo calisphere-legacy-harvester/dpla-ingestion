@@ -39,7 +39,7 @@ def test_lapl_marc_mapping():
     )
     TC.assertIn(u'extent', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['extent'],
-                   [u'1 photographic print : 15 x 11 cm.'])
+                   [u'1 photographic print : b&w ; 15 x 11 cm.'])
     TC.assertIn(u'identifier', doc[u'sourceResource'])
     TC.assertEqual(doc['sourceResource']['identifier'], [u'(OCoLC)838675849'])
     TC.assertIn(u'spatial', doc[u'sourceResource'])
