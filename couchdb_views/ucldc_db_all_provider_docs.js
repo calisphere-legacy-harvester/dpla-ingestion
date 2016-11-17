@@ -12,6 +12,18 @@
            "map": "function(doc) { provider_name = doc._id.split('--').shift(); emit(provider_name, doc._id) }",
            "reduce": "_count"
        },
+       "missing_images": {
+           "map": "function(doc) { provider_name = doc._id.split('--').shift(); if (doc.sourceResource.type == 'image' && typeof doc.object == 'undefined') { emit(provider_name, doc._id) }}",
+           "reduce": "_count"
+       },
+       "missing_title": {
+           "map": "function(doc) { provider_name = doc._id.split('--').shift(); if (typeof doc.sourceResource.title == 'undefined') { emit(provider_name, doc._id) }}",
+           "reduce": "_count"
+       },
+       "missing_isShownAt": {
+           "map": "function(doc) { provider_name = doc._id.split('--').shift(); if (typeof doc.isShownAt == 'undefined') { emit(provider_name, doc._id) }}",
+           "reduce": "_count"
+       },
        "by_provider_name_and_ingestion_sequence_count": {
            "map": "function(doc) { provider_name = doc._id.split('--').shift(); emit([provider_name, doc.ingestionSequence], doc._id) }",
            "reduce": "_count"
