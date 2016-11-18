@@ -365,34 +365,6 @@
                     }",
             "reduce": "_count"
         },
-        "sourceResource.collection.title": {
-            "map": "function(doc) {
-                        var emitr = require('views/lib/utils').emit_handler;
-                        emitr(doc, 'sourceResource.collection.title', false);
-                    }",
-            "reduce": "_count"
-        },
-        "sourceResource.collection.title_value": {
-            "map": "function(doc) {
-                        var emitr = require('views/lib/utils').emit_path_value;
-                        emitr(doc, 'sourceResource.collection.title', false);
-                    }",
-            "reduce": "_count"
-        },
-        "sourceResource.collection.description": {
-            "map": "function(doc) {
-                        var emitr = require('views/lib/utils').emit_handler;
-                        emitr(doc, 'sourceResource.collection.description', false);
-                    }",
-            "reduce": "_count"
-        },
-        "sourceResource.collection.description_value": {
-            "map": "function(doc) {
-                        var emitr = require('views/lib/utils').emit_path_value;
-                        emitr(doc, 'sourceResource.collection.description', false);
-                    }",
-            "reduce": "_count"
-        },
         "sourceResource.contributor": {
             "map": "function(doc) {
                         var emitr = require('views/lib/utils').emit_handler;
