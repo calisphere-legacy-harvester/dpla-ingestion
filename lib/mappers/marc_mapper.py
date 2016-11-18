@@ -281,7 +281,7 @@ class MARCMapper(Mapper):
                 return ["--"]
             elif (tag == "610"):
                 if code == "b":
-                    return [". "]
+                    return [" "]
                 else:
                     return ["--"]
             elif code == "d":
