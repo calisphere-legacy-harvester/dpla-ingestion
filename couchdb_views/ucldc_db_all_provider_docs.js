@@ -12,7 +12,7 @@
            "map": "function(doc) { provider_name = doc._id.split('--').shift(); emit(provider_name, doc._id) }",
            "reduce": "_count"
        },
-       "missing_images": {
+       "image_type_missing_object": {
            "map": "function(doc) { provider_name = doc._id.split('--').shift(); if (doc.sourceResource.type == 'image' && typeof doc.object == 'undefined') { emit(provider_name, doc._id) }}",
            "reduce": "_count"
        },
