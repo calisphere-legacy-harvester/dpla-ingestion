@@ -73,7 +73,7 @@ def test_get_subject_values_tag_610():
     tag = "610"
 
     values = _MAPPER._get_subject_values(_SUBJECT, tag)
-    assert values == ["A. B. C, D. E--V--X--Y--Z"]
+    assert values == ["A B--C--D--E--V--X--Y--Z"]
 
 if __name__ == "__main__":
     raise SystemExit("Use nosetest")
