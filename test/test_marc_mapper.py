@@ -95,7 +95,8 @@ def test_full_marc_doc():
             [u'Orange, N.J. : Edison Amberol,'])
     print "SUBJECT RETURNED:{}".format(doc['sourceResource']['subject'])
     TC.assertEqual(doc['sourceResource']['subject'],
-            [{'name':u'Popular instrumental music--1911-1920.'},
+            [{'name':u'United States. Congress. Senate--Portraits.'},
+             {'name':u'Popular instrumental music--1911-1920.'},
              {'name': u'Violin with orchestra.'},
              {'name': u'Fiddle tunes.'}])
     TC.assertEqual(doc['sourceResource']['type'],

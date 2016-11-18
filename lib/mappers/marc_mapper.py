@@ -6,6 +6,7 @@ from dplaingestion.selector import getprop
 from collections import OrderedDict
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.utilities import strip_unclosed_brackets
+from akara import logger
 
 
 class MARCMapper(Mapper):
@@ -148,7 +149,7 @@ class MARCMapper(Mapper):
 
     def _join_values(self, prop, values):
         """Joins the values on a prop-specific delimiter"""
-        join_props = (["sourceResource/subject"], ""), \
+        join_props = (["sourceResource/subject"], ". "), \
                      (["sourceResource/relation"], ". "), \
                      (["sourceResource/contributor",
                        "sourceResource/creator",
@@ -278,6 +279,11 @@ class MARCMapper(Mapper):
                   (code == "b" and
                    tag in ("654", "655")) or (code in ("v", "x", "y", "z"))):
                 return ["--"]
+            elif (tag == "610"):
+                if code == "b":
+                    return [". "]
+                else:
+                    return ["--"]
             elif code == "d":
                 return [", "]
 

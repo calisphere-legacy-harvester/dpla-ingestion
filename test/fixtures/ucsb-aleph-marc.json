@@ -207,6 +207,26 @@
       }
     },
     {
+      "610": {
+        "ind2": "",
+        "subfields": [
+            {
+                "a": "United States."
+            },
+            {
+                "b": "Congress."
+            },
+            {
+                "b": "Senate"
+            },
+            {
+                "x": "Portraits."
+            }
+        ],
+        "ind1": "1"
+      }
+    },
+    {
       "650": {
         "ind2": "0",
         "subfields": [
