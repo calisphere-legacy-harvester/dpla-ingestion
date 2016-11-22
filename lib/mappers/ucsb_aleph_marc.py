@@ -27,7 +27,7 @@ class UCSBAlephMarcMapper(PyMARCMapper):
         if not exists(self.mapped_data, prop):
             setprop(self.mapped_data, prop, [None, None, None])
 
-        values = self._get_values(_dict, "!h")
+        values = self._get_values(_dict, "!ch")
         if values:
             # removing trailing slash and leading/trailing whitespaces
             values = [x.rstrip('/') for x in values]
