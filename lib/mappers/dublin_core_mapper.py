@@ -51,7 +51,13 @@ class DublinCoreMapper(Mapper):
             field = field if not self.prefix else ''.join(
                     (self.prefix, field))
             if exists(self.provider_data_source, field):
-                values.extend(getprop(self.provider_data_source, field))
+                # Need to check if string or not
+                prop_val = getprop(self.provider_data_source, field)
+                if isinstance(prop_val, basestring):
+                    values.append(prop_val)
+                else:
+                    # should be list then
+                    values.extend(prop_val)
         if values:
             self.update_source_resource({srcRes_prop: values})
 

@@ -125,6 +125,26 @@ def test_qualified_dublin_core():
     TC.assertEqual(srcRes['spatial'], ["TEST coverage", "TEST spatial"])
     TC.assertEqual(srcRes['temporal'], ["TEST temporal"])
 
+def test_string_description_fields():
+    '''Test what happens when one of a possible list of fields is a string, not
+    list value
+    '''
+    fixture = path.join(DIR_FIXTURES, 'oai-qdc-string-fields.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertIn('sourceResource', obj)
+    TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
+    TC.assertEqual(srcRes['description'], [
+        "TEST abstract",
+        "TEST description",
+        "TEST tableOfContents",
+    ])
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
