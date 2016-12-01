@@ -29,7 +29,8 @@ def movedatevalues(body, ctype, action="move_date_values", prop=None,
         "\d{4}\s*[-/]\s*\d{1,2}",
         "\d{4}s?",
         "\d{1,2}\s*(?:st|nd|rd|th)\s*century",
-        ".*circa.*"
+        ".*circa.*",
+        ".*[pP]eriod(?!.)"
         ]
 
     def cleanup(s):
@@ -48,7 +49,7 @@ def movedatevalues(body, ctype, action="move_date_values", prop=None,
         remove = []
         toprop = iterify(getprop(data, to_prop)) if exists(data, to_prop) \
                  else []
-        
+
         for v in iterify(values):
             if isinstance(v, basestring):
                 c = cleanup(v)
@@ -67,6 +68,6 @@ def movedatevalues(body, ctype, action="move_date_values", prop=None,
                 delprop(data, prop)
             else:
                 setprop(data, prop, [v for v in values if v not in remove])
-            
+
 
     return json.dumps(data)
