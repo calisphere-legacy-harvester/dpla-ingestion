@@ -47,7 +47,8 @@ def test_move_date_values_spatial1():
                 "1901-02 / 1902-02",
                 "1930s",
                 "1930s",
-                "North Carolina"
+                "North Carolina",
+                "Crinoline Period"
             ]
         }
     }
@@ -64,13 +65,14 @@ def test_move_date_values_spatial1():
                 "1901",
                 "02/1901 - 02/1902",
                 "1901-02 / 1902-02",
-                "1930s"
+                "1930s",
+                "Crinoline Period"
             ],
             "spatial" : ["North Carolina"]
         }
     }
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -90,10 +92,10 @@ def test_move_date_values_spatial2():
                 "12-12",
                 "12-12-"
             ]
-        }   
+        }
     }
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == INPUT
 
@@ -115,9 +117,9 @@ def test_move_date_values_spatial3():
                 "1901 - 1999"
             ]
         }
-    } 
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+    }
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -140,7 +142,8 @@ def test_move_date_values_subject1():
                 "1stcentury",
                 "3rdCentury",
                 "United States--History--Civil War, 1861-1865--Soldiers--Pictorial works.",
-                "subject1"
+                "subject1",
+                "a period of doubt"
             ]
         }
     }
@@ -159,12 +162,13 @@ def test_move_date_values_subject1():
             ],
             "subject" : [
                 "United States--History--Civil War, 1861-1865--Soldiers--Pictorial works.",
-                "subject1"
+                "subject1",
+                "a period of doubt"
             ]
         }
     }
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -189,10 +193,10 @@ def test_move_date_values_subject2():
                 "1234 1234",
                 "01/01/13 01/01/13"
             ]
-        }   
+        }
     }
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == INPUT
 
@@ -214,9 +218,9 @@ def test_move_date_values_subject3():
                 "1901 - 1999"
             ]
         }
-    } 
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop) 
+    }
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -241,9 +245,9 @@ def test_move_date_values_to_date():
                 "1862/12/30 - 1863/07/13"
             ]
         }
-    } 
- 
-    resp,content = _get_server_response(json.dumps(INPUT),prop,to_prop) 
+    }
+
+    resp,content = _get_server_response(json.dumps(INPUT),prop,to_prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -273,9 +277,9 @@ def test_move_date_values_with_circa():
                 "1780 circa"
             ]
         }
-    } 
- 
-    resp,content = _get_server_response(json.dumps(INPUT), prop=prop) 
+    }
+
+    resp,content = _get_server_response(json.dumps(INPUT), prop=prop)
     assert resp.status == 200
     assert json.loads(content) == EXPECTED
 
@@ -303,7 +307,7 @@ def test_move_date_values_non_empty_temporal():
         }
     }
 
-    resp,content = _get_server_response(json.dumps(INPUT), prop=prop) 
+    resp,content = _get_server_response(json.dumps(INPUT), prop=prop)
     assert resp.status == 200
     print >> sys.stderr, json.loads(content)
     print >> sys.stderr, EXPECTED
@@ -329,7 +333,7 @@ def test_move_date_values_iterify_if_string():
         }
     }
 
-    resp,content = _get_server_response(json.dumps(INPUT), prop=prop) 
+    resp,content = _get_server_response(json.dumps(INPUT), prop=prop)
     assert resp.status == 200
     print >> sys.stderr, json.loads(content)
     print >> sys.stderr, EXPECTED
