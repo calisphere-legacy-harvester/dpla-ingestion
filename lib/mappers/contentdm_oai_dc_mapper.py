@@ -130,5 +130,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         if not is_sound_object:
             self.get_larger_preview_image()
         else:
+            # NOTE: Most contentdm sound objects have bogus placeholder
+            # thumbnails, so don't even bother trying to get any image
             if 'isShownBy' in self.mapped_data:
                 del self.mapped_data['isShownBy']
