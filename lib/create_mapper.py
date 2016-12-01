@@ -185,6 +185,11 @@ def create_mapper(mapper_type, data):
             Cabrillo_suppress_description
         return Cabrillo_suppress_description(data)
 
+    def _create_contentdm_oai_dc_mapper_get_sound_thumbs(data):
+        from dplaingestion.mappers.contentdm_oai_dc_mapper_get_sound_thumbs \
+            import CONTENTdm_OAI_Mapper_get_sound_thumbs
+        return CONTENTdm_OAI_Mapper_get_sound_thumbs(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -225,6 +230,7 @@ def create_mapper(mapper_type, data):
         'ucb_blacklight': lambda d: _create_ucb_blacklight_dc_mapper(d),
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
         'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
+        'contentdm_oai_dc_get_sound_thumbs': lambda d: _create_contentdm_oai_dc_mapper_get_sound_thumbs(d),
     }
 
     return mappers.get(mapper_type)(data)
