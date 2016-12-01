@@ -16,6 +16,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
     def __init__(self, provider_data, ident_match='cdm/ref'):
         super(CONTENTdm_OAI_Mapper, self).__init__(provider_data)
         self._ident_match = ident_match
+        self.suppress_sound_thumbs = True
 
     def get_identifier_match(self, string_in):
         '''Return the identifier that has the given string in it'''
@@ -130,7 +131,8 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         if not is_sound_object:
             self.get_larger_preview_image()
         else:
-            # NOTE: Most contentdm sound objects have bogus placeholder
-            # thumbnails, so don't even bother trying to get any image
-            if 'isShownBy' in self.mapped_data:
-                del self.mapped_data['isShownBy']
+            if self.suppress_sound_thumbs:
+                # NOTE: Most contentdm sound objects have bogus placeholder
+                # thumbnails, so don't even bother trying to get any image
+                if 'isShownBy' in self.mapped_data:
+                    del self.mapped_data['isShownBy']
