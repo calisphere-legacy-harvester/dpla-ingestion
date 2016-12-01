@@ -48,7 +48,8 @@ def test_move_date_values_spatial1():
                 "1930s",
                 "1930s",
                 "North Carolina",
-                "Crinoline Period"
+                "Crinoline Period",
+                "Period Street"
             ]
         }
     }
@@ -68,7 +69,7 @@ def test_move_date_values_spatial1():
                 "1930s",
                 "Crinoline Period"
             ],
-            "spatial" : ["North Carolina"]
+            "spatial" : ["North Carolina", "Period Street"]
         }
     }
 
