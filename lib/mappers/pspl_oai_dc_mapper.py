@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
+from dplaingestion.selector import getprop
+from jsonpath import jsonpath
+
+
+class PSPL_OAIMapper(DublinCoreMapper):
+    '''A mapper for Veridian OAI feed from Palm Springs public library
+    '''
+
+    def __init__(self, provider_data, path_parent=None, prefix=None):
+        '''
+        path_parent is JSONPath to parent key of the dc elements.
+        prefix is a possible prefix present in the name of the elements, e.g.
+        for dc.coverage prefix is 'dc.'
+        '''
+        super(DublinCoreMapper, self).__init__(provider_data)
+        # make provider_data_source point to parent element
+        if path_parent:
+            self.provider_data_source = jsonpath(self.provider_data,
+                                                 path_parent)[0]
+        else:
+            self.provider_data_source = self.provider_data
+        self.prefix = prefix
+
+    def map_is_shown_by(self):
+        ident = getprop(self.provider_data_source, 'id')
+        if ident:
+            collID, recID = ident.rsplit(':', 1)
+            self.mapped_data["isShownBy"] = ''.join((
+                'http://collections.accessingthepast.org/cgi-bin/imageserver.pl?oid=',
+                recID, '.1.1&width=400&ext=jpg'))
+
+    def map_is_shown_at(self):
+        ident = getprop(self.provider_data_source, 'id')
+        if ident:
+            collID, recID = ident.rsplit(':', 1)
+            self.mapped_data["isShownAt"] = ''.join(
+                ('http://collections.accessingthepast.org/cgi-bin/', collID,
+                 '?a=d&d=', recID))
+
+# Copyright © 2016, Regents of the University of California
+# All rights reserved.
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# - Redistributions of source code must retain the above copyright notice,
+#   this list of conditions and the following disclaimer.
+# - Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+# - Neither the name of the University of California nor the names of its
+#   contributors may be used to endorse or promote products derived from this
+#   software without specific prior written permission.
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
