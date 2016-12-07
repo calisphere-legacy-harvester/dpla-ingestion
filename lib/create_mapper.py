@@ -80,6 +80,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.csl_marc_mapper import CSLMARCMapper
         return CSLMARCMapper(data)
 
+    def _create_pspl_marc_mapper(data):
+        from dplaingestion.mappers.pspl_oai_dc_mapper import PSPL_OAIMapper
+        return PSPL_OAIMapper(data)
+
     def _create_ucldc_nuxeo_dc_mapper(data):
         from dplaingestion.mappers.ucldc_nuxeo_dc_mapper import \
                 UCLDCNuxeoMapper
@@ -196,6 +200,7 @@ def create_mapper(mapper_type, data):
         'lapl_marc': lambda d: _create_lapl_marc_mapper(d),
         'sfpl_marc': lambda d: _create_sfpl_marc_mapper(d),
         'csl_marc': lambda d: _create_csl_marc_mapper(d),
+        'pspl_oai_dc': lambda d: _create_pspl_marc_mapper(d),
         'ucla_solr_dc': lambda d: _create_ucla_solr_dc_mapper(d),
         'ucldc_nuxeo_dc': lambda d: _create_ucldc_nuxeo_mapper(d),
         'ucldc_nuxeo': lambda d: _create_ucldc_nuxeo_mapper(d),
