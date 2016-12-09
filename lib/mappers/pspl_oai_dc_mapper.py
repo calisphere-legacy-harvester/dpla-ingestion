@@ -8,21 +8,6 @@ class PSPL_OAIMapper(DublinCoreMapper):
     '''A mapper for Veridian OAI feed from Palm Springs public library
     '''
 
-    def __init__(self, provider_data, path_parent=None, prefix=None):
-        '''
-        path_parent is JSONPath to parent key of the dc elements.
-        prefix is a possible prefix present in the name of the elements, e.g.
-        for dc.coverage prefix is 'dc.'
-        '''
-        super(DublinCoreMapper, self).__init__(provider_data)
-        # make provider_data_source point to parent element
-        if path_parent:
-            self.provider_data_source = jsonpath(self.provider_data,
-                                                 path_parent)[0]
-        else:
-            self.provider_data_source = self.provider_data
-        self.prefix = prefix
-
     def map_is_shown_by(self):
         ident = getprop(self.provider_data_source, 'id')
         if ident:
