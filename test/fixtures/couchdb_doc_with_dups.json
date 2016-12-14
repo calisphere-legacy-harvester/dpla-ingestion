@@ -49,6 +49,12 @@
        "an_empty_list": [],
        "an_empty_dict": {},
        "an_empty_string": "",
+       "a_none_value": [
+          "none"
+       ],
+       "another_none_value": [
+          "[none]"
+       ],
        "type": "image",
        "subject": [
            {
