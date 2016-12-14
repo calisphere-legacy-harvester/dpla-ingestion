@@ -38,7 +38,7 @@ def test_dedupe_and_remove_blank():
     TC.assertNotEqual(orig_doc['sourceResource'],
                 new_doc['sourceResource'])
     TC.assertEqual(len(new_doc['sourceResource']['relation']), 6)
-    TC.assertEqual(new_doc['sourceResource']['relation'], 
+    TC.assertEqual(new_doc['sourceResource']['relation'],
             [u'http://www.oac.cdlib.org/findaid/ark:/13030/ft6k4007pc',
                 u'http://bancroft.berkeley.edu/collections/jarda.html',
                 u'hb158005k9',
@@ -49,3 +49,5 @@ def test_dedupe_and_remove_blank():
     TC.assertNotIn("an_empty_list", new_doc['sourceResource'])
     TC.assertNotIn("an_empty_dict", new_doc['sourceResource'])
     TC.assertNotIn("an_empty_string", new_doc['sourceResource'])
+    TC.assertNotIn("a_none_value", new_doc['sourceResource'])
+    TC.assertNotIn("another_none_value", new_doc['sourceResource'])

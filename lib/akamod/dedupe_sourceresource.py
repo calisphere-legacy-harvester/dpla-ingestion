@@ -25,12 +25,14 @@ def remove_blank_values(doc):
     for key, value in doc['sourceResource'].items():
         if not value:
             del doc['sourceResource'][key]
+        if value == [u'none'] or value == [u'[none]']:
+            del doc['sourceResource'][key]
     return doc
 
 # from harvester.post_processing.dedup_sourceresource
 # need to un-duplicate this code, but circular import?
 def dedupe_sourceresource(doc):
-    ''' Look for duplicate values in the doc['sourceResource'] and 
+    ''' Look for duplicate values in the doc['sourceResource'] and
     remove.
     Values must be *exactly* the same
     '''
