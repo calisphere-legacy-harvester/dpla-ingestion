@@ -194,6 +194,10 @@ def create_mapper(mapper_type, data):
             import CONTENTdm_OAI_Mapper_get_sound_thumbs
         return CONTENTdm_OAI_Mapper_get_sound_thumbs(data)
 
+    def _create_islandora_mapper(data):
+        from dplaingestion.mappers.islandora_oai_dc_mapper import Islandora_OAIMapper
+        return Islandora_OAIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -236,6 +240,7 @@ def create_mapper(mapper_type, data):
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
         'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
         'contentdm_oai_dc_get_sound_thumbs': lambda d: _create_contentdm_oai_dc_mapper_get_sound_thumbs(d),
+        'islandora_oai_dc': lambda d: _create_islandora_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
