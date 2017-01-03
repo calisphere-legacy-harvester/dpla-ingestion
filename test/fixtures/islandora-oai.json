@@ -1,0 +1,124 @@
+{
+    "_id": "26726--oai:drupal-site.org:islandora_1022",
+    "_rev": "1-e49e97ab186429d4f8e7694c3dfbb9f6",
+    "@id": "http://ucldc.cdlib.org/api/items/28e004cf561bc73d136a4fb6b47b5ea3",
+    "dataProvider": "California Historical Society",
+    "admin": {
+        "validation_message": "'isShownAt' is a required property",
+        "valid_after_enrich": false
+    },
+    "sourceResource": {
+        "date": [{
+            "begin": "1933-02-20",
+            "end": "1933-02-20",
+            "displayDate": "1933-02-20"
+        }],
+        "description": [
+            "Debris basin at mouth of Haines Canyon. Los Angeles: 1932-33 by Anton Wagner, PC 17, California Historical Society."
+        ],
+        "rights": [
+            "Collection is open for research.",
+            "All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives, North Baker Research Library, California Historical Society, 678 Mission Street, San Francisco, CA 94105. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes."
+        ],
+        "title": ["Debris basin at mouth of Haines Canyon"],
+        "contributor": ["Wagner, Anton (Creator)"],
+        "spatial": [{
+            "name": "California"
+        }, {
+            "name": "Los Angeles County"
+        }, {
+            "name": "34.237075, -118.282262"
+        }],
+        "stateLocatedIn": [{
+            "name": "California"
+        }],
+        "identifier": ["ead-unitid: E-82", "local: PC17_v3_E082"],
+        "type": "image",
+        "subject": [{
+            "name":
+            "Sand and gravel industry--California--Los Angeles County--Photographs--Los Angeles County (Calif.)--Photographs--Tujunga (Los Angeles, Calif.)--Photographs"
+        }, {
+            "name":
+            "Sand and gravel industry--California--Los Angeles County--Photographs--California--Los Angeles County--Los Angeles County (Calif.)--Photographs--Tujunga (Los Angeles, Calif.)--Photographs"
+        }]
+    },
+    "ingestDate": "2016-12-20T00:52:21.768014Z",
+    "ingestionSequence": 1,
+    "provider": {
+        "@id": "https://registry.cdlib.org/api/v1/collection/26726/",
+        "name": "California Historical Society"
+    },
+    "@context": "http://dp.la/api/items/context",
+    "ingestType": "item",
+    "originalRecord": {
+        "description": [
+            "Debris basin at mouth of Haines Canyon. Los Angeles: 1932-33 by Anton Wagner, PC 17, California Historical Society."
+        ],
+        "title": ["Debris basin at mouth of Haines Canyon"],
+        "rights": [
+            "Collection is open for research.",
+            "All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives, North Baker Research Library, California Historical Society, 678 Mission Street, San Francisco, CA 94105. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes."
+        ],
+        "contributor": ["Wagner, Anton (Creator)"],
+        "collection": [{
+            "dcmi_type": "I",
+            "enrichments_item":
+            "/select-id?prop=id, /dpla_mapper?mapper_type=dublin_core, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+            "featured": false,
+            "ready_for_publication": false,
+            "hosted": "",
+            "id": "26726",
+            "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c8697847",
+            "custom_facet": [],
+            "harvest_frequency": "90 days, 0:00:00",
+            "metadata_in_dams": false,
+            "url_harvest":
+            "http://digitallibrary.californiahistoricalsociety.org/oai2",
+            "campus": [],
+            "files_in_dams": false,
+            "date_last_harvested": null,
+            "harvest_exception_notes": "",
+            "files_in_hand": false,
+            "ingestType": "collection",
+            "description":
+            "Consists of photographs of urban, suburban, rural and waterfront areas of Los Angeles County. Many photographs show neighborhood streets and houses, including ethnic enclaves and communities of Mexican Americans, Japanese Americans, Chinese Americans, African Americans, Russian Americans, Irish Americans, Jewish Americans, and Slavonian Americans. Includes images of businesses, buildings, oil rigs in populated areas, hydraulic structures, railyards, industrial and construction sites, and agricultural land. A small portion contain people. Includes six photographs of damaged buildings in Compton and Long Beach from the Long Beach earthquake of 1933, three photographs of maps of Los Angeles, and a section of map showing the southwest of downtown portion of the city. Anton Wagner (also known as G. A. Wagner) was a PhD candidate at the University of Kiel when he made these photographs to document his dissertation, Los Angeles: Werden, Leben und Gestalt der Zweimillionstadt in Südkalifornien..., published in 1935. His thesis suggests that the topography of Los Angeles produces the character of the city's inhabitants. After World War II, Wagner settled in Montreal and worked as a commercial journalist and trade marketing consultant.",
+            "repository": [{
+                "name": "California Historical Society",
+                "campus": [],
+                "slug": "california-historical-society",
+                "ark": "ark:/13030/tf7v19p5mm",
+                "@id": "https://registry.cdlib.org/api/v1/repository/50/",
+                "id": 50,
+                "google_analytics_tracking_code": "UA-32933096-2",
+                "resource_uri": "/api/v1/repository/50/"
+            }],
+            "url_local":
+            "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora%3A1015",
+            "extent": null,
+            "rights_status": "X",
+            "@id": "https://registry.cdlib.org/api/v1/collection/26726/",
+            "slug": "los-angeles-1932-33-consists-of-photographs-of-urb",
+            "name": "Los Angeles: 1932-33",
+            "qa_completed": false,
+            "harvest_type": "OAI",
+            "harvest_extra_data": "islandora_1015",
+            "rights_statement": "",
+            "staging_notes": "",
+            "local_id": "la-32-33",
+            "title": "Los Angeles: 1932-33",
+            "resource_uri": "/api/v1/collection/26726/"
+        }],
+        "date": ["1933-02-20"],
+        "coverage":
+        ["California--Los Angeles County", "34.237075, -118.282262"],
+        "datestamp": "2016-04-22T22:31:44Z",
+        "identifier": ["ead-unitid: E-82", "local: PC17_v3_E082"],
+        "type": ["Gelatin silver prints"],
+        "id": "oai:drupal-site.org:islandora_1022",
+        "subject": [
+            "Sand and gravel industry--California--Los Angeles County--Photographs--Los Angeles County (Calif.)--Photographs--Tujunga (Los Angeles, Calif.)--Photographs",
+            "Sand and gravel industry--California--Los Angeles County--Photographs--California--Los Angeles County--Los Angeles County (Calif.)--Photographs--Tujunga (Los Angeles, Calif.)--Photographs"
+        ]
+    },
+    "id": "28e004cf561bc73d136a4fb6b47b5ea3"
+}
