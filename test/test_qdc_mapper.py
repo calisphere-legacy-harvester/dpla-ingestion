@@ -88,9 +88,10 @@ def test_qualified_dublin_core():
         "TEST description",
         "TEST tableOfContents",
     ])
+    TC.assertEqual(srcRes['extent'], ["TEST extent"])
     TC.assertEqual(srcRes['format'], [
         "TEST format",
-        "TEST extent",
+        "TEST medium",
     ])
     TC.assertEqual(srcRes['identifier'], [
         "TEST bibliographicCitation",
