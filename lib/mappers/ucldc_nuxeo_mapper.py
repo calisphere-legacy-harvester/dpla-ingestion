@@ -46,7 +46,7 @@ class UCLDCNuxeoMapper(Mapper):
         # https://calisphere.org/item/<ID>
         self.mapped_data.update({"isShownAt": url_calisphere_item_base +
             self.provider_data.get('uid', None)})
-        logger.error("keys in PDS:{}".format(self.provider_data.keys())) 
+        logger.error("keys in PDS:{}".format(self.provider_data.keys()))
         self.mapped_data.update({"isShownBy":
                                   self.provider_data.get('isShownBy')})
 
@@ -70,8 +70,8 @@ class UCLDCNuxeoMapper(Mapper):
     def map_date(self):
         if exists(self.provider_data_source, 'ucldc_schema:date'):
             dates = [date['date'] for date in self.provider_data_source.get('ucldc_schema:date')]
-            self.update_source_resource({'date': [{'displayDate': d} for d in dates]})
-    
+            self.update_source_resource({'date': dates})
+
     type_labels = {
             'scopecontent': 'Scope/Content',
             'acquisition': 'Acquisition',
@@ -84,7 +84,7 @@ class UCLDCNuxeoMapper(Mapper):
             'creationprod': 'Creation/Production Credits',
             'date': 'Date Note',
             'exhibitions': 'Exhibitions',
-            'funding': 'Funding',	
+            'funding': 'Funding',
             'marks': 'Annotations/Markings',
             'language': 'Language',
             'performers': 'Performers',
@@ -168,7 +168,7 @@ class UCLDCNuxeoMapper(Mapper):
             self.update_source_resource({'relation': relations})
 
     def map_rights_codes(self, rights_str):
-        '''Map the "coded" values of the rights status to a nice one for 
+        '''Map the "coded" values of the rights status to a nice one for
         display
         '''
         decoded = rights_str
@@ -183,11 +183,11 @@ class UCLDCNuxeoMapper(Mapper):
     def map_rights(self):
         rights = []
         if exists(self.provider_data_source, 'ucldc_schema:rightsstatus'):
-            rights_status = self.provider_data_source.get('ucldc_schema:rightsstatus') 
+            rights_status = self.provider_data_source.get('ucldc_schema:rightsstatus')
             rights.append(self.map_rights_codes(rights_status))
         if exists(self.provider_data_source, 'ucldc_schema:rightsstatement'):
             rights.append(self.provider_data_source.get('ucldc_schema:rightsstatement'))
-        self.update_source_resource({'rights': rights}) 
+        self.update_source_resource({'rights': rights})
 
     def map_spatial(self):
         spatial = []
@@ -204,11 +204,11 @@ class UCLDCNuxeoMapper(Mapper):
         if exists(self.provider_data_source, 'ucldc_schema:subjecttopic'):
             subjects = [st['heading'] for st in self.provider_data_source.get('ucldc_schema:subjecttopic')]
             subjects.extend([sn['name'] for sn in self.provider_data_source.get('ucldc_schema:subjectname')])
-            self.update_source_resource({'subject': subjects}) 
+            self.update_source_resource({'subject': subjects})
 
     def map_temporal(self):
         if exists(self.provider_data_source, 'ucldc_schema:temporalcoverage'):
-            self.update_source_resource({'temporalCoverage': [tc for tc in self.provider_data_source.get('ucldc_schema:temporalcoverage')]}) 
+            self.update_source_resource({'temporalCoverage': [tc for tc in self.provider_data_source.get('ucldc_schema:temporalcoverage')]})
 
     def map_title(self):
         if exists(self.provider_data_source, 'dc:title'):
@@ -237,13 +237,13 @@ class UCLDCNuxeoMapper(Mapper):
         if exists(self.provider_data_source, 'ucldc_schema:rightsholder'):
             rightsholders = [rh['name'] for rh in self.provider_data_source.get('ucldc_schema:rightsholder')]
         if exists(self.provider_data_source, 'ucldc_schema:rightscontact'):
-            rightsholders.append(self.provider_data_source.get('ucldc_schema:rightscontact')) 
+            rightsholders.append(self.provider_data_source.get('ucldc_schema:rightscontact'))
         if rightsholders:
             self.update_original_record({'rightsHolder': rightsholders})
 
     def map_rights_note(self):
         rightsnotes = []
-        if exists(self.provider_data_source, 'ucldc_schema:rightsnotice'):        
+        if exists(self.provider_data_source, 'ucldc_schema:rightsnotice'):
             rightsnotes.append(self.provider_data_source.get('ucldc_schema:rightsnotice'))
         if exists(self.provider_data_source, 'ucldc_schema:rightsnote'):
             rightsnotes.append(self.provider_data_source.get('ucldc_schema:rightsnote'))
@@ -252,7 +252,7 @@ class UCLDCNuxeoMapper(Mapper):
 
     def map_copyrighted(self):
         if exists(self.provider_data_source, 'ucldc_schema:rightsstartdate'):
-           self.update_original_record({'dateCopyrighted': self.provider_data_source.get('ucldc_schema:rightsstartdate')}) 
+           self.update_original_record({'dateCopyrighted': self.provider_data_source.get('ucldc_schema:rightsstartdate')})
 
     def map_transcription(self):
         if exists(self.provider_data_source, 'ucldc_schema:transcription'):

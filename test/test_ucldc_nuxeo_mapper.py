@@ -3,6 +3,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -27,12 +28,13 @@ def test_ucldc_nuxeo_mapping():
                 "https://calisphere.org/item/40677ed1-f7c2-476f-886d-bf79c3fec8c4")
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
+        logger.error(srcRes)
         TC.assertIn('originalRecord', obj)
         origRec = obj['originalRecord']
         TC.assertEqual(srcRes['alternativeTitle'], [])
         TC.assertEqual(srcRes['contributor'], [])
         TC.assertEqual(srcRes['creator'], ["Cochems, Edward W. (Edward William), 1874-1949"])
-        TC.assertEqual(srcRes['date'], [{'displayDate': '1919 - 1949'}])
+        TC.assertEqual(srcRes['date'], ["1919 - 1949"])
         TC.assertEqual(srcRes['description'], ["First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model"])
         TC.assertNotIn('extent', srcRes)
         TC.assertEqual(srcRes['format'], "Photographic print")
@@ -57,7 +59,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertNotIn('transcription', origRec)
 
 def test_ucldc_nuxeo_mapping_typed_descriptions():
-    '''Test when the "typed" values of description from ucldc schema are 
+    '''Test when the "typed" values of description from ucldc schema are
     in the metadata.
     Records of this type have  dc.des
     '''
@@ -70,7 +72,7 @@ def test_ucldc_nuxeo_mapping_typed_descriptions():
     TC.assertIn('sourceResource', obj)
     srcRes = obj['sourceResource']
     TC.assertIn('originalRecord', obj)
-    TC.assertEqual(srcRes['description'], 
+    TC.assertEqual(srcRes['description'],
         [u'Medium: Silk, plain weave, stencil-printed warp and weft threads (heiy\u0139\x8d-gasuri meisen)',
          u'Annotations/Markings: No signature, seals, or inscriptions.',
          u'Acquisition: Partial Gift/Partial Purchase from Natalie Fitz-Gerald',
