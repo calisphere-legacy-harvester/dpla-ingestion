@@ -87,7 +87,7 @@ class DublinCoreMapper(Mapper):
         self.source_resource_prop_to_prop("extent")
 
     def map_format(self):
-        fields = ("format", "extent")
+        fields = ("format", "medium")
         self.source_resource_orig_list_to_prop(fields, 'format')
 
     def map_identifier(self):
