@@ -33,6 +33,13 @@
       "src": "http://content.cdlib.org/ark:/13030/kt40000501/FID4"
     }
   ],
+  "reference-image-count": [
+      {
+          "text": "3",
+          "attrib": {
+          }
+      }
+  ],
   "thumbnail": {
     "Y": 93,
     "X": 125,

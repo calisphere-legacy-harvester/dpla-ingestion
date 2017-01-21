@@ -4,6 +4,7 @@ from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
 from akara import module_config
+from akara import logger
 
 URL_OAC_CONTENT_BASE = module_config().get(
     'url_oac_content',
@@ -111,6 +112,19 @@ class OAC_DCMapper(DublinCoreMapper):
             if best_image and not best_image.startswith('http'):
                 best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
         return best_image
+
+    def map_item_count(self, index=None):
+        '''Use reference-image-count value to determine compound objects.
+        NOTE: value is not always accurate so only determines complex (-1)
+        or not complex (no item_count value)
+        '''
+        image_count = 0
+        if 'originalRecord' in self.provider_data: # guard weird input
+            ref_image_count = self.provider_data['originalRecord'].get('reference-image-count', None)
+            if ref_image_count:
+                image_count = ref_image_count[0]['text']
+            if image_count > "1":
+                self.mapped_data.update({"item_count": "-1"})
 
     def map_is_shown_at(self, index=None):
         ''' This is set in select-oac-id but must be added to mapped data'''

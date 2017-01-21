@@ -11,7 +11,7 @@ class Mapper(object):
             Method to map isShownAt: map_is_shown_at
             Method to map isShownBy: map_is_shown_by
 
-       These methods map fields from the provider_data dictionary to the 
+       These methods map fields from the provider_data dictionary to the
        mapped_data dictionary one-to-one. For mapping one-to-many fields or
        many-to-one fields, you can create methods to be called in method
        map_multiple_fields.
@@ -94,7 +94,7 @@ class Mapper(object):
            sourceResource fields via map_source_resource
         3. Mapping, one-to-many or many-to-one, provider_data fields to
            mapped_data fields
-        4. Running any post-mapping logic via update_mapped_fields 
+        4. Running any post-mapping logic via update_mapped_fields
         """
         self.map_root()
         self.map_source_resource()
@@ -110,6 +110,7 @@ class Mapper(object):
         self.map_intermediate_provider()
         self.map_is_shown_at()
         self.map_is_shown_by()
+        self.map_item_count()
         self.map_has_view()
         self.map_object()
 
@@ -180,6 +181,9 @@ class Mapper(object):
         pass
 
     def map_is_shown_by(self):
+        pass
+
+    def map_item_count(self):
         pass
 
     def map_has_view(self):
