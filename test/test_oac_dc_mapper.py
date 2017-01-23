@@ -2,6 +2,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -50,7 +51,7 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['date'], ["7/21/42", "7/21/72"])
 
 def test_oac_isShownBy():
-    '''Test that the isShownBy is correctly grabbed from 
+    '''Test that the isShownBy is correctly grabbed from
     OAC original records
     '''
     INPUT = {
@@ -92,6 +93,20 @@ def test_oac_isShownBy():
                 )
     EXPECTED = "http://content.cdlib.org/ark:/13030/tf8779p3bw/hi-res-2"
     _check_isShownBy(INPUT, EXPECTED)
+
+def test_item_count():
+    '''Test that item complexity is properly set from reference-image-count value'''
+    INPUT = {'originalRecord':{'reference-image-count':[{'text':'6', 'attrib':''}]}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertEqual(content['item_count'], '-1')
+
+    INPUT = {'originalRecord':{'reference-image-count':[{'text':'1', 'attrib':''}]}}
+    resp, content = _get_server_response(json.dumps(INPUT))
+    TC.assertEqual(resp.status, 200)
+    content = json.loads(content)
+    TC.assertNotIn('item_count', content)
 
 def test_map_data_provider():
     '''Test that the "provider" is the collection'''
@@ -153,4 +168,3 @@ def test_map_spatial():
 
 if __name__=="__main__":
     raise SystemExit("Use nosetests")
-
