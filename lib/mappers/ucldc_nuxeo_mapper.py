@@ -70,7 +70,7 @@ class UCLDCNuxeoMapper(Mapper):
     def map_date(self):
         if exists(self.provider_data_source, 'ucldc_schema:date'):
             dates = [date['date'] for date in self.provider_data_source.get('ucldc_schema:date')]
-            self.update_source_resource({'date': dates})
+            self.update_original_record({'date': dates})
 
     type_labels = {
             'scopecontent': 'Scope/Content',
