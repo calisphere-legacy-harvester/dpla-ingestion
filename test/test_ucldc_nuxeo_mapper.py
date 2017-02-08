@@ -3,7 +3,6 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
-from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -28,14 +27,12 @@ def test_ucldc_nuxeo_mapping():
                 "https://calisphere.org/item/40677ed1-f7c2-476f-886d-bf79c3fec8c4")
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
-        logger.error(srcRes)
         TC.assertIn('originalRecord', obj)
         origRec = obj['originalRecord']
-        logger.error(origRec)
         TC.assertEqual(srcRes['alternativeTitle'], [])
         TC.assertEqual(srcRes['contributor'], [])
         TC.assertEqual(srcRes['creator'], ["Cochems, Edward W. (Edward William), 1874-1949"])
-        TC.assertEqual(origRec['date'], ["1919 - 1949"])
+        TC.assertEqual(srcRes['date'], ["1919 - 1949"])
         TC.assertEqual(srcRes['description'], ["First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model"])
         TC.assertNotIn('extent', srcRes)
         TC.assertEqual(srcRes['format'], "Photographic print")

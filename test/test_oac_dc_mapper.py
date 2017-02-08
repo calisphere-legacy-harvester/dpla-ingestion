@@ -208,7 +208,6 @@ def test_map_spatial():
         'originalRecord': {
             'coverage': [{
                 'text': 'Oakland',
-                'attrib': ''
             }, {
                 'text': 'ark:/12345/bogusark',
                 'attrib': ''

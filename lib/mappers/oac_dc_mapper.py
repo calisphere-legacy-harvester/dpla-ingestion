@@ -164,11 +164,10 @@ class OAC_DCMapper(DublinCoreMapper):
                 for c in coverage_data:
                     if (not isinstance(c, basestring) and
                             not c['text'].startswith('ark:')):
-                        if 'q' in c.get('attrib') and 'temporal' not in c[
+                        if 'q' in c.get('attrib', {}) and 'temporal' not in c[
                                 'attrib']['q']:
                             coverage.append(c['text'])
-                        if 'q' not in c.get('attrib') and c[
-                                'attrib'] is not None and not Anum_re.match(c[
+                        if 'q' not in c.get('attrib', {}) and c.get('attrib', {}) is not None and not Anum_re.match(c[
                                     'text']):
                             coverage.append(c['text'])
                 self.update_source_resource({"spatial": coverage})
@@ -180,7 +179,7 @@ class OAC_DCMapper(DublinCoreMapper):
                     getprop(self.provider_data['originalRecord'], "coverage"))
                 temporal = []
                 for t in time_data:
-                    if 'q' in t.get('attrib') and 'temporal' in t['attrib'][
+                    if 'q' in t.get('attrib', {}) and 'temporal' in t['attrib'][
                             'q']:
                         temporal.append(t['text'])
                     self.update_source_resource({"temporal": temporal})
