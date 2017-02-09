@@ -4,7 +4,6 @@ from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
 from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
 from akara import module_config
-from akara import logger
 
 URL_OAC_CONTENT_BASE = module_config().get(
     'url_oac_content',
@@ -119,8 +118,9 @@ class OAC_DCMapper(DublinCoreMapper):
         or not complex (no item_count value)
         '''
         image_count = 0
-        if 'originalRecord' in self.provider_data: # guard weird input
-            ref_image_count = self.provider_data['originalRecord'].get('reference-image-count', None)
+        if 'originalRecord' in self.provider_data:  # guard weird input
+            ref_image_count = self.provider_data['originalRecord'].get(
+                'reference-image-count', None)
             if ref_image_count:
                 image_count = ref_image_count[0]['text']
             if image_count > "1":
@@ -160,15 +160,29 @@ class OAC_DCMapper(DublinCoreMapper):
                     getprop(self.provider_data['originalRecord'], "coverage"))
                 # remove arks from data
                 # and move the "text" value to
-                coverage_data = [
-                    c['text'] for c in coverage_data
-                    if (not isinstance(c, basestring) and not c['text']
-                        .startswith('ark:'))
-                ]
-                coverage_data = [
-                    c for c in coverage_data if not Anum_re.match(c)
-                ]
-                self.update_source_resource({"spatial": coverage_data})
+                coverage = []
+                for c in coverage_data:
+                    if (not isinstance(c, basestring) and
+                            not c['text'].startswith('ark:')):
+                        if 'q' in c.get('attrib', {}) and 'temporal' not in c[
+                                'attrib']['q']:
+                            coverage.append(c['text'])
+                        if 'q' not in c.get('attrib', {}) and c.get('attrib', {}) is not None and not Anum_re.match(c[
+                                    'text']):
+                            coverage.append(c['text'])
+                self.update_source_resource({"spatial": coverage})
+
+    def map_temporal(self):
+        if 'originalRecord' in self.provider_data:  # guard weird input
+            if 'coverage' in self.provider_data['originalRecord']:
+                time_data = iterify(
+                    getprop(self.provider_data['originalRecord'], "coverage"))
+                temporal = []
+                for t in time_data:
+                    if 'q' in t.get('attrib', {}) and 'temporal' in t['attrib'][
+                            'q']:
+                        temporal.append(t['text'])
+                    self.update_source_resource({"temporal": temporal})
 
     def map_format(self):
         self.source_resource_prop_to_prop(
@@ -183,3 +197,49 @@ class OAC_DCMapper(DublinCoreMapper):
     def map_relation(self):
         # drop relation items
         pass
+
+    def map_date(self):
+        # suppress dateCopyrighted from main date field
+        self.source_resource_prop_to_prop(
+            "date", suppress_attribs={'q': 'dcterms:dateCopyrighted'})
+        copydate_data = self.provider_data.get('date', None)
+        if copydate_data:
+            copyright_date = [
+                d['text'] for d in copydate_data
+                if d['attrib'] if d['attrib']['q'] == 'dcterms:dateCopyrighted'
+            ]
+            self.update_source_resource({"copyrightDate": copyright_date})
+
+    def map_title(self):
+        # separate out alternate title(s) from main title
+        self.source_resource_prop_to_prop(
+            "title", suppress_attribs={'q': 'alternative'})
+        grab_titles = self.provider_data.get('title', None)
+        if grab_titles:
+            alt_titles = [
+                t['text'] for t in grab_titles
+                if t['attrib'] if t['attrib']['q'] == 'alternative'
+            ]
+            self.update_source_resource({"alternativeTitle": alt_titles})
+
+    def map_type(self):
+        # separate out q="genreform" values from type values
+        self.source_resource_prop_to_prop(
+            "type", suppress_attribs={'q': 'genreform'})
+        genre_data = self.provider_data.get('type', None)
+        if genre_data:
+            genre_form = [
+                g['text'] for g in genre_data
+                if g['attrib'] if g['attrib']['q'] == 'genreform'
+            ]
+            self.update_source_resource({"genre": genre_form})
+
+    def map_rights(self):
+        # separate out rights info from rightsHolder
+        rights_data = self.provider_data.get('rights', None)
+        if rights_data:
+            access_rights = [rights_data[r]['text'] for r in range(0, 2)]
+            self.update_source_resource({"rights": access_rights})
+            rights_holder = '. '.join(
+                (rights_data[2]['text'], rights_data[3]['text']))
+            self.update_source_resource({"rightsHolder": [rights_holder]})

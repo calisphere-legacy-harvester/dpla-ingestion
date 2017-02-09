@@ -3,7 +3,6 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
-from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -28,7 +27,6 @@ def test_ucldc_nuxeo_mapping():
                 "https://calisphere.org/item/40677ed1-f7c2-476f-886d-bf79c3fec8c4")
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
-        logger.error(srcRes)
         TC.assertIn('originalRecord', obj)
         origRec = obj['originalRecord']
         TC.assertEqual(srcRes['alternativeTitle'], [])
