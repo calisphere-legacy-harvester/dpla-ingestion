@@ -1,0 +1,79 @@
+{
+    "available": ["2004-03-24"],
+    "publisher": [
+        "California State University, Sacramento. Library. Dept. of Special Collections and University Archives."
+    ],
+    "rights": [
+        "2004",
+        "All requests for permission to publish or quote from manuscripts or photographs must be submitted in writing to California State University, Sacramento. Library. Dept. of Special Collections and University Archives. Permission for publication is given on behalf of California State University, Sacramento. Library. Dept. of Special Collections and University Archives as the owner of the physical item and is not intended to include or imply permission of the copyright holder, which must also be obtained."
+    ],
+    "abstract": ["Made from cigarette packs at Tule Lake Relocation Center."],
+    "format": [
+        "6 x 4 in.", "color slide", "1 1/2 x 1 1/2 in.",
+        "Epson Expression 1600", "Photoshop 7.0", "None", "2800", "RGB",
+        "24 Bit", "4200 x 3039", "36.5", "Tiff"
+    ],
+    "collection": [{
+        "dcmi_type": "X",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=contentdm_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /replace_substring?prop=sourceResource%2Fsubject&old=%5Blcsh%5D&new=, /replace_substring?prop=sourceResource%2Fsubject&old=%5Blcna%5D&new=, /replace_substring?prop=sourceResource%2Fsubject&old=%5Baacr2%5D&new=, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "campus": [],
+        "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/kt1199q254",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest": "http://digital.lib.csus.edu/oai/oai.php",
+        "id": "11068",
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "The Japanese American Archival Collection is comprised of approximately 2,100 original items, including letters and other textual documents, photographs, diaries, scrapbooks, newsletters, art work, clothing and artifacts. The collection provides valuable insights into the history of Japanese American communities in northern California, particularly in the town of Florin, California from the late 19th century and into the 20th century. The collection contains significant documentation related to the internment of Japanese born and Japanese American individuals during World War II.",
+        "repository": [{
+            "name": "California State University, Sacramento Library",
+            "campus": [],
+            "slug": "california-state-university-sacramento-library",
+            "ark": "ark:/13030/kt796nc8ds",
+            "@id": "https://registry.cdlib.org/api/v1/repository/56/",
+            "id": 56,
+            "google_analytics_tracking_code": "UA-74922701-1",
+            "resource_uri": "/api/v1/repository/56/"
+        }],
+        "harvest_type": "OAI",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/11068/",
+        "slug": "japanese-american-archival-collection-imagebase",
+        "harvest_extra_data": "jaac",
+        "qa_completed": false,
+        "url_local":
+        "http://digital.lib.csus.edu/cdm/landingpage/collection/jaac",
+        "name": "Japanese American Archival Collection",
+        "rights_statement": "",
+        "staging_notes": "",
+        "local_id": "csu-sac-jaac",
+        "title": "Japanese American Archival Collection",
+        "resource_uri": "/api/v1/collection/11068/"
+    }],
+    "created": ["1941/1945"],
+    "datestamp": "2016-11-01",
+    "creator": ["Unknown"],
+    "isPartOf": [
+        "From the Japanese American Archival Collection. MSS-94/01. California State University, Sacramento. Library. Dept. of Special Collections and University Archives."
+    ],
+    "title": ["Red, blue and white miniature origami umbrella."],
+    "identifier": [
+        "jc1w-06", "ark:/13030/kt309nc6jp", "1004.jpg",
+        "http://digital.lib.csus.edu/cdm/ref/collection/jaac/id/1003"
+    ],
+    "type": ["Origami"],
+    "id": "oai:digital.lib.csus.edu:jaac/1003",
+    "subject": [
+        "Tule Lake Relocation Center [lcna]; Concentration camps -- California [lcsh]; Japanese Americans -- Evacuation and relocation, 1942-1945 [lcsh]; Decorative arts [lcsh]; Found objects (Art) [lcsh]"
+    ]
+}

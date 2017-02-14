@@ -202,6 +202,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chico_oai_mapper import Chico_OAI_Mapper
         return Chico_OAI_Mapper(data)
 
+    def _create_csu_sac_mapper(data):
+        from dplaingestion.mappers.csu_sac_oai_mapper import CSU_Sac_OAI_Mapper
+        return CSU_Sac_OAI_Mapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -245,7 +249,8 @@ def create_mapper(mapper_type, data):
         'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
         'contentdm_oai_dc_get_sound_thumbs': lambda d: _create_contentdm_oai_dc_mapper_get_sound_thumbs(d),
         'islandora_oai_dc': lambda d: _create_islandora_mapper(d),
-        'chico_oai_dc': lambda d: _create_chico_mapper(d)
+        'chico_oai_dc': lambda d: _create_chico_mapper(d),
+        'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d)
     }
 
     return mappers.get(mapper_type)(data)

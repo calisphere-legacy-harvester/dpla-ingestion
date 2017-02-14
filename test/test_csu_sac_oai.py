@@ -11,19 +11,19 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=chico_oai_dc"
+    url = server() + "dpla_mapper?mapper_type=csu_sac_oai_dc"
     return H.request(url, "POST", body=body)
 
 
-def test_chico_oai_dc_mapping():
-    fixture = path.join(DIR_FIXTURES, 'chico-oai.json')
+def test_csu_sac_oai_dc_mapping():
+    fixture = path.join(DIR_FIXTURES, 'csu-sac-oai.json')
     with open(fixture) as f:
         INPUT = f.read()
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
     srcRes = obj['sourceResource']
-    TC.assertEqual(srcRes['date'][0], "ca 1902")
+    TC.assertEqual(srcRes['date'][0], "1941/1945")
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
