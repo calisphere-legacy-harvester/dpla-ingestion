@@ -106,6 +106,26 @@ def test_enrich_date_date_parse_format_yyyy_mm_dd():
     result = json.loads(content)
     assert result['date'] == EXPECTED['date']
 
+def test_enrich_date_date_parse_format_yyyy_00_00():
+    """Strip off bogus MM-DD from YYYY-00-00"""
+    INPUT = {"date": "1990-00-00"}
+    EXPECTED = {
+        'date': [{
+            'begin': u'1990',
+            'end': u'1990',
+            'displayDate': '1990'
+        }]
+    }
+
+    url = server() + "enrich_earliest_date?prop=date"
+
+    resp, content = H.request(url, "POST", body=json.dumps(INPUT))
+    assert str(resp.status).startswith("2")
+
+    pinfo(resp, content)
+    result = json.loads(content)
+    assert result['date'] == EXPECTED['date']
+
 
 def test_enrich_date_parse_format_date_with_slashes():
     """Correctly transform a date of format MM/DD/YYYY"""

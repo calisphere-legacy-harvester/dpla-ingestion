@@ -117,7 +117,6 @@ def parse_date_or_range(d):
     #      Handle ranges like 1920s - 1930s
     #      Handle ranges like 11th - 12th century
     a, b = None, None
-
     if re.search("B\.?C\.?|A\.?D\.?|A\.?H\.?", d.upper()):
         pass
     is_edtf_timestamp = edtf_date_and_time.match(d)
@@ -307,6 +306,10 @@ def convert_dates(data, prop, earliest):
                                 part)
                             stripped = clean_date(
                                 remove_all_brackets_and_strip(part))
+                            # Stripping bogus -00-00 data
+                            if stripped[-6:] == "-00-00":
+                                stripped = stripped[:-6]
+                                display_date = stripped
                             if len(stripped) < 4:
                                 continue
                             a, b = parse_date_or_range(stripped)
