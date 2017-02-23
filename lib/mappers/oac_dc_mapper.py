@@ -233,13 +233,3 @@ class OAC_DCMapper(DublinCoreMapper):
                 if g['attrib'] if g['attrib']['q'] == 'genreform'
             ]
             self.update_source_resource({"genre": genre_form})
-
-    def map_rights(self):
-        # separate out rights info from rightsHolder
-        rights_data = self.provider_data.get('rights', None)
-        if rights_data:
-            access_rights = [rights_data[r]['text'] for r in range(0, 2)]
-            self.update_source_resource({"rights": access_rights})
-            rights_holder = '. '.join(
-                (rights_data[2]['text'], rights_data[3]['text']))
-            self.update_source_resource({"rightsHolder": [rights_holder]})

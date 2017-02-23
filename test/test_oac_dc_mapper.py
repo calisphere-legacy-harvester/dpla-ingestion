@@ -70,10 +70,9 @@ def test_map_oac_dc_meta():
     TC.assertEqual(srcRes['genre'], ["Hashira-e"])
     TC.assertEqual(srcRes['rights'], [
         "Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user.",
-        "The Bancroft Library--assigned"
-    ])
-    TC.assertEqual(srcRes['rightsHolder'], [
-        "All requests to reproduce, publish, quote from, or otherwise use collection materials must be submitted in writing to the Head of Public Services, The Bancroft Library, University of California, Berkeley 94720-6000. See: http://bancroft.berkeley.edu/reference/permissions.html. The Bancroft Library University of California Berkeley, CA 94720-6000"
+        "The Bancroft Library--assigned",
+        "All requests to reproduce, publish, quote from, or otherwise use collection materials must be submitted in writing to the Head of Public Services, The Bancroft Library, University of California, Berkeley 94720-6000. See: http://bancroft.berkeley.edu/reference/permissions.html", 
+        "The Bancroft Library University of California Berkeley, CA 94720-6000"
     ])
     TC.assertEqual(
         srcRes['spatial'],
