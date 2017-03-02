@@ -1,0 +1,70 @@
+{
+    "publisher": ["Scholarly Commons"],
+    "date": ["2016-06-01T07:00:00Z"],
+    "description":
+    ["http://scholarlycommons.pacific.edu/pacific-review/1005/thumbnail.jpg"],
+    "format": ["application/pdf"],
+    "creator": ["University of the Pacific"],
+    "collection": [{
+        "dcmi_type": "X",
+        "enrichments_item":
+        "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=chapman_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "id": "26850",
+        "url_oac": "",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest": "http://scholarlycommons.pacific.edu/do/oai/",
+        "campus": [],
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "Pacific Review, the alumni magazine of University of the Pacific, is published three times each year by the Office of Marketing and Communications for alumni, parents and friends of the university",
+        "repository": [{
+            "name": "University of the Pacific",
+            "campus": [],
+            "slug": "university-of-the-pacific",
+            "ark": "ark:/13030/tf609nb7wg",
+            "@id": "https://registry.cdlib.org/api/v1/repository/136/",
+            "id": 136,
+            "google_analytics_tracking_code": "UA-54977503-2",
+            "resource_uri": "/api/v1/repository/136/"
+        }],
+        "url_local": "http://scholarlycommons.pacific.edu/pacific-review/",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26850/",
+        "slug": "pacific-review-pacific-review-the-alumni-magazine",
+        "name": "Pacific Review",
+        "qa_completed": false,
+        "harvest_type": "OAI",
+        "harvest_extra_data": "publication:pacific-review",
+        "rights_statement": "",
+        "staging_notes": "",
+        "local_id": "up-pacific-review",
+        "title": "Pacific Review",
+        "resource_uri": "/api/v1/collection/26850/"
+    }],
+    "source": ["Pacific Review"],
+    "datestamp": "2017-01-19T22:45:25Z",
+    "title": ["Pacific Review"],
+    "identifier": [
+        "http://scholarlycommons.pacific.edu/pacific-review/6",
+        "http://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1005&amp;context=pacific-review"
+    ],
+    "type": ["text"],
+    "id": "oai:scholarlycommons.pacific.edu:pacific-review-1005",
+    "subject": [
+        "Pacific Review", "University of the Pacific", "student", "newspaper",
+        "newsletter", "news", "university", "undergraduate", "graduate",
+        "alumni", "magazine", "faculty", "staff", "Stockton", "San Francisco",
+        "Sacramento", "parents", "regents", "donors", "stakeholders",
+        "Higher Education"
+    ]
+}

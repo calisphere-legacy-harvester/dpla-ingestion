@@ -202,6 +202,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chico_oai_mapper import Chico_OAI_Mapper
         return Chico_OAI_Mapper(data)
 
+    def _create_up_mapper(data):
+        from dplaingestion.mappers.up_oai_mapper import UP_OAI_Mapper
+        return UP_OAI_Mapper(data)
+
     def _create_csu_sac_mapper(data):
         from dplaingestion.mappers.csu_sac_oai_mapper import CSU_Sac_OAI_Mapper
         return CSU_Sac_OAI_Mapper(data)
@@ -250,6 +254,7 @@ def create_mapper(mapper_type, data):
         'contentdm_oai_dc_get_sound_thumbs': lambda d: _create_contentdm_oai_dc_mapper_get_sound_thumbs(d),
         'islandora_oai_dc': lambda d: _create_islandora_mapper(d),
         'chico_oai_dc': lambda d: _create_chico_mapper(d),
+        'up_oai_dc': lambda d: _create_up_mapper(d),
         'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d)
     }
 
