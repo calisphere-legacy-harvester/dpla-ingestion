@@ -8,9 +8,8 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
     '''
 
     def map_is_shown_by(self):
-        '''Can only reliably get a small tumbnail from the CONTENTdm
-        with the metadata in the OAI feed
-        Can parse the OAI id to get infor we need.
+        '''Can only reliably get a small thumbnail from the metadata in the OAI feed--
+        Can parse the OAI id to get info we need.
 
         As it turns out, for "image" type objects, larger images are
         available.
