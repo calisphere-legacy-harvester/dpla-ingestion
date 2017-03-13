@@ -159,6 +159,7 @@ MODULES = [
     "dplaingestion.akamod.ucsb_aleph_marc_id",
     "dplaingestion.akamod.uci_object_urls",
     "dplaingestion.akamod.unescape_xhtml_entities",
+    "dplaingestion.akamod.drop_long_values",
     ]
 
 ### Section 3: Other module configuration goes here
