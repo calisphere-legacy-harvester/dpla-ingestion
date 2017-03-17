@@ -1,0 +1,71 @@
+{
+    "publisher": ["San Luis Obispo Library"],
+    "description": ["Ramon Branch Adobe view from drive"],
+    "language": ["eng"],
+    "format": ["1 photographic print: b&w; 11.6 x 8.4 cm"],
+    "type": ["image"],
+    "rights": [
+        "unknown",
+        "Copyright status unknown. Some materials in these collections may be protected by the U.S. Copyright Law (Title 17, U.S.C.). In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+    ],
+    "collection": [{
+        "dcmi_type": "X",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=chico_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "campus": [],
+        "url_oac": "",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest": "http://www.luna.blackgold.org/luna/servlet/oai",
+        "id": "26865",
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "From the mission days of the 1770’s to the mid-1800’s, adobe structures were the dominant building style. The clay soil of San Luis Obispo County is well adapted to the manufacture of adobe bricks and under the tutelage of Spanish Missionaries, the Chumash Indians became skilled adobe craftsmen. Unfortunately, the local climate with its moist coastal influence and seasonal freezing and thawing caused many of the adobe structures to crumble. With the arrival of the Pacific Coast Railway in the late 1870’s, wood became readily available and replaced adobe as the primary building material. As wood replaced adobe brick, the architecture and style of buildings changed in San Luis Obispo. The photographs of the Historical Adobes of San Luis Obispo County were taken in 1962. Some of the buildings no longer exist. Identifications were made as well as possible from existing information.",
+        "repository": [{
+            "name": "Black Gold Cooperative Library System",
+            "campus": [],
+            "slug": "black-gold-cooperative-library-system",
+            "ark": "ark:/13030/kt7s2038ps",
+            "@id": "https://registry.cdlib.org/api/v1/repository/49/",
+            "id": 49,
+            "google_analytics_tracking_code": "UA-84830859-1",
+            "resource_uri": "/api/v1/repository/49/"
+        }],
+        "harvest_type": "OAI",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26865/",
+        "slug": "adobes-in-san-luis-obispo-county-library-collectio",
+        "harvest_extra_data": "blackgold~5~5",
+        "qa_completed": false,
+        "url_local":
+        "http://www.luna.blackgold.org/luna/servlet/blackgold~5~5",
+        "name": "Adobes in San Luis Obispo County Library Collection",
+        "rights_statement": "",
+        "staging_notes": "",
+        "local_id": "black-gold-adobes",
+        "title": "Adobes in San Luis Obispo County Library Collection",
+        "resource_uri": "/api/v1/collection/26865/"
+    }],
+    "source": ["OO-ProjectAdobe-15-101.jpg"],
+    "datestamp": "2015-08-13T19:35:32Z",
+    "coverage": ["Lopez Rd Arroyo Grande, (Calif.)"],
+    "date": ["circa 1962"],
+    "title": ["Ramon Branch Adobe 1"],
+    "identifier": [
+        "http://www.luna.blackgold.org/luna/servlet/detail/blackgold~5~5~101~1552",
+        "http://blackgold.lunaimaging.com:80/MediaManager/srvr?mediafile=/Size2/blackgold~5~5/40/OO-ProjectAdobe-15-101.jpg",
+        "15-101"
+    ],
+    "creator": ["unknown"],
+    "id": "oai:N/A:blackgold~5~5~101~1552",
+    "subject": ["Ramon Branch Adobe", "Lopez Rd Arroyo Grande, (Calif.)"]
+}

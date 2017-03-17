@@ -210,6 +210,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.csu_sac_oai_mapper import CSU_Sac_OAI_Mapper
         return CSU_Sac_OAI_Mapper(data)
 
+    def _create_black_gold_mapper(data):
+        from dplaingestion.mappers.black_gold_mapper import BlackGold_OAIMapper
+        return BlackGold_OAIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -255,7 +259,8 @@ def create_mapper(mapper_type, data):
         'islandora_oai_dc': lambda d: _create_islandora_mapper(d),
         'chico_oai_dc': lambda d: _create_chico_mapper(d),
         'up_oai_dc': lambda d: _create_up_mapper(d),
-        'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d)
+        'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d),
+        'black_gold_oai': lambda d: _create_black_gold_mapper(d)
     }
 
     return mappers.get(mapper_type)(data)
