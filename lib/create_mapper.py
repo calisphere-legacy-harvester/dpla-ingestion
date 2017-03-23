@@ -214,6 +214,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.black_gold_mapper import BlackGold_OAIMapper
         return BlackGold_OAIMapper(data)
 
+    def _create_ucb_bampfa_mapper(data):
+        from dplaingestion.mappers.ucb_bampfa_solr_mapper import UCB_BAMPFA_Mapper
+        return UCB_BAMPFA_Mapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -260,7 +264,8 @@ def create_mapper(mapper_type, data):
         'chico_oai_dc': lambda d: _create_chico_mapper(d),
         'up_oai_dc': lambda d: _create_up_mapper(d),
         'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d),
-        'black_gold_oai': lambda d: _create_black_gold_mapper(d)
+        'black_gold_oai': lambda d: _create_black_gold_mapper(d),
+        'ucb_bampfa_solr': lambda d: _create_ucb_bampfa_mapper(d)
     }
 
     return mappers.get(mapper_type)(data)

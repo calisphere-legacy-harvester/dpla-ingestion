@@ -141,6 +141,8 @@ class Mapper(object):
         self.map_temporal()
         self.map_title()
         self.map_type()
+        self.map_genre()
+        self.map_provenance()
 
     def update_source_resource(self, _dict):
         """
@@ -239,6 +241,12 @@ class Mapper(object):
         pass
 
     def map_type(self):
+        pass
+
+    def map_genre(self):
+        pass
+
+    def map_provenance(self):
         pass
 
     def map_state_located_in(self):
