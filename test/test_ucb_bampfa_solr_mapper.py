@@ -31,7 +31,7 @@ class UCB_BAMPFA_Solr_FeedTestCase(TestCase):
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['creator'], 'Savoldo, Giovanni')
         self.assertEqual(srcRes['title'], 'Pieta with Three Saints')
-        self.assertEqual(srcRes['date'], '1529')
+        self.assertEqual(srcRes['date'], [u'1529'])
         self.assertEqual(srcRes['extent'], '43 5/8 x 60 3/8 in.')
         self.assertEqual(srcRes['identifier'], '1965.35')
         self.assertEqual(srcRes['genre'], 'Painting')

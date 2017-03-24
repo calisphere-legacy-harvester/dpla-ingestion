@@ -29,7 +29,8 @@ class UCB_BAMPFA_Mapper(Mapper):
         self.update_source_resource({'title': self.metadata.get('title_s', None)})
 
     def map_date(self):
-        self.update_source_resource({'date': self.metadata.get('datemade_s', None)})
+        date = [ self.metadata.get('datemade_s', None) ]
+        self.update_source_resource({'date': date})
 
     def map_extent(self):
         self.update_source_resource({'extent': self.metadata.get('measurement_s')})
