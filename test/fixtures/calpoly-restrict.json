@@ -1,0 +1,122 @@
+{
+   "_id": "26802--oai:rekloa:rekl_8992",
+   "_rev": "1-8968b605c5d3c56f76f226c5a8358dd3",
+   "@context": "http://dp.la/api/items/context",
+   "dataProvider": "California Polytechnic State University - San Luis Obispo",
+   "admin": {
+       "validation_message": null,
+       "valid_after_enrich": true
+   },
+   "@id": "http://ucldc.cdlib.org/api/items/e48d9bba73fdbd5abede4c793293f394",
+   "ingestDate": "2017-03-03T17:47:40.759846Z",
+   "id": "e48d9bba73fdbd5abede4c793293f394",
+   "ingestionSequence": 1,
+   "isShownAt": "http://digital.lib.calpoly.edu/oai.php/islandora/object/rekl%3A8992",
+   "provider": {
+       "@id": "https://registry.cdlib.org/api/v1/collection/26802/",
+       "name": "California Polytechnic State University - San Luis Obispo"
+   },
+   "ingestType": "item",
+   "sourceResource": {},
+   "originalRecord": {
+       "rights": [
+           "RESTRICT - cropped version of ua-its_00000026",
+           null
+       ],
+       "description": [
+           "May 5, 1894 newspaper clipping about the railroad",
+           null
+       ],
+       "language": [
+           "eng"
+       ],
+       "format": [
+           null,
+           "Newspaper"
+       ],
+       "identifier.thumbnail": [
+           "http://digital.lib.calpoly.edu/islandora/object/rekl%3A8992/datastream/TN/view/May%205%2C%201894%20Newspaper%20Clipping.jpg"
+       ],
+       "contributor": [
+           "San Luis Obispo Tribune (publisher)"
+       ],
+       "collection": [
+           {
+               "dcmi_type": "X",
+               "enrichments_item": "/select-id?prop=id, /dpla_mapper?mapper_type=islandora_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+               "featured": false,
+               "ready_for_publication": false,
+               "hosted": "",
+               "id": "26802",
+               "url_oac": "",
+               "custom_facet": [
+               ],
+               "harvest_frequency": null,
+               "metadata_in_dams": false,
+               "url_harvest": "http://digital.lib.calpoly.edu/oai2/oai.php",
+               "campus": [
+               ],
+               "files_in_dams": false,
+               "date_last_harvested": null,
+               "harvest_exception_notes": "",
+               "files_in_hand": false,
+               "ingestType": "collection",
+               "description": "",
+               "repository": [
+                   {
+                       "name": "California Polytechnic State University - San Luis Obispo",
+                       "campus": [
+                       ],
+                       "slug": "california-polytechnic-state-university-san-luis-o",
+                       "ark": "ark:/13030/kt529026qp",
+                       "@id": "https://registry.cdlib.org/api/v1/repository/170/",
+                       "id": 170,
+                       "google_analytics_tracking_code": "",
+                       "resource_uri": "/api/v1/repository/170/"
+                   }
+               ],
+               "url_local": "http://digital.lib.calpoly.edu/rekl-localephemera-ms016",
+               "extent": null,
+               "rights_status": "X",
+               "@id": "https://registry.cdlib.org/api/v1/collection/26802/",
+               "slug": "local-history-ephemera-collection",
+               "name": "Local History Ephemera Collection",
+               "qa_completed": false,
+               "harvest_type": "OAI",
+               "harvest_extra_data": "rekl_localephemera-ms016",
+               "rights_statement": "Notice regarding copyright of materials available online: http://lib.calpoly.edu/support/policies/sca-policies/copyright-guidelines/#online-copyright",
+               "staging_notes": "",
+               "local_id": "cal-poly-ephemera",
+               "title": "Local History Ephemera Collection",
+               "resource_uri": "/api/v1/collection/26802/"
+           }
+       ],
+       "source": [
+           "Local Ephemera Collection--MS 016--"
+       ],
+       "coverage": [
+           "San Luis Obispo----California--United States",
+           "------",
+           "------"
+       ],
+       "datestamp": "2017-02-17T09:00:08Z",
+       "title": [
+           "May 5, 1894 Newspaper Clipping"
+       ],
+       "identifier": [
+           "016_spc_000001",
+           null,
+           "http://digital.lib.calpoly.edu/rekl-8992"
+       ],
+       "type": [
+           "Text"
+       ],
+       "id": "oai:rekloa:rekl_8992",
+       "subject": [
+           null,
+           null,
+           null
+       ]
+   },
+   "isShownBy": "http://digital.lib.calpoly.edu/oai.php/islandora/object/rekl%3A8992/datastream/TN/view"
+}
