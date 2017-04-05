@@ -1,0 +1,21 @@
+{
+    "title": ["1980 Newspaper Clipping"],
+    "identifier":
+    ["016_spc_000002", null, "http://digital.lib.calpoly.edu/rekl-8993"],
+    "source": ["Local Ephemera Collection--MS 016--"],
+    "contributor": ["San Luis Obispo Tribune (publisher)"],
+    "description": ["1980 Newspaper clipping about the railroad", null],
+    "subject": [null, null, null],
+    "coverage":
+    ["San Luis Obispo----California--United States", "------", "------"],
+    "language": ["eng"],
+    "format": [null, "Newspaper"],
+    "type": ["StillImage"],
+    "rights": [
+        "Notice regarding copyright of materials available online: http://lib.calpoly.edu/support/policies/sca-policies/copyright-guidelines/#online-copyright",
+        null
+    ],
+    "identifier.thumbnail": [
+        "http://digital.lib.calpoly.edu/islandora/object/rekl%3A1890/datastream/TN/view/Photographs%2C%20Manzanar%2C%201942-43.jpg"
+    ]
+}

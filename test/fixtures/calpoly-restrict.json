@@ -1,0 +1,22 @@
+{
+    "title": [
+        " [Students walking in rain] - restricted (see ua-its_00000026 for better version)"
+    ],
+    "type": ["StillImage"],
+    "format": ["Photographic print"],
+    "description": ["Students walking in rain", "Amy Strickland"],
+    "rights": [
+        "RESTRICT - cropped version of ua-its_00000026",
+        "Notice regarding copyright of materials available online:\n            http://lib.calpoly.edu/support/policies/sca-policies/copyright-guidelines/#online-copyright"
+    ],
+    "identifier": [
+        "ua-pho_00001421", null, null,
+        "http://digital.lib.calpoly.edu/rekl-5405"
+    ],
+    "subject": [null, null, null],
+    "coverage": ["San Luis Obispo", "California", "United States"],
+    "source": ["University Archives"],
+    "identifier.thumbnail": [
+        "http://digital.lib.calpoly.edu/islandora/object/rekl%3A5405/datastream/TN/view/%20%5BStudents%20walking%20in%20rain%5D%20-%20restricted%20%28see%20ua-its_00000026%20for%20better%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20version%29.jpg"
+    ]
+}
