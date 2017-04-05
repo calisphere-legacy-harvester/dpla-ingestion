@@ -3,7 +3,6 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
-from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -15,6 +14,7 @@ def _get_server_response(body):
     url = server() + "dpla_mapper?mapper_type=calpoly_oai_dc"
     return H.request(url, "POST", body=body)
 
+
 def test_calpoly_oai_dc_mapping():
     fixture = path.join(DIR_FIXTURES, 'calpoly-oai.json')
     with open(fixture) as f:
@@ -23,21 +23,15 @@ def test_calpoly_oai_dc_mapping():
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
-    logger.error(obj['sourceResource'])
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
-    TC.assertEqual(
-        obj['isShownAt'],
-        "http://digital.lib.calpoly.edu/rekl-1890"
-    )
+    TC.assertEqual(obj['isShownAt'],
+                   "http://digital.lib.calpoly.edu/rekl-8993")
     TC.assertEqual(
         obj['isShownBy'],
         "http://digital.lib.calpoly.edu/islandora/object/rekl%3A1890/datastream/JPG/view/Photographs%2C%20Manzanar%2C%201942-43.jpg"
     )
-    TC.assertEqual(
-        obj['sourceResource']['spatial'],
-        "San Luis Obispo----California--United States"
-    )
+
 
 def test_rights_exclusion():
     '''Verify that objects with RESTRICT [...]
@@ -52,7 +46,6 @@ def test_rights_exclusion():
     assert resp.status == 200
     content = json.loads(content)
     TC.assertFalse(content['sourceResource'])
-
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

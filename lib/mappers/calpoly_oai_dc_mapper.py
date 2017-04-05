@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
-from akara import logger
+
 
 class CalPoly_OAIMapper(OAIDublinCoreMapper):
     '''A mapper for CalPoly Islandora OAI-PMH feed'''
@@ -10,24 +10,23 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
            sourceResource entries for objects with "RESTRICT [...]"
            as first value in dc:rights field
         '''
-        rights = self.provider_data['originalRecord']['rights']
+        rights = self.provider_data['rights']
         restricted = False
         if not isinstance(rights, basestring):
             for r in rights:
                 if r and r.startswith("RESTRICT"):
                     restricted = True
-                    break # breaks out of for loop, as we don't need to check more values
+                    break  # breaks out of for loop, as we don't need to check more values
         else:
             if rights.startswith("RESTRICT"):
                 restricted = True
-        logger.error(restricted)
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
 
     def map_is_shown_at(self):
 
-        #Pick out record link from identifier values
-        ident = self.provider_data['originalRecord']['identifier']
+        # Pick out record link from identifier values
+        ident = self.provider_data['identifier']
         for i in ident:
             if i:
                 if 'digital.lib.calpoly.edu' in i:
@@ -36,9 +35,9 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
     def map_is_shown_by(self):
 
         # Change URL from 'TN' to 'JPG' for larger versions of image objects
-        thumb_url = self.provider_data['originalRecord']['identifier.thumbnail']
-        if 'type' in self.provider_data['sourceResource'] and thumb_url:
-            if 'Image' in self.provider_data['sourceResource']['type']:
+        thumb_url = self.provider_data['identifier.thumbnail']
+        if thumb_url:
+            if 'StillImage' in self.provider_data['type']:
                 thumb_url = thumb_url[0].replace("/TN/", "/JPG/")
                 self.mapped_data.update({'isShownBy': thumb_url})
             self.mapped_data.update({'isShownBy': thumb_url})
