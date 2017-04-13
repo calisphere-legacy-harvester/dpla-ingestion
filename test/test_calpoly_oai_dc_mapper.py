@@ -25,12 +25,17 @@ def test_calpoly_oai_dc_mapping():
     obj = json.loads(content)
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
     TC.assertEqual(obj['isShownAt'],
                    "http://digital.lib.calpoly.edu/rekl-8993")
     TC.assertEqual(
         obj['isShownBy'],
         "http://digital.lib.calpoly.edu/islandora/object/rekl%3A1890/datastream/JPG/view/Photographs%2C%20Manzanar%2C%201942-43.jpg"
     )
+    TC.assertEqual(srcRes['description'],
+                   ["1980 Newspaper clipping about the railroad"])
+    TC.assertEqual(srcRes['format'], ["Newspaper"])
+    TC.assertNotIn('contributor', srcRes)
 
 
 def test_rights_exclusion():
