@@ -1,9 +1,7 @@
 from akara import logger, response, module_config
 from akara.services import simple_service
 from amara.thirdparty import json
-from dplaingestion.selector import delprop, getprop, setprop, exists
 import dplaingestion.itemtype as itemtype
-import re
 
 type_for_type_keyword = \
         module_config('enrich_type').get('type_for_ot_keyword')
@@ -12,15 +10,16 @@ type_for_format_keyword = \
 
 @simple_service('POST', 'http://purl.org/la/dp/enrich-type', 'enrich-type',
                 'application/json')
+
 def enrichtype(body, ctype,
                action="enrich-type",
                prop="sourceResource/type",
                format_field="sourceResource/format",
                default=None,
                send_rejects_to_format=False):
-    """   
+    """
     Service that accepts a JSON document and enriches the "type" field of that
-    document by: 
+    document by:
 
     By default works on the 'type' field, but can be overridden by passing the
     name of the field to use as a parameter.
@@ -31,11 +30,11 @@ def enrichtype(body, ctype,
     """
     global type_for_type_keyword, type_for_format_keyword
 
-    try :
+    try:
         data = json.loads(body)
     except Exception:
         response.code = 500
-        response.add_header('content-type','text/plain')
+        response.add_header('content-type', 'text/plain')
         return "Unable to parse body as JSON"
 
     type_strings = []
@@ -84,7 +83,7 @@ def enrichtype(body, ctype,
             if rej:
                 if (not isinstance(sr_format, list)):
                     sr_format = [sr_format]
-                sr_format.extend(rej) 
+                sr_format.extend(rej)
                 data['sourceResource']['format'] = sr_format
 
     return json.dumps(data)

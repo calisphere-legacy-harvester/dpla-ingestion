@@ -5,10 +5,20 @@ from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
 class CalPoly_OAIMapper(OAIDublinCoreMapper):
     '''A mapper for CalPoly Islandora OAI-PMH feed'''
 
+    def remove_null_values(self, fieldValue):
+        '''Remove null values from the originalRecord'''
+        hasValue = []
+        for f in fieldValue:
+            if f is not None and f != '()':
+                hasValue.append(f)
+        return hasValue
+
     def map_source_resource(self):
         '''Keep restricted records out of SOLR by not creating
            sourceResource entries for objects with "RESTRICT [...]"
            as first value in dc:rights field
+
+           Also removes "null" and other garbage values from sourceResource fields
         '''
         rights = self.provider_data['rights']
         restricted = False
@@ -22,9 +32,12 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
                 restricted = True
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
+            # removing "null" from sourceResource field values
+            for k in self.mapped_data["sourceResource"]:
+                notNull = self.remove_null_values(self.mapped_data["sourceResource"][k])
+                self.update_source_resource({k: notNull})
 
     def map_is_shown_at(self):
-
         # Pick out record link from identifier values
         ident = self.provider_data['identifier']
         for i in ident:
