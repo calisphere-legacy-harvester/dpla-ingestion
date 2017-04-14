@@ -17,6 +17,8 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
         '''Keep restricted records out of SOLR by not creating
            sourceResource entries for objects with "RESTRICT [...]"
            as first value in dc:rights field
+
+           Also removes "null" and other garbage values from sourceResource fields
         '''
         rights = self.provider_data['rights']
         restricted = False
@@ -30,98 +32,10 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
                 restricted = True
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
-
-    def map_contributor(self):
-        if 'contributor' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data[
-                'contributor'])
-            if notNull:
-                self.update_source_resource({'contributor': notNull})
-
-    def map_creator(self):
-        if 'creator' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['creator'])
-            if notNull:
-                self.update_source_resource({'creator': notNull})
-
-    def map_date(self):
-        if 'date' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['date'])
-            if notNull:
-                self.update_source_resource({'date': notNull})
-
-    def map_description(self):
-        if 'description' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data[
-                'description'])
-            if notNull:
-                self.update_source_resource({'description': notNull})
-
-    def map_extent(self):
-        if 'extent' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['extent'])
-            if notNull:
-                self.update_source_resource({'extent': notNull})
-
-    def map_format(self):
-        if 'format' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['format'])
-            if notNull:
-                self.update_source_resource({'format': notNull})
-
-    def map_language(self):
-        if 'language' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['language'])
-            if notNull:
-                self.update_source_resource({'language': notNull})
-
-    def map_spatial(self):
-        if 'spatial' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['spatial'])
-            if notNull:
-                self.update_source_resource({'spatial': notNull})
-
-    def map_rights(self):
-        if 'rights' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['rights'])
-            if notNull:
-                self.update_source_resource({'rights': notNull})
-
-    def map_subject(self):
-        if 'subject' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['subject'])
-            if notNull:
-                self.update_source_resource({'subject': notNull})
-
-    def map_temporal(self):
-        if 'temporal' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['temporal'])
-            if notNull:
-                self.update_source_resource({'temporal': notNull})
-
-    def map_title(self):
-        if 'title' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['title'])
-            if notNull:
-                self.update_source_resource({'title': notNull})
-
-    def map_type(self):
-        if 'type' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['type'])
-            if notNull:
-                self.update_source_resource({'type': notNull})
-
-    def map_identifier(self):
-        if 'identifier' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['identifier'])
-            if notNull:
-                self.update_source_resource({'identifier': notNull})
-
-    def map_publisher(self):
-        if 'publisher' in self.provider_data:
-            notNull = self.remove_null_values(self.provider_data['publisher'])
-            if notNull:
-                self.update_source_resource({'publisher': notNull})
+            # removing "null" from sourceResource field values
+            for k in self.mapped_data["sourceResource"]:
+                notNull = self.remove_null_values(self.mapped_data["sourceResource"][k])
+                self.update_source_resource({k: notNull})
 
     def map_is_shown_at(self):
         # Pick out record link from identifier values

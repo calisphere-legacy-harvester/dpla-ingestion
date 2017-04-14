@@ -35,7 +35,7 @@ def test_calpoly_oai_dc_mapping():
     TC.assertEqual(srcRes['description'],
                    ["1980 Newspaper clipping about the railroad"])
     TC.assertEqual(srcRes['format'], ["Newspaper"])
-    TC.assertNotIn('contributor', srcRes)
+    TC.assertEqual(srcRes['contributor'], [])
 
 
 def test_rights_exclusion():
