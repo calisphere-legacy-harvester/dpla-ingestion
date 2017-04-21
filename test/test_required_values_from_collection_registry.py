@@ -4,6 +4,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -29,7 +30,7 @@ INPUT = { 'originalRecord': { "collection": [
                }
            ]},
            'sourceResource': {}
-           
+
        }
 
 def test_noFilling():
@@ -130,13 +131,15 @@ def test_fill_blank_rights():
 
 def test_fill_title():
     this_input = deepcopy(INPUT)
-    this_input['originalRecord']['title'] = ''
-    this_input['sourceResource'] = {'type': 'type0', 
+    ['originalRecord']['title'] = ''
+    this_input['sourceResource'] = {'type': 'type0',
+            'title': '938',
             'rights': 'rights0'}
     resp, content = _get_server_response(json.dumps(this_input), field='title',
             mode='fill')
     TC.assertEqual(resp.status, 200)
     content = json.loads(content)
+    logger.error('HERE IS THIS CONTENT:{}'.format(content))
     TC.assertEqual(content['sourceResource']['title'], ['(Untitled)'])
     del this_input['originalRecord']['title']
     resp, content = _get_server_response(json.dumps(this_input), field='title',
@@ -148,7 +151,7 @@ def test_fill_title():
 def test_append():
     '''Test the append mode, that the values are added to existing data'''
     this_input = deepcopy(INPUT)
-    this_input['sourceResource'] = {'type': 'type0', 
+    this_input['sourceResource'] = {'type': 'type0',
             'rights': 'rights0'}
     resp, content = _get_server_response(json.dumps(this_input), field='rights',
             mode='append')
@@ -157,7 +160,7 @@ def test_append():
     TC.assertEqual(content['sourceResource']['rights'],
             ['rights0', 'public domain', 'rights-stmt'])
     TC.assertEqual(content['sourceResource']['type'], 'type0')
-    this_input['sourceResource'] = {'type': ['type0', 'type1'], 
+    this_input['sourceResource'] = {'type': ['type0', 'type1'],
             'rights': ['rights0', 'rights1']}
     resp, content = _get_server_response(json.dumps(this_input), field='type',
             mode='append')
@@ -173,7 +176,7 @@ def test_overwrite():
     '''Test the overwrite mode. Values from collection registry overwrite the
     existing'''
     this_input = deepcopy(INPUT)
-    this_input['sourceResource'] = {'type': 'type0', 
+    this_input['sourceResource'] = {'type': 'type0',
             'rights': 'rights0'}
     resp, content = _get_server_response(json.dumps(this_input), field='rights',
             mode='overwrite')

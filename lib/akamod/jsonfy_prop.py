@@ -1,9 +1,9 @@
 import numbers
-from akara import logger
 from akara import response
 from akara.services import simple_service
 from amara.thirdparty import json
-from dplaingestion.selector import getprop, setprop, delprop
+from dplaingestion.selector import getprop, setprop
+
 
 def jsonfy_obj(obj):
     '''Jsonfy a python dict object. For immediate sub items (not recursive yet
@@ -29,19 +29,23 @@ def jsonfy_obj(obj):
                 except (ValueError, TypeError) as e:
                     new_list.append(v)
             obj_jsonfied[key] = new_list
-        else: #usually singlevalue string, not json
+        else:  # usually singlevalue string, not json
             try:
                 x = json.loads(value)
+                # catch numbers already typed as singlevalue strings
+                if isinstance(x, int):
+                    x = value
             except (ValueError, TypeError) as e:
                 x = value
             obj_jsonfied[key] = x
     return obj_jsonfied
 
-@simple_service("POST", "http://purl.org/la/dp/jsonfy-prop",
-                "jsonfy-prop", "application/json")
+
+@simple_service("POST", "http://purl.org/la/dp/jsonfy-prop", "jsonfy-prop",
+                "application/json")
 def jsonfy_prop(body, ctype, prop=None):
     """ Some data is packed as strings that contain json. (UCSD)
-    Take the data in the given property and turn any sub-values that can be 
+    Take the data in the given property and turn any sub-values that can be
     read by json.loads into json object.
     """
 
