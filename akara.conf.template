@@ -5,13 +5,13 @@
 
 # This file is preprocessed by setup.py to create akara.conf, which
 # replaces tokens in this file with values from akara.ini. akara.ini
-# takes the standard python ConfigParser format of: 
+# takes the standard python ConfigParser format of:
 #
 #     [Section]
-#     Key = value 
-# 
-# Tokens in this file should take the form of: 
-# 
+#     Key = value
+#
+# Tokens in this file should take the form of:
+#
 #     ${Section__Key}
 
 # The configuration file is written in Python. Configuration data goes
@@ -169,7 +169,7 @@ class geocoding:
     geocoder = 'http://purl.org/com/zepheira/services/geocoders/local-geonames'
     geonames_dbfile = Akara.ConfigRoot+'/caches/geonames.sqlite3'
 
-class geocode: 
+class geocode:
     bing_api_key = "${Bing__ApiKey}"
     geonames_username = "${Geonames__Username}"
     geonames_token = "${Geonames__Token}"
@@ -257,6 +257,7 @@ class type_conversion:
         ('movingimage', 'moving image'),
         ('image', 'image'),
         ('stillimage', 'image'),
+        ('negative', 'image'),
         ('drawing', 'image'),
         ('print', 'image'),
         ('painting', 'image'),
@@ -299,4 +300,3 @@ class type_conversion:
 
 class enrich_type(type_conversion):
     pass
-
