@@ -48,8 +48,8 @@ def test_ucldc_nuxeo_mapping():
         TC.assertEqual(srcRes['title'],
                 [u"Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph"])
         TC.assertEqual(srcRes['type'], "image")
+        TC.assertEqual(srcRes['provenance'], "test")
         TC.assertNotIn('source', origRec)
-        TC.assertEqual(origRec['provenance'], [])
         TC.assertEqual(origRec['location'], "Box 6 : Folder 3")
         TC.assertNotIn('rightsHolder', origRec)
         TC.assertNotIn('rightsNote', origRec)

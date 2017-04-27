@@ -21,13 +21,13 @@ class UCLDCNuxeoMapper(Mapper):
         super(UCLDCNuxeoMapper, self).map_source_resource()
         self.map_alt_title()
         self.map_genre()
+        self.map_provenance()
 
     def map_original_record(self):
         super(UCLDCNuxeoMapper, self).map_original_record()
         if not self.mapped_data['originalRecord']: #during testing, this is None
             self.mapped_data['originalRecord'] = {}
         self.map_source()
-        self.map_provenance()
         self.map_location()
         self.map_rights_holder()
         self.map_rights_note()
@@ -226,7 +226,7 @@ class UCLDCNuxeoMapper(Mapper):
 
     def map_provenance(self):
         if exists(self.provider_data_source, 'ucldc_schema:provenance'):
-            self.update_original_record({'provenance': self.provider_data_source.get('ucldc_schema:provenance')})
+            self.update_source_resource({'provenance': self.provider_data_source.get('ucldc_schema:provenance')})
 
     def map_location(self):
         if exists(self.provider_data_source, 'ucldc_schema:physlocation'):
