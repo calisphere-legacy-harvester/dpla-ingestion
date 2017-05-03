@@ -17,15 +17,18 @@ class FlickrMapper(Mapper):
     def __init__(self, provider_data, key_prefix=None):
         super(FlickrMapper, self).__init__(provider_data, key_prefix)
 
-    def map_is_shown_at(self, index=None):
-        '''Set is_shownBy as well'''
-        pass
+    def map_is_shown_at(self):
+        urls = self.provider_data['urls']
+        for url in urls:
+            if url['type'] == 'photopage':
+                self.mapped_data['isShownAt'] = url['text']
 
     def map_date(self):
         pass
 
     def map_description(self):
-        pass
+        self.mapped_data['sourceResource']['description'] = \
+                self.provider_data['description']['text']
 
     def map_spatial(self):
         pass
@@ -34,7 +37,7 @@ class FlickrMapper(Mapper):
         pass
 
     def map_title(self):
-        pass
+        self.mapped_data['sourceResource']['title'] = self.provider_data['title']['text']
 
     def map_format(self):
         pass

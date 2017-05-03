@@ -6,8 +6,9 @@ from amara.thirdparty import json
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
-#http://stackoverflow.com/questions/18084476/is-there-a-way-to-use-python-unit-test-assertions-outside-of-a-testcase
+# http://stackoverflow.com/questions/18084476/is-there-a-way-to-use-python-unit-test-assertions-outside-of-a-testcase
 TC = TestCase('__init__')
+
 
 class FlickrMapperTestCase(TestCase):
     def _get_server_response(self, body):
@@ -21,6 +22,23 @@ class FlickrMapperTestCase(TestCase):
             resp, content = self._get_server_response(INPUT)
         self.assertEqual(resp.status, 200)
         obj = json.loads(content)
+        self.assertEqual(
+            obj['isShownAt'],
+            'https://www.flickr.com/photos/sdasmarchives/34394586825/')
+        self.assertEqual(
+            obj['sourceResource']['title'],
+            'Ryan Aeronautical Image')
+        self.assertEqual(
+            obj['sourceResource']['description'],
+            'PictionID:56100666 - Catalog:C87-047-040.tif - '
+            'Title:Ryan Aeronautical Negative Collection Image - '
+            'Filename:C87-047-040.tif - - Image from the Teledyne Ryan '
+            'Archives, donated to SDASM in the 1990s. Many of these images '
+            'are from Ryan"s UAV program-----Please Tag these images so that '
+            'the information can be permanently stored with the digital file'
+            '.---Repository: <a href="http://www.sandiegoairandspace.org/'
+            'library/stillimages.html" rel="nofollow">San Diego Air and Space'
+            ' Museum </a>')
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.
