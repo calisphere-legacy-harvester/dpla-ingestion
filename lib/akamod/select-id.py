@@ -13,11 +13,11 @@ COUCH_REC_ID_BUILDER = lambda src, id_handle: COUCH_ID_BUILDER(src,id_handle.str
 @simple_service('POST', 'http://purl.org/la/dp/select-id', 'select-id',
                 'application/json')
 def selid(body, ctype, prop='handle'):
-    '''   
+    '''
     Service that accepts a JSON document and adds or sets the "id" property to
     the value of the property named by the "prop" paramater
-    '''   
-    
+    '''
+
     if not prop:
         # Remove this document
         response.code = 500
@@ -53,6 +53,7 @@ def selid(body, ctype, prop='handle'):
         return "No id property was found"
 
     data[u'_id'] = COUCH_REC_ID_BUILDER(source_name, id)
-    data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
+#   we don't use this, dump it
+#    data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
 
     return json.dumps(data)
