@@ -26,10 +26,14 @@ class FlickrMapperTestCase(TestCase):
             obj['isShownAt'],
             'https://www.flickr.com/photos/sdasmarchives/34394586825/')
         self.assertEqual(
-            obj['sourceResource']['title'],
+            obj['isShownBy'],
+            'https://farm5.staticflickr.com/4169/34394586825_375e0b1706_z.jpg')
+        srcRes = obj['sourceResource']
+        self.assertEqual(
+            srcRes['title'],
             'Ryan Aeronautical Image')
         self.assertEqual(
-            obj['sourceResource']['description'],
+            srcRes['description'],
             'PictionID:56100666 - Catalog:C87-047-040.tif - '
             'Title:Ryan Aeronautical Negative Collection Image - '
             'Filename:C87-047-040.tif - - Image from the Teledyne Ryan '
@@ -39,6 +43,9 @@ class FlickrMapperTestCase(TestCase):
             '.---Repository: <a href="http://www.sandiegoairandspace.org/'
             'library/stillimages.html" rel="nofollow">San Diego Air and Space'
             ' Museum </a>')
+        self.assertEqual(srcRes['date'], "2017-05-01 17:02:30")
+        self.assertEqual(srcRes['subject'], ['wooyay', 'hoopla'])
+        self.assertEqual(srcRes['format'], "photo")
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.
