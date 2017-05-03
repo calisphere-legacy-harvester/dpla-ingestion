@@ -1,4 +1,6 @@
+from __future__ import print_function
 from dplaingestion.mappers.mapper import Mapper
+import re
 
 
 class FlickrMapper(Mapper):
@@ -22,7 +24,8 @@ class FlickrMapper(Mapper):
         This is the URL formula from:
         https://www.flickr.com/services/api/misc.urls.html
 
-        https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+        https://farm{farm-id}.staticflickr.com/{server-id}/ \
+                {id}_{secret}_[mstzb].jpg
         The z size is 640 on longest side
         The n size is 320 on longest side
 
@@ -44,27 +47,46 @@ class FlickrMapper(Mapper):
         if there is no EXIF data. For items with EXIF data, hopefully it is
         the date taken == created date.
         '''
-        self.mapped_data['sourceResource']['date'] = \
-            self.provider_data['dates']['taken']
+        self.update_source_resource(
+            {'date': self.provider_data['dates']['taken']})
 
     def map_description(self):
-        self.mapped_data['sourceResource']['description'] = \
-                self.provider_data['description']['text']
+        self.update_source_resource(
+            {'description': self.provider_data['description']['text']})
 
     def map_subject(self):
         tags = self.provider_data['tags']
         subjects = []
         for tag in tags:
             subjects.append(tag['text'])
-        self.mapped_data['sourceResource']['subject'] = subjects
+        self.update_source_resource({'subject': subjects})
 
     def map_title(self):
-        self.mapped_data['sourceResource']['title'] = self.provider_data[
-            'title']['text']
+        self.update_source_resource(
+            {'title': self.provider_data['title']['text']})
 
     def map_format(self):
-        self.mapped_data['sourceResource']['format'] = \
-            self.provider_data['media']
+        self.update_source_resource(
+            {'format': self.provider_data['media']})
+
+    def map_identifier(self):
+        '''Parse out the values prefixed by "PictionID:" and "Catalog:" from
+        the description field
+        '''
+        identifiers = set() # we don't want dups, catalog & filename often
+        description = self.provider_data['description']['text']
+        matches = re.search('PictionID:(\w+)', description)
+        import sys
+        if matches:
+            identifiers.add(matches.group(1))
+        matches = re.search('Catalog:([-.\w]+)', description)
+        if matches:
+            identifiers.add(matches.group(1))
+        matches = re.search('Filename:([-.\w]+)', description)
+        if matches:
+            identifiers.add(matches.group(1))
+        if len(identifiers):
+            self.update_source_resource({'identifier': [i for i in identifiers]})
 
     def map_spatial(self):
         '''Some photos have spatial (location) data'''

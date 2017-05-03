@@ -6,7 +6,8 @@ from amara.thirdparty import json
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
-# http://stackoverflow.com/questions/18084476/is-there-a-way-to-use-python-unit-test-assertions-outside-of-a-testcase
+# http://stackoverflow.com/questions/18084476/is-there-a-way-to-use-
+# python-unit-test-assertions-outside-of-a-testcase
 TC = TestCase('__init__')
 
 
@@ -16,7 +17,7 @@ class FlickrMapperTestCase(TestCase):
         return H.request(url, "POST", body=body)
 
     def testMappings(self):
-        fixture = path.join(DIR_FIXTURES, 'flickr-couch-doc.json')
+        fixture = path.join(DIR_FIXTURES, 'flickr-doc.json')
         with open(fixture) as f:
             INPUT = f.read()
             resp, content = self._get_server_response(INPUT)
@@ -46,6 +47,7 @@ class FlickrMapperTestCase(TestCase):
         self.assertEqual(srcRes['date'], "2017-05-01 17:02:30")
         self.assertEqual(srcRes['subject'], ['wooyay', 'hoopla'])
         self.assertEqual(srcRes['format'], "photo")
+        self.assertEqual(srcRes['identifier'], ["56100666", "C87-047-040.tif"])
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.
