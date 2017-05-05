@@ -35,17 +35,32 @@ class YouTubeVideoSnippetMapperTestCase(TestCase):
             "http://www.sandiegoairandspace.org/research/ "
             "Please do not use for commercial purposes without permission.")
         self.assertEqual(
-                srcRes['subject'],
-                ['San Diego Air and Space Museum',
-                 'Ryan Aeronautical',
-                 'San Diego']
-                )
+            srcRes['subject'],
+            ['San Diego Air and Space Museum',
+             'Ryan Aeronautical',
+             'San Diego']
+            )
         self.assertEqual(
             obj['isShownAt'],
             'https://www.youtube.com/watch?v=0Yx8zrbsUu8')
         self.assertEqual(
             obj['isShownBy'],
             'https://i.ytimg.com/vi/0Yx8zrbsUu8/sddefault.jpg')
+
+    def testURLtoThumb(self):
+        '''Not all videos have bigger sized thumbs,
+        keep checking until one found
+        '''
+        fixture = path.join(DIR_FIXTURES, 'youtube_vidobj_small_thumb.json')
+        with open(fixture) as f:
+            INPUT = f.read()
+            resp, content = self._get_server_response(INPUT)
+        self.assertEqual(resp.status, 200)
+        obj = json.loads(content)
+        self.assertEqual(
+            obj['isShownBy'],
+            'https://i.ytimg.com/vi/0Yx8zrbsUu8/default.jpg')
+
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.

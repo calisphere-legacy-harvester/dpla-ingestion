@@ -1,6 +1,5 @@
 from __future__ import print_function
 from dplaingestion.mappers.mapper import Mapper
-import re
 
 
 class YouTubeVideoSnippetMapper(Mapper):
@@ -17,9 +16,19 @@ class YouTubeVideoSnippetMapper(Mapper):
             id=self.provider_data['id'])
 
     def map_is_shown_by(self):
-        url_big_thumb = \
-        self.provider_data['snippet']['thumbnails']['standard']['url']
-        self.mapped_data['isShownBy'] = url_big_thumb
+        thumbnails = self.provider_data['snippet']['thumbnails']
+        try:
+            url_thumb = thumbnails['standard']['url']
+        except KeyError:
+            try:
+                url_thumb = thumbnails['high']['url']
+            except KeyError:
+                try:
+                    url_thumb = thumbnails['medium']['url']
+                except KeyError:
+                    url_thumb = thumbnails['default']['url']
+
+        self.mapped_data['isShownBy'] = url_thumb
 
     def map_description(self):
         self.update_source_resource(
@@ -27,7 +36,7 @@ class YouTubeVideoSnippetMapper(Mapper):
 
     def map_subject(self):
         self.update_source_resource(
-                {'subject': self.provider_data['snippet']['tags']})
+            {'subject': self.provider_data['snippet']['tags']})
 
     def map_title(self):
         self.update_source_resource(
