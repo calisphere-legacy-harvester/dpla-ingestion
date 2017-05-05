@@ -35,8 +35,9 @@ class YouTubeVideoSnippetMapper(Mapper):
             {'description': self.provider_data['snippet']['description']})
 
     def map_subject(self):
-        self.update_source_resource(
-            {'subject': self.provider_data['snippet']['tags']})
+        if 'tags' in self.provider_data['snippet']:
+            self.update_source_resource(
+                {'subject': self.provider_data['snippet']['tags']})
 
     def map_title(self):
         self.update_source_resource(

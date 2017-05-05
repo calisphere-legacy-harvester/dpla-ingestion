@@ -61,6 +61,16 @@ class YouTubeVideoSnippetMapperTestCase(TestCase):
             obj['isShownBy'],
             'https://i.ytimg.com/vi/0Yx8zrbsUu8/default.jpg')
 
+    def test_no_tags(self):
+        '''bug fix when no tags'''
+        fixture = path.join(DIR_FIXTURES, 'youtube_vidobj_no_tags.json')
+        with open(fixture) as f:
+            INPUT = f.read()
+            resp, content = self._get_server_response(INPUT)
+        self.assertEqual(resp.status, 200)
+        obj = json.loads(content)
+        self.assertNotIn('subject', obj['sourceResource'])
+
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.
