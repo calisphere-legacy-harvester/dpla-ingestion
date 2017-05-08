@@ -1,0 +1,101 @@
+{
+  "description": {
+    "text": "PictionID:56100666 - Catalog:C87-047-040.tif - Title:Ryan Aeronautical Negative Collection Image - Filename:C87-047-040.tif - - Image from the Teledyne Ryan Archives, donated to SDASM in the 1990s. Many of these images are from Ryan\"s UAV program-----Please Tag these images so that the information can be permanently stored with the digital file.---Repository: <a href=\"http://www.sandiegoairandspace.org/library/stillimages.html\" rel=\"nofollow\">San Diego Air and Space Museum </a>"
+  },
+  "isfavorite": "0",
+  "views": "499",
+  "farm": "5",
+  "people": {
+    "haspeople": "0",
+    "text": null
+  },
+  "visibility": {
+    "text": null,
+    "isfamily": "0",
+    "isfriend": "0",
+    "ispublic": "1"
+  },
+  "originalformat": "jpg",
+  "owner": {
+    "text": null,
+    "nsid": "49487266@N07",
+    "username": "San Diego Air & Space Museum Archives",
+    "realname": "SDASM Archives",
+    "location": "",
+    "iconserver": "4070",
+    "iconfarm": "5",
+    "path_alias": "sdasmarchives"
+  },
+  "rotation": "0",
+  "id": "34394586825",
+  "dates": {
+    "text": null,
+    "lastupdate": "1493683351",
+    "posted": "1493683350",
+    "taken": "2017-05-01 17:02:30",
+    "takengranularity": "0",
+    "takenunknown": "1"
+  },
+  "originalsecret": "d46e9b19cc",
+  "license": "7",
+  "title": {
+    "text": "Ryan Aeronautical Image"
+  },
+  "media": "photo",
+  "notes": [
+    {
+      "x": "10",
+      "authorname": "Bees",
+      "text": "foo",
+      "w": "50",
+      "author": "12037949754@N01",
+      "y": "10",
+      "h": "50",
+      "id": "313"
+    }
+  ],
+  "tags": [
+    {
+      "raw": "woo yay",
+      "text": "wooyay",
+      "id": "1234",
+      "author": "12037949754@N01"
+    },
+    {
+      "raw": "hoopla",
+      "text": "hoopla",
+      "id": "1235",
+      "author": "12037949754@N01"
+    }
+  ],
+  "publiceditability": {
+    "text": null,
+    "cancomment": "1",
+    "canaddmeta": "1"
+  },
+  "comments": {
+    "text": "0"
+  },
+  "server": "4169",
+  "dateuploaded": "1493683350",
+  "secret": "375e0b1706",
+  "safety_level": "0",
+  "urls": [
+    {
+      "text": "https://www.flickr.com/photos/sdasmarchives/34394586825/",
+      "type": "photopage"
+    }
+  ],
+  "usage": {
+    "text": null,
+    "canblog": "0",
+    "candownload": "1",
+    "canprint": "0",
+    "canshare": "1"
+  },
+  "editability": {
+    "text": null,
+    "cancomment": "0",
+    "canaddmeta": "0"
+  }
+}

@@ -222,6 +222,14 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.calpoly_oai_dc_mapper import CalPoly_OAIMapper
         return CalPoly_OAIMapper(data)
 
+    def _create_flickr_api_mapper(data):
+        from dplaingestion.mappers.flickr_api_mapper import FlickrMapper
+        return FlickrMapper(data)
+
+    def _create_youtube_video_snippet_api_mapper(data):
+        from dplaingestion.mappers.youtube_video_snippet_mapper import YouTubeVideoSnippetMapper
+        return YouTubeVideoSnippetMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -270,7 +278,9 @@ def create_mapper(mapper_type, data):
         'csu_sac_oai_dc': lambda d: _create_csu_sac_mapper(d),
         'black_gold_oai': lambda d: _create_black_gold_mapper(d),
         'ucb_bampfa_solr': lambda d: _create_ucb_bampfa_mapper(d),
-        'calpoly_oai_dc': lambda d: _create_calpoly_mapper(d)
+        'calpoly_oai_dc': lambda d: _create_calpoly_mapper(d),
+        'flickr_api': lambda d: _create_flickr_api_mapper(d),
+        'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
