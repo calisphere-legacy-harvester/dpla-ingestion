@@ -3,6 +3,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -41,7 +42,7 @@ def test_calpoly_oai_dc_mapping():
 def test_rights_exclusion():
     '''Verify that objects with RESTRICT [...]
     as first value in dc:rights field are not passed on
-    to sourceResource
+    to sourceResource & no isShownAt assigned
     '''
     fixture = path.join(DIR_FIXTURES, 'calpoly-restrict.json')
     with open(fixture) as f:
@@ -51,6 +52,7 @@ def test_rights_exclusion():
     assert resp.status == 200
     content = json.loads(content)
     TC.assertFalse(content['sourceResource'])
+    TC.assertNotIn('isShownAt', content)
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

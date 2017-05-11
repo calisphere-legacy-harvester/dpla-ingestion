@@ -13,14 +13,7 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
                 hasValue.append(f)
         return hasValue
 
-    def map_source_resource(self):
-        '''Keep restricted records out of SOLR by not creating
-           sourceResource entries for objects with "RESTRICT [...]"
-           as first value in dc:rights field
-
-           Also removes "null" and other garbage values from sourceResource fields
-        '''
-        rights = self.provider_data['rights']
+    def find_restricted(self, rights):
         restricted = False
         if not isinstance(rights, basestring):
             for r in rights:
@@ -30,6 +23,16 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
         else:
             if rights.startswith("RESTRICT"):
                 restricted = True
+        return restricted
+
+    def map_source_resource(self):
+        '''Keep restricted records out of SOLR by not creating
+           sourceResource entries for objects with "RESTRICT [...]"
+           as first value in dc:rights field
+
+           Also removes "null" and other garbage values from sourceResource fields
+        '''
+        restricted = self.find_restricted(self.provider_data['rights'])
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
             # removing "null" from sourceResource field values
@@ -38,12 +41,17 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
                 self.update_source_resource({k: notNull})
 
     def map_is_shown_at(self):
-        # Pick out record link from identifier values
-        ident = self.provider_data['identifier']
-        for i in ident:
-            if i:
-                if 'digital.lib.calpoly.edu' in i:
-                    self.mapped_data.update({'isShownAt': i})
+        ''' Pick out record link from identifier values
+            Don't create isShownAt for objects with "RESTRICT [...]"
+            as first value in dc:rights field
+        '''
+        restricted = self.find_restricted(self.provider_data['rights'])
+        if not restricted:
+            ident = self.provider_data['identifier']
+            for i in ident:
+                if i:
+                    if 'digital.lib.calpoly.edu' in i:
+                        self.mapped_data.update({'isShownAt': i})
 
     def map_is_shown_by(self):
 
