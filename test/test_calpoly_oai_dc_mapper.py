@@ -38,6 +38,18 @@ def test_calpoly_oai_dc_mapping():
     TC.assertEqual(srcRes['format'], ["Newspaper"])
     TC.assertEqual(srcRes['contributor'], [])
 
+def test_calpoly_valid_isShownBy():
+    fixture = path.join(DIR_FIXTURES, 'calpoly-restrict.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertEqual(
+        obj['isShownBy'],
+        "http://digital.lib.calpoly.edu/islandora/object/rekl%3A11435/datastream/TN/view/Cholame%20Abstract.jpg"
+    )
 
 def test_rights_exclusion():
     '''Verify that objects with RESTRICT [...]

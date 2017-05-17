@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
+import requests
+from akara import logger
 
 
 class CalPoly_OAIMapper(OAIDublinCoreMapper):
@@ -55,12 +57,16 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
 
     def map_is_shown_by(self):
 
-        # Change URL from 'TN' to 'JPG' for larger versions of image objects
+        # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
         thumb_url = self.provider_data['identifier.thumbnail']
         if thumb_url:
             if 'StillImage' in self.provider_data['type']:
-                thumb_url = thumb_url[0].replace("/TN/", "/JPG/")
-                self.mapped_data.update({'isShownBy': thumb_url})
+                jpg_url = thumb_url[0].replace("/TN/", "/JPG/")
+                request = requests.get(jpg_url)
+                if request.status_code == 200:
+                    thumb_url = jpg_url
+                else:
+                    thumb_url = thumb_url[0]
             self.mapped_data.update({'isShownBy': thumb_url})
 
 # Copyright © 2016, Regents of the University of California
