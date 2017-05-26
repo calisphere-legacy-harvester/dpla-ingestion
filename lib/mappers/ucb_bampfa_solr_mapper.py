@@ -1,14 +1,12 @@
 from dplaingestion.mappers.mapper import Mapper
 
-
 class UCB_BAMPFA_Mapper(Mapper):
     def __init__(self, provider_data, key_prefix=None):
         super(UCB_BAMPFA_Mapper, self).__init__(provider_data, key_prefix)
         self.metadata = self.provider_data
 
     def map_is_shown_at(self):
-
-        id_local = self.metadata['idnumber_s']
+        id_local = str(self.metadata['idnumber_s'])
         is_shown_at = ''.join((
             'https://webapps.cspace.berkeley.edu/bampfa/search/search/?idnumber=',
             id_local, '&displayType=full&maxresults=1&start=1'))
@@ -18,7 +16,7 @@ class UCB_BAMPFA_Mapper(Mapper):
     def map_is_shown_by(self):
 
         blobArray = self.metadata['blob_ss']
-        blob = blobArray[0]
+        blob = str(blobArray[0])
         is_shown_by = ''.join(
             ('https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/',
              blob, '/derivatives/Medium/content'))
