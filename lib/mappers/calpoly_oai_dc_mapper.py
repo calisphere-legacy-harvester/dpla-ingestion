@@ -15,16 +15,18 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
                 hasValue.append(f)
         return hasValue
 
-    def find_restricted(self, rights):
+    def find_restricted(self):
         restricted = False
-        if not isinstance(rights, basestring):
-            for r in rights:
-                if r and r.startswith("RESTRICT"):
+        if 'rights' in self.provider_data:
+            rights = self.provider_data['rights']
+            if not isinstance(rights, basestring):
+                for r in rights:
+                    if r and r.startswith("RESTRICT"):
+                        restricted = True
+                        break  # breaks out of for loop, as we don't need to check more values
+            else:
+                if rights.startswith("RESTRICT"):
                     restricted = True
-                    break  # breaks out of for loop, as we don't need to check more values
-        else:
-            if rights.startswith("RESTRICT"):
-                restricted = True
         return restricted
 
     def map_source_resource(self):
@@ -34,7 +36,7 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
 
            Also removes "null" and other garbage values from sourceResource fields
         '''
-        restricted = self.find_restricted(self.provider_data['rights'])
+        restricted = self.find_restricted()
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
             # removing "null" from sourceResource field values
@@ -47,7 +49,7 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
             Don't create isShownAt for objects with "RESTRICT [...]"
             as first value in dc:rights field
         '''
-        restricted = self.find_restricted(self.provider_data['rights'])
+        restricted = self.find_restricted()
         if not restricted:
             ident = self.provider_data['identifier']
             for i in ident:
