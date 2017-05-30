@@ -50,3 +50,7 @@ class UCB_BAMPFA_Solr_FeedTestCase(TestCase):
         obj = json.loads(content)
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['title'], '981')
+        self.assertEqual(
+            obj['isShownAt'],
+            'https://webapps.cspace.berkeley.edu/bampfa/search/search/?idnumber=2002.43&displayType=full&maxresults=1&start=1'
+        )
