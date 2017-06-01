@@ -45,7 +45,7 @@ class UCB_BAMPFA_Mapper(Mapper):
 
     def map_identifier(self):
         self.update_source_resource({
-            'identifier': self.metadata.get('idnumber_s')
+            'identifier': str(self.metadata.get('idnumber_s'))
         })
 
     def map_genre(self):
