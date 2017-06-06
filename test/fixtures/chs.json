@@ -75,7 +75,7 @@
         ],
         "date": ["[186-?]", "186u", "186u"],
         "title": ["Map of Bodie Mining District, Mono Co., Cal"],
-        "identifier": ["islandora:1482", "oclc: 21643182"],
+        "identifier": ["Map 436", "islandora:1482", "oclc: 21643182"],
         "type": ["map", "Maps."],
         "id": "oai:drupal-site.org:islandora_1482",
         "subject": [
@@ -130,7 +130,7 @@
         }],
         "contributor": ["Tagliabue & Garrard", "G.T. Brown & Co. Lith"],
         "title": ["Map of Bodie Mining District, Mono Co., Cal"],
-        "identifier": ["islandora:1482", "oclc: 21643182"],
+        "identifier": ["Map 436", "islandora:1482", "oclc: 21643182"],
         "type": "Image",
         "subject": [{
             "name": "Mines and mineral resources"
