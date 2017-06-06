@@ -1,0 +1,148 @@
+{
+    "_id": "26727--oai:drupal-site.org:islandora_1482",
+    "_rev": "4-ffcfce1be84d783cd2e1d115d43fa046",
+    "@context": "http://dp.la/api/items/context",
+    "object_dimensions": [200, 160],
+    "admin": {
+        "validation_message":
+        "u'Image' is not valid under any of the given schemas",
+        "valid_after_enrich": false
+    },
+    "originalRecord": {
+        "publisher": ["G.T. Brown, & Co. Lith."],
+        "description": [
+            "Oriented with north toward left.",
+            "Includes 2 views: Syndicate Mill, and Standard Mill & Works."
+        ],
+        "language": ["eng"],
+        "rights": [
+            "http://rightsstatements.org/vocab/NKC/1.0/",
+            "All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives, North Baker Research Library, California Historical Society, 678 Mission Street, San Francisco, CA 94105. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes."
+        ],
+        "format": ["1 map ; 56 x 67 cm"],
+        "contributor": ["Tagliabue & Garrard", "G.T. Brown & Co. Lith"],
+        "collection": [{
+            "dcmi_type": "I",
+            "enrichments_item":
+            "/select-id?prop=id, /dpla_mapper?mapper_type=islandora_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+            "featured": false,
+            "ready_for_publication": false,
+            "hosted": "",
+            "campus": [],
+            "url_oac": "",
+            "custom_facet": [],
+            "harvest_frequency": null,
+            "metadata_in_dams": false,
+            "url_harvest":
+            "http://digitallibrary.californiahistoricalsociety.org/oai2",
+            "id": "26727",
+            "files_in_dams": false,
+            "date_last_harvested": null,
+            "harvest_exception_notes": "",
+            "files_in_hand": false,
+            "ingestType": "collection",
+            "description": "",
+            "repository": [{
+                "name": "California Historical Society",
+                "campus": [],
+                "slug": "california-historical-society",
+                "ark": "ark:/13030/tf7v19p5mm",
+                "@id": "https://registry.cdlib.org/api/v1/repository/50/",
+                "id": 50,
+                "google_analytics_tracking_code": "UA-32933096-2",
+                "resource_uri": "/api/v1/repository/50/"
+            }],
+            "harvest_type": "OAI",
+            "extent": null,
+            "rights_status": "X",
+            "@id": "https://registry.cdlib.org/api/v1/collection/26727/",
+            "slug": "maps",
+            "harvest_extra_data": "islandora_1473",
+            "qa_completed": false,
+            "url_local":
+            "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora:1473",
+            "name": "Maps",
+            "rights_statement": "",
+            "staging_notes": "",
+            "local_id": "chs_maps",
+            "title": "Maps",
+            "resource_uri": "/api/v1/collection/26727/"
+        }],
+        "datestamp": "2016-12-08T17:38:28Z",
+        "coverage": [
+            "Scale [1:6,000]. 500 ft. to 1 in.", "California", "Bodie",
+            "Bodie (Calif.)", "Bodie (Calif.)"
+        ],
+        "date": ["[186-?]", "186u", "186u"],
+        "title": ["Map of Bodie Mining District, Mono Co., Cal"],
+        "identifier": ["islandora:1482", "oclc: 21643182"],
+        "type": ["map", "Maps."],
+        "id": "oai:drupal-site.org:islandora_1482",
+        "subject": [
+            null, "Mines and mineral resources",
+            "Mines and mineral resources--California--Bodie--Maps", null, null,
+            "G4364.B734H2 1860 .T3"
+        ]
+    },
+    "object": "8b725f95279ceb2370205e742cb9c53b",
+    "ingestDate": "2017-01-14T01:12:55.750040Z",
+    "id": "d05cd566a832c94635398b0d41fb122d",
+    "ingestionSequence": 2,
+    "isShownAt":
+    "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora%3A1482",
+    "provider": {
+        "@id": "https://registry.cdlib.org/api/v1/collection/26727/",
+        "name": "California Historical Society"
+    },
+    "sourceResource": {
+        "publisher": ["G.T. Brown, & Co. Lith"],
+        "date": [{
+            "begin": "1860",
+            "end": "1869",
+            "displayDate": "[186-?]"
+        }, {
+            "displayDate": "186u"
+        }],
+        "description": [
+            "Oriented with north toward left.",
+            "Includes 2 views: Syndicate Mill, and Standard Mill & Works."
+        ],
+        "language": [{
+            "iso639_3": "eng",
+            "name": "English"
+        }],
+        "format": "1 map ; 56 x 67 cm",
+        "rights": [
+            "http://rightsstatements.org/vocab/NKC/1.0/",
+            "All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives, North Baker Research Library, California Historical Society, 678 Mission Street, San Francisco, CA 94105. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes."
+        ],
+        "stateLocatedIn": [{
+            "name": "California"
+        }],
+        "spatial": [{
+            "name": "Scale [1:6,000]. 500 ft. to 1 in."
+        }, {
+            "name": "California"
+        }, {
+            "name": "Bodie"
+        }, {
+            "name": "Bodie (Calif.)"
+        }],
+        "contributor": ["Tagliabue & Garrard", "G.T. Brown & Co. Lith"],
+        "title": ["Map of Bodie Mining District, Mono Co., Cal"],
+        "identifier": ["islandora:1482", "oclc: 21643182"],
+        "type": "Image",
+        "subject": [{
+            "name": "Mines and mineral resources"
+        }, {
+            "name": "Mines and mineral resources--California--Bodie--Maps"
+        }, {
+            "name": "G4364.B734H2 1860 .T3"
+        }]
+    },
+    "ingestType": "item",
+    "dataProvider": "California Historical Society",
+    "@id": "http://ucldc.cdlib.org/api/items/d05cd566a832c94635398b0d41fb122d",
+    "isShownBy":
+    "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora%3A1482/datastream/TN/view"
+}
