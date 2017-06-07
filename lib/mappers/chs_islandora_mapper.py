@@ -10,9 +10,12 @@ class CHS_Islandora_Mapper(Islandora_OAIMapper):
         if 'identifier' in self.provider_data['originalRecord']:
             ident = self.provider_data['originalRecord']['identifier']
             if not isinstance(ident, basestring):
+                ident_list = []
                 for i in ident:
                     if "islandora" not in i:
-                        self.update_source_resource({"identifier": i})
+                        ident_list.append(i)
+                if ident_list:
+                    self.update_source_resource({"identifier": ident_list})
             else:
                 if 'islandora' not in ident:
                     self.update_source_resource({"identifier": ident})

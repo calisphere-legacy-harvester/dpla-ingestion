@@ -26,7 +26,7 @@ def test_chs_islandora_mapping():
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']
-    TC.assertEqual(srcRes['identifier'], "oclc: 21643182")
+    TC.assertEqual(srcRes['identifier'], ["Map 436", "oclc: 21643182"])
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
