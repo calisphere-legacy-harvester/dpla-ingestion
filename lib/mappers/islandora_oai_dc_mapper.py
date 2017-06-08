@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
-
+import requests
 
 class Islandora_OAIMapper(DublinCoreMapper):
     '''A mapper for Islandora OAI-PMH feed
@@ -37,8 +37,16 @@ class Islandora_OAIMapper(DublinCoreMapper):
             newID = recID.replace('_', '%3A')
 
             # Build image link
-            self.mapped_data["isShownBy"] = ''.join(
+            thumb_url = ''.join(
                 (coll_url, '/islandora/object/', newID, '/datastream/TN/view'))
+
+            # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
+            if 'image' or 'StillImage' in self.provider_data['type']:
+                jpg_url = thumb_url.replace("/TN/", "/JPG/")
+                request = requests.get(jpg_url)
+                if request.status_code == 200:
+                    thumb_url = jpg_url
+            self.mapped_data.update({'isShownBy': thumb_url})
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
