@@ -31,7 +31,7 @@ def test_islandora_oai_dc_mapping():
     )
     TC.assertEqual(
         obj['isShownBy'],
-        "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora%3A1022/datastream/TN/view"
+        "http://digitallibrary.californiahistoricalsociety.org/islandora/object/islandora%3A1022/datastream/JPG/view"
     )
 
 # Copyright © 2016, Regents of the University of California
