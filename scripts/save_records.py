@@ -20,7 +20,7 @@ from dplaingestion.utilities import make_tarfile, iso_utc_with_tz
 def define_arguments():
     """Defines command line arguments for the current script"""
     parser = argparse.ArgumentParser()
-    parser.add_argument("ingestion_document_id", 
+    parser.add_argument("ingestion_document_id",
                         help="The ID of the ingestion document")
     parser.add_argument("--no-backup", dest="backup", action="store_false",
                         help="skip the backup process")
@@ -145,7 +145,7 @@ def main(argv):
     make_tarfile(enrich_dir)
     shutil.rmtree(enrich_dir)
 
-    return 0 if status == "complete" else -1
+    return total_items if status == "complete" else -1
 
 if __name__ == '__main__':
     main(sys.argv)
