@@ -289,7 +289,7 @@ def create_mapper(mapper_type, data):
         'calpoly_oai_dc': lambda d: _create_calpoly_mapper(d),
         'flickr_api': lambda d: _create_flickr_api_mapper(d),
         'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
-        'chs_islandora': lambda d: _create_chs_islandora_mapper(d)
+        'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
         'csu_ci_mets': lambda d: _create_csu_ci_mapper(d),
     }
 
