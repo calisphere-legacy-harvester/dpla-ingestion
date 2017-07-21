@@ -1,0 +1,69 @@
+{
+    "abstract": [
+        "List of Ex-Braceros interviewed for the Braceros of Ventura County Exhibition."
+    ],
+    "languageTerm": ["en_US"],
+    "agent": [null],
+    "topic": [
+        "Bracero Program", "Farm workers", "Exhibition",
+        "Ventura County, California"
+    ],
+    "genre": ["Other"],
+    "formatName": ["application/pdf", "text/plain"],
+    "dateAccessioned": ["2011-06-28T18:34:34Z"],
+    "file": [null, null],
+    "datestamp": "2013-08-08T15:32:47Z",
+    "mdWrap": [null, null, null, null],
+    "subject": [null, null, null, null],
+    "dateAvailable": [null],
+    "metsHdr": [null],
+    "title": ["Bracero History Project Survey"],
+    "objectCategory": ["File", "File"],
+    "objectIdentifierValue": [
+        "http://scholarworks.calstate.edu/bitstream/10139%2F4130/1/bitstream",
+        "http://scholarworks.calstate.edu/bitstream/10139%2F4130/3/bitstream"
+    ],
+    "id": "oai:scholarworks.calstate.edu:10139/4130",
+    "xmlData": [null, null, null],
+    "dateIssued": ["2010-03"],
+    "premis": [null, null],
+    "size": ["83452", "1797"],
+    "accessCondition": [null],
+    "messageDigest":
+    ["a5dd4c11fd78dbb866c1be22a35383c3", "1f670361c151563d0293d309e91140cd"],
+    "dmdSec": [null],
+    "titleInfo": [null],
+    "rightsMD": [null],
+    "format": [null, null],
+    "object": [null, null],
+    "FLocat": [null, null],
+    "binData": [
+        "Tk9OLUVYQ0xVU0lWRSBESVNUUklCVVRJT04gTElDRU5TRQoKSW4gb3JkZXIgZm9yIENhbGlmb3JuaWEgU3RhdGUgVW5pdmVyc2l0eSBDaGFubmVsIElzbGFuZHMgKENTVUNJKSB0byA8YnI+cmVwcm9kdWNlLCB0cmFuc2xhdGUgYW5kIGRpc3RyaWJ1dGUgeW91ciBzdWJtaXNzaW9uIHdvcmxkd2lkZSA8YnI+dGhyb3VnaCB0aGUgQ1NVQ0kgSW5zdGl0dXRpb25hbCBSZXBvc2l0b3J5LCB5b3VyIGFncmVlbWVudCB0byB0aGUgPGJyPmZvbGxvd2luZyB0ZXJtcyBpcyBuZWNlc3NhcnkuIFRoZSBhdXRob3IocykgcmV0YWluIGFueSBjb3B5cmlnaHQgPGJyPmN1cnJlbnRseSBvbiB0aGUgaXRlbSBhcyB3ZWxsIGFzIHRoZSBhYmlsaXR5IHRvIHN1Ym1pdCB0aGUgaXRlbSB0byA8YnI+cHVibGlzaGVycyBvciBvdGhlciByZXBvc2l0b3JpZXMuPGJyPgoKQnkgc2lnbmluZyBhbmQgc3VibWl0dGluZyB0aGlzIGxpY2Vuc2UsIHlvdSAodGhlIGF1dGhvcihzKSBvciA8YnI+Y29weXJpZ2h0IG93bmVyKSBncmFudHMgdG8gQ1NVQ0kgdGhlIG5vbmV4Y2x1c2l2ZSByaWdodCB0byA8YnI+cmVwcm9kdWNlLCB0cmFuc2xhdGUgKGFzIGRlZmluZWQgYmVsb3cpLCBhbmQvb3IgZGlzdHJpYnV0ZSB5b3VyIDxicj5zdWJtaXNzaW9uIChpbmNsdWRpbmcgdGhlIGFic3RyYWN0KSB3b3JsZHdpZGUgaW4gcHJpbnQgYW5kIDxicj5lbGVjdHJvbmljIGZvcm1hdCBhbmQgaW4gYW55IG1lZGl1bSwgaW5jbHVkaW5nIGJ1dCBub3QgbGltaXRlZCB0byA8YnI+YXVkaW8gb3IgdmlkZW8uCgpZb3UgYWdyZWUgdGhhdCBDU1VDSSBtYXksIHdpdGhvdXQgY2hhbmdpbmcgdGhlIGNvbnRlbnQsIHRyYW5zbGF0ZSB0aGUgPGJyPnN1Ym1pc3Npb24gdG8gYW55IG1lZGl1bSBvciBmb3JtYXQgZm9yIHRoZSBwdXJwb3NlIG9mIHByZXNlcnZhdGlvbi48YnI+CgpZb3UgYWxzbyBhZ3JlZSB0aGF0IENTVUNJIG1heSBrZWVwIG1vcmUgdGhhbiBvbmUgY29weSBvZiB0aGlzPGJyPiBzdWJtaXNzaW9uIGZvciBwdXJwb3NlcyBvZiBzZWN1cml0eSwgYmFja3VwIGFuZCBwcmVzZXJ2YXRpb24uPGJyPgoKWW91IHJlcHJlc2VudCB0aGF0IHRoZSBzdWJtaXNzaW9uIGlzIHlvdXIgb3JpZ2luYWwgd29yaywgYW5kIHRoYXQgeW91IDxicj5oYXZlIHRoZSByaWdodCB0byBncmFudCB0aGUgcmlnaHRzIGNvbnRhaW5lZCBpbiB0aGlzIGxpY2Vuc2UuIDxicj5Zb3UgYWxzbyByZXByZXNlbnQgdGhhdCB5b3VyIHN1Ym1pc3Npb24gZG9lcyBub3QsIHRvIHRoZSBiZXN0IG9mIDxicj55b3VyIGtub3dsZWRnZSwgaW5mcmluZ2UgdXBvbiBhbnlvbmUncyBjb3B5cmlnaHQuIFlvdSBhbHNvIDxicj5yZXByZXNlbnQgYW5kIHdhcnJhbnQgdGhhdCB0aGUgc3VibWlzc2lvbiBjb250YWlucyBubyBsaWJlbG91cyBvciA8YnI+b3RoZXIgdW5sYXdmdWwgbWF0dGVyIGFuZCBtYWtlcyBubyBpbXByb3BlciBpbnZhc2lvbiBvZiB0aGUgPGJyPnByaXZhY3kgb2YgYW55IG90aGVyIHBlcnNvbi48YnI+CgpJZiB0aGUgc3VibWlzc2lvbiBjb250YWlucyBtYXRlcmlhbCBmb3Igd2hpY2ggeW91IGRvIG5vdCBob2xkPGJyPmNvcHlyaWdodCwgeW91IHJlcHJlc2VudCB0aGF0IHlvdSBoYXZlIG9idGFpbmVkIHRoZSA8YnI+dW5yZXN0cmljdGVkIHBlcm1pc3Npb24gb2YgdGhlIGNvcHlyaWdodCBvd25lciB0byBncmFudCBDU1VDSSB0aGUgPGJyPnJpZ2h0cyByZXF1aXJlZCBieSB0aGlzIGxpY2Vuc2UsIGFuZCB0aGF0IHN1Y2ggdGhpcmQtcGFydHkgb3duZWQgPGJyPm1hdGVyaWFsIGlzIGNsZWFybHkgaWRlbnRpZmllZCBhbmQgYWNrbm93bGVkZ2VkIHdpdGhpbiB0aGUgdGV4dCA8YnI+b3IgY29udGVudCBvZiB0aGUgc3VibWlzc2lvbi4gWW91IHRha2UgZnVsbCByZXNwb25zaWJpbGl0eSB0byA8YnI+b2J0YWluIHBlcm1pc3Npb24gdG8gdXNlIGFueSBtYXRlcmlhbCB0aGF0IGlzIG5vdCB5b3VyIG93bi4gVGhpcyA8YnI+cGVybWlzc2lvbiBtdXN0IGJlIGdyYW50ZWQgdG8geW91IGJlZm9yZSB5b3Ugc2lnbiB0aGlzIGZvcm0uPGJyPgoKSUYgVEhFIFNVQk1JU1NJT04gSVMgQkFTRUQgVVBPTiBXT1JLIFRIQVQgSEFTIEJFRU4gU1BPTlNPUkVEIE9SIDxicj5TVVBQT1JURUQgQlkgQU4gQUdFTkNZIE9SIE9SR0FOSVpBVElPTiBPVEhFUiBUSEFOIENTVUNJLCBZT1UgPGJyPlJFUFJFU0VOVCBUSEFUIFlPVSBIQVZFIEZVTEZJTExFRCBBTlkgUklHSFQgT0YgUkVWSUVXIE9SIE9USEVSIDxicj5PQkxJR0FUSU9OUyBSRVFVSVJFRCBCWSBTVUNIIENPTlRSQUNUIE9SIEFHUkVFTUVOVC48YnI+CgpUaGUgQ1NVQ0kgSW5zdGl0dXRpb25hbCBSZXBvc2l0b3J5IHdpbGwgY2xlYXJseSBpZGVudGlmeSB5b3VyIG5hbWUocykgPGJyPmFzIHRoZSBhdXRob3Iocykgb3Igb3duZXIocykgb2YgdGhlIHN1Ym1pc3Npb24sIGFuZCB3aWxsIG5vdCBtYWtlIDxicj5hbnkgYWx0ZXJhdGlvbiwgb3RoZXIgdGhhbiBhcyBhbGxvd2VkIGJ5IHRoaXMgbGljZW5zZSwgdG8geW91ciA8YnI+c3VibWlzc2lvbi4K"
+    ],
+    "amdSec": [null, null, null],
+    "objectCharacteristics": [null, null],
+    "objectIdentifier": [null, null],
+    "techMD": [null, null],
+    "fixity": [null, null],
+    "objectIdentifierType": ["URL", "URL"],
+    "messageDigestAlgorithm": ["MD5", "MD5"],
+    "role": [null],
+    "fileSec": [null],
+    "structMap": [null],
+    "formatDesignation": [null, null],
+    "fptr": [null],
+    "mods": [null],
+    "name": ["DSpace Scholarworks", null],
+    "language": [null],
+    "extension": [null, null],
+    "namePart": ["California State University Channel Islands"],
+    "originInfo": [null],
+    "originalName": [
+        "Bracero History Project Survey (4)$.pdf",
+        "Bracero History Project Survey (4)$.pdf.txt"
+    ],
+    "fileGrp": [null, null],
+    "div": [null, null],
+    "identifier": ["http://hdl.handle.net/10139/4130"],
+    "roleTerm": ["author"]
+}
