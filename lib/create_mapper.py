@@ -234,6 +234,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chs_islandora_mapper import CHS_Islandora_Mapper
         return CHS_Islandora_Mapper(data)
 
+    def _create_csu_ci_mapper(data):
+        from dplaingestion.mappers.csu_ci_mets_mapper import CSU_CI_METS_Mapper
+        return CSU_CI_METS_Mapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -286,6 +290,7 @@ def create_mapper(mapper_type, data):
         'flickr_api': lambda d: _create_flickr_api_mapper(d),
         'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d)
+        'csu_ci_mets': lambda d: _create_csu_ci_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
