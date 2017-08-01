@@ -23,15 +23,16 @@ class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
         fNameOrig = getprop(self.provider_data_source, 'originalName')
         for f in fNameOrig:
             # don't take .txt file
-            if ".txt" not in f:
+            if '.txt' not in f:
                 fNameEncode = urllib.quote(f)
-                if ".pdf" in f:
+                if '.pdf' in f:
                     # get small thumb for PDF text objects
                     thumbnail_url = ''.join((
                         'http://repository.library.csuci.edu/bitstream/handle/',
                         handle, '/', fNameEncode, '.jpg'))
                     self.mapped_data.update({'isShownBy': thumbnail_url})
-                elif ".wav" or ".mp4" in f:
+                elif ".wav" in f or ".mp4" in f:
+                    logger.error(f)
                     # don't get thumbs for AV objects
                     pass
                 else:
