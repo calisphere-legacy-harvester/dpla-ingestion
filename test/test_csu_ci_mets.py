@@ -15,7 +15,7 @@ def _get_server_response(body):
     return H.request(url, "POST", body=body)
 
 
-def test_csu_sac_oai_dc_mapping():
+def test_csu_ci_mets_mapping():
     fixture = path.join(DIR_FIXTURES, 'csuci.json')
     with open(fixture) as f:
         INPUT = f.read()
