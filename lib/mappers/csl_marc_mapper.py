@@ -19,7 +19,7 @@ class CSLMARCMapper(PyMARCMapper):
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
         if prop not in self.mapped_data:
-            urlString = self._get_values(_dict, 'b')[0]
-            imgString = self._get_values(_dict, 't')[0]
+            urlString = self._get_values(_dict, 'd')[0]
+            imgString = self._get_values(_dict, 'f')[0]
             self.mapped_data[prop] = ''.join(
                 ('http://catalog.library.ca.gov', urlString, '/', imgString))
