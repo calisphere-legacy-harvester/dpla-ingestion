@@ -1,0 +1,59 @@
+{
+    "title": ["PBM_6_1_9_0005"],
+    "identifier.thumbnail": [
+        "http://maccready.library.caltech.edu/islandora/object/pbm%3A10008/datastream/TN/view/%20PBM_6_1_9_0005%20.jpg"
+    ],
+    "collection": [{
+        "dcmi_type": "X",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=islandora_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=overwrite, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "id": "26952",
+        "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c87d2xcp/",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest": "http://maccready.library.caltech.edu/oai2",
+        "campus": [],
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "Paul B. MacCready (1925–2007) came to Caltech as a graduate student, initially obtaining his Master's degree in physics in 1948 and then a PhD in aeronautical engineering in 1952. He was a visionary, an inventor and an entrepreneur who pioneered alternative energy solutions through his company, AeroVironment. The collection documents most aspects of MacCready's personality and career through a diverse array of documents, media, objects, manuscripts and printed material spanning over seventy years (ca. 1930-2002). Especially prevalent within the collection are papers and ephemera from 1977 to 1985 during which time MacCready was working on his human-powered airplanes, the Gossamer Condor and Gossamer Albatross. The papers also document his work in alternative energy solutions.",
+        "repository": [{
+            "name": "California Institute of Technology",
+            "campus": [],
+            "slug": "california-institute-of-technology",
+            "ark": "ark:/13030/tf938nc278",
+            "@id": "https://registry.cdlib.org/api/v1/repository/157/",
+            "id": 157,
+            "google_analytics_tracking_code": "",
+            "resource_uri": "/api/v1/repository/157/"
+        }],
+        "url_local": "http://maccready.library.caltech.edu/",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26952/",
+        "slug": "paul-b-maccready-papers-ca-1930-2002-paul-b-maccre",
+        "name": "Paul B. MacCready Papers ca. 1930-2002",
+        "qa_completed": false,
+        "harvest_type": "OAI",
+        "harvest_extra_data": "",
+        "rights_statement": "",
+        "merritt_id": "",
+        "staging_notes": "",
+        "local_id": "caltech-maccready",
+        "title": "Paul B. MacCready Papers ca. 1930-2002",
+        "resource_uri": "/api/v1/collection/26952/"
+    }],
+    "datestamp": "2016-05-13T18:50:34Z",
+    "identifier": [
+        "pbm:10008",
+        "http://maccready.library.caltech.edu/islandora/object/pbm%3A10008"
+    ],
+    "id": "oai:maccready.library.caltech.edu:pbm_10008"
+}
