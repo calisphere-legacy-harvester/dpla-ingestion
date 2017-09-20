@@ -54,6 +54,7 @@ def test_title_exclusion():
     content = json.loads(content)
     TC.assertFalse(content['sourceResource'])
     TC.assertNotIn('isShownAt', content)
+    TC.assertEqual(content['isShownBy'], "http://maccready.library.caltech.edu/islandora/object/pbm%3A10008/datastream/TN/view/%20PBM_6_1_9_0005%20.jpg")
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

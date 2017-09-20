@@ -44,15 +44,12 @@ class CalTech_MacCready_Mapper(Islandora_OAIMapper):
 
         # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
         try:
-            thumb_url = self.provider_data['identifier.thumbnail']
-            if 'StillImage' in self.provider_data[
-                    'type'] or 'image' in self.provider_data['type']:
-                jpg_url = thumb_url[0].replace("/TN/", "/JPG/")
+            thumb_url = self.provider_data['identifier.thumbnail'][0]
+            if 'type' in self.provider_data and any(s in self.provider_data['type'] for s in ('StillImage','image')):
+                jpg_url = thumb_url.replace("/TN/", "/JPG/")
                 request = requests.get(jpg_url)
                 if request.status_code == 200:
                     thumb_url = jpg_url
-                else:
-                    thumb_url = thumb_url[0]
             self.mapped_data.update({'isShownBy': thumb_url})
         except KeyError:  # no identifier.thumbnail
             pass
