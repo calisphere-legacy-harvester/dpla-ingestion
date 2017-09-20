@@ -69,6 +69,6 @@
         "pbm:631", "local: PBM_7_1_1",
         "http://maccready.library.caltech.edu/islandora/object/pbm%3A631"
     ],
-    "type": ["StillImage"],
+    "type": ["text"],
     "id": "oai:maccready.library.caltech.edu:pbm_631"
 }
