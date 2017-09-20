@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.islandora_oai_dc_mapper import Islandora_OAIMapper
 import requests
-from akara import logger
 
 
 class CalTech_MacCready_Mapper(Islandora_OAIMapper):
@@ -47,13 +46,11 @@ class CalTech_MacCready_Mapper(Islandora_OAIMapper):
         try:
             thumb_url = self.provider_data['identifier.thumbnail'][0]
             if 'type' in self.provider_data and any(s in self.provider_data['type'] for s in ('StillImage','image')):
-                logger.error("YES")
                 jpg_url = thumb_url.replace("/TN/", "/JPG/")
                 request = requests.get(jpg_url)
                 if request.status_code == 200:
                     thumb_url = jpg_url
             self.mapped_data.update({'isShownBy': thumb_url})
-            logger.error(thumb_url)
         except KeyError:  # no identifier.thumbnail
             pass
 
