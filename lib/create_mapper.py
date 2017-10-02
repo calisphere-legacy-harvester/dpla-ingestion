@@ -242,6 +242,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.caltech_maccready_mapper import CalTech_MacCready_Mapper
         return CalTech_MacCready_Mapper(data)
 
+    def _create_sacramento_xml_mapper(data):
+        from dplaingestion.mappers.sacramento_xml_mapper import SacramentoXMLMapper
+        return SacramentoXMLMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -296,6 +300,7 @@ def create_mapper(mapper_type, data):
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
         'csu_ci_mets': lambda d: _create_csu_ci_mapper(d),
         'caltech_maccready': lambda d: _create_caltech_maccready_mapper(d),
+        'sacramento_xml': lambda d: _create_sacramento_xml_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
