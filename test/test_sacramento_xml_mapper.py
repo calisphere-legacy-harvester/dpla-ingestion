@@ -37,10 +37,7 @@ class Sacramento_XML_FeedTestCase(TestCase):
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1966/09/28')
-        self.assertEqual(
-            srcRes['description'],
-            'Edwin A. Grebitus Sr. shown with his son Edwin A. Grebitus Jr. and Sacramento Mayor Walter Christensen (center) at the opening of their new store at 11th and K Streets.'
-        )
+        self.assertNotIn('description', srcRes)
         self.assertEqual(srcRes['subject'], [
             {
                 'name': u'Memorabilia'
