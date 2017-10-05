@@ -15,7 +15,11 @@ class SacramentoXMLMapper(Mapper):
         if 'url' in self.metadata:
             self.mapped_data.update({"isShownAt": self.metadata['url'][0]})
         if 'thumbnail' in self.metadata:
-            self.mapped_data.update({"isShownBy": self.metadata['thumbnail'][0]})
+            if '.tif' in self.metadata['thumbnail'][0]:
+                jpg_url = self.metadata['thumbnail'][0].replace(".tif", ".jpg")
+                self.mapped_data.update({"isShownBy": jpg_url})
+            else:
+                self.mapped_data.update({"isShownBy": self.metadata['thumbnail'][0]})
 
     def map_ids(self):
         collection_id = self.provider_data['collection'][0]['resource_uri']
