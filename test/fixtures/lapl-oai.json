@@ -1,0 +1,59 @@
+{
+    "language": ["eng"],
+    "title": ["Los Angeles Street Address Directory, 1967, April"],
+    "collection": [{
+        "dcmi_type": "X",
+        "qa_completed": false,
+        "featured": false,
+        "ready_for_publication": true,
+        "hosted": "",
+        "campus": [],
+        "url_oac": "",
+        "custom_facet": [],
+        "metadata_in_dams": false,
+        "url_harvest": "http://173.196.26.121:8080/oai/provider",
+        "id": "26096",
+        "files_in_dams": false,
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description":
+        "This selection of Los Angeles City and Street Directories spans from 1875-1987.",
+        "repository": [{
+            "name": "Los Angeles Public Library",
+            "campus": [],
+            "slug": "los-angeles-public-library",
+            "ark": "ark:/13030/c8j969q0",
+            "@id": "https://registry.cdlib.org/api/v1/repository/143/",
+            "id": 143,
+            "google_analytics_tracking_code": "UA-10403126-10",
+            "resource_uri": "/api/v1/repository/143/"
+        }],
+        "harvest_type": "OAI",
+        "extent": null,
+        "rights_status": "UN",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26096/",
+        "slug": "los-angeles-public-library-city-directories",
+        "harvest_extra_data": "",
+        "enrichments_item":
+        "/select-id?prop=id,\r\n/oai-to-dpla,\r\n/lapl-oai-isShown-26096,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+        "url_local": "",
+        "name": "Los Angeles Public Library City Directories",
+        "rights_statement":
+        "Please contact: Digitization & Special Collections, Los Angeles Public Library, 630 W. 5th St., Los Angeles, CA 90071; kcreight@lapl.org; phone (213) 228-7275.",
+        "staging_notes": "",
+        "local_id": "los-angeles-public-library-city-directories",
+        "title": "Los Angeles Public Library City Directories",
+        "resource_uri": "/api/v1/collection/26096/"
+    }],
+    "datestamp": "2014-10-23T23:04:55Z",
+    "date": ["1967"],
+    "identifier": [
+        "rescarta.lapl.org/jsp/RcWebImageViewer.jsp?doc_id=026bc4f2-52f9-4cbf-b1e4-12291b1cd6d0/LPU00000/LL000001/00000009"
+    ],
+    "type": ["Text"],
+    "id": "oai:rescarta.lapl.org:LPU00000LL00000100000009",
+    "subject": [
+        "USA", "CA", "Los Angeles", "History", "Los Angeles", "Directories",
+        "Telephone"
+    ]
+}
