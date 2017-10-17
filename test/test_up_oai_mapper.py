@@ -4,7 +4,6 @@ from unittest import TestCase
 from nose.plugins.attrib import attr
 from server_support import server, H
 from amara.thirdparty import json
-from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -38,7 +37,8 @@ def test_up_oai_dc_mapping():
         "http://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1005&amp;context=pacific-review"
     ])
     TC.assertEqual(srcRes['description'], [
-        "http://scholarlycommons.pacific.edu/pacific-review/1005/thumbnail.jpg",
+        "Topics Include: Japanese, Japan, school, education, food, California, bank, family",
+        "another value"
     ])
 
 # Copyright © 2016, Regents of the University of California

@@ -42,6 +42,16 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
+    def map_description(self):
+        '''drop thumbnail URL from description field'''
+        values = []
+        descs = getprop(self.provider_data_source, 'description')
+        for d in descs:
+            if 'http://scholarlycommons.pacific.edu/' not in d:
+                values.append(d)
+        if values:
+            self.update_source_resource({'description': values})
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
