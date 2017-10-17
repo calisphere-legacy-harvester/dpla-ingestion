@@ -1,8 +1,11 @@
 {
     "publisher": ["Scholarly Commons"],
     "date": ["2016-06-01T07:00:00Z"],
-    "description":
-    ["http://scholarlycommons.pacific.edu/pacific-review/1005/thumbnail.jpg"],
+    "description": [
+      "Topics Include: Japanese, Japan, school, education, food, California, bank, family",
+      "another value",
+      "http://scholarlycommons.pacific.edu/pacific-review/1005/thumbnail.jpg"
+    ],
     "format": ["application/pdf"],
     "creator": ["University of the Pacific"],
     "collection": [{
