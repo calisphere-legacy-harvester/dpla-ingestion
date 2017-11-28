@@ -47,7 +47,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         values = []
         descs = getprop(self.provider_data_source, 'description')
         for d in descs:
-            if 'http://scholarlycommons.pacific.edu/' not in d:
+            if 'thumbnail.jpg' not in d:
                 values.append(d)
         if values:
             self.update_source_resource({'description': values})
