@@ -36,7 +36,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
         for i in idents:
-            if 'http://scholarlycommons.pacific.edu' in i:
+            if 'scholarlycommons.pacific.edu' in i:
                 if 'viewcontent' not in i:
                     isShownAt = i
         if isShownAt:

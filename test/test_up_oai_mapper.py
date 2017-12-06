@@ -28,12 +28,12 @@ def test_up_oai_dc_mapping():
     TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']
     TC.assertEqual(obj['isShownAt'],
-                   "http://scholarlycommons.pacific.edu/pacific-review/6")
+                   "https://scholarlycommons.pacific.edu/pacific-review/6")
     TC.assertEqual(
         obj['isShownBy'],
         "http://scholarlycommons.pacific.edu/pacific-review/1005/preview.jpg")
     TC.assertEqual(srcRes['identifier'], [
-        "http://scholarlycommons.pacific.edu/pacific-review/6",
+        "https://scholarlycommons.pacific.edu/pacific-review/6",
         "http://scholarlycommons.pacific.edu/cgi/viewcontent.cgi?article=1005&amp;context=pacific-review"
     ])
     TC.assertEqual(srcRes['description'], [
