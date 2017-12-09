@@ -1,0 +1,112 @@
+{
+   "publisher": [
+       "National Park Service"
+   ],
+   "rights": [
+       "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website."
+   ],
+   "date": [
+       "9/1/2017 12:00:00 AM"
+   ],
+   "description": [
+       "El Portal view"
+   ],
+   "language": [
+       "English"
+   ],
+   "format": [
+       "tif"
+   ],
+   "type": [
+       "Image"
+   ],
+   "temporal": [
+       "1935"
+   ],
+   "provenance": [
+       "Digitized by University of California, Merced Library"
+   ],
+   "collection": [
+       {
+           "dcmi_type": "X",
+           "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=dublin_core,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+           "featured": false,
+           "ready_for_publication": false,
+           "hosted": "",
+           "id": "26989",
+           "url_oac": "",
+           "custom_facet": [
+           ],
+           "harvest_frequency": null,
+           "metadata_in_dams": false,
+           "url_harvest": "https://npgallery.nps.gov/oai/",
+           "campus": [
+           ],
+           "files_in_dams": false,
+           "date_last_harvested": null,
+           "harvest_exception_notes": "",
+           "files_in_hand": false,
+           "ingestType": "collection",
+           "description": "",
+           "repository": [
+               {
+                   "name": "Yosemite National Park Archives",
+                   "campus": [
+                   ],
+                   "slug": "yosemite-national-park-archives",
+                   "ark": "ark:/13030/c8m61qqn",
+                   "@id": "https://registry.cdlib.org/api/v1/repository/240/",
+                   "id": 240,
+                   "google_analytics_tracking_code": "",
+                   "resource_uri": "/api/v1/repository/240/"
+               }
+           ],
+           "url_local": "https://npgallery.nps.gov/SearchResults?pagesize=60&collection=Fire%20Management%20Records%20Catalog%20Number:%20YOSE%20232950&filters=default",
+           "extent": null,
+           "rights_status": "X",
+           "@id": "https://registry.cdlib.org/api/v1/collection/26989/",
+           "slug": "yosemite-sketches",
+           "name": "Yosemite Sketches",
+           "qa_completed": false,
+           "harvest_type": "OAI",
+           "harvest_extra_data": "YOSE232950",
+           "rights_statement": "",
+           "merritt_id": "",
+           "staging_notes": "",
+           "local_id": "yosemite-sketches",
+           "title": "Yosemite Sketches",
+           "resource_uri": "/api/v1/collection/26989/"
+       }
+   ],
+   "source": [
+       "Yosemite National Park Archives, 5083 Foresta Road, El Portal, CA 95318"
+   ],
+   "relation": [
+       null
+   ],
+   "spatial": [
+       "Avagro (El Portal View)",
+       "Latitude: 37.67425 Longitude: -119.700167"
+   ],
+   "datestamp": "2017-12-08",
+   "title": [
+       "Avagro"
+   ],
+   "alternative": [
+       null
+   ],
+   "identifier": [
+       "https://npgallery.nps.gov/GetAsset/0657c92b4ad6449eb3b0fca3e10be5f6",
+       "https://npgallery.nps.gov/AssetDetail/0657c92b4ad6449eb3b0fca3e10be5f6",
+       "https://npgallery.nps.gov/GetAsset/0657c92b4ad6449eb3b0fca3e10be5f6/proxy/hires/"
+   ],
+   "creator": [
+       "Moe, Lester M."
+   ],
+   "id": "oai:npgallery.nps.gov/0657c92b4ad6449eb3b0fca3e10be5f6",
+   "subject": [
+       "fire lookout",
+       "panoramic",
+       "yosemite"
+   ]
+}
