@@ -1,0 +1,116 @@
+{
+      "collection": [
+             {
+                 "dcmi_type": "I",
+                 "enrichments_item": "/select-id?prop=metadata/identifier, /dpla_mapper?mapper_type=emuseum_xml, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+                 "featured": false,
+                 "ready_for_publication": false,
+                 "hosted": "",
+                 "campus": [
+                 ],
+                 "url_oac": "",
+                 "custom_facet": [
+                 ],
+                 "harvest_frequency": null,
+                 "metadata_in_dams": false,
+                 "url_harvest": "http://digitalcollections.hoover.org",
+                 "id": "26251",
+                 "files_in_dams": false,
+                 "date_last_harvested": null,
+                 "harvest_exception_notes": "",
+                 "files_in_hand": false,
+                 "ingestType": "collection",
+                 "description": "",
+                 "repository": [
+                     {
+                         "name": "Hoover Institution",
+                         "campus": [
+                         ],
+                         "slug": "hoover-institution",
+                         "ark": "ark:/13030/tf4m3nb8sq",
+                         "@id": "https://registry.cdlib.org/api/v1/repository/150/",
+                         "id": 150,
+                         "google_analytics_tracking_code": "",
+                         "resource_uri": "/api/v1/repository/150/"
+                     }
+                 ],
+                 "harvest_type": "XML",
+                 "extent": null,
+                 "rights_status": "X",
+                 "@id": "https://registry.cdlib.org/api/v1/collection/26251/",
+                 "slug": "Hoover-Institution-Collections",
+                 "harvest_extra_data": "",
+                 "qa_completed": false,
+                 "url_local": "https://www.hoover.org/library-archives/collections",
+                 "name": "Hoover Institution Collections",
+                 "rights_statement": "",
+                 "merritt_id": "",
+                 "staging_notes": "",
+                 "local_id": "hoover-emuseum",
+                 "title": "Hoover Institution Collections",
+                 "resource_uri": "/api/v1/collection/26251/"
+             }
+      ],
+      "primaryMedia":{
+         "text":"/internal/media/dispatcher/3340/resize%3Aformat%3Dpreview",
+         "attrib":{
+            "order":"1",
+            "label":"primaryMedia"
+         }
+      },
+      "title":{
+         "text":"Money is power.  A war saving certificate in every Canadian home.  Get yours now at Post Offices or banks.",
+         "attrib":{
+            "order":"2",
+            "label":"Item Title"
+         }
+      },
+      "approved":{
+         "text":"1",
+         "attrib":{
+            "order":"15",
+            "label":"Online only"
+         }
+      },
+      "collectionTitle":{
+         "text":"Poster collection",
+         "attrib":{
+            "order":"4",
+            "label":"Collection Title"
+         }
+      },
+      "invno":{
+         "text":"XX343.1905",
+         "attrib":{
+            "order":"0",
+            "label":"Record Number"
+         }
+      },
+      "parentCollectionId":{
+         "text":"310",
+         "attrib":{
+            "order":"0"
+         }
+      },
+      "primaryMaker":{
+         "text":"National Service Board of Canada",
+         "attrib":{
+            "order":"3",
+            "label":"Primary Maker"
+         }
+      },
+      "id":{
+         "text":"11529",
+         "attrib":{
+            "order":"0",
+            "label":"Id"
+         }
+      },
+      "displayDate":{
+         "text":"1914/1918?",
+         "attrib":{
+            "order":"0",
+            "label":"Date Created"
+         }
+      }
+   }
