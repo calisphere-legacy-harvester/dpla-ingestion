@@ -33,3 +33,8 @@ def test_black_gold_mapping():
         obj['isShownBy'],
         "https://npgallery.nps.gov/GetAsset/0657c92b4ad6449eb3b0fca3e10be5f6/proxy/hires/"
     )
+    TC.assertEqual(
+        obj['sourceResource']['date'][0],
+        "1935"
+    )
+    TC.assertNotIn('temporal', obj['sourceResource'])

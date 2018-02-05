@@ -27,6 +27,17 @@ class Yosemite_OAIMapper(OAIDublinCoreMapper):
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
+    '''grab date value from dcterms:temporal and not dc:date which
+    is date digitized'''
+    def map_date(self):
+        fields = ("available", "created", "dateAccepted",
+                  "dateCopyrighted", "dateSubmitted", "issued",
+                  "modified", "valid", "temporal")
+        self.source_resource_orig_list_to_prop(fields, 'date')
+
+    def map_temporal(self):
+        pass
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
