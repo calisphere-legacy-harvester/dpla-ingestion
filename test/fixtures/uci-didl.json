@@ -1,0 +1,493 @@
+{
+   "creator": [
+       "Rorty, Richard"
+   ],
+   "relation": [
+       "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/"
+   ],
+   "Statement": {
+       "@mimeType": "application/xml; charset=utf-8",
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+           {
+               "text": null,
+               "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+               "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                   {
+                       "text": "\"The Continuity Between the Enlightenment and 'Postmodernism':\" draft",
+                       "{http://purl.org/dc/elements/1.1/}title": [
+                       ]
+                   },
+                   {
+                       "text": "Rorty, Richard",
+                       "{http://purl.org/dc/elements/1.1/}creator": [
+                       ]
+                   },
+                   {
+                       "text": "Pragmatism",
+                       "{http://purl.org/dc/elements/1.1/}subject": [
+                       ]
+                   },
+                   {
+                       "text": "Philosophy",
+                       "{http://purl.org/dc/elements/1.1/}subject": [
+                       ]
+                   },
+                   {
+                       "text": "Rorty, Richard",
+                       "{http://purl.org/dc/elements/1.1/}subject": [
+                       ]
+                   },
+                   {
+                       "text": "Rorty, Richard",
+                       "{http://purl.org/dc/elements/1.1/}subject": [
+                       ]
+                   },
+                   {
+                       "{http://purl.org/dc/elements/1.1/}description": [
+                       ],
+                       "text": "Original file location on Richard Rorty's disk: MS-C017-FD065/CONTINUI"
+                   },
+                   {
+                       "{http://purl.org/dc/elements/1.1/}description": [
+                       ],
+                       "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access."
+                   },
+                   {
+                       "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu",
+                       "{http://purl.org/dc/elements/1.1/}publisher": [
+                       ]
+                   },
+                   {
+                       "text": "2010-02-17T22:41:14Z",
+                       "{http://purl.org/dc/elements/1.1/}date": [
+                       ]
+                   },
+                   {
+                       "text": "Archives and Manuscripts",
+                       "{http://purl.org/dc/elements/1.1/}type": [
+                       ]
+                   },
+                   {
+                       "text": "application/pdf",
+                       "{http://purl.org/dc/elements/1.1/}format": [
+                       ]
+                   },
+                   {
+                       "text": "http://hdl.handle.net/10575/1000",
+                       "{http://purl.org/dc/elements/1.1/}identifier": [
+                       ]
+                   },
+                   {
+                       "text": "en_US",
+                       "{http://purl.org/dc/elements/1.1/}language": [
+                       ]
+                   },
+                   {
+                       "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/",
+                       "{http://purl.org/dc/elements/1.1/}relation": [
+                       ]
+                   },
+                   {
+                       "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu).",
+                       "{http://purl.org/dc/elements/1.1/}rights": [
+                       ]
+                   },
+                   {
+                       "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/application-virtual-reading-room-ucispace. Access may be granted in less than 5 business days.",
+                       "{http://purl.org/dc/elements/1.1/}rights": [
+                       ]
+                   }
+               ]
+           }
+       ],
+       "text": null
+   },
+   "datestamp": "2017-10-27T11:02:57Z",
+   "DIDLInfo": {
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}DIDLInfo": [
+           {
+               "text": "2017-10-27T22:43:27Z",
+               "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://purl.org/dc/terms/ ",
+               "{http://purl.org/dc/terms/}created": [
+               ]
+           }
+       ],
+       "text": null
+   },
+   "id": "oai:ucispace-prod.lib.uci.edu:10575/1000",
+   "subject": [
+       "Pragmatism",
+       "Philosophy",
+       "Rorty, Richard",
+       "Rorty, Richard"
+   ],
+   "title": [
+       "\"The Continuity Between the Enlightenment and 'Postmodernism':\" draft"
+   ],
+   "Component": {
+       "text": null,
+       "@id": "uuid-8dcc8d34-538c-4c67-a949-b714564a52ac",
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+           {
+               "@mimeType": "application/pdf",
+               "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/1000/1/CONTINUI.pdf",
+               "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [
+               ],
+               "text": null
+           }
+       ]
+   },
+   "Item": {
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Item": [
+           {
+               "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+                   {
+                       "@mimeType": "application/xml; charset=utf-8",
+                       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+                           {
+                               "text": "urn:hdl:10575/1000",
+                               "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "urn:mpeg:mpeg21:2002:01-DII-NS http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-21_schema_files/dii/dii.xsd",
+                               "{urn:mpeg:mpeg21:2002:01-DII-NS}Identifier": [
+                               ]
+                           }
+                       ],
+                       "text": null
+                   }
+               ],
+               "text": null
+           },
+           {
+               "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+                   {
+                       "@mimeType": "application/xml; charset=utf-8",
+                       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+                           {
+                               "text": null,
+                               "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+                               "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                                   {
+                                       "text": "\"The Continuity Between the Enlightenment and 'Postmodernism':\" draft",
+                                       "{http://purl.org/dc/elements/1.1/}title": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Rorty, Richard",
+                                       "{http://purl.org/dc/elements/1.1/}creator": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Pragmatism",
+                                       "{http://purl.org/dc/elements/1.1/}subject": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Philosophy",
+                                       "{http://purl.org/dc/elements/1.1/}subject": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Rorty, Richard",
+                                       "{http://purl.org/dc/elements/1.1/}subject": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Rorty, Richard",
+                                       "{http://purl.org/dc/elements/1.1/}subject": [
+                                       ]
+                                   },
+                                   {
+                                       "{http://purl.org/dc/elements/1.1/}description": [
+                                       ],
+                                       "text": "Original file location on Richard Rorty's disk: MS-C017-FD065/CONTINUI"
+                                   },
+                                   {
+                                       "{http://purl.org/dc/elements/1.1/}description": [
+                                       ],
+                                       "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access."
+                                   },
+                                   {
+                                       "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu",
+                                       "{http://purl.org/dc/elements/1.1/}publisher": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "2010-02-17T22:41:14Z",
+                                       "{http://purl.org/dc/elements/1.1/}date": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Archives and Manuscripts",
+                                       "{http://purl.org/dc/elements/1.1/}type": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "application/pdf",
+                                       "{http://purl.org/dc/elements/1.1/}format": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "http://hdl.handle.net/10575/1000",
+                                       "{http://purl.org/dc/elements/1.1/}identifier": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "en_US",
+                                       "{http://purl.org/dc/elements/1.1/}language": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/",
+                                       "{http://purl.org/dc/elements/1.1/}relation": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu).",
+                                       "{http://purl.org/dc/elements/1.1/}rights": [
+                                       ]
+                                   },
+                                   {
+                                       "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/application-virtual-reading-room-ucispace. Access may be granted in less than 5 business days.",
+                                       "{http://purl.org/dc/elements/1.1/}rights": [
+                                       ]
+                                   }
+                               ]
+                           }
+                       ],
+                       "text": null
+                   }
+               ],
+               "text": null
+           },
+           {
+               "text": null,
+               "@id": "uuid-8dcc8d34-538c-4c67-a949-b714564a52ac",
+               "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Component": [
+                   {
+                       "@mimeType": "application/pdf",
+                       "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/1000/1/CONTINUI.pdf",
+                       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [
+                       ],
+                       "text": null
+                   }
+               ]
+           }
+       ],
+       "text": null,
+       "@id": "uuid-deb08135-675b-494b-892a-df68cbf06625"
+   },
+   "type": [
+       "Archives and Manuscripts"
+   ],
+   "Resource": {
+       "@mimeType": "application/pdf",
+       "@ref": "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/1000/1/CONTINUI.pdf",
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Resource": [
+       ],
+       "text": null
+   },
+   "description": [
+       "Original file location on Richard Rorty's disk: MS-C017-FD065/CONTINUI",
+       "File transferred from Richard Rorty's original floppy disk and converted to PDF for access."
+   ],
+   "format": [
+       "application/pdf"
+   ],
+   "dc": [
+       null
+   ],
+   "collection": [
+       {
+           "dcmi_type": "X",
+           "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=dublin_core,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_date,\r\n/enrich_date?prop=sourceResource%2Fdate,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/uci-object-urls,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+           "featured": true,
+           "ready_for_publication": true,
+           "hosted": "",
+           "id": "26117",
+           "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/",
+           "custom_facet": [
+           ],
+           "harvest_frequency": null,
+           "metadata_in_dams": false,
+           "url_harvest": "http://ucispace-prod.lib.uci.edu:8080/oai/request",
+           "campus": [
+               {
+                   "name": "UC Irvine",
+                   "slug": "UCI",
+                   "position": 2,
+                   "ark": "ark:/13030/tf3f59p4sv",
+                   "@id": "https://registry.cdlib.org/api/v1/campus/3/",
+                   "id": 3,
+                   "google_analytics_tracking_code": "",
+                   "resource_uri": "/api/v1/campus/3/"
+               }
+           ],
+           "files_in_dams": false,
+           "date_last_harvested": null,
+           "harvest_exception_notes": "",
+           "files_in_hand": false,
+           "ingestType": "collection",
+           "description": "Richard Rorty (1931-2007) was a pragmatist philosopher, critical theorist, and public intellectual who is commonly described as one of the most important thinkers of his era. Included in this collection are electronic word-processing files, created between 1988 and 2003. The files were retrieved from Rorty's 3.5\" floppy disks during processing of his personal papers and converted to PDF format in order to facilitate preservation and access.\r\n\r\nIncluded are letters, many drafts of writings, lecture notes, syllabi, and exams. Also included are bibliographies of his work, a few administrative files, and a couple of documents relating to his children. This collection also contains drafts of writings done by some of his peers and colleagues. Researchers will notice some data loss and corruption has occurred in some of the earliest files.",
+           "repository": [
+               {
+                   "name": "Libraries, Critical Theory Archive",
+                   "campus": [
+                       {
+                           "name": "UC Irvine",
+                           "slug": "UCI",
+                           "position": 2,
+                           "ark": "ark:/13030/tf3f59p4sv",
+                           "id": 3,
+                           "google_analytics_tracking_code": "",
+                           "resource_uri": "/api/v1/campus/3/"
+                       }
+                   ],
+                   "slug": "critical-theory-archive",
+                   "ark": "ark:/13030/kt1m3nb11c",
+                   "@id": "https://registry.cdlib.org/api/v1/repository/14/",
+                   "id": 14,
+                   "google_analytics_tracking_code": "UA-67390624-1",
+                   "resource_uri": "/api/v1/repository/14/"
+               }
+           ],
+           "url_local": "http://ucispace.lib.uci.edu/handle/10575/7",
+           "extent": null,
+           "rights_status": "CR",
+           "@id": "https://registry.cdlib.org/api/v1/collection/26117/",
+           "slug": "richard-rorty-born-digital-files-1988-2003-richard",
+           "name": "Richard Rorty born digital files, 1988-2003",
+           "qa_completed": false,
+           "harvest_type": "OAI",
+           "harvest_extra_data": "set=hdl_10575_7&metadataPrefix=didl",
+           "rights_statement": "",
+           "merritt_id": "",
+           "staging_notes": "",
+           "local_id": "richard-rorty-born-digital-files-1988-2003-richard",
+           "title": "Richard Rorty born digital files, 1988-2003",
+           "resource_uri": "/api/v1/collection/26117/"
+       }
+   ],
+   "Descriptor": {
+       "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Descriptor": [
+           {
+               "@mimeType": "application/xml; charset=utf-8",
+               "{urn:mpeg:mpeg21:2002:02-DIDL-NS}Statement": [
+                   {
+                       "text": null,
+                       "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+                       "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": [
+                           {
+                               "text": "\"The Continuity Between the Enlightenment and 'Postmodernism':\" draft",
+                               "{http://purl.org/dc/elements/1.1/}title": [
+                               ]
+                           },
+                           {
+                               "text": "Rorty, Richard",
+                               "{http://purl.org/dc/elements/1.1/}creator": [
+                               ]
+                           },
+                           {
+                               "text": "Pragmatism",
+                               "{http://purl.org/dc/elements/1.1/}subject": [
+                               ]
+                           },
+                           {
+                               "text": "Philosophy",
+                               "{http://purl.org/dc/elements/1.1/}subject": [
+                               ]
+                           },
+                           {
+                               "text": "Rorty, Richard",
+                               "{http://purl.org/dc/elements/1.1/}subject": [
+                               ]
+                           },
+                           {
+                               "text": "Rorty, Richard",
+                               "{http://purl.org/dc/elements/1.1/}subject": [
+                               ]
+                           },
+                           {
+                               "{http://purl.org/dc/elements/1.1/}description": [
+                               ],
+                               "text": "Original file location on Richard Rorty's disk: MS-C017-FD065/CONTINUI"
+                           },
+                           {
+                               "{http://purl.org/dc/elements/1.1/}description": [
+                               ],
+                               "text": "File transferred from Richard Rorty's original floppy disk and converted to PDF for access."
+                           },
+                           {
+                               "text": "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu",
+                               "{http://purl.org/dc/elements/1.1/}publisher": [
+                               ]
+                           },
+                           {
+                               "text": "2010-02-17T22:41:14Z",
+                               "{http://purl.org/dc/elements/1.1/}date": [
+                               ]
+                           },
+                           {
+                               "text": "Archives and Manuscripts",
+                               "{http://purl.org/dc/elements/1.1/}type": [
+                               ]
+                           },
+                           {
+                               "text": "application/pdf",
+                               "{http://purl.org/dc/elements/1.1/}format": [
+                               ]
+                           },
+                           {
+                               "text": "http://hdl.handle.net/10575/1000",
+                               "{http://purl.org/dc/elements/1.1/}identifier": [
+                               ]
+                           },
+                           {
+                               "text": "en_US",
+                               "{http://purl.org/dc/elements/1.1/}language": [
+                               ]
+                           },
+                           {
+                               "text": "Richard Rorty Papers. MS-C017. University of California, Irvine Libraries. Special Collections and Archives. Finding aid for entire collection available at:  http://www.oac.cdlib.org/findaid/ark:/13030/kt9p3038mq/",
+                               "{http://purl.org/dc/elements/1.1/}relation": [
+                               ]
+                           },
+                           {
+                               "text": "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu).",
+                               "{http://purl.org/dc/elements/1.1/}rights": [
+                               ]
+                           },
+                           {
+                               "text": "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/application-virtual-reading-room-ucispace. Access may be granted in less than 5 business days.",
+                               "{http://purl.org/dc/elements/1.1/}rights": [
+                               ]
+                           }
+                       ]
+                   }
+               ],
+               "text": null
+           }
+       ],
+       "text": null
+   },
+   "date": [
+       "2010-02-17T22:41:14Z"
+   ],
+   "Identifier": [
+       "urn:hdl:10575/1000"
+   ],
+   "publisher": [
+       "University of California, Irvine Libraries. Special Collections and Archives. Critical Theory Archive. Irvine, California 92623-9557. http://special.lib.uci.edu. email: spcoll@uci.edu"
+   ],
+   "language": [
+       "en_US"
+   ],
+   "rights": [
+       "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The authors or their heirs retain their copyrights to the material. Contact the University of California, Irvine Libraries, Special Collections and Archives for more information (spcoll@uci.edu).",
+       "To access this item, interested researchers should submit an application online at http://special.lib.uci.edu/application-virtual-reading-room-ucispace. Access may be granted in less than 5 business days."
+   ],
+   "created": [
+       "2017-10-27T22:43:27Z"
+   ],
+   "identifier": [
+       "http://hdl.handle.net/10575/1000"
+   ]
+}

@@ -258,6 +258,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.emuseum_xml_mapper import eMuseumXMLMapper
         return eMuseumXMLMapper(data)
 
+    def _create_uci_didl_mapper(data):
+        from dplaingestion.mappers.uci_didl_mapper import UCI_DIDL_Mapper
+        return UCI_DIDL_Mapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -316,6 +320,7 @@ def create_mapper(mapper_type, data):
         'lapl_oai_dc': lambda d: _create_lapl_oai_mapper(d),
         'yosemite_oai_dc': lambda d: _create_yosemite_oai_mapper(d),
         'emuseum_xml': lambda d: _create_emuseum_xml_mapper(d),
+        'uci_didl': lambda d: _create_uci_didl_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
