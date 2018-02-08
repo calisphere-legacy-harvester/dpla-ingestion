@@ -22,6 +22,10 @@ def test_uci_didl_mapping():
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
+
+    TC.assertEqual(obj['isShownAt'], "http://hdl.handle.net/10575/1000")
+    TC.assertEqual(obj['isShownBy'], "http://ucispace-prod.lib.uci.edu/xmlui/bitstream/10575/1000/1/CONTINUI.pdf")
+
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['date'][0], "2010-02-17T22:41:14Z")
 
