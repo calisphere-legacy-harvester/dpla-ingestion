@@ -21,9 +21,9 @@ def test_ucla_mapping():
         assert resp.status == 200
         obj = json.loads(content)
         TC.assertIn('isShownAt', obj)
-        TC.assertEqual(obj['isShownAt'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747')
+        TC.assertEqual(obj['isShownAt'], 'https://dl.library.ucla.edu/islandora/object/edu.ucla.library.specialCollections.bartlett:1747')
         TC.assertIn('isShownBy', obj)
-        TC.assertEqual(obj['isShownBy'], 'http://digital.library.ucla.edu/collections/islandora/object/edu.ucla.library.specialCollections.bartlett:1747/datastream/JPG/JPG.jpg')
+        TC.assertEqual(obj['isShownBy'], 'https://dl.library.ucla.edu/islandora/object/edu.ucla.library.specialCollections.bartlett:1747/datastream/JPG/JPG.jpg')
         TC.assertIn('sourceResource', obj)
         srcRes = obj['sourceResource']
         TC.assertEqual(srcRes['subject'], [
@@ -39,7 +39,7 @@ def test_ucla_mapping():
         TC.assertEqual(srcRes['format'], [u'1 p.',])
         TC.assertEqual(srcRes['identifier'],
                 [u'edu.ucla.library.specialCollections.bartlett:1747',
-                    u'uclamss_1300_1775i', u'1775i', 
+                    u'uclamss_1300_1775i', u'1775i',
                     "ark:/21198/zz002bxnxg"])
         TC.assertEqual(srcRes['language'], [u'eng'])
         TC.assertEqual(srcRes['relation'], [u'Adelbert Bartlett Papers. Department of Special Collections, Charles E. Young Research Library, UCLA.'])

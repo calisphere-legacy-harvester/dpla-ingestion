@@ -3,9 +3,9 @@ from dplaingestion.selector import exists, getprop
 from dplaingestion.utilities import iterify
 
 class UCLASolrDCMapper(DublinCoreMapper):
-    URL_UCLA_OBJECT_ROOT = 'http://digital.library.ucla.edu/collections/islandora/object/'
+    URL_UCLA_OBJECT_ROOT = 'https://dl.library.ucla.edu/islandora/object/'
 
-    def __init__(self, provider_data): 
+    def __init__(self, provider_data):
         super(UCLASolrDCMapper, self).__init__(provider_data, prefix='dc.')
 
     # root mapping
@@ -32,7 +32,7 @@ class UCLASolrDCMapper(DublinCoreMapper):
         "mods_recordInfo_recordIdentifier_mlt": "21198-zz002b1833",
         "mods_recordInfo_recordIdentifier_s": "21198-zz002b1833",
         "mods_recordInfo_recordIdentifier_t": "21198-zz002b1833",
-        
+
         If one is found, safe to assume UCLA & make the ARK
         NOTE: I cut & pasted this to the ucla_solr_dc_mapper to get it
         into the "identifier" field
@@ -58,7 +58,7 @@ class UCLASolrDCMapper(DublinCoreMapper):
             except KeyError:
                 print >> sys.stderr, "FAILED TO GET:{}".format(f)
                 pass
-    
+
         if ark:
             try:
                 self.mapped_data["sourceResource"]['identifier'].append(ark)
