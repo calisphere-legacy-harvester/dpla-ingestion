@@ -44,8 +44,8 @@ class FlickrMapperTestCase(TestCase):
             '.---Repository: <a href="http://www.sandiegoairandspace.org/'
             'library/stillimages.html" rel="nofollow">San Diego Air and Space'
             ' Museum </a>')
-        self.assertEqual(srcRes['date'], "2017-05-01 17:02:30")
-        self.assertEqual(srcRes['subject'], ['wooyay', 'hoopla'])
+        self.assertNotIn('date', srcRes)
+        self.assertEqual(srcRes['subject'], ['woo yay', 'Hoopla'])
         self.assertEqual(srcRes['format'], "photo")
         self.assertEqual(srcRes['identifier'], ["56100666", "C87-047-040.tif"])
 

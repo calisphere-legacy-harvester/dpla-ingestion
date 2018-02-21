@@ -47,8 +47,7 @@ class FlickrMapper(Mapper):
         if there is no EXIF data. For items with EXIF data, hopefully it is
         the date taken == created date.
         '''
-        self.update_source_resource(
-            {'date': self.provider_data['dates']['taken']})
+        pass
 
     def map_description(self):
         self.update_source_resource(
@@ -58,7 +57,7 @@ class FlickrMapper(Mapper):
         tags = self.provider_data['tags']
         subjects = []
         for tag in tags:
-            subjects.append(tag['text'])
+            subjects.append(tag['raw'])
         self.update_source_resource({'subject': subjects})
 
     def map_title(self):
