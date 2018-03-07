@@ -37,6 +37,7 @@ class Sacramento_XML_FeedTestCase(TestCase):
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1966/09/28')
+        self.assertEqual(srcRes['identifier'], ['000501E3-9133-4358-AE66-874944208261', '1994/007/013'])
         self.assertNotIn('description', srcRes)
         self.assertEqual(srcRes['subject'], [
             {

@@ -62,10 +62,13 @@ class SacramentoXMLMapper(Mapper):
             self.update_source_resource({'title': self.metadata['title'][0]})
 
     def map_identifier(self):
+        identifiers = []
         if 'identifier' in self.metadata:
-            self.update_source_resource({
-                'identifier': self.metadata['identifier'][0]
-                })
+            identifiers.append(self.metadata['identifier'][0])
+        if 'objectid' in self.metadata:
+            identifiers.append(self.metadata['objectid'][0])
+        if identifiers:
+            self.update_source_resource({'identifier': identifiers})
 
     def map_relation(self):
         if 'relation' in self.metadata:
