@@ -23,7 +23,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         '''
         descs = getprop(self.provider_data_source, 'description')
         for d in descs:
-            if 'thumbnail' in d:
+            if '/thumbnail.jpg' in d:
                 url_preview = d.replace('thumbnail', 'preview')
                 self.mapped_data.update({'isShownBy': url_preview})
                 break
