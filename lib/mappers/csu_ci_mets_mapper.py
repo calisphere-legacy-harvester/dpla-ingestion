@@ -1,6 +1,7 @@
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
 import urllib
+from akara import logger
 
 
 class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
@@ -22,17 +23,16 @@ class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
         handle = self.get_handle()
         fNameOrig = getprop(self.provider_data_source, 'originalName')
         for f in fNameOrig:
-            # don't take .txt file
-            if '.txt' not in f:
+            # don't take .txt or .doc file
+            if ".txt" not in f.lower() and ".doc" not in f.lower():
                 fNameEncode = urllib.quote(f)
-                if '.pdf' in f:
+                if '.pdf' in f.lower():
                     # get small thumb for PDF text objects
                     thumbnail_url = ''.join((
                         'http://repository.library.csuci.edu/bitstream/handle/',
                         handle, '/', fNameEncode, '.jpg'))
                     self.mapped_data.update({'isShownBy': thumbnail_url})
-                elif ".wav" in f or ".mp4" in f:
-                    logger.error(f)
+                elif ".wav" in f.lower() or ".mp4" in f.lower():
                     # don't get thumbs for AV objects
                     pass
                 else:
