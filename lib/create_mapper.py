@@ -234,9 +234,13 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chs_islandora_mapper import CHS_Islandora_Mapper
         return CHS_Islandora_Mapper(data)
 
-    def _create_csu_ci_mapper(data):
-        from dplaingestion.mappers.csu_ci_mets_mapper import CSU_CI_METS_Mapper
-        return CSU_CI_METS_Mapper(data)
+    def _create_csu_dspace_mapper(data):
+        from dplaingestion.mappers.csu_dspace_mapper import CSU_DSpace_Mapper
+        return CSU_DSpace_Mapper(data)
+
+    def _create_csuci_mapper(data):
+        from dplaingestion.mappers.csuci_mapper import CSUCI_Mapper
+        return CSUCI_Mapper(data)
 
     def _create_caltech_maccready_mapper(data):
         from dplaingestion.mappers.caltech_maccready_mapper import CalTech_MacCready_Mapper
@@ -314,7 +318,8 @@ def create_mapper(mapper_type, data):
         'flickr_api': lambda d: _create_flickr_api_mapper(d),
         'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
-        'csu_ci_mets': lambda d: _create_csu_ci_mapper(d),
+        'csu_dspace_mets': lambda d: _create_csu_dspace_mapper(d),
+        'csuci_mets': lambda d: _create_csuci_mapper(d),
         'caltech_maccready': lambda d: _create_caltech_maccready_mapper(d),
         'sacramento_xml': lambda d: _create_sacramento_xml_mapper(d),
         'lapl_oai_dc': lambda d: _create_lapl_oai_mapper(d),

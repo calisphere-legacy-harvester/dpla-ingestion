@@ -1,11 +1,11 @@
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
 import urllib
-from akara import logger
 
 
-class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
-    '''A mapper for DSpace METS feed from CSU Channel Islands
+class CSU_DSpace_Mapper(CONTENTdm_OAI_Mapper):
+    '''A mapper for multi-campus CSU DSpace METS feed
+       In registry, make sure "metadataprefix=mets" in Harvest Endpoint/Extra Data
     '''
 
     def get_handle(self):
@@ -23,23 +23,23 @@ class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
         handle = self.get_handle()
         fNameOrig = getprop(self.provider_data_source, 'originalName')
         for f in fNameOrig:
-            # don't take .txt or .doc file
-            if ".txt" not in f.lower() and ".doc" not in f.lower():
+            # don't take .txt, .doc, .tiff
+            if not any(x in f.lower() for x in [".txt", ".doc", ".tif"]):
                 fNameEncode = urllib.quote(f)
                 if '.pdf' in f.lower():
                     # get small thumb for PDF text objects
-                    thumbnail_url = ''.join((
-                        'http://repository.library.csuci.edu/bitstream/handle/',
-                        handle, '/', fNameEncode, '.jpg'))
+                    thumbnail_url = ''.join(
+                        ('http://dspace.calstate.edu/bitstream/handle/',
+                         handle, '/', fNameEncode, '.jpg'))
                     self.mapped_data.update({'isShownBy': thumbnail_url})
                 elif ".wav" in f.lower() or ".mp4" in f.lower():
                     # don't get thumbs for AV objects
                     pass
                 else:
                     # get larger preview for image objects
-                    thumbnail_url = ''.join((
-                        'http://repository.library.csuci.edu/bitstream/handle/',
-                        handle, '/', fNameEncode))
+                    thumbnail_url = ''.join(
+                        ('http://dspace.calstate.edu/bitstream/handle/',
+                         handle, '/', fNameEncode))
                     self.mapped_data.update({'isShownBy': thumbnail_url})
 
     def map_is_shown_at(self):
@@ -48,7 +48,7 @@ class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
         handle = self.get_handle()
         if handle:
             record_link = ''.join(
-                ('http://repository.library.csuci.edu/handle/', handle))
+                ('http://dspace.calstate.edu/handle/', handle))
             self.mapped_data.update({'isShownAt': record_link})
 
     def map_language(self):
@@ -64,5 +64,8 @@ class CSU_CI_METS_Mapper(CONTENTdm_OAI_Mapper):
         self.source_resource_orig_to_prop("namePart", "creator")
 
     def map_type(self):
-        fields = ("type", "genre")
-        self.source_resource_orig_list_to_prop(fields, 'type')
+        #Take type from file MIME type since descriptive type/genre
+        #values don't fit DCMI type vocab
+        self.source_resource_orig_to_prop("formatName", "type")
+        #fields = ("type", "genre")
+        #self.source_resource_orig_list_to_prop(fields, 'type')

@@ -9,7 +9,7 @@
         "Ventura County, California"
     ],
     "genre": ["Other"],
-    "formatName": ["application/pdf", "text/plain"],
+    "formatName": ["application/pdf", "audio/x-wav", "text/plain"],
     "dateAccessioned": ["2011-06-28T18:34:34Z"],
     "file": [null, null],
     "datestamp": "2013-08-08T15:32:47Z",
@@ -59,8 +59,10 @@
     "namePart": ["California State University Channel Islands"],
     "originInfo": [null],
     "originalName": [
+        "Bracero History Project Survey (4)$.tif",
         "Bracero History Project Survey (4)$.pdf",
-        "Bracero History Project Survey (4)$.pdf.txt"
+        "Bracero History Project Survey (4)$.pdf.txt",
+        "Bracero History Project Survey (4)$.doc"
     ],
     "fileGrp": [null, null],
     "div": [null, null],

@@ -11,7 +11,7 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=csu_ci_mets"
+    url = server() + "dpla_mapper?mapper_type=csuci_mets"
     return H.request(url, "POST", body=body)
 
 
@@ -23,14 +23,7 @@ def test_csu_ci_mets_mapping():
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
     srcRes = obj['sourceResource']
-    TC.assertEqual(srcRes['date'][0], "2010-03")
-    TC.assertEqual(srcRes['title'][0], "Bracero History Project Survey")
-    TC.assertEqual(
-        obj['isShownBy'],
-        "http://repository.library.csuci.edu/bitstream/handle/10139/4130/Bracero%20History%20Project%20Survey%20%284%29%24.pdf.jpg"
-    )
-    TC.assertEqual(obj['isShownAt'],
-                   "http://repository.library.csuci.edu/handle/10139/4130")
+    TC.assertEqual(srcRes['type'], 'application/pdf')
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

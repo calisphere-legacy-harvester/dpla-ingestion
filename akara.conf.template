@@ -234,6 +234,8 @@ class type_conversion:
     type_for_ot_keyword = [
         ('photograph', 'image'),
         ('sample book', 'image'),
+        ('application/pdf', 'text'),
+        ('application/msword', 'text'),
         ('book', 'text'),
 		('document', 'text'),
 		('documents', 'text'),
@@ -294,7 +296,13 @@ class type_conversion:
         ('nitrate film', 'image'), #fix for UCLA
         ('film', 'moving image'),
         ('video game', 'interactive resource'),
-        ('video', 'moving image')
+        ('video', 'moving image'),
+        ('audio/x-wav', 'sound'),
+        ('image/jpeg', 'image'),
+        ('video/mp4', 'moving image'),
+        ('video mp4 file', 'moving image'),
+        ('sound mp3 file', 'sound'),
+        ('streaming media', 'interactive resource')
     ]
 
 
