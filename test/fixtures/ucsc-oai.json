@@ -1,0 +1,92 @@
+{
+    "publisher": [
+        "University of California, Santa Cruz. McHenry Library, Special Collections. 1156 High Street. Santa Cruz, California, 95064. (831) 459-2547. speccoll@library.ucsc.edu"
+    ],
+    "rights": [
+        "Copyright for this collection resides with the Regents of the University of California. The publication or use of any work protected by copyright beyond that allowed by fair use for research or educational purposes requires written permission from the copyright owner. UCSC Special Collections and Archives can grant permission to publish materials to which it holds the copyright. For permission to reproduce or publish the material, or to order a reproduction, please visit guides.library.ucsc.edu/speccoll/reproduction-publication.",
+        "University of California. Board of Regents"
+    ],
+    "title": ["Black woman wearing head band, Haight-Ashbury 1967"],
+    "object": [
+        "https://digitalcollections.library.ucsc.edu/downloads/2z10wq28m?file=large"
+    ],
+    "collection": [{
+        "dcmi_type": "X",
+        "disqus_shortname_prod": "",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "id": "27086",
+        "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c8b85cfn/",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest":
+        "http://digitalcollections.library.ucsc.edu/catalog/oai",
+        "campus": [{
+            "name": "UC Santa Cruz",
+            "slug": "UCSC",
+            "position": 9,
+            "ark": "ark:/13030/kt3r29q08x",
+            "@id": "https://registry.cdlib.org/api/v1/campus/9/",
+            "id": 9,
+            "google_analytics_tracking_code": "",
+            "resource_uri": "/api/v1/campus/9/"
+        }],
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description": "",
+        "repository": [{
+            "name": "Special Collections and Archives",
+            "campus": [{
+                "name": "UC Santa Cruz",
+                "slug": "UCSC",
+                "position": 9,
+                "ark": "ark:/13030/kt3r29q08x",
+                "id": 9,
+                "google_analytics_tracking_code": "",
+                "resource_uri": "/api/v1/campus/9/"
+            }],
+            "slug": "special-collections-and-archives",
+            "ark": "ark:/13030/tf5h4nb7td",
+            "@id": "https://registry.cdlib.org/api/v1/repository/30/",
+            "id": 30,
+            "google_analytics_tracking_code": "UA-2259271-23",
+            "resource_uri": "/api/v1/repository/30/"
+        }],
+        "merritt_extra_data": "",
+        "extent": null,
+        "rights_status": "X",
+        "disqus_shortname_test": "",
+        "@id": "https://registry.cdlib.org/api/v1/collection/27086/",
+        "slug": "pirkle-jones-and-ruth-marion-baruch-photographs",
+        "name": "Pirkle Jones and Ruth-Marion Baruch Photographs",
+        "qa_completed": false,
+        "harvest_type": "OAI",
+        "harvest_extra_data":
+        "metadataPrefix=oai_dpla&set=Collection:Pirkle Jones and Ruth-Marion Baruch Photographs",
+        "url_local":
+        "http://digitalcollections.library.ucsc.edu/collections/rx913p88g",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=dublin_core, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=overwrite, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "rights_statement": "",
+        "merritt_id": "",
+        "staging_notes": "",
+        "local_id": "ucsc-pirkle",
+        "title": "Pirkle Jones and Ruth-Marion Baruch Photographs",
+        "resource_uri": "/api/v1/collection/27086/"
+    }],
+    "date": ["1967"],
+    "creator": ["Baruch, Ruth-Marion, 1922-1997"],
+    "datestamp": "2018-03-16T06:13:27Z",
+    "isShownAt":
+    ["https://digitalcollections.library.ucsc.edu/records/12579s29x"],
+    "identifier": ["MS 20"],
+    "type": ["Still Image"],
+    "id": "12579s29x",
+    "subject":
+    ["Haight-Ashbury (San Francisco, Calif.)", "Hippies", "Counterculture"]
+}
