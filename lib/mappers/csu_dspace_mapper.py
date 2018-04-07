@@ -64,8 +64,5 @@ class CSU_DSpace_Mapper(CONTENTdm_OAI_Mapper):
         self.source_resource_orig_to_prop("namePart", "creator")
 
     def map_type(self):
-        #Take type from file MIME type since descriptive type/genre
-        #values don't fit DCMI type vocab
-        self.source_resource_orig_to_prop("formatName", "type")
-        #fields = ("type", "genre")
-        #self.source_resource_orig_list_to_prop(fields, 'type')
+        fields = ("type", "genre")
+        self.source_resource_orig_list_to_prop(fields, 'type')
