@@ -51,6 +51,21 @@ def test_video_object_isShownBy():
     TC.assertEqual(obj['isShownBy'],
             'https://library.ucsd.edu/dc/object/bb0274541g/_3.jpg')
 
+def test_sensitive_object_exclusion():
+    '''Verify that objects with 'Culturally sensitive content:' in 'otherNote_json_tesim' field are not passed on
+    to sourceResource & no isShownAt assigned
+    '''
+    fixture = path.join(DIR_FIXTURES,
+            'ucsd-blacklight-sensitive-obj-jsonfied.json')
+    with open(fixture) as f:
+        INPUT = f.read()
+        TC.assertIn('id', INPUT)
+        resp, content = _get_server_response(INPUT)
+    TC.assertEqual(resp.status, 200)
+    obj = json.loads(content)
+    TC.assertFalse(obj['sourceResource'])
+    TC.assertNotIn('isShownAt', obj)
+
 def test_ucsd_dc_mapping():
     # at this point, the ucsd feed should be "jsonfied"
     # need to map from the jsonfied obj to sourceResource
@@ -136,7 +151,7 @@ def test_ucsd_dc_mapping():
             "Kathryn M. Ringrose"
       ])
     print "SUBJ:{}".format(srcRes['subject'])
-    TC.assertEqual(srcRes['subject'], 
+    TC.assertEqual(srcRes['subject'],
         [
 {u'name': u'University of California, San Diego--Buildings, structures, etc'},
 {u'name': u'Camp Matthews (Calif.)--Buildings, structures, etc'},

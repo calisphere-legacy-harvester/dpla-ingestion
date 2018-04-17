@@ -8,11 +8,36 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def __init__(self, provider_data):
         super(UCSDBlacklightDCMapper, self).__init__(provider_data)
 
+    def find_restricted(self):
+        restricted = False
+        for excluder in self.parse_otherNotes('note'):
+            if not isinstance(excluder, basestring):
+                for r in excluder:
+                    if r and r.startswith("Culturally sensitive content:"):
+                        restricted = True
+                        break  # breaks out of for loop, as we don't need to check more values
+            else:
+                if excluder.startswith("Culturally sensitive content:"):
+                    restricted = True
+        return restricted
+
+    def map_source_resource(self):
+        '''Keep restricted records out of SOLR by not creating
+           sourceResource entries for objects with 'Culturally sensitive content:' in 'otherNote_json_tesim' field
+        '''
+        restricted = self.find_restricted()
+        if not restricted:
+            super(UCSDBlacklightDCMapper, self).map_source_resource()
+
     # root mapping
     def map_is_shown_at(self, index=None):
-        is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
+        '''Don't create isShownAt for objects with 'Culturally sensitive content:' in 'otherNote_json_tesim' field
+        '''
+        restricted = self.find_restricted()
+        if not restricted:
+            is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
             self.provider_data['id_t']))
-        self.mapped_data.update({"isShownAt": is_shown_at})
+            self.mapped_data.update({"isShownAt": is_shown_at})
 
     def map_is_shown_by(self):
         '''bit complicated. need the files_tesim sub-object with
@@ -44,7 +69,6 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         is_shown_by = ''.join(('https://library.ucsd.edu/dc/object/',
                 obj_id, '/_', fid))
         self.mapped_data.update({"isShownBy": is_shown_by})
-
 
     def map_data_provider(self):
         super(UCSDBlacklightDCMapper, self).map_data_provider(prop="collection_json_tesim")

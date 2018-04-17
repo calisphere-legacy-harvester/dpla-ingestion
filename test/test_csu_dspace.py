@@ -25,8 +25,7 @@ def test_csu_dspace_mapping():
     srcRes = obj['sourceResource']
     TC.assertEqual(srcRes['date'][0], "2010-03")
     TC.assertEqual(srcRes['title'][0], "Bracero History Project Survey")
-    TC.assertEqual(srcRes['type'],
-                   ["application/pdf", "audio/x-wav", "text/plain"])
+    TC.assertEqual(srcRes['type'][0], "Other")
     TC.assertEqual(
         obj['isShownBy'],
         "http://dspace.calstate.edu/bitstream/handle/10139/4130/Bracero%20History%20Project%20Survey%20%284%29%24.pdf.jpg"
