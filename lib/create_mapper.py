@@ -270,6 +270,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucsc_oai_mapper import UCSC_OAIMapper
         return UCSC_OAIMapper(data)
 
+    def _create_usc_oai_mapper(data):
+        from dplaingestion.mappers.usc_oai_mapper import USC_OAIMapper
+        return USC_OAIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -331,6 +335,7 @@ def create_mapper(mapper_type, data):
         'emuseum_xml': lambda d: _create_emuseum_xml_mapper(d),
         'uci_didl': lambda d: _create_uci_didl_mapper(d),
         'ucsc_oai_dpla': lambda d: _create_ucsc_oai_mapper(d),
+        'usc_oai_dc': lambda d: _create_usc_oai_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
