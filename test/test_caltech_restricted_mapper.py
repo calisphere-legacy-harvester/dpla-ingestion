@@ -11,7 +11,7 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=caltech_maccready"
+    url = server() + "dpla_mapper?mapper_type=caltech_restrict"
     return H.request(url, "POST", body=body)
 
 

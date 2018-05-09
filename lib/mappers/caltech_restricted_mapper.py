@@ -3,21 +3,25 @@ from dplaingestion.mappers.islandora_oai_dc_mapper import Islandora_OAIMapper
 import requests
 
 
-class CalTech_MacCready_Mapper(Islandora_OAIMapper):
-    '''A mapper for CalTech MacCready Papers Islandora collection.
+class CalTech_Restricted_Mapper(Islandora_OAIMapper):
+    '''A mapper for CalTech Islandora collections that does not map
+    Finding Aid and certain item-level catalog records through to SOLR/
+    Calisphere (see find_restricted below).
     '''
 
     def find_restricted(self):
+
+        restrict_prefixes = ["Finding Aid", "PBM_", "DAG_"]              
         restricted = False
         if 'title' in self.provider_data:
             title = self.provider_data['title']
             if not isinstance(title, basestring):
                 for r in title:
-                    if r.startswith("Finding Aid") or r.startswith("PBM_"):
+                    if r.startswith(tuple(restrict_prefixes)):
                         restricted = True
                         break  # breaks out of for loop, as we don't need to check more values
             else:
-                if title.startswith("Finding Aid") or title.startswith("PBM_"):
+                if r.startswith(tuple(restrict_prefixes)):
                     restricted = True
         return restricted
 

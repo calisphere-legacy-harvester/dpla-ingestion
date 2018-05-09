@@ -242,9 +242,9 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.csuci_mapper import CSUCI_Mapper
         return CSUCI_Mapper(data)
 
-    def _create_caltech_maccready_mapper(data):
-        from dplaingestion.mappers.caltech_maccready_mapper import CalTech_MacCready_Mapper
-        return CalTech_MacCready_Mapper(data)
+    def _create_caltech_restricted_mapper(data):
+        from dplaingestion.mappers.caltech_restricted_mapper import CalTech_Restricted_Mapper
+        return CalTech_Restricted_Mapper(data)
 
     def _create_sacramento_xml_mapper(data):
         from dplaingestion.mappers.sacramento_xml_mapper import SacramentoXMLMapper
@@ -328,7 +328,7 @@ def create_mapper(mapper_type, data):
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
         'csu_dspace_mets': lambda d: _create_csu_dspace_mapper(d),
         'csuci_mets': lambda d: _create_csuci_mapper(d),
-        'caltech_maccready': lambda d: _create_caltech_maccready_mapper(d),
+        'caltech_restrict': lambda d: _create_caltech_restricted_mapper(d),
         'sacramento_xml': lambda d: _create_sacramento_xml_mapper(d),
         'lapl_oai_dc': lambda d: _create_lapl_oai_mapper(d),
         'yosemite_oai_dc': lambda d: _create_yosemite_oai_mapper(d),
