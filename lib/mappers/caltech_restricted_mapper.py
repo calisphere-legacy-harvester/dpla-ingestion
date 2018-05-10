@@ -11,7 +11,7 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
 
     def find_restricted(self):
 
-        restrict_prefixes = ["Finding Aid", "PBM_", "DAG_"]              
+        restrict_prefixes = ["Finding Aid", "PBM_", "DAG_", "DAGB_"]              
         restricted = False
         if 'title' in self.provider_data:
             title = self.provider_data['title']
