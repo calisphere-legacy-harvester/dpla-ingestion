@@ -97,6 +97,9 @@ class DublinCoreMapper(Mapper):
     def map_language(self):
         self.source_resource_prop_to_prop("language")
 
+    def map_provenance(self):
+        self.source_resource_prop_to_prop("provenance")
+
     def map_publisher(self):
         self.source_resource_prop_to_prop("publisher")
 
