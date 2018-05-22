@@ -3,12 +3,12 @@ from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
 
 
-class MPD_OAIMapper(CONTENTdm_OAI_Mapper):
-    '''A base mapper for Museum of Performance & Design Omeka OAI feed.
+class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
+    '''A base mapper for Omeka OAI feed.
     Based off CONTENTdm mapper since it seemed to map all MD correctly.'''
 
     def __init__(self, provider_data):
-        super(MPD_OAIMapper, self).__init__(provider_data)
+        super(Omeka_OAIMapper, self).__init__(provider_data)
 
     def map_is_shown_at(self):
         isShownAt = None

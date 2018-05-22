@@ -11,7 +11,7 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=mpd_omeka"
+    url = server() + "dpla_mapper?mapper_type=omeka"
     return H.request(url, "POST", body=body)
 
 
