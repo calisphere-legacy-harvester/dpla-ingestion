@@ -43,7 +43,7 @@ def test_calpoly_oai_dc_mapping():
 def test_title_exclusion():
     '''Verify that objects with "Finding Aid" or "PBM_"
     as first value in dc:title field are not passed on
-    to sourceResource & no isShownAt assigned
+    to sourceResource & no isShownAt or isShownBy assigned
     '''
     fixture = path.join(DIR_FIXTURES, 'caltech-restrict.json')
     with open(fixture) as f:
@@ -54,7 +54,7 @@ def test_title_exclusion():
     content = json.loads(content)
     TC.assertFalse(content['sourceResource'])
     TC.assertNotIn('isShownAt', content)
-    TC.assertEqual(content['isShownBy'], "http://maccready.library.caltech.edu/islandora/object/pbm%3A10008/datastream/TN/view/%20PBM_6_1_9_0005%20.jpg")
+    TC.assertNotIn('isShownBy', content)
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

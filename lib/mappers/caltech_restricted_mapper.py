@@ -11,7 +11,7 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
 
     def find_restricted(self):
 
-        restrict_prefixes = ["Finding Aid", "PBM_", "DAG_", "DAGB_"]              
+        restrict_prefixes = ["Finding Aid", "PBM_", "DAG_", "DAGB_"]
         restricted = False
         if 'title' in self.provider_data:
             title = self.provider_data['title']
@@ -46,17 +46,19 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
 
     def map_is_shown_by(self):
 
-        # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
-        try:
-            thumb_url = self.provider_data['identifier.thumbnail'][0]
-            if 'type' in self.provider_data and any(s in self.provider_data['type'] for s in ('StillImage','image')):
-                jpg_url = thumb_url.replace("/TN/", "/JPG/")
-                request = requests.get(jpg_url)
-                if request.status_code == 200:
-                    thumb_url = jpg_url
-            self.mapped_data.update({'isShownBy': thumb_url})
-        except KeyError:  # no identifier.thumbnail
-            pass
+        restricted = self.find_restricted()
+        if not restricted:
+            # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
+            try:
+                thumb_url = self.provider_data['identifier.thumbnail'][0]
+                if 'type' in self.provider_data and any(s in self.provider_data['type'] for s in ('StillImage','image')):
+                    jpg_url = thumb_url.replace("/TN/", "/JPG/")
+                    request = requests.get(jpg_url)
+                    if request.status_code == 200:
+                        thumb_url = jpg_url
+                self.mapped_data.update({'isShownBy': thumb_url})
+            except KeyError:  # no identifier.thumbnail
+                pass
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
