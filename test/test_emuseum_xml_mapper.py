@@ -38,3 +38,4 @@ class eMuseum_XML_FeedTestCase(TestCase):
             srcRes['title'],
             "Money is power.  A war saving certificate in every Canadian home.  Get yours now at Post Offices or banks."
         )
+        self.assertEqual(srcRes['type'], 'Image')

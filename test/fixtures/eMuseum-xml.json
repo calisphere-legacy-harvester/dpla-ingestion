@@ -92,6 +92,13 @@
             "order":"0"
          }
       },
+      "mediaType":{
+         "text":"Image",
+         "attrib":{
+            "order":"0",
+            "label":"Media Type"
+         }
+      },
       "primaryMaker":{
          "text":"National Service Board of Canada",
          "attrib":{

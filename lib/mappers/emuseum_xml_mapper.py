@@ -63,3 +63,9 @@ class eMuseumXMLMapper(Mapper):
             self.update_source_resource({
                 'relation': self.provider_data['collectionTitle']['text']
             })
+
+    def map_type(self):
+        if 'mediaType' in self.provider_data:
+            self.update_source_resource({
+                'type': self.provider_data['mediaType']['text']
+            })
