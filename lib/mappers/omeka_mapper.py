@@ -30,6 +30,22 @@ class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
+    '''Suppress dc:identifier values featuring 's3.amazonaws.com/omeka-net/'
+    '''
+    def map_identifier(self):
+        if 'identifier' in self.provider_data_source:
+            ident = getprop(self.provider_data_source, 'identifier')
+            if not isinstance(ident, basestring):
+                ident_list = []
+                for i in ident:
+                    if "s3.amazonaws.com/omeka-net/" not in i:
+                        ident_list.append(i)
+                if ident_list:
+                    self.update_source_resource({"identifier": ident_list})
+            else:
+                if 'islandora' not in ident:
+                    self.update_source_resource({"identifier": ident})
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
