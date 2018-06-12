@@ -5,9 +5,9 @@ from dplaingestion.selector import exists
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src, lname))
 
 
-class SacramentoXMLMapper(Mapper):
+class PastPerfectXMLMapper(Mapper):
     def __init__(self, provider_data, key_prefix=None):
-        super(SacramentoXMLMapper, self).__init__(provider_data, key_prefix)
+        super(PastPerfectXMLMapper, self).__init__(provider_data, key_prefix)
         self.metadata = self.provider_data.get('metadata', self.provider_data)
 
     def map_is_shown_at(self, index=None):
@@ -41,6 +41,10 @@ class SacramentoXMLMapper(Mapper):
                 data.extend(d)
         return data
 
+    def map_title(self):
+        if 'title' in self.metadata:
+            self.update_source_resource({'title': self.metadata['title'][0]})
+
     def map_date(self):
         if 'date' in self.metadata:
             self.update_source_resource({'date': self.metadata['date'][0]})
@@ -52,14 +56,52 @@ class SacramentoXMLMapper(Mapper):
                 })
 
     def map_subject(self):
+        values = []
         if 'subject' in self.metadata:
-            values = self.get_metadata_values(('subject', ))
+            values.extend(self.get_metadata_values(('subject', )))
+        if 'people' in self.metadata:
+            values.extend(self.get_metadata_values(('people', )))
+        if 'searchterms' in self.metadata:
+            values.extend(self.get_metadata_values(('searchterms', )))
+        if values:
             value_objs = [{'name': v} for v in values]
             self.update_source_resource({'subject': value_objs})
 
-    def map_title(self):
-        if 'title' in self.metadata:
-            self.update_source_resource({'title': self.metadata['title'][0]})
+    def map_place(self):
+        if 'place' in self.metadata:
+            self.update_source_resource({
+                'spatial': self.metadata['place'][0]
+                })
+
+    def map_temporal(self):
+        if 'coverage' in self.metadata:
+            self.update_source_resource({
+                'temporal': self.metadata['coverage'][0]
+                })
+
+    def map_format(self):
+        formats = []
+        if 'medium' in self.metadata:
+            formats.append(self.metadata['medium'][0])
+        if 'material' in self.metadata:
+            formats.append(self.metadata['material'][0])
+        if 'objectname' in self.metadata:
+            formats.append(self.metadata['objectname'][0])
+        if formats:
+            self.update_source_resource({'format': formats})
+
+    def map_creator(self):
+        creators = []
+        if 'creator' in self.metadata:
+            creators.append(self.metadata['creator'][0])
+        if 'author' in self.metadata:
+            creators.append(self.metadata['author'][0])
+        if 'artist' in self.metadata:
+            creators.append(self.metadata['artist'][0])
+        if 'photographer' in self.metadata:
+            creators.append(self.metadata['photographer'][0])
+        if creators:
+            self.update_source_resource({'creator': creators})
 
     def map_identifier(self):
         identifiers = []
@@ -74,4 +116,10 @@ class SacramentoXMLMapper(Mapper):
         if 'relation' in self.metadata:
             self.update_source_resource({
                 'relation': self.metadata['collection'][0]
+                })
+
+    def map_rights(self):
+        if 'rights' in self.metadata:
+            self.update_source_resource({
+                'rights': self.metadata['rights'][0]
                 })

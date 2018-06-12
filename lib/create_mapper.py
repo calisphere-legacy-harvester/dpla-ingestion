@@ -246,9 +246,9 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.caltech_restricted_mapper import CalTech_Restricted_Mapper
         return CalTech_Restricted_Mapper(data)
 
-    def _create_sacramento_xml_mapper(data):
-        from dplaingestion.mappers.sacramento_xml_mapper import SacramentoXMLMapper
-        return SacramentoXMLMapper(data)
+    def _create_pastperfect_xml_mapper(data):
+        from dplaingestion.mappers.pastperfect_xml_mapper import PastPerfectXMLMapper
+        return PastPerfectXMLMapper(data)
 
     def _create_lapl_oai_mapper(data):
         from dplaingestion.mappers.lapl_oai_mapper import LAPL_OAIMapper
@@ -329,7 +329,7 @@ def create_mapper(mapper_type, data):
         'csu_dspace_mets': lambda d: _create_csu_dspace_mapper(d),
         'csuci_mets': lambda d: _create_csuci_mapper(d),
         'caltech_restrict': lambda d: _create_caltech_restricted_mapper(d),
-        'sacramento_xml': lambda d: _create_sacramento_xml_mapper(d),
+        'pastperfect_xml': lambda d: _create_pastperfect_xml_mapper(d),
         'lapl_oai_dc': lambda d: _create_lapl_oai_mapper(d),
         'yosemite_oai_dc': lambda d: _create_yosemite_oai_mapper(d),
         'emuseum_xml': lambda d: _create_emuseum_xml_mapper(d),

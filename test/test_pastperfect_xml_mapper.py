@@ -9,13 +9,13 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 
-class Sacramento_XML_FeedTestCase(TestCase):
+class PastPerfect_XML_FeedTestCase(TestCase):
     def _get_server_response(self, body):
-        url = server() + "dpla_mapper?mapper_type=sacramento_xml"
+        url = server() + "dpla_mapper?mapper_type=pastperfect_xml"
         return H.request(url, "POST", body=body)
 
     def testMappings(self):
-        fixture = path.join(DIR_FIXTURES, 'sacramento_xml.json')
+        fixture = path.join(DIR_FIXTURES, 'pastperfect_xml.json')
         with open(fixture) as f:
             INPUT = f.read()
             resp, content = self._get_server_response(INPUT)
@@ -38,7 +38,6 @@ class Sacramento_XML_FeedTestCase(TestCase):
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1966/09/28')
         self.assertEqual(srcRes['identifier'], ['000501E3-9133-4358-AE66-874944208261', '1994/007/013'])
-        self.assertNotIn('description', srcRes)
         self.assertEqual(srcRes['subject'], [
             {
                 'name': u'Memorabilia'
@@ -49,8 +48,13 @@ class Sacramento_XML_FeedTestCase(TestCase):
             {
                 'name': u'Military'
             },
+            {
+                'name': u'Lee, A.W.'
+            },
         ])
         self.assertEqual(
             srcRes['title'],
             "Edwin A. Grebitus Sr. shown with his son Edwin A. Grebitus Jr. and Sacramento Mayor Walter Christensen (center)."
         )
+        self.assertEqual(srcRes['creator'][0], "Denny Johnson")
+        self.assertEqual(srcRes['format'][0], "Print")
