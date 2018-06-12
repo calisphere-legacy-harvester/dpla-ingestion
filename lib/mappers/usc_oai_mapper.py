@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
+from akara import logger
 
 class USC_OAIMapper(CONTENTdm_OAI_Mapper):
     '''A base mapper for University of Southern California OAI feed'''
 
     def strip_brackets(self, value):
+        if '[Legacy record ID]' in value:
+            return value
         if isinstance(value, basestring):
             newVal = value.split('[')
             return newVal[0].strip()
@@ -38,9 +41,19 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
+    def map_identifier(self):
+        self.to_source_resource_with_split('identifier', 'identifier')
+
+    def map_format(self):
+        self.to_source_resource_with_split('format', 'format')
+
+    def map_description(self):
+        self.to_source_resource_with_split('description', 'description')
+
     def update_mapped_fields(self):
         '''strip out info in brackets from end of sourceResource
-        values using regex'''
+        values using regex. Don't strip out [Legacy record ID]
+        so that DPLA can key on it for record-matching'''
         for b in self.mapped_data['sourceResource']:
             fieldValue = self.mapped_data['sourceResource'][b]
             stripValue = self.strip_brackets(fieldValue)

@@ -3,7 +3,6 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
-from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -24,9 +23,9 @@ def test_usc_mapping():
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
-    logger.error(obj['sourceResource'])
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
     TC.assertEqual(
         obj['isShownAt'],
         "http://doi.org/10.25549/chs-m10000"
@@ -34,6 +33,16 @@ def test_usc_mapping():
     TC.assertEqual(
         obj['isShownBy'],
         "http://thumbnails.digitallibrary.usc.edu/CHS-40351.jpg"
+    )
+    TC.assertEqual(
+        srcRes['identifier'],
+        [
+           "CHS-40351",
+           "chs-m10000",
+           "USC-0-1-1-10140 [Legacy record ID]",
+           "http://doi.org/10.25549/chs-m10000",
+           "http://thumbnails.digitallibrary.usc.edu/CHS-40351.jpg"
+       ]
     )
 
 # Copyright © 2016, Regents of the University of California
