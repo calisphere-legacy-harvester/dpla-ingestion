@@ -42,7 +42,7 @@ class Islandora_OAIMapper(DublinCoreMapper):
 
             # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
             if 'image' or 'StillImage' in self.provider_data['type']:
-                jpg_url = thumb_url.replace("/TN/", "/OBJ/")
+                jpg_url = thumb_url.replace("/TN/", "/JPG/")
                 request = requests.get(jpg_url)
                 if request.status_code == 200:
                     thumb_url = jpg_url
