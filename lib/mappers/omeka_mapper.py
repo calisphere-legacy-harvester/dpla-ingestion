@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
-
+import requests
 
 class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
     '''A base mapper for Omeka OAI feed.
@@ -27,6 +27,19 @@ class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
             if 's3.amazonaws.com/omeka-net' in i:
                 isShownBy = i
                 break
+            elif 'omeka/files/thumbnails/' in i:
+                isShownBy = i
+                break
+            # Build thumbnail url from original file url, if present
+            elif 'omeka/files/original/' in i:
+                thumb_url = i.replace("/original/", "/thumbnails/")
+                thumb_url = thumb_url[:-4]+'.jpg'
+                request = requests.get(thumb_url)
+                if request.status_code == 200:
+                    isShownBy = thumb_url
+                else:
+                    isShownBy = i
+                break
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
@@ -39,7 +52,8 @@ class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
                 ident_list = []
                 for i in ident:
                     if "s3.amazonaws.com/omeka-net/" not in i:
-                        ident_list.append(i)
+                        if "omeka/files/original" not in i:
+                            ident_list.append(i)
                 if ident_list:
                     self.update_source_resource({"identifier": ident_list})
             else:

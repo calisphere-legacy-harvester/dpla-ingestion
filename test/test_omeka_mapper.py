@@ -31,7 +31,7 @@ def test_csa_omeka_mapping():
         "http://christensenfamilycollection.omeka.net/items/show/205")
     TC.assertEqual(
         obj['isShownBy'],
-        "https://s3.amazonaws.com/omeka-net/12774/archive/files/fe7dcd3e801e665fce0b0c15720c0573.jpg?AWSAccessKeyId=AKIAI3ATG3OSQLO5HGKA&Expires=1479300431&Signature=5DWGbcbxqL01IiY8bmVd9Go8zUc%3D"
+        "https://history.santacruzpl.org/omeka/files/thumbnails/17d6cdfcdd3bacca6845667756d8ba99.jpg"
     )
     TC.assertEqual(srcRes['identifier'], [
     "LC-0171.TIF",
