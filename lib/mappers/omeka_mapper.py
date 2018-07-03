@@ -52,7 +52,7 @@ class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
                 ident_list = []
                 for i in ident:
                     if "s3.amazonaws.com/omeka-net/" not in i:
-                        if "omeka/files/original" not in i:
+                        if "files/original" not in i:
                             ident_list.append(i)
                 if ident_list:
                     self.update_source_resource({"identifier": ident_list})
