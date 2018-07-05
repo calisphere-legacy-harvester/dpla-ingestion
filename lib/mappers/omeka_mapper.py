@@ -31,7 +31,7 @@ class Omeka_OAIMapper(CONTENTdm_OAI_Mapper):
                 isShownBy = i
                 break
             # Build thumbnail url from original file url, if present
-            elif 'omeka/files/original/' in i:
+            elif '/files/original/' in i:
                 thumb_url = i.replace("/original/", "/thumbnails/")
                 thumb_url = thumb_url[:-4]+'.jpg'
                 request = requests.get(thumb_url)

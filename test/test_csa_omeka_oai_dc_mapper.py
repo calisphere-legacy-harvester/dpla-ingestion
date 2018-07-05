@@ -25,12 +25,15 @@ def test_csa_omeka_mapping():
     obj = json.loads(content)
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
+    srcRes = obj['sourceResource']
     TC.assertEqual(obj['isShownAt'],
                    "http://exhibits.sos.ca.gov/items/show/1006")
     TC.assertEqual(
         obj['isShownBy'],
-        "http://exhibits.sos.ca.gov/files/original/fa02cbf716a936b673a812e1cdd693c9.jpg"
-    )
+        "http://exhibits.sos.ca.gov/files/original/fa02cbf716a936b673a812e1cdd693c9.jpg")
+    TC.assertEqual(
+        srcRes['identifier'],
+        ["http://exhibits.sos.ca.gov/items/show/1006"])
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

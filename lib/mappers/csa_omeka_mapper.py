@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
+from dplaingestion.mappers.omeka_mapper import Omeka_OAIMapper
 from dplaingestion.selector import getprop
 
 
-class CSA_OAIMapper(CONTENTdm_OAI_Mapper):
+class CSA_OAIMapper(Omeka_OAIMapper):
     '''A base mapper for California State Archives Omeka OAI feed.
     Based off CONTENTdm mapper since it seemed to map all MD correctly.'''
 
@@ -14,7 +14,7 @@ class CSA_OAIMapper(CONTENTdm_OAI_Mapper):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
         for i in idents:
-            if 'exhibits.sos.ca.gov/items/show' in i:
+            if 'items/show' in i:
                 isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
@@ -24,7 +24,7 @@ class CSA_OAIMapper(CONTENTdm_OAI_Mapper):
         isShownBy = None
         idents = getprop(self.provider_data_source, 'identifier')
         for i in idents:
-            if 'exhibits.sos.ca.gov/files/original' in i:
+            if 'files/original' in i:
                 isShownBy = i
                 break
         if isShownBy:
