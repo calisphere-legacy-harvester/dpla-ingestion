@@ -1,63 +1,56 @@
 # -*- coding: utf-8 -*-
-from dplaingestion.mappers.dublin_core_mapper import DublinCoreMapper
+from dplaingestion.mappers.omeka_mapper import Omeka_OAIMapper
 from dplaingestion.selector import getprop
 import requests
 
-class Omeka_OAIMapper(DublinCoreMapper):
-    '''A base mapper for Omeka OAI feed.'''
 
-    def __init__(self, provider_data):
-        super(Omeka_OAIMapper, self).__init__(provider_data)
+class Omeka_NoThumb_Mapper(Omeka_OAIMapper):
+    '''Mapper for Omeka collections w/ thumbnail-less objects,
+    does not map through to SOLR/Calisphere front end'''
 
-    def map_is_shown_at(self):
-        isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'items/show' in i:
-                isShownAt = i
-        if isShownAt:
-            self.mapped_data.update({'isShownAt': isShownAt})
-
-    def map_is_shown_by(self):
+    def get_thumb(self):
         '''Grab only the first image URL from identifier values'''
-        isShownBy = None
+        thumb = None
         idents = getprop(self.provider_data_source, 'identifier')
         for i in idents:
             if 's3.amazonaws.com/omeka-net' in i:
-                isShownBy = i
+                thumb = i
                 break
             elif '/files/thumbnails/' in i:
-                isShownBy = i
+                thumb = i
                 break
             # Build thumbnail url from original file url, if present
             elif '/files/original/' in i:
                 thumb_url = i.replace("/original/", "/thumbnails/")
-                thumb_url = thumb_url.rsplit('.', 1)[0]+'.jpg'
+                thumb_url = thumb_url.rsplit('.', 1)[0] + '.jpg'
                 request = requests.get(thumb_url)
                 if request.status_code == 200:
-                    isShownBy = thumb_url
+                    thumb = thumb_url
                 else:
-                    isShownBy = i
+                    thumb = i
                 break
-        if isShownBy:
-            self.mapped_data.update({'isShownBy': isShownBy})
+        return thumb
 
-    '''Suppress dc:identifier values featuring 's3.amazonaws.com/omeka-net/'
-    '''
-    def map_identifier(self):
-        if 'identifier' in self.provider_data_source:
-            ident = getprop(self.provider_data_source, 'identifier')
-            if not isinstance(ident, basestring):
-                ident_list = []
-                for i in ident:
-                    if "s3.amazonaws.com/omeka-net/" not in i:
-                        if "files/original" not in i:
-                            ident_list.append(i)
-                if ident_list:
-                    self.update_source_resource({"identifier": ident_list})
-            else:
-                if 'islandora' not in ident:
-                    self.update_source_resource({"identifier": ident})
+    def map_source_resource(self):
+        thumb = self.get_thumb()
+        if thumb:
+            super(Omeka_NoThumb_Mapper, self).map_source_resource()
+
+    def map_is_shown_at(self):
+        thumb = self.get_thumb()
+        if thumb:
+            isShownAt = None
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in idents:
+                if 'items/show' in i:
+                    isShownAt = i
+            if isShownAt:
+                self.mapped_data.update({'isShownAt': isShownAt})
+
+    def map_is_shown_by(self):
+        thumb = self.get_thumb()
+        if thumb:
+            self.mapped_data.update({'isShownBy': thumb})
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

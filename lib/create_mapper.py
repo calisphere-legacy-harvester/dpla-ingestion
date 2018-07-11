@@ -179,6 +179,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.omeka_mapper import Omeka_OAIMapper
         return Omeka_OAIMapper(data)
 
+    def _create_omeka_nothumb_mapper(data):
+        from dplaingestion.mappers.omeka_nothumb_mapper import Omeka_NoThumb_Mapper
+        return Omeka_NoThumb_Mapper(data)
+
     def _create_ucb_blacklight_dc_mapper(data):
         from dplaingestion.mappers.ucb_blacklight_dc_mapper import \
             UCBBlacklightDCMapper
@@ -312,6 +316,7 @@ def create_mapper(mapper_type, data):
         'califa_oai_dc': lambda d: _create_califa_oai_dc_mapper(d),
         'csa_omeka': lambda d: _create_csa_omeka_mapper(d),
         'omeka': lambda d: _create_omeka_mapper(d),
+        'omeka_nothumb': lambda d: _create_omeka_nothumb_mapper(d),
         'ucb_blacklight': lambda d: _create_ucb_blacklight_dc_mapper(d),
         'cmis_atom': lambda d: _create_cmis_atom_dc_mapper(d),
         'cabrillo_suppress_description': lambda d: _create_cabrillo_mapper(d),
