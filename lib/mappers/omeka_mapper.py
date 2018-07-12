@@ -20,27 +20,30 @@ class Omeka_OAIMapper(DublinCoreMapper):
 
     def map_is_shown_by(self):
         '''Grab only the first image URL from identifier values'''
-        isShownBy = None
+        thumb = None
         idents = getprop(self.provider_data_source, 'identifier')
         for i in idents:
             if 's3.amazonaws.com/omeka-net' in i:
-                isShownBy = i
+                thumb = i
                 break
             elif '/files/thumbnails/' in i:
-                isShownBy = i
+                thumb = i
                 break
             # Build thumbnail url from original file url, if present
             elif '/files/original/' in i:
-                thumb_url = i.replace("/original/", "/thumbnails/")
-                thumb_url = thumb_url.rsplit('.', 1)[0]+'.jpg'
-                request = requests.get(thumb_url)
-                if request.status_code == 200:
-                    isShownBy = thumb_url
+                if i.rsplit('.', 1)[1] == 'jpg':
+                    thumb = i
                 else:
-                    isShownBy = i
+                    thumb_url = i.replace("/original/", "/thumbnails/")
+                    thumb_url = thumb_url.rsplit('.', 1)[0] + '.jpg'
+                    request = requests.get(thumb_url)
+                    if request.status_code == 200:
+                        thumb = thumb_url
+                    else:
+                        thumb = i
                 break
-        if isShownBy:
-            self.mapped_data.update({'isShownBy': isShownBy})
+        if thumb:
+            self.mapped_data.update({'isShownBy': thumb})
 
     '''Suppress dc:identifier values featuring 's3.amazonaws.com/omeka-net/'
     '''

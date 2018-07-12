@@ -21,13 +21,16 @@ class Omeka_NoThumb_Mapper(Omeka_OAIMapper):
                 break
             # Build thumbnail url from original file url, if present
             elif '/files/original/' in i:
-                thumb_url = i.replace("/original/", "/thumbnails/")
-                thumb_url = thumb_url.rsplit('.', 1)[0] + '.jpg'
-                request = requests.get(thumb_url)
-                if request.status_code == 200:
-                    thumb = thumb_url
-                else:
+                if i.rsplit('.', 1)[1] == 'jpg':
                     thumb = i
+                else:
+                    thumb_url = i.replace("/original/", "/thumbnails/")
+                    thumb_url = thumb_url.rsplit('.', 1)[0] + '.jpg'
+                    request = requests.get(thumb_url)
+                    if request.status_code == 200:
+                        thumb = thumb_url
+                    else:
+                        thumb = i
                 break
         return thumb
 
