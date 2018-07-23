@@ -30,7 +30,7 @@ class eMuseum_XML_FeedTestCase(TestCase):
                          'http://digitalcollections.hoover.org/objects/11529')
         self.assertEqual(
             obj['isShownBy'],
-            'http://digitalcollections.hoover.org/internal/media/dispatcher/3340/resize%3Aformat%3Dpreview'
+            'https://img.youtube.com/vi/qxVJVE9oKg4/default.jpg'
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1914/1918?')

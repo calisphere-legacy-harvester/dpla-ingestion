@@ -119,5 +119,12 @@
             "order":"0",
             "label":"Date Created"
          }
+      },
+      "youtubeThumbnail":{
+         "text":"https://img.youtube.com/vi/qxVJVE9oKg4/default.jpg",
+         "attrib":{
+            "order":"0",
+            "label":"Youtube Thumbnail"
+         }
       }
    }

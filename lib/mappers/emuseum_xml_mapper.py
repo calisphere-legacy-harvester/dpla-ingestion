@@ -20,6 +20,9 @@ class eMuseumXMLMapper(Mapper):
             is_shown_by = ''.join(
                 ('http://digitalcollections.hoover.org', thumb))
             self.mapped_data.update({"isShownBy": is_shown_by})
+        # Use 'youtubeThumbnail' for isShownBy instead, if present
+        if 'youtubeThumbnail' in self.provider_data:
+            self.mapped_data.update({"isShownBy": self.provider_data['youtubeThumbnail']['text']})
 
     def map_ids(self):
         collection_id = self.provider_data['collection'][0]['resource_uri']
