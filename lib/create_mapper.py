@@ -133,10 +133,10 @@ def create_mapper(mapper_type, data):
                 CONTENTdm_OAI_Mapper
         return CONTENTdm_OAI_Mapper(data)
 
-    def _create_cavpp_contentdm_oai_dc_mapper(data):
-        from dplaingestion.mappers.cavpp_contentdm_oai_dc_mapper import \
-                CAVPP_CONTENTdm_OAI_Mapper
-        return CAVPP_CONTENTdm_OAI_Mapper(data)
+    def _create_cavpp_islandora_mapper(data):
+        from dplaingestion.mappers.cavpp_islandora_mapper import \
+                CAVPP_Islandora_Mapper
+        return CAVPP_Islandora_Mapper(data)
 
     def _create_csudh_contentdm_oai_dc_mapper(data):
         from dplaingestion.mappers.csudh_contentdm_oai_dc_mapper import \
@@ -302,8 +302,8 @@ def create_mapper(mapper_type, data):
         'mdl_json': lambda d: _create_mdl_json_mapper(d),
         'cdl_json': lambda d: _create_cdl_json_mapper(d),
         'contentdm_oai_dc': lambda d: _create_contentdm_oai_dc_mapper(d),
-        'cavpp_contentdm_oai_dc':
-            lambda d: _create_cavpp_contentdm_oai_dc_mapper(d),
+        'cavpp_islandora':
+            lambda d: _create_cavpp_islandora_mapper(d),
         'csudh_contentdm_oai_dc':
             lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
         'chula_vista_pl_contentdm_oai_dc':
