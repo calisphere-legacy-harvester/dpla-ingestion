@@ -238,6 +238,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.chs_islandora_mapper import CHS_Islandora_Mapper
         return CHS_Islandora_Mapper(data)
 
+    def _create_burbank_islandora_mapper(data):
+        from dplaingestion.mappers.burbank_islandora_mapper import Burbank_Islandora_Mapper
+        return Burbank_Islandora_Mapper(data)
+
     def _create_csu_dspace_mapper(data):
         from dplaingestion.mappers.csu_dspace_mapper import CSU_DSpace_Mapper
         return CSU_DSpace_Mapper(data)
@@ -331,6 +335,7 @@ def create_mapper(mapper_type, data):
         'flickr_api': lambda d: _create_flickr_api_mapper(d),
         'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
+        'burbank_islandora': lambda d: _create_burbank_islandora_mapper(d),
         'csu_dspace_mets': lambda d: _create_csu_dspace_mapper(d),
         'csuci_mets': lambda d: _create_csuci_mapper(d),
         'caltech_restrict': lambda d: _create_caltech_restricted_mapper(d),
