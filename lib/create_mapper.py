@@ -282,6 +282,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.usc_oai_mapper import USC_OAIMapper
         return USC_OAIMapper(data)
 
+    def _create_ucd_json_mapper(data):
+        from dplaingestion.mappers.ucd_json_mapper import UCD_JSONMapper
+        return UCD_JSONMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -346,6 +350,7 @@ def create_mapper(mapper_type, data):
         'uci_didl': lambda d: _create_uci_didl_mapper(d),
         'ucsc_oai_dpla': lambda d: _create_ucsc_oai_mapper(d),
         'usc_oai_dc': lambda d: _create_usc_oai_mapper(d),
+        'ucd_json': lambda d: _create_ucd_json_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

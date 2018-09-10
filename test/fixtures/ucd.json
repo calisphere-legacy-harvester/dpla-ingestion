@@ -1,0 +1,91 @@
+{
+    "collection": [{
+        "dcmi_type": "X",
+        "enrichments_item":
+        "/select-id?prop=metadata/identifier, /dpla_mapper?mapper_type=dublin_core, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "featured": false,
+        "ready_for_publication": false,
+        "hosted": "",
+        "id": "26935",
+        "url_oac": "",
+        "custom_facet": [],
+        "harvest_frequency": null,
+        "metadata_in_dams": false,
+        "url_harvest":
+        "https://s3.amazonaws.com/pastperfectonline/xmlfiles/museum_231/30528_inmemrecs.xml",
+        "campus": [],
+        "files_in_dams": false,
+        "date_last_harvested": null,
+        "harvest_exception_notes": "",
+        "files_in_hand": false,
+        "ingestType": "collection",
+        "description": "",
+        "repository": [{
+            "name": "Center for Sacramento History",
+            "campus": [],
+            "slug": "center-for-sacramento-history",
+            "ark": "ark:/13030/tf7779p65f",
+            "@id": "https://registry.cdlib.org/api/v1/repository/174/",
+            "id": 174,
+            "google_analytics_tracking_code": "UA-83593340-2",
+            "resource_uri": "/api/v1/repository/174/"
+        }],
+        "url_local": "http://sacramento.pastperfectonline.com/photo",
+        "extent": null,
+        "rights_status": "X",
+        "@id": "https://registry.cdlib.org/api/v1/collection/26935/",
+        "slug": "center-for-sacramento-history-photo-collection",
+        "name": "Center for Sacramento History Photo Collection",
+        "qa_completed": false,
+        "harvest_type": "UCD",
+        "harvest_extra_data": "",
+        "rights_statement": "",
+        "merritt_id": "",
+        "staging_notes": "",
+        "local_id": "ucd-photo",
+        "title": "Eastman Photo Collection",
+        "resource_uri": "/api/v1/collection/27181/"
+    }],
+    "metadata": {
+        "fileFormats": ["image/tiff", "image/jpeg"],
+        "description":
+        "Two-story building with pickup truck parked in street and sign reading \"H ST. S.\" in foreground. Lower right corner reads \"J.H. Eastman.\"",
+        "parent": "/collection/eastman/B-1",
+        "creator": "Eastman, Jervie Henry",
+        "image": {
+            "path": "/collection/eastman/B-1/B-1160/media/full",
+            "colorPalette":
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAIAAABxZ0isAAAAi0lEQVR42gXBQQqAIBAAQLfWJIJQpIMHe0Jf6I29qk/UoVuHOigsKsnSDGzb1nUdEQFArfV9XyGEtRZDCFLKdV3Hcbyua9/353lyzhhjBIDjOIwxKaWcMxGVUhpEJKL7vs/zrLUiYtu2zNzM8+ycs9YyMzNrrZVS3ntclgURSylCiO/7+r6fpmkYhh+480bpsJxzRwAAAABJRU5ErkJggg==",
+            "width": 3185,
+            "isWebFriendly": false,
+            "height": 2437
+        },
+        "material": "1 photographic negative : b&w : 5 x 7 in.",
+        "datePublished": "1940",
+        "associatedMedia": [
+            "/collection/eastman/B-1/B-1160/media/full",
+            "/collection/eastman/B-1/B-1160/media/web"
+        ],
+        "keywords": ["Animals", "Fish"],
+        "createdBy": "quinn@ucdavis.ed",
+        "isRootRecord": true,
+        "@id": "/collection/eastman/B-1/B-1160",
+        "id": "/collection/eastman/B-1/B-1160",
+        "creators": ["Eastman, Jervie Henry", "Blah"],
+        "publisher":
+        "University of California, Davis. General Library. Dept. of Special Collections",
+        "identifier": ["B-1160", "ark:/13030/tf8g5007bs"],
+        "name": "\"Lakeview High School\" Lakeview, Ore",
+        "license": "http://rightsstatements.org/vocab/InC-NC/1.0/",
+        "collectionId": "/collection/eastman",
+        "lastModified": "2018-06-14T22:44:02.715Z",
+        "@type": [],
+        "lastModifiedBy": "quinn@ucdavis.ed",
+        "publisherLink": "http://id.loc.gov/authorities/names/no2008108707",
+        "isPartOf": "/collection/eastman",
+        "@context": "http://schema.org",
+        "creatorLink": "http://id.loc.gov/authorities/names/no2014099630",
+        "type": ["CreativeWork", "Photograph", "MediaObject"],
+        "yearPublished": 1940
+    }
+}
