@@ -106,7 +106,10 @@ class UCLDCNuxeoMapper(Mapper):
                 data_type = self.type_labels.get(data_type, '')
                 logger.error("Data Readable:{}".format(data_type))
             item = data.get('item', '')
-            unpacked = u'{}: {}'.format(data_type, item)
+            if item:
+                unpacked = u'{}: {}'.format(data_type, item)
+            else:
+                unpacked = ''
         else:
             unpacked = data
         return unpacked

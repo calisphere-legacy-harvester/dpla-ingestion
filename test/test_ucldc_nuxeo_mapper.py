@@ -33,7 +33,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertEqual(srcRes['contributor'], [])
         TC.assertEqual(srcRes['creator'], ["Cochems, Edward W. (Edward William), 1874-1949"])
         TC.assertEqual(srcRes['date'], ["1919 - 1949"])
-        TC.assertEqual(srcRes['description'], ["First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model"])
+        TC.assertEqual(srcRes['description'], [''])
         TC.assertNotIn('extent', srcRes)
         TC.assertEqual(srcRes['format'], "Photographic print")
         TC.assertEqual(srcRes['genre'], [])

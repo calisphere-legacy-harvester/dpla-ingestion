@@ -74,7 +74,12 @@
         "source": null
       }
     ],
-    "ucldc_schema:description": "First picture of Adeline Cochems (Mrs. Weston Walker) and one of the first pictures Cochems took while practicing with his daughter as model",
+    "ucldc_schema:description": [
+        {
+            "item": "",
+            "type": "scopecontent"
+        }
+    ],
     "picture:language": null,
     "picture:source": null,
     "ucldc_schema:collection": [
