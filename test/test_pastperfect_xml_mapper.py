@@ -2,6 +2,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from akara import logger
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 
@@ -58,3 +59,14 @@ class PastPerfect_XML_FeedTestCase(TestCase):
         )
         self.assertEqual(srcRes['creator'][0], "Denny Johnson")
         self.assertEqual(srcRes['format'][0], "Print")
+
+    def test_nothumb(self):
+        fixture = path.join(DIR_FIXTURES, 'pastperfect_xml_nothumb.json')
+        with open(fixture) as f:
+            INPUT = f.read()
+            resp, content = self._get_server_response(INPUT)
+        self.assertEqual(resp.status, 200)
+        obj = json.loads(content)
+        self.assertFalse(obj['sourceResource'])
+        self.assertNotIn('isShownAt', obj)
+        self.assertNotIn('isShownBy', obj)

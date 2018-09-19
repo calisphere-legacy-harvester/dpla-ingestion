@@ -23,7 +23,6 @@ def test_burbank_islandora_mapping():
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
-    logger.error(obj)
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']

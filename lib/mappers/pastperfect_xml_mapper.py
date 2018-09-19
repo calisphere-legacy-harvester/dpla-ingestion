@@ -10,11 +10,17 @@ class PastPerfectXMLMapper(Mapper):
         super(PastPerfectXMLMapper, self).__init__(provider_data, key_prefix)
         self.metadata = self.provider_data.get('metadata', self.provider_data)
 
+    # Don't create sourceResource, isShownBy or isShownAt for
+    # thumbnail-less objects, so they do not get passed through to SOLR
+    def map_source_resource(self):
+        if 'thumbnail' in self.metadata:
+            super(PastPerfectXMLMapper, self).map_source_resource()
+
     def map_is_shown_at(self, index=None):
         '''Set is_shownBy as well'''
-        if 'url' in self.metadata:
-            self.mapped_data.update({"isShownAt": self.metadata['url'][0]})
         if 'thumbnail' in self.metadata:
+            if 'url' in self.metadata:
+                self.mapped_data.update({"isShownAt": self.metadata['url'][0]})
             if '.tif' in self.metadata['thumbnail'][0]:
                 jpg_url = self.metadata['thumbnail'][0].replace(".tif", ".jpg")
                 self.mapped_data.update({"isShownBy": jpg_url})
