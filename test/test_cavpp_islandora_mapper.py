@@ -38,4 +38,4 @@ def test_cavpp_overrides():
     TC.assertEqual(srcRes['provenance'],
                             [u"Butte County Library",
                             u"The California Revealed Project is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian."])
-    TC.assertEqual(srcRes['type'],[u'Sound'])
+    TC.assertEqual(srcRes['type'],[u'Still Image'])

@@ -27,3 +27,11 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                 prov_list.append(prov)
         prov_list.append('The California Revealed Project is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian.')
         self.update_source_resource({'provenance': prov_list})
+
+    def map_type(self):
+        # If type value = 'item', get type from medium
+        if 'type' in self.provider_data:
+            if self.provider_data['type'][0] == 'Item':
+                self.update_source_resource({'type': self.provider_data['medium']})
+            else:
+                self.update_source_resource({'type': self.provider_data['type']})
