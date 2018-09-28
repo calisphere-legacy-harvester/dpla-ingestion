@@ -98,4 +98,4 @@ class UCD_JSONMapper(Mapper):
 
     def map_rights(self):
         if 'license' in self.metadata:
-            self.update_source_resource({'rights': self.metadata['license']})
+            self.update_source_resource({'rightsURI': self.metadata['license']})

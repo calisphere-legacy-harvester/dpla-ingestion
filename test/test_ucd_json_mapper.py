@@ -49,3 +49,4 @@ class UCD_JSON_TestCase(TestCase):
         self.assertEqual(srcRes['format'],
                          "1 photographic negative : b&w : 5 x 7 in.")
         self.assertEqual(srcRes['type'], "Photograph")
+        self.assertEqual(srcRes['rightsURI'], "http://rightsstatements.org/vocab/InC-NC/1.0/")
