@@ -11,15 +11,14 @@ class UCD_JSONMapper(Mapper):
         self.metadata = self.provider_data.get('metadata', self.provider_data)
 
     def map_is_shown_by(self, index=None):
-        if 'associatedMedia' in self.metadata:
-            medias = getprop(self.metadata, 'associatedMedia')
-            for m in medias:
-                if 'media/web' in m:
-                    isShownBy = "https://digital.ucdavis.edu/fcrepo/rest" + m
+        isShownBy = None
+        if 'thumbnailUrl' in self.metadata:
+            isShownBy = "https://digital.ucdavis.edu" + getprop(self.metadata, 'thumbnailUrl')
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
     def map_is_shown_at(self, index=None):
+        isShownAt = None
         if '@id' in self.metadata:
             recordID = getprop(self.metadata, '@id')
             isShownAt = "https://digital.ucdavis.edu/record" + recordID
@@ -29,7 +28,13 @@ class UCD_JSONMapper(Mapper):
     def map_ids(self):
         collection_id = self.provider_data['collection'][0]['resource_uri']
         collection_id = collection_id.rsplit('/')[-2]
-        doc_id = self.metadata['identifier'][0]
+        #get ARK for _id, if possible
+        doc_id = None
+        for i in self.metadata['identifier']:
+            if 'ark:/' in i:
+                doc_id = i
+        if not doc_id:
+            doc_id = self.metadata['identifier'][0]
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id

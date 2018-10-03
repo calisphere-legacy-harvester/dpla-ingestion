@@ -21,17 +21,17 @@ class UCD_JSON_TestCase(TestCase):
             resp, content = self._get_server_response(INPUT)
         self.assertEqual(resp.status, 200)
         obj = json.loads(content)
-        self.assertEqual(obj['_id'], '27181--B-1160')
-        self.assertEqual(obj['id'], 'e60b2fe59ab111ec9af42e7636bd682c')
+        self.assertEqual(obj['_id'], '27181--ark:/13030/tf8g5007bs')
+        self.assertEqual(obj['id'], 'e71ec10bbbd23338f92398f49b5e87d5')
         self.assertEqual(
             obj['@id'],
-            'http://ucldc.cdlib.org/api/items/e60b2fe59ab111ec9af42e7636bd682c')
+            'http://ucldc.cdlib.org/api/items/e71ec10bbbd23338f92398f49b5e87d5')
         self.assertEqual(
             obj['isShownAt'],
             'https://digital.ucdavis.edu/record/collection/eastman/B-1/B-1160')
         self.assertEqual(
             obj['isShownBy'],
-            'https://digital.ucdavis.edu/fcrepo/rest/collection/eastman/B-1/B-1160/media/web'
+            'https://digital.ucdavis.edu/fcrepo/rest/collection/amerine-wine-labels/labels/label_2955/media/label_2955/svc:iiif/full/500,333/0/default.jpg'
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1940')
