@@ -11,67 +11,50 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=lapl_marc"
+    url = server() + "dpla_mapper?mapper_type=lapl_oai"
     return H.request(
         url,
         "POST",
         body=body, )
 
 
-def test_lapl_marc_mapping():
-    fixture = path.join(DIR_FIXTURES, 'lapl-marc.json')
+def test_lapl_oai_mapping():
+    fixture = path.join(DIR_FIXTURES, 'lapl-oai.json')
     with open(fixture) as f:
         INPUT = f.read()
-        TC.assertIn('530', INPUT)
         resp, content = _get_server_response(INPUT)
     assert str(resp.status).startswith("2"), str(resp) + "\n" + content
-
     doc = json.loads(content)
     TC.assertIn(u'sourceResource', doc)
     TC.assertIn(u'title', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['title'],
-                   [u'Olvera Street shop [graphic]'])
+    TC.assertEqual(doc['sourceResource']['title'][0],
+                   u'Olvera Street shop')
     TC.assertIn(u'description', doc[u'sourceResource'])
-    TC.assertEqual(len(doc['sourceResource']['description']), 4)
+    TC.assertEqual(len(doc['sourceResource']['description']), 2)
     TC.assertEqual(
-        doc['sourceResource']['description'][2],
+        doc['sourceResource']['description'][1],
         u'A man and two boys sit in front of an Olvera Street shop. A large sign on the right reads, "For Your Fortune Consult Princess Lorena - The Morning Star." Another sign posted above the doorway reads, "Chief Kut - Mescalero." It is not clear if the man sitting on the right is Chief Kut.'
     )
-    TC.assertIn(u'extent', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['extent'],
-                   [u'1 photographic print : b&w ; 15 x 11 cm.'])
+    TC.assertIn(u'format', doc[u'sourceResource'])
+    TC.assertEqual(doc['sourceResource']['format'][0],
+                   u'1 photographic print :b&amp;w ;15 x 11 cm.')
     TC.assertIn(u'identifier', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['identifier'], [u'(OCoLC)838675849'])
-    TC.assertIn(u'spatial', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['spatial'][0], u'California')
-    TC.assertEqual(doc['sourceResource']['spatial'][1], u'Los Angeles')
-    TC.assertIn(u'specType', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['specType'],
-                   [u'Photograph/Pictorial Works'])
-    TC.assertIn(u'type', doc[u'sourceResource'])
-    TC.assertEqual(doc['sourceResource']['type'], u'Image')
+    TC.assertEqual(len(doc['sourceResource']['identifier']), 5)
+    TC.assertEqual(doc['sourceResource']['identifier'][2], u'N-011-201 8x10')
     TC.assertIn(u'isShownAt', doc)
     TC.assertEqual(
         doc['isShownAt'],
-        u'http://photos.lapl.org/carlweb/jsp/DoSearch?index=z&databaseID=968&terms=0005159565'
+        u'https://tessa.lapl.org/cdm/ref/collection/photos/id/36479'
     )
     TC.assertIn(u'isShownBy', doc)
     TC.assertEqual(doc['isShownBy'],
-                   u'http://jpg1.lapl.org/00101/00101746.jpg')
-    TC.assertEqual(doc['sourceResource']['language'], [u'eng'])
-    TC.assertEqual(doc['sourceResource']['date']['displayDate'], u'[ca. 19--]')
-    TC.assertEqual(doc['sourceResource']['date'], {
-        'begin': '19uu',
-        'end': '19uu',
-        'displayDate': '[ca. 19--]'
-    })
+                   u'http://173.196.26.125/utils/ajaxhelper?CISOROOT=photos&CISOPTR=36479&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE=100')
     TC.assertEqual(len(doc['sourceResource']['subject']), 8)
     TC.assertEqual(doc['sourceResource']['subject'][0],
                    {'name': 'Signs and signboards--California--Los Angeles.'})
     TC.assertEqual(doc['sourceResource']['contributor'],
-                   ['Torrez, Eloy.', 'Walker & Eisen.'])
+                   ['Made accessible through a grant from the John Randolph Haynes and Dora Haynes Foundation.'])
     TC.assertEqual(doc['sourceResource']['creator'], ['Schultheis, Herman.'])
-    TC.assertTrue('LAPL 00101746' in doc['sourceResource']['description'])
 
 
 if __name__ == "__main__":

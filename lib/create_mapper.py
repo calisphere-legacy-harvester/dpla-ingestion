@@ -64,9 +64,9 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.missouri_mapper import MissouriMapper
         return MissouriMapper(data)
 
-    def _create_lapl_marc_mapper(data):
-        from dplaingestion.mappers.lapl_marc_mapper import LAPLMARCMapper
-        return LAPLMARCMapper(data)
+    def _create_lapl_oai_mapper(data):
+        from dplaingestion.mappers.lapl_oai_mapper import LAPL_OAIMapper
+        return LAPL_OAIMapper(data)
 
     def _create_ucla_solr_dc_mapper(data):
         from dplaingestion.mappers.ucla_solr_dc_mapper import UCLASolrDCMapper
@@ -258,9 +258,9 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.pastperfect_xml_mapper import PastPerfectXMLMapper
         return PastPerfectXMLMapper(data)
 
-    def _create_lapl_oai_mapper(data):
-        from dplaingestion.mappers.lapl_oai_mapper import LAPL_OAIMapper
-        return LAPL_OAIMapper(data)
+    def _create_lapl_26096_mapper(data):
+        from dplaingestion.mappers.lapl_26096_mapper import LAPL_26096Mapper
+        return LAPL_26096Mapper(data)
 
     def _create_yosemite_oai_mapper(data):
         from dplaingestion.mappers.yosemite_oai_mapper import Yosemite_OAIMapper
@@ -289,7 +289,7 @@ def create_mapper(mapper_type, data):
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
-        'lapl_marc': lambda d: _create_lapl_marc_mapper(d),
+        'lapl_oai': lambda d: _create_lapl_oai_mapper(d),
         'sfpl_marc': lambda d: _create_sfpl_marc_mapper(d),
         'csl_marc': lambda d: _create_csl_marc_mapper(d),
         'pspl_oai_dc': lambda d: _create_pspl_marc_mapper(d),
@@ -344,7 +344,7 @@ def create_mapper(mapper_type, data):
         'csuci_mets': lambda d: _create_csuci_mapper(d),
         'caltech_restrict': lambda d: _create_caltech_restricted_mapper(d),
         'pastperfect_xml': lambda d: _create_pastperfect_xml_mapper(d),
-        'lapl_oai_dc': lambda d: _create_lapl_oai_mapper(d),
+        'lapl_26096': lambda d: _create_lapl_26096_mapper(d),
         'yosemite_oai_dc': lambda d: _create_yosemite_oai_mapper(d),
         'emuseum_xml': lambda d: _create_emuseum_xml_mapper(d),
         'uci_didl': lambda d: _create_uci_didl_mapper(d),

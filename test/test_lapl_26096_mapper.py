@@ -11,12 +11,12 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=lapl_oai_dc"
+    url = server() + "dpla_mapper?mapper_type=lapl_26096"
     return H.request(url, "POST", body=body)
 
 
 def test_lapl_oai_dc_mapping():
-    fixture = path.join(DIR_FIXTURES, 'lapl-oai.json')
+    fixture = path.join(DIR_FIXTURES, 'lapl-26096.json')
     with open(fixture) as f:
         INPUT = f.read()
         TC.assertIn('id', INPUT)
