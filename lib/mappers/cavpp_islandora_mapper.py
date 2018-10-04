@@ -32,6 +32,9 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
         # If type value = 'item', get type from medium
         if 'type' in self.provider_data:
             if self.provider_data['type'][0] == 'Item':
-                self.update_source_resource({'type': self.provider_data['medium']})
+                try:
+                    self.update_source_resource({'type': self.provider_data['medium']})
+                except KeyError:
+                    pass
             else:
                 self.update_source_resource({'type': self.provider_data['type']})
