@@ -1,6 +1,7 @@
 import hashlib
 from dplaingestion.mappers.mapper import Mapper
 from dplaingestion.selector import getprop
+from akara import logger
 
 COUCH_ID_BUILDER = lambda src, lname: "--".join((src, lname))
 
@@ -57,10 +58,11 @@ class UCD_JSONMapper(Mapper):
             })
 
     def map_subject(self):
-        if 'keywords' in self.metadata:
-            values = self.metadata['keywords']
+        if 'about' in self.metadata:
+            values = self.metadata['about']
         if values:
-            value_objs = [{'name': v} for v in values]
+            for v in values:
+                value_objs = [{'name': v['name']} for v in values]
             self.update_source_resource({'subject': value_objs})
 
     def map_format(self):
@@ -85,8 +87,11 @@ class UCD_JSONMapper(Mapper):
 
     def map_publisher(self):
         if 'publisher' in self.metadata:
+            values = self.metadata['publisher']
+            publisher = [i['name'] for i in values if 'name' in i]
+            logger.error(publisher)
             self.update_source_resource({
-                'publisher': self.metadata['publisher']
+                'publisher': publisher
             })
 
     def map_type(self):

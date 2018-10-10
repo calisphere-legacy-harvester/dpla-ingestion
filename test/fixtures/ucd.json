@@ -50,6 +50,16 @@
         "fileFormats": ["image/tiff", "image/jpeg"],
         "description":
         "Two-story building with pickup truck parked in street and sign reading \"H ST. S.\" in foreground. Lower right corner reads \"J.H. Eastman.\"",
+        "about": [
+            {
+                "@id": "http://id.worldcat.org/fast/1204303",
+                "name": "Spain"
+            },
+            {
+                "@id": "http://id.worldcat.org/fast/1115874",
+                "name": "Sherry"
+            }
+        ],
         "parent": "/collection/eastman/B-1",
         "creator": "Eastman, Jervie Henry",
         "image": {
@@ -66,15 +76,21 @@
             "/collection/eastman/B-1/B-1160/media/full",
             "/collection/eastman/B-1/B-1160/media/web"
         ],
-        "keywords": ["Animals", "Fish"],
-        "createdBy": "quinn@ucdavis.ed",
+        "keywords": "Brandy",
+        "createdBy": "quinn@ucdavis.edu",
         "thumbnailUrl": "/fcrepo/rest/collection/amerine-wine-labels/labels/label_2955/media/label_2955/svc:iiif/full/500,333/0/default.jpg",
         "isRootRecord": true,
         "@id": "/collection/eastman/B-1/B-1160",
         "id": "/collection/eastman/B-1/B-1160",
         "creators": ["Eastman, Jervie Henry", "Blah"],
-        "publisher":
-        "University of California, Davis. General Library. Dept. of Special Collections",
+        "publisher": [
+                   {
+                       "name": "University of California, Davis. General Library. Dept. of Special Collections"
+                   },
+                   {
+                       "@id": "http://id.loc.gov/authorities/names/no2008108707"
+                   }
+               ],
         "identifier": ["B-1160", "ark:/13030/tf8g5007bs"],
         "name": "\"Lakeview High School\" Lakeview, Ore",
         "license": "http://rightsstatements.org/vocab/InC-NC/1.0/",
@@ -82,7 +98,6 @@
         "lastModified": "2018-06-14T22:44:02.715Z",
         "@type": [],
         "lastModifiedBy": "quinn@ucdavis.ed",
-        "publisherLink": "http://id.loc.gov/authorities/names/no2008108707",
         "isPartOf": "/collection/eastman",
         "@context": "http://schema.org",
         "creatorLink": "http://id.loc.gov/authorities/names/no2014099630",
