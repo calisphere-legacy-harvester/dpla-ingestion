@@ -60,10 +60,14 @@ class UCD_JSONMapper(Mapper):
     def map_subject(self):
         if 'about' in self.metadata:
             values = self.metadata['about']
-        if values:
-            for v in values:
-                value_objs = [{'name': v['name']} for v in values]
-            self.update_source_resource({'subject': value_objs})
+            if isinstance(values, dict):
+                subject = [{'name': values['name']}]
+            elif isinstance(values, basestring):
+                subject = [{'name': values}]
+            else:
+                for v in values:
+                    subject = [{'name': v['name']} for v in values]
+            self.update_source_resource({'subject': subject})
 
     def map_format(self):
         if 'material' in self.metadata:
@@ -89,7 +93,6 @@ class UCD_JSONMapper(Mapper):
         if 'publisher' in self.metadata:
             values = self.metadata['publisher']
             publisher = [i['name'] for i in values if 'name' in i]
-            logger.error(publisher)
             self.update_source_resource({
                 'publisher': publisher
             })
