@@ -39,3 +39,4 @@ def test_cavpp_overrides():
                             [u"Butte County Library",
                             u"The California Revealed Project is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian."])
     TC.assertEqual(srcRes['type'],[u'Still Image'])
+    TC.assertEqual(srcRes['description'],[u"Evelyn Joslyn speaking on the subject of the Lott family. She personally knew Judge Lott and the rest of the family."])

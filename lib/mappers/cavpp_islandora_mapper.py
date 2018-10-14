@@ -1,5 +1,6 @@
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
 from dplaingestion.selector import getprop
+from akara import logger
 
 class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     '''CAVPP mapper from Islandora'''
@@ -38,3 +39,16 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     pass
             else:
                 self.update_source_resource({'type': self.provider_data['type']})
+
+    def map_description(self):
+        #scrub CAVPP and California Revealed from description
+        desc_list =[]
+
+        if 'description' in self.provider_data:
+            description = self.provider_data['description']
+            for desc in description:
+                if 'California Audiovisual Preservation Project (CAVPP)' in desc or 'California Revealed' in desc:
+                    continue
+                else:
+                    desc_list.append(desc)
+        self.update_source_resource({'description': desc_list})
