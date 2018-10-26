@@ -49,16 +49,16 @@ class PastPerfectXMLMapper(Mapper):
 
     def map_title(self):
         if 'title' in self.metadata:
-            self.update_source_resource({'title': self.metadata['title'][0]})
+            self.update_source_resource({'title': self.metadata['title']})
 
     def map_date(self):
         if 'date' in self.metadata:
-            self.update_source_resource({'date': self.metadata['date'][0]})
+            self.update_source_resource({'date': self.metadata['date']})
 
     def map_description(self):
         if 'description' in self.metadata:
             self.update_source_resource({
-                'description': self.metadata['description'][0]
+                'description': self.metadata['description']
                 })
 
     def map_subject(self):
@@ -76,13 +76,13 @@ class PastPerfectXMLMapper(Mapper):
     def map_place(self):
         if 'place' in self.metadata:
             self.update_source_resource({
-                'spatial': self.metadata['place'][0]
+                'spatial': self.metadata['place']
                 })
 
     def map_temporal(self):
         if 'coverage' in self.metadata:
             self.update_source_resource({
-                'temporal': self.metadata['coverage'][0]
+                'temporal': self.metadata['coverage']
                 })
 
     def map_format(self):
@@ -91,8 +91,6 @@ class PastPerfectXMLMapper(Mapper):
             formats.append(self.metadata['medium'][0])
         if 'material' in self.metadata:
             formats.append(self.metadata['material'][0])
-        if 'objectname' in self.metadata:
-            formats.append(self.metadata['objectname'][0])
         if formats:
             self.update_source_resource({'format': formats})
 
@@ -118,14 +116,20 @@ class PastPerfectXMLMapper(Mapper):
         if identifiers:
             self.update_source_resource({'identifier': identifiers})
 
+    def map_type(self):
+        if 'objectname' in self.metadata:
+            self.update_source_resource({
+                'type': self.metadata['objectname']
+                })
+
     def map_relation(self):
         if 'relation' in self.metadata:
             self.update_source_resource({
-                'relation': self.metadata['collection'][0]
+                'relation': self.metadata['collection']
                 })
 
     def map_rights(self):
         if 'rights' in self.metadata:
             self.update_source_resource({
-                'rights': self.metadata['rights'][0]
+                'rights': self.metadata['rights']
                 })

@@ -37,7 +37,7 @@ class PastPerfect_XML_FeedTestCase(TestCase):
             'https://s3.amazonaws.com/pastperfectonline/images/museum_231/130/thumbs/1983001sbpmp02464.jpg'
         )
         srcRes = obj['sourceResource']
-        self.assertEqual(srcRes['date'], '1966/09/28')
+        self.assertEqual(srcRes['date'], ['1966/09/28'])
         self.assertEqual(srcRes['identifier'], ['000501E3-9133-4358-AE66-874944208261', '1994/007/013'])
         self.assertEqual(srcRes['subject'], [
             {
@@ -55,10 +55,11 @@ class PastPerfect_XML_FeedTestCase(TestCase):
         ])
         self.assertEqual(
             srcRes['title'],
-            "Edwin A. Grebitus Sr. shown with his son Edwin A. Grebitus Jr. and Sacramento Mayor Walter Christensen (center)."
+            ["Edwin A. Grebitus Sr. shown with his son Edwin A. Grebitus Jr. and Sacramento Mayor Walter Christensen (center)."]
         )
-        self.assertEqual(srcRes['creator'][0], "Denny Johnson")
-        self.assertEqual(srcRes['format'][0], "Print")
+        self.assertEqual(srcRes['creator'], ["Denny Johnson"])
+        self.assertEqual(srcRes['format'], ["Black and White Print"])
+        self.assertEqual(srcRes['type'], ["Print"])
 
     def test_nothumb(self):
         fixture = path.join(DIR_FIXTURES, 'pastperfect_xml_nothumb.json')
