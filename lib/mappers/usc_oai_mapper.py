@@ -53,8 +53,11 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
     def update_mapped_fields(self):
         '''strip out info in brackets from end of sourceResource
         values using regex. Don't strip out [Legacy record ID]
-        so that DPLA can key on it for record-matching'''
+        so that DPLA can key on it for record-matching
+        or description'''
         for b in self.mapped_data['sourceResource']:
+            if b == 'description':
+                continue
             fieldValue = self.mapped_data['sourceResource'][b]
             stripValue = self.strip_brackets(fieldValue)
             self.update_source_resource({b: stripValue})

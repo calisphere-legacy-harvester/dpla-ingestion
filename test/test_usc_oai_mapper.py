@@ -35,6 +35,10 @@ def test_usc_mapping():
         "http://thumbnails.digitallibrary.usc.edu/CHS-40351.jpg"
     )
     TC.assertEqual(
+        srcRes['description'][0],
+        "The English weekly newspaper, Los Angeles Star includes headings: [p. 1]: [col. 3]: \"Thoughts of the past\", \"The Apache Pass difficulty\", \"Wonders of the microscope\", [col. 4]: \"Arrival of the Pony Express -- Per Pacific and Atlantic telegraph\", \"A port for Arizona\", [col. 5]: \"Modern discoveries\", \"Outside barbarians\", [p. 2]: [col. 1]: \"The city government\", \"Report of the Grand Jury\", \"A grand mare's nest\""
+    )
+    TC.assertEqual(
         srcRes['identifier'],
         [
            "CHS-40351",
