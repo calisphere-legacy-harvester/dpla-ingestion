@@ -91,11 +91,19 @@ class UCD_JSONMapper(Mapper):
 
     def map_publisher(self):
         if 'publisher' in self.metadata:
-            values = self.metadata['publisher']
-            publisher = [i['name'] for i in values if 'name' in i]
-            self.update_source_resource({
-                'publisher': publisher
-            })
+            logger.error(type(self.metadata['publisher']))
+            if isinstance(self.metadata['publisher'], list):
+                for p in self.metadata['publisher']:
+                    if 'name' in p:
+                        publish = p['name']
+            elif isinstance(self.metadata['publisher'], dict):
+                if 'name' in self.metadata['publisher']:
+                    publish = self.metadata['publisher'].values()
+            else:
+                if 'name' in self.metadata['publisher']:
+                    publish = self.metadata['publisher']
+        if publish:
+                    self.update_source_resource({'publisher': publish})
 
     def map_type(self):
         restrict_types = ["CreativeWork", "MediaObject"]

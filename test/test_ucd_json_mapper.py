@@ -35,7 +35,7 @@ class UCD_JSON_TestCase(TestCase):
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], '1940')
-        self.assertEqual(srcRes['publisher'][0], 'University of California, Davis. General Library. Dept. of Special Collections')
+        self.assertEqual(srcRes['publisher'], 'University of California, Davis. General Library. Dept. of Special Collections')
         self.assertEqual(srcRes['subject'], [
             {
                 'name': u'Spain'
