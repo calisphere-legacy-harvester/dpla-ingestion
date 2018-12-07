@@ -13,6 +13,7 @@ CouchDB==0.9
 nose
 geopy
 python-cloudfiles
+redis-py==2.10.6
 ordereddict
 jsonschema==2.3.0
 git+https://github.com/mredar/markupsafe.git#egg=MarkupSafe
