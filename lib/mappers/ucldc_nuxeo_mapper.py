@@ -102,7 +102,7 @@ class UCLDCNuxeoMapper(Mapper):
             #make robust to not break
             data_type = data.get('type', '').strip()
             logger.error("Data CODE:{}".format(data_type))
-            if data_type:
+            if self.type_labels.get(data_type, ''):
                 data_type = self.type_labels.get(data_type, '')
                 logger.error("Data Readable:{}".format(data_type))
             item = data.get('item', '')

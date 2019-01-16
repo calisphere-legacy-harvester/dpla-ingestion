@@ -76,8 +76,8 @@
     ],
     "ucldc_schema:description": [
         {
-            "item": "",
-            "type": "scopecontent"
+            "item": "test test test",
+            "type": "Production Credits"
         }
     ],
     "picture:language": null,
