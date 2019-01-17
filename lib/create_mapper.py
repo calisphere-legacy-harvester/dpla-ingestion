@@ -286,6 +286,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucd_json_mapper import UCD_JSONMapper
         return UCD_JSONMapper(data)
 
+    def _create_sanjose_pastperfect_mapper(data):
+        from dplaingestion.mappers.sanjose_pastperfect_mapper import SanJose_PastPerfectMapper
+        return SanJose_PastPerfectMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -351,6 +355,7 @@ def create_mapper(mapper_type, data):
         'ucsc_oai_dpla': lambda d: _create_ucsc_oai_mapper(d),
         'usc_oai_dc': lambda d: _create_usc_oai_mapper(d),
         'ucd_json': lambda d: _create_ucd_json_mapper(d),
+        'sanjose_pastperfect': lambda d: _create_sanjose_pastperfect_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

@@ -30,7 +30,7 @@ class PastPerfect_XML_FeedTestCase(TestCase):
             'http://ucldc.cdlib.org/api/items/ca1797b08177dc1fa18bb17d59be3ca9')
         self.assertEqual(
             obj['isShownAt'],
-            'http://sacramento.pastperfectonline.com/photo/000501E3-9133-4358-AE66-874944208261'
+            'http://sacramento.pastperfectonline.com/webobject/000501E3-9133-4358-AE66-874944208261'
         )
         self.assertEqual(
             obj['isShownBy'],
