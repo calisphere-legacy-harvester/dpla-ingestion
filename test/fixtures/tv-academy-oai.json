@@ -1,0 +1,93 @@
+{
+    "type": ["Moving Image"],
+    "publisher": ["Television Academy Foundation"],
+    "rights": [
+        "All rights The Television Academy Foundation. For permission to use this item, contact The Interviews, https://interviews.televisionacademy.com/license-our-clips"
+    ],
+    "collection": [{
+        "dcmi_type":
+        "I",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=contentdm_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "featured":
+        false,
+        "ready_for_publication":
+        false,
+        "hosted":
+        "",
+        "id":
+        "26763",
+        "url_oac":
+        "",
+        "custom_facet": [],
+        "harvest_frequency":
+        null,
+        "metadata_in_dams":
+        false,
+        "url_harvest":
+        "http://archives.csuchico.edu/oai/oai.php",
+        "campus": [],
+        "files_in_dams":
+        false,
+        "date_last_harvested":
+        null,
+        "harvest_exception_notes":
+        "",
+        "files_in_hand":
+        false,
+        "ingestType":
+        "collection",
+        "description":
+        "The John Nopel Collection is comprised of hundreds of images of Chico and Butte County, residents, landscapes, and industries. A lifelong Chico resident, teacher, and historian, John Nopel (1915-2006) collected these unique photographs over many decades and he did so with a passion to create a visual heritage of his hometown. The diverse subject collection of these images makes it unique and widely useful to all types of researchers and enthusiasts of early photography. The John Nopel photograph collection continues to grow through ongoing donations from the Nopel family.",
+        "repository": [{
+            "name":
+            "California State University, Chico",
+            "campus": [],
+            "slug":
+            "california-state-university-chico",
+            "ark":
+            "ark:/13030/tf7v19p5n4",
+            "@id":
+            "https://registry.cdlib.org/api/v1/repository/171/",
+            "id":
+            171,
+            "google_analytics_tracking_code":
+            "",
+            "resource_uri":
+            "/api/v1/repository/171/"
+        }],
+        "url_local":
+        "http://archives.csuchico.edu/cdm/landingpage/collection/coll10",
+        "extent":
+        null,
+        "rights_status":
+        "X",
+        "@id":
+        "https://registry.cdlib.org/api/v1/collection/26763/",
+        "slug":
+        "john-nopel-photograph-collection-the-john-nopel-co",
+        "name":
+        "John Nopel Photograph Collection",
+        "qa_completed":
+        false,
+        "harvest_type":
+        "OAI",
+        "harvest_extra_data":
+        "coll10",
+        "rights_statement":
+        "",
+        "staging_notes":
+        "",
+        "local_id":
+        "csuc-nopel",
+        "title":
+        "John Nopel Photograph Collection",
+        "resource_uri":
+        "/api/v1/collection/26763/"
+    }],
+    "relation": [
+        "https://interviews.televisionacademy.com/sites/default/files/interview-photo/youtube-hEm9rLo3Np4.jpg"
+    ],
+    "title": ["Mary V. Ahern - Interview"],
+    "identifier": ["https://interviews.televisionacademy.com/node/87304"]
+}
