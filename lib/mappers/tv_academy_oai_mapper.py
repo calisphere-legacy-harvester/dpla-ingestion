@@ -7,16 +7,12 @@ class TVAcademy_OAIMapper(OAIDublinCoreMapper):
     '''A base mapper for Television Academy OAI Drupal feed'''
 
     def map_is_shown_at(self):
-        isShownAt = None
-        isShownAt = getprop(self.provider_data_source, 'identifier')
-        if isShownAt:
-            self.mapped_data.update({'isShownAt': isShownAt})
+        if 'identifier' in self.provider_data:
+            self.mapped_data.update({'isShownAt': self.provider_data['identifier'][0]})
 
     def map_is_shown_by(self):
-        isShownBy = None
-        isShownBy = getprop(self.provider_data_source, 'relation')
-        if isShownBy:
-            self.mapped_data.update({'isShownBy': isShownBy})
+        if 'relation' in self.provider_data:
+            self.mapped_data.update({'isShownBy': self.provider_data['relation'][0]})
 
     def map_relation(self):
         pass

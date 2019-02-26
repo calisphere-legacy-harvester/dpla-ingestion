@@ -22,10 +22,10 @@ def test_tv_academy_oai_dc_mapping():
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
-    TC.assertEqual(obj['isShownAt'][0],
+    TC.assertEqual(obj['isShownAt'],
                    "https://interviews.televisionacademy.com/node/87304")
     TC.assertEqual(
-        obj['isShownBy'][0],
+        obj['isShownBy'],
         "https://interviews.televisionacademy.com/sites/default/files/interview-photo/youtube-hEm9rLo3Np4.jpg")
     TC.assertNotIn('relation', obj['sourceResource'])
 
