@@ -28,7 +28,7 @@ class UCD_JSON_TestCase(TestCase):
             'http://ucldc.cdlib.org/api/items/e71ec10bbbd23338f92398f49b5e87d5')
         self.assertEqual(
             obj['isShownAt'],
-            'https://digital.ucdavis.edu/record/collection/eastman/B-1/B-1160')
+            'https://digital.ucdavis.edu/collection/eastman/B-1/B-1160')
         self.assertEqual(
             obj['isShownBy'],
             'https://digital.ucdavis.edu/fcrepo/rest/collection/amerine-wine-labels/labels/label_2955/media/label_2955/svc:iiif/full/500,333/0/default.jpg'
@@ -46,7 +46,7 @@ class UCD_JSON_TestCase(TestCase):
         ])
         self.assertEqual(srcRes['title'],
                          "\"Lakeview High School\" Lakeview, Ore")
-        self.assertEqual(srcRes['creator'][0], "Eastman, Jervie Henry")
+        self.assertEqual(srcRes['creator'], "Eastman, Jervie Henry")
         self.assertEqual(srcRes['format'],
                          "1 photographic negative : b&w : 5 x 7 in.")
         self.assertEqual(srcRes['type'], "Photograph")

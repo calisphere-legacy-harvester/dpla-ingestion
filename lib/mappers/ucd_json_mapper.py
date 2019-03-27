@@ -22,7 +22,7 @@ class UCD_JSONMapper(Mapper):
         isShownAt = None
         if '@id' in self.metadata:
             recordID = getprop(self.metadata, '@id')
-            isShownAt = "https://digital.ucdavis.edu/record" + recordID
+            isShownAt = "https://digital.ucdavis.edu" + recordID
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
@@ -74,12 +74,19 @@ class UCD_JSONMapper(Mapper):
             self.update_source_resource({'format': self.metadata['material']})
 
     def map_creator(self):
-        creators = []
-        if 'creators' in self.metadata:
-            for c in self.metadata['creators']:
-                creators.append(c)
-        if creators:
-            self.update_source_resource({'creator': creators})
+        if 'creator' in self.metadata:
+            if isinstance(self.metadata['creator'], list):
+                for p in self.metadata['creator']:
+                    if 'name' in p:
+                        creator = p['name']
+            elif isinstance(self.metadata['creator'], dict):
+                if 'name' in self.metadata['creator']:
+                    creator = self.metadata['creator'].values()
+            else:
+                if 'name' in self.metadata['creator']:
+                    creator = self.metadata['creator']
+        if creator:
+            self.update_source_resource({'creator': creator})
 
     def map_identifier(self):
         identifiers = []
@@ -91,7 +98,6 @@ class UCD_JSONMapper(Mapper):
 
     def map_publisher(self):
         if 'publisher' in self.metadata:
-            logger.error(type(self.metadata['publisher']))
             if isinstance(self.metadata['publisher'], list):
                 for p in self.metadata['publisher']:
                     if 'name' in p:

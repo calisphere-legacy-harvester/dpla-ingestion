@@ -61,7 +61,14 @@
             }
         ],
         "parent": "/collection/eastman/B-1",
-        "creator": "Eastman, Jervie Henry",
+        "creator": [
+                {
+                  "@id": "http://id.loc.gov/authorities/names/no2014099630"
+                },
+                {
+                  "name": "Eastman, Jervie Henry"
+                }
+            ],
         "image": {
             "path": "/collection/eastman/B-1/B-1160/media/full",
             "colorPalette":
@@ -82,7 +89,6 @@
         "isRootRecord": true,
         "@id": "/collection/eastman/B-1/B-1160",
         "id": "/collection/eastman/B-1/B-1160",
-        "creators": ["Eastman, Jervie Henry", "Blah"],
         "publisher": [
                    {
                        "name": "University of California, Davis. General Library. Dept. of Special Collections"
