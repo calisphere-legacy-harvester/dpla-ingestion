@@ -187,7 +187,7 @@ def main(argv):
     try:
         couch.update_ingestion_doc(ingestion_doc, **kwargs)
     except:
-        print >> sys.stderr, "Error updating ingestion document " + \
+        print >> sys.stderr, "Error updating ingestion document at start " + \
                 ingestion_doc["_id"]
         return 1
 
@@ -270,11 +270,13 @@ def main(argv):
                     stats['missing_source_resource']
         }
 
+    couch = Couch()
+    ingestion_doc = couch.dashboard_db[args.ingestion_document_id]
     try:
         # Update ingestion document
         couch.update_ingestion_doc(ingestion_doc, **couch_kwargs)
     except:
-        print >> sys.stderr, "Error updating ingestion document " + \
+        print >> sys.stderr, "2 Error updating ingestion document when complete" + \
                              ingestion_doc["_id"]
         return 1
 
