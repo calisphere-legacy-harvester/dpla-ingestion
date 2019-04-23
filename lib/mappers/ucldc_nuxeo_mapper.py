@@ -89,6 +89,7 @@ class UCLDCNuxeoMapper(Mapper):
             'language': 'Language',
             'performers': 'Performers',
             'prefercite': 'Preferred Citation',
+            'prodcredits': 'Production Credits',
             'venue': 'Venue',
             'condition': 'Condition',
             'medium': 'Medium',
