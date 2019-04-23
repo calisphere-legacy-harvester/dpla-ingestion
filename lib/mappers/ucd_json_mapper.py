@@ -85,8 +85,8 @@ class UCD_JSONMapper(Mapper):
             else:
                 if 'name' in self.metadata['creator']:
                     creator = self.metadata['creator']
-        if creator:
-            self.update_source_resource({'creator': creator})
+            if creator:
+                self.update_source_resource({'creator': creator})
 
     def map_identifier(self):
         identifiers = []
@@ -108,8 +108,8 @@ class UCD_JSONMapper(Mapper):
             else:
                 if 'name' in self.metadata['publisher']:
                     publish = self.metadata['publisher']
-        if publish:
-                    self.update_source_resource({'publisher': publish})
+            if publish:
+                self.update_source_resource({'publisher': publish})
 
     def map_type(self):
         restrict_types = ["CreativeWork", "MediaObject"]
