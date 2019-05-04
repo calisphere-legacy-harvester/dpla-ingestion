@@ -19,9 +19,6 @@
     "medium": [
       "Still Image"
     ],
-    "format": [
-      "Original"
-    ],
     "extent": [
       "01:31:36",
       "1 tape of 1"
@@ -39,11 +36,15 @@
     "contributor": [
       "Support provided by the Metabolic Studio."
     ],
+    "issued": [
+      "1965-10-14"
+    ],
     "title": [
       "Evelyn Joslyn Interview, 1973"
     ],
     "identifier": [
       "http://archive.org/details/corob_000252",
+      "cavpp012789",
       "2016-050-0029"
     ],
     "creator": [

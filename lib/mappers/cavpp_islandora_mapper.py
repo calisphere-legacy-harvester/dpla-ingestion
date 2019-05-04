@@ -1,5 +1,5 @@
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
-from dplaingestion.selector import getprop
+from dplaingestion.selector import exists, getprop
 from akara import logger
 
 class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
@@ -52,3 +52,32 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                 else:
                     desc_list.append(desc)
         self.update_source_resource({'description': desc_list})
+
+    def map_date(self):
+        self.source_resource_orig_to_prop("created", "date")
+
+    def map_identifier(self):
+        #scrub archive.org and cavpp values from identifier
+        fields = ("bibliographicCitation", "identifier")
+
+        values = []
+        for field in fields:
+            field = field if not self.prefix else ''.join(
+                    (self.prefix, field))
+            if exists(self.provider_data_source, field):
+                # Need to check if string or not
+                prop_val = getprop(self.provider_data_source, field)
+                if isinstance(prop_val, basestring):
+                    if 'archive.org' in prop_val or 'cavpp' in prop_val:
+                        continue
+                    else:
+                        values.append(prop_val)
+                else:
+                    # should be list then
+                    matches = ['archive.org', 'cavpp']
+                    matching = [s for s in prop_val if any(xs in s for xs in matches)]
+                    for prop in matching: prop_val.remove(prop)
+
+                    values.extend(prop_val)
+        if values:
+            self.update_source_resource({'identifier': values})
