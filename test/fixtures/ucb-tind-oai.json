@@ -1,0 +1,98 @@
+{
+   "datestamp": "2019-04-23T13:45:23Z",
+   "title": [
+       "Looking East from 16th Street & San Pablo Ave."
+   ],
+   "collection": [
+       {
+           "dcmi_type": "X",
+           "disqus_shortname_prod": "",
+           "featured": false,
+           "ready_for_publication": false,
+           "hosted": "",
+           "campus": [
+               {
+                   "name": "UC Berkeley",
+                   "slug": "UCB",
+                   "position": 0,
+                   "ark": "ark:/13030/tf0p3009mq",
+                   "@id": "https://registry.cdlib.org/api/v1/campus/1/",
+                   "id": 1,
+                   "google_analytics_tracking_code": "",
+                   "resource_uri": "/api/v1/campus/1/"
+               }
+           ],
+           "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/tf1z09n955",
+           "custom_facet": [
+           ],
+           "harvest_frequency": null,
+           "metadata_in_dams": false,
+           "url_harvest": "https://berkeley-test.tind.io/oai2d",
+           "id": "509",
+           "files_in_dams": false,
+           "date_last_harvested": null,
+           "harvest_exception_notes": "",
+           "files_in_hand": false,
+           "ingestType": "collection",
+           "description": "The Views of Alameda County, California album contains 25 photographs taken circa 1913 by the Cheney Photo Adv. Co. E.S. Cheney, president of the company, may be the photographer. Views include downtown Oakland, Lake Merritt, the Claremont Country Club, the University of California Berkeley campus, San Jose, and Livermore Valley....",
+           "repository": [
+               {
+                   "name": "Bancroft Library",
+                   "campus": [
+                       {
+                           "name": "UC Berkeley",
+                           "slug": "UCB",
+                           "position": 0,
+                           "ark": "ark:/13030/tf0p3009mq",
+                           "id": 1,
+                           "google_analytics_tracking_code": "",
+                           "resource_uri": "/api/v1/campus/1/"
+                       }
+                   ],
+                   "aeon_prod": "https://aeon.berkeley.edu/Logon?Action=10&Form=30&genre=copy",
+                   "slug": "bancroft-library",
+                   "aeon_test": "https://aeon.berkeley.edu/Logon?Action=10&Form=30&genre=copy",
+                   "ark": "ark:/13030/tf7r29p8s0",
+                   "@id": "https://registry.cdlib.org/api/v1/repository/4/",
+                   "id": 4,
+                   "google_analytics_tracking_code": "UA-31403262-2",
+                   "resource_uri": "/api/v1/repository/4/"
+               }
+           ],
+           "merritt_extra_data": "",
+           "extent": null,
+           "rights_status": "X",
+           "disqus_shortname_test": "",
+           "@id": "https://registry.cdlib.org/api/v1/collection/509/",
+           "slug": "alameda-county-california-ca-1913-views",
+           "harvest_extra_data": "calher130",
+           "qa_completed": false,
+           "harvest_type": "OAI",
+           "name": "Alameda County, California, ca. 1913 - Views",
+           "url_local": "",
+           "enrichments_item": "/select-id?prop=id, /dpla_mapper?mapper_type=contentdm_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+           "rights_statement": "",
+           "merritt_id": "",
+           "staging_notes": "",
+           "local_id": "BANC PIC 19xx.069--ffALB",
+           "title": "Alameda County, California, ca. 1913 - Views",
+           "resource_uri": "/api/v1/collection/509/"
+       }
+   ],
+   "source": [
+       "http://berkeley-test.tind.io/record/5546"
+   ],
+   "date": [
+       "2019-04-12T20:28:10Z"
+   ],
+   "identifier": [
+       "BANC PIC 19xx.069:06--ffALB",
+       "http://www.oac.cdlib.org/findaid/ark:/13030/tf1z09n955",
+       "http://berkeley-test.tind.io/record/5546/files/I0025878A.jpg",
+       "http://berkeley-test.tind.io/record/5546"
+   ],
+   "type": [
+       "Text"
+   ],
+   "id": "oai:berkeley-test.tind.io:5546"
+}

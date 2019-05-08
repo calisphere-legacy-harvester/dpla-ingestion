@@ -294,6 +294,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.tv_academy_oai_mapper import TVAcademy_OAIMapper
         return TVAcademy_OAIMapper(data)
 
+    def _create_ucb_tind_oai_mapper(data):
+        from dplaingestion.mappers.ucb_tind_oai_mapper import UCBTIND_OAIMapper
+        return UCBTIND_OAIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -361,6 +365,7 @@ def create_mapper(mapper_type, data):
         'ucd_json': lambda d: _create_ucd_json_mapper(d),
         'sanjose_pastperfect': lambda d: _create_sanjose_pastperfect_mapper(d),
         'tv_academy_oai_dc': lambda d: _create_tv_academy_mapper(d),
+        'ucb_tind_oai': lambda d: _create_ucb_tind_oai_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)
