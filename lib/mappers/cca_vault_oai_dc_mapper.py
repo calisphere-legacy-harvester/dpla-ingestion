@@ -7,7 +7,7 @@ class CCA_VaultOAIMapper(OAIDublinCoreMapper):
     base_url = 'https://vault.cca.edu/'
     def map_is_shown_by(self):
         if self.provider_data_source.get('type',[])[0].lower() == 'image':
-            base_url = self.mapped_data['isShownAt'].replace('https', 'http')
+            base_url = self.mapped_data['isShownAt']
             image_url = base_url.replace('items', 'thumbs')+'?gallery=preview'
             self.mapped_data.update({"isShownBy": image_url})
 
@@ -40,4 +40,3 @@ class CCA_VaultOAIMapper(OAIDublinCoreMapper):
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-
