@@ -10,11 +10,10 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
         '''
         ident = self.provider_data['identifier']
         for i in ident:
-            if 'archive.org' in i:
+            if 'islandora/object' in i:
                 self.mapped_data.update({'isShownAt': i})
 
     def map_is_shown_by(self):
-
         if 'identifier.thumbnail' in self.provider_data:
             self.mapped_data.update({'isShownBy': self.provider_data['identifier.thumbnail']})
 
@@ -26,7 +25,7 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
             provenance = self.provider_data['provenance']
             for prov in provenance:
                 prov_list.append(prov)
-        prov_list.append('The California Revealed Project is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian.')
+        prov_list.append('California Revealed is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian.')
         self.update_source_resource({'provenance': prov_list})
 
     def map_type(self):
@@ -39,6 +38,9 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     pass
             else:
                 self.update_source_resource({'type': self.provider_data['type']})
+
+    def map_extent(self):
+        self.source_resource_orig_to_prop('extent', 'extent')
 
     def map_description(self):
         #scrub CAVPP and California Revealed from description
@@ -53,8 +55,53 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     desc_list.append(desc)
         self.update_source_resource({'description': desc_list})
 
+    def map_format(self):
+        #scrub 'Unknown' from format values
+        fields = ("format", "medium")
+
+        values = []
+        for field in fields:
+            field = field if not self.prefix else ''.join(
+                    (self.prefix, field))
+            if exists(self.provider_data_source, field):
+                # Need to check if string or not
+                prop_val = getprop(self.provider_data_source, field)
+                if isinstance(prop_val, basestring):
+                    if 'unknown' in prop_val.lower():
+                        continue
+                    else:
+                        values.append(prop_val)
+                else:
+                    # should be list then
+                    matching = [s for s in prop_val if 'unknown' in s.lower()]
+                    for prop in matching: prop_val.remove(prop)
+                    values.extend(prop_val)
+        if values:
+            self.update_source_resource({'format': values})
+
     def map_date(self):
-        self.source_resource_orig_to_prop("created", "date")
+        #scrub 'Unknown' from date values
+        fields = ("created", "issued")
+
+        values = []
+        for field in fields:
+            field = field if not self.prefix else ''.join(
+                    (self.prefix, field))
+            if exists(self.provider_data_source, field):
+                # Need to check if string or not
+                prop_val = getprop(self.provider_data_source, field)
+                if isinstance(prop_val, basestring):
+                    if 'unknown' in prop_val.lower():
+                        continue
+                    else:
+                        values.append(prop_val)
+                else:
+                    # should be list then
+                    matching = [s for s in prop_val if 'unknown' in s.lower()]
+                    for prop in matching: prop_val.remove(prop)
+                    values.extend(prop_val)
+        if values:
+            self.update_source_resource({'date': values})
 
     def map_identifier(self):
         #scrub archive.org and cavpp values from identifier
@@ -77,7 +124,6 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     matches = ['archive.org', 'cavpp']
                     matching = [s for s in prop_val if any(xs in s for xs in matches)]
                     for prop in matching: prop_val.remove(prop)
-
                     values.extend(prop_val)
         if values:
             self.update_source_resource({'identifier': values})
