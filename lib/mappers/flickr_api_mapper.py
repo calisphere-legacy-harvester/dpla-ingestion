@@ -68,25 +68,6 @@ class FlickrMapper(Mapper):
         self.update_source_resource(
             {'format': self.provider_data['media']})
 
-    def map_identifier(self):
-        '''Parse out the values prefixed by "PictionID:" and "Catalog:" from
-        the description field
-        '''
-        identifiers = set() # we don't want dups, catalog & filename often
-        description = self.provider_data['description']['text']
-        matches = re.search('PictionID:(\w+)', description)
-        import sys
-        if matches:
-            identifiers.add(matches.group(1))
-        matches = re.search('Catalog:([-.\w]+)', description)
-        if matches:
-            identifiers.add(matches.group(1))
-        matches = re.search('Filename:([-.\w]+)', description)
-        if matches:
-            identifiers.add(matches.group(1))
-        if len(identifiers):
-            self.update_source_resource({'identifier': [i for i in identifiers]})
-
     def map_spatial(self):
         '''Some photos have spatial (location) data'''
         pass

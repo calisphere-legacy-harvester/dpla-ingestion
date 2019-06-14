@@ -11,9 +11,9 @@ DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
 TC = TestCase('__init__')
 
 
-class FlickrMapperTestCase(TestCase):
+class FlickrSDASMMapperTestCase(TestCase):
     def _get_server_response(self, body):
-        url = server() + "dpla_mapper?mapper_type=flickr_api"
+        url = server() + "dpla_mapper?mapper_type=flickr_sdasm"
         return H.request(url, "POST", body=body)
 
     def testMappings(self):
@@ -35,10 +35,11 @@ class FlickrMapperTestCase(TestCase):
             'Ryan Aeronautical Image')
         self.assertEqual(
             srcRes['description'],
-            "PictionID:42184448 - Title:Atlas 34, on Pad-------4-9-62; MT62-35498 ; UNCLASSIFIED , APR 9 1962 , ----NCS|ASTRONAUTICS/A DIVISION OF GENERAL DYNAMICS CORPORATION ; missile in image is numbered 34 - Catalog:14_001945 - Filename:14_001945.tif - - - - Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum")
+            'Title:Atlas 34, on Pad-------4-9-62; MT62-35498 ; UNCLASSIFIED , APR 9 1962 , ----NCS|ASTRONAUTICS/A DIVISION OF GENERAL DYNAMICS CORPORATION ; missile in image is numbered 34-- Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum')
         self.assertNotIn('date', srcRes)
         self.assertEqual(srcRes['subject'], ['woo yay', 'Hoopla'])
         self.assertEqual(srcRes['format'], "photo")
+        self.assertEqual(srcRes['identifier'], ["14_001945", "42184448", "14_001945.tif"])
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.

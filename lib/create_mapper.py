@@ -230,6 +230,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.flickr_api_mapper import FlickrMapper
         return FlickrMapper(data)
 
+    def _create_flickr_sdasm_mapper(data):
+        from dplaingestion.mappers.flickr_sdasm_mapper import FlickrSDASMMapper
+        return FlickrSDASMMapper(data)
+
     def _create_youtube_video_snippet_api_mapper(data):
         from dplaingestion.mappers.youtube_video_snippet_mapper import YouTubeVideoSnippetMapper
         return YouTubeVideoSnippetMapper(data)
@@ -349,6 +353,7 @@ def create_mapper(mapper_type, data):
         'ucb_bampfa_solr': lambda d: _create_ucb_bampfa_mapper(d),
         'calpoly_oai_dc': lambda d: _create_calpoly_mapper(d),
         'flickr_api': lambda d: _create_flickr_api_mapper(d),
+        'flickr_sdasm': lambda d: _create_flickr_sdasm_mapper(d),
         'youtube_video_snippet': lambda d: _create_youtube_video_snippet_api_mapper(d),
         'chs_islandora': lambda d: _create_chs_islandora_mapper(d),
         'burbank_islandora': lambda d: _create_burbank_islandora_mapper(d),
