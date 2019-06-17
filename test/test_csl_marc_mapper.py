@@ -32,10 +32,10 @@ def test_csl_marc_mapper():
 
     TC.assertEqual(
         doc['isShownAt'],
-        'http://catalog.library.ca.gov/F/?func=find-b&request=001409080&find_code=SYS'
+        'https://csl.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma990014090800205115&context=L&vid=01CSL_INST:CSL'
     )
 
     TC.assertEqual(
         doc['isShownBy'],
-        'http://catalog.library.ca.gov/exlibris/aleph/u21_1/csl_objects/csl50/calif/view/26/1992-4833_000094379.jpg'
+        'https://na04.alma.exlibrisgroup.com/view/delivery/thumbnail/01CSL_INST/990014090800205115'
     )

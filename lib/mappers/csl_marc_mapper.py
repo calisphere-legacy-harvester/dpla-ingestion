@@ -5,7 +5,8 @@ class CSLMARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(CSLMARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
-            lambda t: t == "001": [(self.map_is_shown_at, None)]
+            lambda t: t == "001": [(self.map_is_shown_at, None),
+                                   (self.map_is_shown_by, None)]
         })
 
     def map_is_shown_at(self, _dict, tag, codes):
@@ -13,13 +14,12 @@ class CSLMARCMapper(PyMARCMapper):
         if tag == '001':
             id = self._get_values(_dict, codes)[0]
             self.mapped_data[prop] = ''.join(
-                ('http://catalog.library.ca.gov/F/?func=find-b&request=', id,
-                 '&find_code=SYS'))
+                ('https://csl.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma', id,
+                 '&context=L&vid=01CSL_INST:CSL'))
 
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
-        if prop not in self.mapped_data:
-            urlString = self._get_values(_dict, 'd')[0]
-            imgString = self._get_values(_dict, 'f')[0]
+        if tag == '001':
+            id = self._get_values(_dict, codes)[0]
             self.mapped_data[prop] = ''.join(
-                ('http://catalog.library.ca.gov', urlString, '/', imgString))
+                ('https://na04.alma.exlibrisgroup.com/view/delivery/thumbnail/01CSL_INST/', id))
