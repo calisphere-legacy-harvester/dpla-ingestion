@@ -1,0 +1,209 @@
+{
+    "people": {
+        "haspeople": "0",
+        "text": null
+    },
+    "dateuploaded":
+    "1368045974",
+    "owner": {
+        "username": "South Pasadena Public Library Local History",
+        "realname": "",
+        "nsid": "77906722@N06",
+        "iconserver": "5232",
+        "text": null,
+        "location": "",
+        "path_alias": "sopaslibrary",
+        "iconfarm": "6"
+    },
+    "publiceditability": {
+        "text": null,
+        "canaddmeta": "1",
+        "cancomment": "1"
+    },
+    "id":
+    "8720603651",
+    "title": {
+        "text": "South Pasadena High School"
+    },
+    "media":
+    "photo",
+    "tags": [{
+        "machine_tag": "0",
+        "author": "77906722@N06",
+        "text": "southpasadena",
+        "raw": "south pasadena",
+        "authorname": "South Pasadena Public Library Local History",
+        "id": "77861400-8720603651-221410"
+    },
+             {
+                 "machine_tag": "0",
+                 "author": "77906722@N06",
+                 "text": "southpasadenapubliclibrary",
+                 "raw": "south pasadena public library",
+                 "authorname": "South Pasadena Public Library Local History",
+                 "id": "77861400-8720603651-47079763"
+             },
+             {
+                 "machine_tag": "0",
+                 "author": "77906722@N06",
+                 "text": "sppl",
+                 "raw": "sppl",
+                 "authorname": "South Pasadena Public Library Local History",
+                 "id": "77861400-8720603651-3665978"
+             }],
+    "comments": {
+        "text": "0"
+    },
+    "isfriend":
+    "0",
+    "secret":
+    "65705ed155",
+    "usage": {
+        "canblog": "0",
+        "canshare": "0",
+        "text": null,
+        "candownload": "0",
+        "canprint": "0"
+    },
+    "isprimary":
+    "0",
+    "isfamily":
+    "0",
+    "description": {
+        "text":
+        "Date: 1908 Category: Schools Type: Image Identifier: LP1399 Source: Unknown Owner: South Pasadena Public Library Previous Identifier: ark.cdlib.org/ark:/13030/kt867nd5wp / csp_055 Rights Information: Copyright status is unknown. Some materials in these collections may be protected by the U.S. Copyright Law (Title 17, U.S.C.). In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user. Please direct questions and comments to the Local History Librarian (localhistory@southpasadenaca.gov). The Library is not responsible for the comment content on the Flickr pages. The Library does not endorse any information, opinions, services, graphics or advertisements available for viewing on Flickr."
+    },
+    "isfavorite":
+    "0",
+    "views":
+    "1261",
+    "farm":
+    "8",
+    "visibility": {
+        "isfriend": "0",
+        "isfamily": "0",
+        "ispublic": "1",
+        "text": null
+    },
+    "collection": [{
+        "dcmi_type":
+        "X",
+        "disqus_shortname_prod":
+        "",
+        "featured":
+        false,
+        "ready_for_publication":
+        false,
+        "hosted":
+        "",
+        "id":
+        "27338",
+        "url_oac":
+        "",
+        "custom_facet": [],
+        "harvest_frequency":
+        null,
+        "metadata_in_dams":
+        false,
+        "url_harvest":
+        "http://example.edu",
+        "campus": [],
+        "files_in_dams":
+        false,
+        "date_last_harvested":
+        null,
+        "harvest_exception_notes":
+        "",
+        "files_in_hand":
+        false,
+        "ingestType":
+        "collection",
+        "description":
+        "South Pasadena High School opened in 1904 and currently serves approximately 1,489 students. For more information please contact the Local History Librarian at localhistory@southpasadenaca.gov or (626)403-7359.",
+        "repository": [{
+            "name":
+            "South Pasadena Public Library",
+            "aeon_prod":
+            "",
+            "campus": [],
+            "aeon_test":
+            "",
+            "id":
+            126,
+            "ark":
+            "ark:/13030/kt0q2nc5xj",
+            "@id":
+            "https://registry.cdlib.org/api/v1/repository/126/",
+            "slug":
+            "south-pasadena-public-library",
+            "google_analytics_tracking_code":
+            "",
+            "resource_uri":
+            "/api/v1/repository/126/"
+        }],
+        "merritt_extra_data":
+        "",
+        "extent":
+        null,
+        "rights_status":
+        "X",
+        "disqus_shortname_test":
+        "",
+        "@id":
+        "https://registry.cdlib.org/api/v1/collection/27338/",
+        "slug":
+        "south-pasadena-high-school-south-pasadena-high-sch",
+        "name":
+        "South Pasadena High School",
+        "qa_completed":
+        false,
+        "harvest_type":
+        "FLK",
+        "harvest_extra_data":
+        "72157709026463443",
+        "url_local":
+        "https://www.flickr.com/photos/sopaslibrary/sets/72157709026463443",
+        "enrichments_item":
+        "/select-id?prop=id, /dpla_mapper?mapper_type=flickr_api, /strip_html, /set_context, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /capitalize_value?exclude=sourceResource%2Frelation, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich_date?prop=sourceResource%2Fdate, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=sourceResource%2Fpublisher&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=True, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+        "rights_statement":
+        "",
+        "merritt_id":
+        "",
+        "staging_notes":
+        "",
+        "local_id":
+        "sppl-sphs",
+        "title":
+        "South Pasadena High School",
+        "resource_uri":
+        "/api/v1/collection/27338/"
+    }],
+    "rotation":
+    "0",
+    "dates": {
+        "lastupdate": "1560285961",
+        "takengranularity": "0",
+        "text": null,
+        "taken": "2013-05-08 13:44:48",
+        "takenunknown": "0",
+        "posted": "1368045974"
+    },
+    "license":
+    "0",
+    "notes": [],
+    "ispublic":
+    "1",
+    "server":
+    "7360",
+    "safety_level":
+    "0",
+    "urls": [{
+        "text": "https://www.flickr.com/photos/sopaslibrary/8720603651/",
+        "type": "photopage"
+    }],
+    "editability": {
+        "text": null,
+        "canaddmeta": "0",
+        "cancomment": "0"
+    }
+}
