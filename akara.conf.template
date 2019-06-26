@@ -266,6 +266,7 @@ class type_conversion:
         # And, yes, "MovingImage" is a valid DC type.
         ('movingimage', 'moving image'),
         ('image', 'image'),
+        ('images', 'image'),
         ('stillimage', 'image'),
         ('negative', 'image'),
         ('slide', 'image'),
