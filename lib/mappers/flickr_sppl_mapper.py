@@ -33,6 +33,12 @@ class FlickrSPPLMapper(FlickrMapper):
             description = description.replace(matches.group(0), '')
             for x in matches.group(1).split(' / '):
                 identifiers.append(x.strip())
+
+        matches = re.search('Previous Identifier:( \S+/\S+)', description)
+        if matches:
+            # strip out 'N/A' values
+            description = description.replace(matches.group(0), '')
+
         matches = re.search('Identifier:( \S+)', description)
         if matches:
             description = description.replace(matches.group(0), '')
@@ -59,8 +65,7 @@ class FlickrSPPLMapper(FlickrMapper):
             description = description.replace(matches.group(0), '')
             # don't need to map, same as Contributing Institution
 
-        matches = re.search('Rights Information:( .+ viewing on Flickr.)',
-                            description)
+        matches = re.search('Rights Information:( .+ viewing on Flickr.)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             self.update_source_resource({'rights': matches.group(1).strip()})
