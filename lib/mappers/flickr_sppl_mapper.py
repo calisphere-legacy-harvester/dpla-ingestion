@@ -27,7 +27,7 @@ class FlickrSPPLMapper(FlickrMapper):
             subjects.append(matches.group(1).strip().lower())
         self.update_source_resource({'subject': subjects})
 
-        matches = re.search('Previous Identifier:( \S+ / \S+)', description)
+        matches = re.search('Previous Identifier:( .+ / \S+)', description)
         identifiers = []
         if matches:
             description = description.replace(matches.group(0), '')
@@ -60,12 +60,12 @@ class FlickrSPPLMapper(FlickrMapper):
                 'provenance': matches.group(1).strip()
             })
 
-        matches = re.search('Owner:( \w+ \w+ \w+ \w+)', description)
+        matches = re.search('Owner:( .+</a>)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             # don't need to map, same as Contributing Institution
 
-        matches = re.search('Rights Information:( .+ viewing on Flickr.)', description)
+        matches = re.search('Rights Information:( .+\n+.+\n+.+viewing on Flickr.)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             self.update_source_resource({'rights': matches.group(1).strip()})
