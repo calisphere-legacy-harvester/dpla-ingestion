@@ -1,0 +1,579 @@
+{  "leader": "03995cam a2200625 4500",
+   "fields": [
+       {
+           "001": "240977414"
+       },
+       {
+           "003": "CSie"
+       },
+       {
+           "005": "20150817120000.0"
+       },
+       {
+           "008": "000914s1963||||||||||||||||||||||||eng|u"
+       },
+       {
+           "035": {
+               "subfields": [
+                   {
+                       "a": "(OCoLC)44591764"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "040": {
+               "subfields": [
+                   {
+                       "d": "CSie"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "100": {
+               "subfields": [
+                   {
+                       "a": "Hinojos, Joe A."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": ""
+           }
+       },
+       {
+           "245": {
+               "subfields": [
+                   {
+                       "a": "Sierra Madre Tournament of Roses float, 1963"
+                   },
+                   {
+                       "h": "[Graphic]."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": ""
+           }
+       },
+       {
+           "264": {
+               "subfields": [
+                   {
+                       "c": "1963."
+                   }
+               ],
+               "ind1": "",
+               "ind2": "1"
+           }
+       },
+       {
+           "300": {
+               "subfields": [
+                   {
+                       "a": "2 photographic prints :"
+                   },
+                   {
+                       "b": "b&w ;"
+                   },
+                   {
+                       "c": "21 x 26 cm."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "300": {
+               "subfields": [
+                   {
+                       "a": "1 photographic print :"
+                   },
+                   {
+                       "b": "color ;"
+                   },
+                   {
+                       "c": "21 x 26 cm."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "500": {
+               "subfields": [
+                   {
+                       "a": "\"Jones--Old Mayor Library\" written in pencil on reverse of third image."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "500": {
+               "subfields": [
+                   {
+                       "a": "\"Joe A. Hinojos - Photography\" stamped on front of images."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "500": {
+               "subfields": [
+                   {
+                       "a": "\"Property of Sierra Madre Historical Society, Sierra Madre\" stamped on reverse of image."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "500": {
+               "subfields": [
+                   {
+                       "a": "Image published on page 104 in Sierra Madre Vistas: A Pictorial History of Sierra Madre, compiled and edited by Elizabeth P. Keith, Sierra Madre, California: Sierra Madre Historical Society, 1976."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "520": {
+               "subfields": [
+                   {
+                       "a": "Images depict: the Sierra Madre float \"The Rose Parade of 1890\" completed in front of the recreation centre at Sierra Vista Park. Thirty-five identified people are shown standing in front of and sitting on the float. The second and third images only show the five people who rode on the float."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "524": {
+               "subfields": [
+                   {
+                       "a": "The Sierra Madre Historical Archives Collection."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "530": {
+               "subfields": [
+                   {
+                       "a": "4x5 b&w negative of 1999.70.1 available."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "536": {
+               "subfields": [
+                   {
+                       "a": "Archival Preservation, Access and Co-ownership Project: A joint project of the Sierra Madre Historical Preservation Society and the Sierra Madre Public Library. Cataloging and copy negative sponsored by the California State Library, Library Services and Technology Act"
+                   },
+                   {
+                       "c": "40-4907."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "540": {
+               "subfields": [
+                   {
+                       "a": "Reproduction may be restricted;"
+                   },
+                   {
+                       "b": "contact the Sierra Madre Public Library for more information."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "541": {
+               "subfields": [
+                   {
+                       "a": "Joe A. Hinojos;"
+                   },
+                   {
+                       "c": "gift."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "541": {
+               "subfields": [
+                   {
+                       "d": "20160823."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "545": {
+               "subfields": [
+                   {
+                       "a": "Sierra Madre has presented a community created float in the Pasadena Tournament of Roses Parade since 1917. Many local residents volunteer their time designing, building, and decorating the float each year. The Sierra Madre Rose Float Association, established in the 1950s, holds an annual rose sale, a rummage sale, and other fundraising projects to produce a float for the City of Sierra Madre."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "545": {
+               "subfields": [
+                   {
+                       "a": "According to an article in the Sierra Madre News dated January 3, 1963, \"The Rose Parade of 1890\" was the title of the 1963 Sierra Madre float. It took top prize in its class. The float was designed by Manuel de la Torre. The theme of the 1963 Tournament of Roses Parade was \"Memorable ...Moments.\"."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Bennet, Bill."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Bevington, Larry."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Cameron, Joan."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Lighthizer, Chester."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Jones, Charles W."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Murphy, Sue."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Rempel, Susie."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Rule, Ralph."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Reed, Jan."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Hartman, Bud."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "de la Torre, Manuel."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Maloney, Susan."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Jenkins, Eleanor."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Birch, Betty."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Williams, Jo Ann."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "600": {
+               "subfields": [
+                   {
+                       "a": "Tyler, Anne."
+                   }
+               ],
+               "ind1": "1",
+               "ind2": "4"
+           }
+       },
+       {
+           "610": {
+               "subfields": [
+                   {
+                       "a": "Sierra Madre Rose Float Association."
+                   }
+               ],
+               "ind1": "2",
+               "ind2": "4"
+           }
+       },
+       {
+           "650": {
+               "subfields": [
+                   {
+                       "a": "Floats (Parades)"
+                   },
+                   {
+                       "z": "California"
+                   },
+                   {
+                       "z": "Sierra Madre."
+                   }
+               ],
+               "ind1": "",
+               "ind2": "7"
+           }
+       },
+       {
+           "650": {
+               "subfields": [
+                   {
+                       "a": "Parade floats."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "650": {
+               "subfields": [
+                   {
+                       "a": "Tournament of Roses, Pasadena, Calif."
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "651": {
+               "subfields": [
+                   {
+                       "a": "Sierra Madre (Calif.)"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "655": {
+               "subfields": [
+                   {
+                       "a": "Photographic prints."
+                   }
+               ],
+               "ind1": "",
+               "ind2": "7"
+           }
+       },
+       {
+           "852": {
+               "subfields": [
+                   {
+                       "p": "34820635902035"
+                   },
+                   {
+                       "v": "2"
+                   },
+                   {
+                       "c": "Online Resource"
+                   },
+                   {
+                       "h": "A 1999.70.1-3"
+                   },
+                   {
+                       "x": "Fund: .Default"
+                   },
+                   {
+                       "d": "240977414"
+                   },
+                   {
+                       "e": "115453523"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "856": {
+               "subfields": [
+                   {
+                       "u": "http://cityofsierramadre.hosted.civiclive.com/UserFiles/Servers/Server_212309/Image/City%20Hall/Departments/Library/Historical%20Images/1999.70.1.jpg"
+                   },
+                   {
+                       "3": "View photograph"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "856": {
+               "subfields": [
+                   {
+                       "u": "http://cityofsierramadre.hosted.civiclive.com/UserFiles/Servers/Server_212309/Image/City%20Hall/Departments/Library/Historical%20Images/1999.70.2.jpg"
+                   },
+                   {
+                       "3": "View photograph"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       },
+       {
+           "856": {
+               "subfields": [
+                   {
+                       "u": "http://cityofsierramadre.hosted.civiclive.com/UserFiles/Servers/Server_212309/Image/City%20Hall/Departments/Library/Historical%20Images/1999.70.3.jpg"
+                   },
+                   {
+                       "3": "View photograph"
+                   }
+               ],
+               "ind1": "",
+               "ind2": ""
+           }
+       }
+   ]
+}
