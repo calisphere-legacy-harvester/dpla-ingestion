@@ -249,6 +249,7 @@ class type_conversion:
         ('label, product', 'image'),
         ('specimen', 'image'),
         ('electronic resource', 'interactive resource'),
+        ('software', 'interactive resource'),
         # Keep "textile" above "text"
         ('textile', 'image'),
         ('text', 'text'),
