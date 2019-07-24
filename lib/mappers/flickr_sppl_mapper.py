@@ -12,7 +12,7 @@ class FlickrSPPLMapper(FlickrMapper):
         remove from description field and save to relevant fields
         '''
         description = self.provider_data['description']['text']
-        matches = re.search('Date:( \S+)', description)
+        matches = re.search('Date:(.+)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             self.update_source_resource({'date': matches.group(1).strip()})
@@ -53,7 +53,7 @@ class FlickrSPPLMapper(FlickrMapper):
                 matches.group(1).strip().lower()
             })
 
-        matches = re.search('Source:( \S+)', description)
+        matches = re.search('Source:(.+)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             self.update_source_resource({
@@ -65,10 +65,11 @@ class FlickrSPPLMapper(FlickrMapper):
             description = description.replace(matches.group(0), '')
             # don't need to map, same as Contributing Institution
 
-        matches = re.search('Rights Information:( .+\n+.+\n+.+viewing on Flickr.)', description)
+        matches = re.search('Rights Information:(.|\n)+', description)
         if matches:
             description = description.replace(matches.group(0), '')
-            self.update_source_resource({'rights': matches.group(1).strip()})
+            rights = matches.group(0).replace('Rights Information:', '')
+            self.update_source_resource({'rights': rights.strip()})
 
         # cleaning up description a bit
         self.update_source_resource({'description': description.strip()})
