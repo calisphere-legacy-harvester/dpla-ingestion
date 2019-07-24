@@ -310,6 +310,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.ucb_tind_oai_mapper import UCBTIND_OAIMapper
         return UCBTIND_OAIMapper(data)
 
+    def _create_internet_archive_mapper(data):
+        from dplaingestion.mappers.internet_archive_mapper import InternetArchiveMapper
+        return InternetArchiveMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -381,6 +385,7 @@ def create_mapper(mapper_type, data):
         'sanjose_pastperfect': lambda d: _create_sanjose_pastperfect_mapper(d),
         'tv_academy_oai_dc': lambda d: _create_tv_academy_mapper(d),
         'ucb_tind_oai': lambda d: _create_ucb_tind_oai_mapper(d),
+        'internet_archive': lambda d: _create_internet_archive_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

@@ -253,6 +253,7 @@ class type_conversion:
         # Keep "textile" above "text"
         ('textile', 'image'),
         ('text', 'text'),
+        ('texts', 'text'),
         ('frame', 'image'),
         ('costume', 'image'),
         ('object', 'physical object'),
@@ -306,8 +307,9 @@ class type_conversion:
         ('finding aid', 'collection'),
         ('online collection', 'collection'),
         ('online exhibit', 'interactive resource'),
-        ('moving image', 'moving image'),
         ('motion picture', 'moving image'),
+        ('movie', 'moving image'),
+        ('movies', 'moving image'),
         ('cellulose nitrate film', 'image'), #fix for UCLA
         ('nitrate film', 'image'), #fix for UCLA
         ('film', 'moving image'),

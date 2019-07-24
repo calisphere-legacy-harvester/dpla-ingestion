@@ -1,0 +1,42 @@
+{
+    "backup_location":
+    "ia906700_22",
+    "btih":
+    "87cb91c756fdeac2028201f42c1ee3f8e83a90ad",
+    "collection": [
+        "environmentaldesignarchive", "californiarevealed",
+        "culturalandacademicfilms"
+    ],
+    "date":
+    "1995-09-04T00:00:00Z",
+    "description":
+    "This oral history presentation interviews both Edith and Brian Heath, and includes information on 50 years of business in Sausalito. People discussed include Brian Heath, Edith Heath, Mary Ruiz, Nash Ruiz, Rosalie Ross, Leon Galleto, Daphne Ahlenius, and Bill Palmer. This is an unedited video.",
+    "downloads":
+    41,
+    "format": [
+        "Archive BitTorrent", "DVD Info", "JPEG Thumb", "MPEG2", "Metadata",
+        "Ogg Video", "Thumbnail", "h.264"
+    ],
+    "identifier":
+    "VIDEOTS_20180308_1939",
+    "indexflag": ["index", "nonoindex"],
+    "item_size":
+    1844586064,
+    "language":
+    "English",
+    "mediatype":
+    "texts",
+    "month":
+    2,
+    "oai_updatedate":
+    ["2018-03-08T19:44:27Z", "2018-03-08T19:44:27Z", "2019-03-25T16:45:25Z"],
+    "publicdate":
+    "2018-03-08T19:44:27Z",
+    "subject": ["Edith Heath", "ceramics", "art", "Sausalito"],
+    "title":
+    "Edith Heath: Oral History presentation",
+    "week":
+    1,
+    "year":
+    "1995"
+}
