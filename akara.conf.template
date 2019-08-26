@@ -234,6 +234,7 @@ class type_conversion:
     # patterns higher up, before more general ones.
     type_for_ot_keyword = [
         ('photograph', 'image'),
+        ('photographs', 'image'),
         ('sample book', 'image'),
         ('ambrotype', 'image'),
         ('carte-de-visite', 'image'),

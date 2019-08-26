@@ -128,9 +128,9 @@ def create_mapper(mapper_type, data):
                 OAC_DCMapperSuppressPublisher
         return OAC_DCMapperSuppressPublisher(data)
 
-    def _create_lmu_oai_dc_mapper(data):
-        from dplaingestion.mappers.lmu_oai_dc import LMU_OAI_Mapper
-        return LMU_OAI_Mapper(data)
+    def _create_quartex_oai_mapper(data):
+        from dplaingestion.mappers.quartex_oai_mapper import Quartex_OAIMapper
+        return Quartex_OAIMapper(data)
 
     def _create_contentdm_oai_dc_mapper(data):
         from dplaingestion.mappers.contentdm_oai_dc_mapper import \
@@ -345,7 +345,7 @@ def create_mapper(mapper_type, data):
             lambda d: _create_csudh_contentdm_oai_dc_mapper(d),
         'chula_vista_pl_contentdm_oai_dc':
             lambda d: _create_chula_vista_pl_contentdm_oai_dc_mapper(d),
-        'lmu_oai_dc': lambda d: _create_lmu_oai_dc_mapper(d),
+        'quartex_oai': lambda d: _create_quartex_oai_mapper(d),
         'contentdm_oai_dc_suppress_description':
             lambda d: _create_contentdm_oai_dc_mapper_suppress_description(d),
         'chapman_oai_dc': lambda d: _create_chapman_oai_dc(d),
