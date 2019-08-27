@@ -27,7 +27,7 @@ class FlickrSPPLMapper(FlickrMapper):
             subjects.append(matches.group(1).strip().lower())
         self.update_source_resource({'subject': subjects})
 
-        matches = re.search('Previous Identifier:( .+ / \S+)', description)
+        matches = re.search('Previous Identifier:( +.+(.|\n)+/ (.|\n)\S+)', description)
         identifiers = []
         if matches:
             description = description.replace(matches.group(0), '')
