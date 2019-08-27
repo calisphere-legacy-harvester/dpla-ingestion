@@ -31,7 +31,7 @@ class FlickrSPPLMapper(FlickrMapper):
         identifiers = []
         if matches:
             description = description.replace(matches.group(0), '')
-            for x in matches.group(1).split(' / '):
+            for x in matches.group(1).split(' /'):
                 identifiers.append(x.strip())
 
         matches = re.search('Previous Identifier:( \S+/\S+)', description)
