@@ -32,14 +32,13 @@ class FlickrSDASMMapperTestCase(TestCase):
         srcRes = obj['sourceResource']
         self.assertEqual(
             srcRes['title'],
-            'Ryan Aeronautical Image')
+            'Atlas 55D')
         self.assertEqual(
             srcRes['description'],
-            'Title:Atlas 34, on Pad-------4-9-62; MT62-35498 ; UNCLASSIFIED , APR 9 1962 , ----NCS|ASTRONAUTICS/A DIVISION OF GENERAL DYNAMICS CORPORATION ; missile in image is numbered 34-- Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum')
-        self.assertNotIn('date', srcRes)
+            'Details: Prelaunch; Complex 12; AMR --Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum')
         self.assertEqual(srcRes['subject'], ['woo yay', 'Hoopla'])
         self.assertEqual(srcRes['format'], "photo")
-        self.assertEqual(srcRes['identifier'], ["14_001945", "42184448", "14_001945.tif"])
+        self.assertEqual(srcRes['identifier'], ["14_008096", "43829091", "14_008096.TIF"])
 
 # Copyright © 2017, Regents of the University of California
 # All rights reserved.
