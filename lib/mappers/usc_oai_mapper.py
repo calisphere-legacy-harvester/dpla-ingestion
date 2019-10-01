@@ -50,6 +50,16 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
     def map_description(self):
         self.to_source_resource_with_split('description', 'description')
 
+    def map_date(self):
+        date = None
+        dates = getprop(self.provider_data_source, 'date')
+        for d in dates:
+            if '[Digitize date]' not in d:
+                logger.error(d)
+                date = d
+        if date:
+            self.update_source_resource({'date': date})
+
     def update_mapped_fields(self):
         '''strip out info in brackets from end of sourceResource
         values using regex. Don't strip out [Legacy record ID]
