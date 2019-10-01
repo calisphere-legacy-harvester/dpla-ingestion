@@ -54,5 +54,17 @@
     "identifier.thumbnail": [
       "https://californiarevealed.org/islandora/object/cavpp%3A24434/datastream/TN/view/Polk%27s%20Oakland%20%28California%29%20city%20directory%2C%20including%20Alameda%2C%20Berkeley%2C%20Emeryville%20and%20Piedmont.jpg"
     ],
+    "rights": [
+       "Copyrighted. Rights are owned by Marshall Gold Discovery State Historic Park."
+    ],
+    "rightsHolder": [
+       "Thomas Rightman"
+    ],
+    "rightsNote": [
+       "Responsibility for any use rests exclusively with the user."
+    ],
+    "dateCopyrighted": [
+       "09/28/2019"
+    ],
     "id": "oai:californiarevealed.org:cavpp_24965"
 }

@@ -127,3 +127,7 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     values.extend(prop_val)
         if values:
             self.update_source_resource({'identifier': values})
+
+    def map_rights(self):
+        fields = ("rights", "rightsHolder", "rightsNote", "dateCopyrighted")
+        self.source_resource_orig_list_to_prop(fields, 'rights')
