@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
-from akara import logger
 
 class USC_OAIMapper(CONTENTdm_OAI_Mapper):
     '''A base mapper for University of Southern California OAI feed'''
@@ -51,12 +50,11 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         self.to_source_resource_with_split('description', 'description')
 
     def map_date(self):
-        date = None
+        date = []
         dates = getprop(self.provider_data_source, 'date')
         for d in dates:
-            if '[Digitize date]' not in d:
-                logger.error(d)
-                date = d
+            if '[Digitize Date]' not in d:
+                date.append(d)
         if date:
             self.update_source_resource({'date': date})
 
