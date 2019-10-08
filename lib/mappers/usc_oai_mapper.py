@@ -53,7 +53,7 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         date = []
         dates = getprop(self.provider_data_source, 'date')
         for d in dates:
-            if '[Digitize Date]' not in d:
+            if '[digitize date]' not in d.lower():
                 date.append(d)
         if date:
             self.update_source_resource({'date': date})
