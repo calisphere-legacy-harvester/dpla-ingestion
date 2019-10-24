@@ -38,7 +38,7 @@ class PastPerfect_XML_FeedTestCase(TestCase):
         )
         srcRes = obj['sourceResource']
         self.assertEqual(srcRes['date'], ['1966/09/28'])
-        self.assertEqual(srcRes['identifier'], ['000501E3-9133-4358-AE66-874944208261', '1994/007/013'])
+        self.assertEqual(srcRes['identifier'], ['000501E3-9133-4358-AE66-874944208261', '1994/007/013', 'ark:/13030/kt638nd3nt'])
         self.assertEqual(srcRes['subject'], [
             {
                 'name': u'Memorabilia'

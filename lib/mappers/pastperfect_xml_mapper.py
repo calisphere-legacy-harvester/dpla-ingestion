@@ -113,6 +113,8 @@ class PastPerfectXMLMapper(Mapper):
             identifiers.append(self.metadata['identifier'][0])
         if 'objectid' in self.metadata:
             identifiers.append(self.metadata['objectid'][0])
+        if 'arkid' in self.metadata:
+            identifiers.append(self.metadata['arkid'][0])
         if identifiers:
             self.update_source_resource({'identifier': identifiers})
 
