@@ -6,12 +6,14 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     '''CAVPP mapper from Islandora'''
 
     def map_is_shown_at(self):
-        '''Grab the identifier with "archive.org" in them
+        '''truncate identifier.thumbnail value past object ID
         '''
-        ident = self.provider_data['identifier']
-        for i in ident:
-            if 'islandora/object' in i:
-                self.mapped_data.update({'isShownAt': i})
+        if 'identifier.thumbnail' in self.provider_data:
+            if isinstance(self.provider_data['identifier.thumbnail'], basestring):
+                isShownAt = self.provider_data['identifier.thumbnail'].split('/datastream/TN')[0]
+            else:
+                isShownAt = self.provider_data['identifier.thumbnail'][0].split('/datastream/TN')[0]
+            self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
         if 'identifier.thumbnail' in self.provider_data:

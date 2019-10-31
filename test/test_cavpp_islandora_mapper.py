@@ -27,7 +27,7 @@ def test_cavpp_overrides():
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
     srcRes = obj['sourceResource']
-    TC.assertEqual(obj['isShownAt'], 'https://californiarevealed.org/islandora/object/cavpp:24434')
+    TC.assertEqual(obj['isShownAt'], 'https://californiarevealed.org/islandora/object/cavpp%3A24434')
     TC.assertEqual(obj['isShownBy'][0],
       "https://californiarevealed.org/islandora/object/cavpp%3A24434/datastream/TN/view/Polk%27s%20Oakland%20%28California%29%20city%20directory%2C%20including%20Alameda%2C%20Berkeley%2C%20Emeryville%20and%20Piedmont.jpg")
     srcRes = obj['sourceResource']
