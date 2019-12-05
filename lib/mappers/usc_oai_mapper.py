@@ -24,19 +24,21 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
 
     def map_is_shown_at(self):
         isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'doi.org' in i:
-                isShownAt = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in idents:
+                if 'doi.org' in i:
+                    isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
         isShownBy = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'thumbnails.digitallibrary.usc.edu' in i:
-                isShownBy = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in idents:
+                if 'thumbnails.digitallibrary.usc.edu' in i:
+                    isShownBy = i
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
@@ -51,10 +53,11 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
 
     def map_date(self):
         date = []
-        dates = getprop(self.provider_data_source, 'date')
-        for d in dates:
-            if '[digitize date]' not in d.lower():
-                date.append(d)
+        if 'date' in self.provider_data_source:
+            dates = getprop(self.provider_data_source, 'date')
+            for d in dates:
+                if '[digitize date]' not in d.lower():
+                    date.append(d)
         if date:
             self.update_source_resource({'date': date})
 
@@ -63,10 +66,10 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         values using regex. Don't strip out [Legacy record ID]
         so that DPLA can key on it for record-matching
         or description'''
-        for b in self.mapped_data['sourceResource']:
+        for b in self.mapped_data.get('sourceResource'):
             if b == 'description':
                 continue
-            fieldValue = self.mapped_data['sourceResource'][b]
+            fieldValue = self.mapped_data.get('sourceResource',{}).get(b)
             stripValue = self.strip_brackets(fieldValue)
             self.update_source_resource({b: stripValue})
 
