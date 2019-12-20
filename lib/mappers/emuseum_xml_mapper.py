@@ -11,23 +11,23 @@ class eMuseumXMLMapper(Mapper):
     def map_is_shown_at(self, index=None):
         '''Set is_shown_By as well'''
         if 'id' in self.provider_data:
-            id_local = self.provider_data['id']['text']
-            is_shown_at = ''.join(
-                ('http://digitalcollections.hoover.org/objects/', id_local))
-            self.mapped_data.update({"isShownAt": is_shown_at})
+            id_local = self.provider_data.get('id',{}).get('text')
+            if id_local:
+                is_shown_at = ''.join(('http://digitalcollections.hoover.org/objects/', id_local))
+                self.mapped_data.update({"isShownAt": is_shown_at})
         if 'primaryMedia' in self.provider_data:
-            thumb = self.provider_data['primaryMedia']['text']
-            is_shown_by = ''.join(
-                ('http://digitalcollections.hoover.org', thumb))
-            self.mapped_data.update({"isShownBy": is_shown_by})
+            thumb = self.provider_data.get('primaryMedia',{}).get('text')
+            if thumb:
+                is_shown_by = ''.join(('http://digitalcollections.hoover.org', thumb))
+                self.mapped_data.update({"isShownBy": is_shown_by})
         # Use 'youtubeThumbnail' for isShownBy instead, if present
         if 'youtubeThumbnail' in self.provider_data:
-            self.mapped_data.update({"isShownBy": self.provider_data['youtubeThumbnail']['text']})
+            self.mapped_data.update({"isShownBy": self.provider_data.get('youtubeThumbnail',{}).get('text')})
 
     def map_ids(self):
-        collection_id = self.provider_data['collection'][0]['resource_uri']
+        collection_id = self.provider_data.get('collection',{})[0].get('resource_uri')
         collection_id = collection_id.rsplit('/')[-2]
-        doc_id = self.provider_data['id']['text']
+        doc_id = self.provider_data.get('id',{}).get('text')
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id
@@ -36,39 +36,39 @@ class eMuseumXMLMapper(Mapper):
     def map_date(self):
         if 'displayDate' in self.provider_data:
             self.update_source_resource({
-                'date': self.provider_data['displayDate']['text']
+                'date': self.provider_data.get('displayDate',{}).get('text')
             })
 
     def map_title(self):
         if 'title' in self.provider_data:
             self.update_source_resource({
-                'title': self.provider_data['title']['text']
+                'title': self.provider_data.get('title',{}).get('text')
             })
 
     def map_creator(self):
         if 'primaryMaker' in self.provider_data:
             self.update_source_resource({
-                'creator': self.provider_data['primaryMaker']['text']
+                'creator': self.provider_data.get('primaryMaker',{}).get('text')
             })
 
     def map_identifier(self):
         if 'id' in self.provider_data:
             self.update_source_resource({
-                'identifier': self.provider_data['id']['text']
+                'identifier': self.provider_data.get('id',{}).get('text')
             })
         if 'invno' in self.provider_data:
             self.update_source_resource({
-                'identifier': self.provider_data['invno']['text']
+                'identifier': self.provider_data.get('invno',{}).get('text')
             })
 
     def map_relation(self):
         if 'collectionTitle' in self.provider_data:
             self.update_source_resource({
-                'relation': self.provider_data['collectionTitle']['text']
+                'relation': self.provider_data.get('collectionTitle',{}).get('text')
             })
 
     def map_type(self):
         if 'mediaType' in self.provider_data:
             self.update_source_resource({
-                'type': self.provider_data['mediaType']['text']
+                'type': self.provider_data.get('mediaType',{}).get('text')
             })

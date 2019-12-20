@@ -8,15 +8,15 @@ class UCSC_OAIMapper(OAIDublinCoreMapper):
 
     def map_is_shown_at(self):
 
-        isShownAt = getprop(self.provider_data_source, 'isShownAt')[0]
+        isShownAt = getprop(self.provider_data_source, 'isShownAt', keyErrorAsNone=True)
         if isShownAt:
-            self.mapped_data.update({'isShownAt': isShownAt})
+            self.mapped_data.update({'isShownAt': isShownAt[0]})
 
     def map_is_shown_by(self):
 
-        isShownBy = getprop(self.provider_data_source, 'object')[0]
+        isShownBy = getprop(self.provider_data_source, 'object', keyErrorAsNone=True)
         if isShownBy:
-            self.mapped_data.update({'isShownBy': isShownBy})
+            self.mapped_data.update({'isShownBy': isShownBy[0]})
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

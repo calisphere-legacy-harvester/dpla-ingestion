@@ -16,14 +16,14 @@ class UCSFXMLFeedMapper(Mapper):
 
     def map_is_shown_at(self, index=None):
         '''Set is_shownBy as well'''
-        is_shown_at = self.provider_data['uri']
+        is_shown_at = self.provider_data.get('uri')
         self.mapped_data.update({"isShownAt": is_shown_at})
         self.mapped_data.update({"isShownBy": os.path.join(is_shown_at, 'pdf')})
 
     def map_ids(self):
-        collection_id = self.provider_data['collection'][0]['resource_uri']
+        collection_id = self.provider_data.get('collection',{})[0].get('resource_uri')
         collection_id = collection_id.rsplit('/')[-2]
-        doc_id = self.provider_data['tid']
+        doc_id = self.provider_data.get('tid')
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id  = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id
@@ -44,7 +44,7 @@ class UCSFXMLFeedMapper(Mapper):
         '''Map a number source UCSF fields to a sourceResource
         '''
         data = self.get_metadata_values(source_fields)
-        self.update_source_resource({fieldname: data}) 
+        self.update_source_resource({fieldname: data})
 
     def map_creator(self):
         self._map_metadata_fields('creator', ('au', 'aup', 'auo'))
@@ -119,11 +119,11 @@ class UCSFXMLFeedMapper(Mapper):
         <org>: Organizations mentioned
         <menp>: Persons mentioned
         <per>: Persons mentioned
-        
+
         2015-05-05 : move brand ('brd') from description to subject
 
         2015-05-05 : dropping becauses mostly redundant:
-                            <cc>: Copied, 
+                            <cc>: Copied,
                             <cco>: Organizations copied
                             <ccp>: Person copied
                             <rc>: Recipients
@@ -133,8 +133,8 @@ class UCSFXMLFeedMapper(Mapper):
         values = self.get_metadata_values(('brd', 'men', 'meno',
                                   'menp', 'org', 'per', ))
         value_objs = [{'name': v} for v in values]
-        self.update_source_resource({'subject': value_objs}) 
-        
+        self.update_source_resource({'subject': value_objs})
+
     def map_title(self):
         self.update_source_resource({'title': self.metadata['ti']})
 

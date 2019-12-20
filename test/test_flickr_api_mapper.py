@@ -35,7 +35,7 @@ class FlickrMapperTestCase(TestCase):
             'Ryan Aeronautical Image')
         self.assertEqual(
             srcRes['description'],
-            "PictionID:42184448 - Title:Atlas 34, on Pad-------4-9-62; MT62-35498 ; UNCLASSIFIED , APR 9 1962 , ----NCS|ASTRONAUTICS/A DIVISION OF GENERAL DYNAMICS CORPORATION ; missile in image is numbered 34 - Catalog:14_001945 - Filename:14_001945.tif - - - - Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum")
+            "PictionID:43829091 - Title:Atlas 55D Details: Prelaunch; Complex 12; AMR Date on Neg: 10/21/1960 - Catalog:14_008096 - Filename:14_008096.TIF - - - - - Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum")
         self.assertNotIn('date', srcRes)
         self.assertEqual(srcRes['subject'], ['woo yay', 'Hoopla'])
         self.assertEqual(srcRes['format'], "photo")

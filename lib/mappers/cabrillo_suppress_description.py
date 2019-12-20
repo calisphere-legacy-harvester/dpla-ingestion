@@ -7,11 +7,12 @@ class Cabrillo_suppress_description(Califa_OAIMapper):
     '''
     char_count_cutoff = 150
     def map_description(self):
-        descs = self.provider_data_source.get('description')
         new_descs = []
-        for s in descs:
-            if len(s) <= self.char_count_cutoff:
-                new_descs.append(s)
+        descs = self.provider_data_source.get('description')
+        if descs:
+            for s in descs:
+                if len(s) <= self.char_count_cutoff:
+                    new_descs.append(s)
         if new_descs:
             self.update_source_resource({'description': new_descs})
 

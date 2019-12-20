@@ -8,12 +8,10 @@ class UCBBlacklightDCMapper(DublinCoreMapper):
     def map_is_shown_at(self, index=None):
         base_url = 'http://dc.lib.berkeley.edu/catalog/'
         self.mapped_data.update(
-            {'isShownAt': base_url+self.provider_data['originalRecord']['id']})
+            {'isShownAt': base_url+self.provider_data.get('originalRecord',{}).get('id')})
 
     def map_is_shown_by(self):
-        self.mapped_data.update({"isShownBy": self.provider_data["imageFile"]}
-                                ) if self.provider_data.get("imageFile",
-                                                            False) else None
+        self.mapped_data.update({"isShownBy": self.provider_data.get("imageFile")})
 
     def map_title(self):
         self.source_resource_orig_to_prop('title_display', 'title')

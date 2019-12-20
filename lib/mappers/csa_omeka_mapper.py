@@ -12,21 +12,23 @@ class CSA_OAIMapper(Omeka_OAIMapper):
 
     def map_is_shown_at(self):
         isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'items/show' in i:
-                isShownAt = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'items/show' in i:
+                    isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
         '''Grab only the first image URL from identifier values'''
         isShownBy = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'files/original' in i:
-                isShownBy = i
-                break
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'files/original' in i:
+                    isShownBy = i
+                    break
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 

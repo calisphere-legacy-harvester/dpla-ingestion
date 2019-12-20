@@ -1,6 +1,7 @@
 import requests
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
 from dplaingestion.selector import getprop
+from akara import logger
 
 
 class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
@@ -20,11 +21,12 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
 
     def get_identifier_match(self, string_in):
         '''Return the identifier that has the given string in it'''
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if string_in in i:
-                return i
-        return None
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if string_in in i:
+                    return i
+            return None
 
     def map_is_shown_by(self):
         '''Can only reliably get a small tumbnail from the CONTENTdm
@@ -73,7 +75,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         self.source_resource_orig_list_to_prop_with_split(fields, 'spatial')
 
     def map_type(self):
-        '''TOOD:Funky, but map_type comes after the is_shown_by, should change order
+        '''TODO:Funky, but map_type comes after the is_shown_by, should change order
         '''
         self.to_source_resource_with_split('type', 'type')
 
@@ -88,6 +90,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
         url_image_info = '/'.join((base_url, 'utils', 'ajaxhelper'))
         url_image_info = '{}?CISOROOT={}&CISOPTR={}'.format(url_image_info,
                                                             collid, objid)
+        logger.error(url_image_info)
         return url_image_info
 
     def get_image_info(self):
@@ -119,7 +122,7 @@ class CONTENTdm_OAI_Mapper(OAIDublinCoreMapper):
     def update_mapped_fields(self):
         ''' To run post mapping. For this one, is_shown_by needs
         sourceResource/type'''
-        rec_type = self.mapped_data['sourceResource']['type']
+        rec_type = self.mapped_data.get('sourceResource',{}).get('type')
         is_sound_object = False
         if isinstance(rec_type, basestring):
             if 'sound' == rec_type.lower():

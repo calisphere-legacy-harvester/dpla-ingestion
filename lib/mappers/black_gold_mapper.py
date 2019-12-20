@@ -12,10 +12,11 @@ class BlackGold_OAIMapper(CONTENTdm_OAI_Mapper):
 
     def map_is_shown_at(self):
         isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'luna/servlet/detail' in i:
-                isShownAt = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'luna/servlet/detail' in i:
+                    isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
@@ -23,10 +24,11 @@ class BlackGold_OAIMapper(CONTENTdm_OAI_Mapper):
         '''Grab the image URL from identifier values and
         switch out Size2 for Size4 (largest possible)'''
         isShownBy = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'mediafile=' in i:
-                isShownBy = i.replace("Size2", "Size4")
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'mediafile=' in i:
+                    isShownBy = i.replace("Size2", "Size4")
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 

@@ -31,12 +31,12 @@ class CMISAtomDCMapper(Mapper):
         self.provider_data_source = metadata_root["{http://www.tessella.com/sdb/cmis/metadata}group"][0]["{http://www.tessella.com/sdb/cmis/metadata}item"]
 
     def map_is_shown_at(self):
-        objid = self.mapped_data['_id'].split('--')[1]
+        objid = self.mapped_data.get('_id').split('--')[1]
         self.mapped_data.update(
                 {'isShownAt': URL_BASE_SHOWN_AT + objid })
 
     def map_is_shown_by(self):
-        objid = self.mapped_data['_id'].split('--')[1]
+        objid = self.mapped_data.get('_id').split('--')[1]
         self.mapped_data.update(
                 {'isShownBy': URL_BASE_SHOWN_BY + objid })
 
@@ -47,7 +47,7 @@ class CMISAtomDCMapper(Mapper):
         defaultdict with list values
         so I'm not overriding the various map_<field> methods.
         '''
-        self.mapped_data['sourceResource'].update({'stateLocatedIn':'California'})
+        self.mapped_data.get('sourceResource').update({'stateLocatedIn':'California'})
         DC_elements = [ 'contributor', 'coverage', 'creator', 'date',
                     'description', 'format', 'identifier', 'language',
                     'publisher', 'relation', 'rights', 'source', 'subject',
@@ -68,12 +68,12 @@ class CMISAtomDCMapper(Mapper):
                     field_map_sr = 'spatial'
                 elif field == 'subject':
                     d = {'name':value}
-                vlist = self.mapped_data['sourceResource'].get(field_map_sr, None)
+                vlist = self.mapped_data.get('sourceResource').get(field_map_sr, None)
                 if vlist:
                     vlist.append(d)
                 else:
                     vlist = [d]
-                self.mapped_data['sourceResource'][field_map_sr] = vlist
+                self.mapped_data.get('sourceResource')[field_map_sr] = vlist
 
 
 # Copyright © 2016, Regents of the University of California
@@ -99,4 +99,3 @@ class CMISAtomDCMapper(Mapper):
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-

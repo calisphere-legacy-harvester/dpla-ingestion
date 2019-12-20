@@ -11,16 +11,16 @@ class FlickrSPPLMapper(FlickrMapper):
         '''Parse out metadata from description field,
         remove from description field and save to relevant fields
         '''
-        description = self.provider_data['description']['text']
+        description = self.provider_data.get('description',{}).get('text')
         matches = re.search('Date:(.+)', description)
         if matches:
             description = description.replace(matches.group(0), '')
             self.update_source_resource({'date': matches.group(1).strip()})
 
-        tags = self.provider_data['tags']
+        tags = self.provider_data.get('tags')
         subjects = []
         for tag in tags:
-            subjects.append(tag['raw'])
+            subjects.append(tag.get('raw'))
         matches = re.search('Category:( \S+)', description)
         if matches:
             description = description.replace(matches.group(0), '')

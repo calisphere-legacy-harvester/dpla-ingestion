@@ -31,10 +31,9 @@ class CSUDH_CONTENTdm_OAI_Mapper(CONTENTdm_OAI_Mapper):
                         pass #drop it
                     elif t.startswith('csudh'):
                         #append to sourceResource/identifier
-                        self.mapped_data["sourceResource"].get('identifier',
+                        self.mapped_data.get('sourceResource',{}).get('identifier',
                                 []).append(t)
                     else: #add to real title
                         new_title.append(t)
                 if new_title:
                     self.update_source_resource({prop: new_title})
-

@@ -7,11 +7,11 @@ class CHS_Islandora_Mapper(Islandora_OAIMapper):
     '''
 
     def map_identifier(self):
-        if 'identifier' in self.provider_data['originalRecord']:
-            ident = self.provider_data['originalRecord']['identifier']
+        if 'identifier' in self.provider_data.get('originalRecord'):
+            ident = self.provider_data.get('originalRecord').get('identifier')
             if not isinstance(ident, basestring):
                 ident_list = []
-                for i in ident:
+                for i in filter(None, ident):
                     if "islandora" not in i:
                         ident_list.append(i)
                 if ident_list:

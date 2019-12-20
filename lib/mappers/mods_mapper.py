@@ -13,8 +13,8 @@ class MODSMapper(Mapper):
         if exists(self.provider_data, prop):
             language = []
             for s in iterify(getprop(self.provider_data, prop)):
-                if "#text" in s and s["#text"] not in language:
-                    language.append(s["#text"])
+                if "#text" in s and s.get("#text") not in language:
+                    language.append(s.get("#text"))
 
             if language:
                 self.update_source_resource({"language": language})

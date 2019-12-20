@@ -25,4 +25,4 @@ def test_csl_id_select():
     assert resp.status == 200
     obj = json.loads(content)
     TC.assertIn('_id', obj)
-    TC.assertEqual(obj[u'_id'], '26560--001409080')
+    TC.assertEqual(obj[u'_id'], '26560--990014090800205115')

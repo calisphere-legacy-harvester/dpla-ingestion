@@ -36,7 +36,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         restricted = self.find_restricted()
         if not restricted:
             is_shown_at = ''.join(('https://library.ucsd.edu/dc/object/',
-            self.provider_data['id_t']))
+            self.provider_data.get('id_t')))
             self.mapped_data.update({"isShownAt": is_shown_at})
 
     def map_is_shown_by(self):
@@ -49,23 +49,23 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         '''
         fid = None
         for obj in self.provider_data.get('files_tesim', []):
-            if obj['use'] == 'image-service':
-                fid = obj['id']
+            if obj.get('use') == 'image-service':
+                fid = obj.get('id')
                 break
-            if obj['use'] == 'image-preview':
-                fid = obj['id']
+            if obj.get('use') == 'image-preview':
+                fid = obj.get('id')
         else:
             for obj in self.provider_data.get('component_1_files_tesim', []):
-                if obj['use'] == 'image-service':
-                    fid = '1_' + obj['id']
+                if obj.get('use') == 'image-service':
+                    fid = '1_' + obj.get('id')
                     break
-                if obj['use'] == 'image-preview':
-                    fid = '1_' + obj['id']
+                if obj.get('use') == 'image-preview':
+                    fid = '1_' + obj.get('id')
             if not fid: #TODO: this is temp fix, but will help
                 fid = '1_3.jpg'
         if not fid:
             return None
-        obj_id =  self.provider_data['id_t']
+        obj_id =  self.provider_data.get('id_t')
         is_shown_by = ''.join(('https://library.ucsd.edu/dc/object/',
                 obj_id, '/_', fid))
         self.mapped_data.update({"isShownBy": is_shown_by})
@@ -128,7 +128,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
                 'related_resource_json_tesim', [])
         for relation in related_resource:
             if relation.get('type', None) == 'online finding aid':
-                self.update_source_resource({'relation':[relation['uri']]})
+                self.update_source_resource({'relation':[relation.get('uri')]})
 
     def map_date(self):
         # make DPLA style date object
@@ -136,14 +136,14 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         # use creation for now, or first if creation not available
         date_list = self.provider_data_source.get('date_json_tesim', [])
         if len(date_list):
-            for date_obj in date_list:
-                if date_obj['type'] == 'creation':
+            for date_obj in filter(None, date_list):
+                if date_obj.get('type') == 'creation':
                     break
             else: # no creation date, use first date
                 date_obj = date_list[0]
-            date_mapped = dict(end=date_obj['endDate'],
-                               begin=date_obj['beginDate'],
-                               displayDate=date_obj['value'])
+            date_mapped = dict(end=date_obj.get('endDate'),
+                               begin=date_obj.get('beginDate'),
+                               displayDate=date_obj.get('value'))
             self.update_source_resource({'date': [date_mapped]})
 
     def parse_otherNotes(self, note_type, display_label=None):
@@ -154,12 +154,12 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         '''
         values = []
         otherNotes = self.provider_data_source.get('otherNote_json_tesim')
-        for note in otherNotes:
-            if note['type'] == note_type:
-                if display_label and display_label == note['displayLabel']:
-                    values.append(note['value'])
+        for note in filter(None, otherNotes):
+            if note.get('type') == note_type:
+                if display_label and display_label == note.get('displayLabel'):
+                    values.append(note.get('value'))
                 else:
-                    values.append(note['value'])
+                    values.append(note.get('value'))
         return values if len(values) else []
 
     def map_description(self):
@@ -195,14 +195,14 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         for note_type in otherNote_types:
             descriptions.extend(self.parse_otherNotes(note_type))
         scopeContent = self.provider_data_source.get('scopeContentNote_json_tesim', [])
-        for sc in scopeContent:
+        for sc in filter(None, scopeContent):
             value = None
             try:
                 value = sc['value']
             except TypeError:
                 try:
                     j = json.loads(sc)
-                    value = j.get('value', None)
+                    value = j.get('value')
                 except (ValueError, TypeError):
                     pass
             if value:
@@ -234,8 +234,8 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
         self.source_resource_prop_from_provider_json_tesim(field)
         #fix to match dpla spec
         values = []
-        for lang in self.mapped_data["sourceResource"].get(field, []):
-            lang['iso639'] = lang['code']
+        for lang in self.mapped_data.get('sourceResource',{}).get(field, []):
+            lang['iso639'] = lang.get('code')
             del lang['code']
             del lang['externalAuthority']
             values.append(lang)
@@ -277,13 +277,13 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
 ###        pass
 
     def map_title(self):
-        title = self.provider_data_source['title_json_tesim'][0]['name']
+        title = self.provider_data_source.get('title_json_tesim',{})[0].get('name')
         self.update_source_resource({'title': [title]})
         alt_title_tags = ['variant', 'abbreviationVariant',
                 'acronymVariant', 'expansionVariant']
         alt_titles = []
         for tag in alt_title_tags:
-            value = self.provider_data_source['title_json_tesim'][0].get(tag, None)
+            value = self.provider_data_source.get('title_json_tesim',{})[0].get('tag')
             if value:
                 alt_titles.append(value)
         self.update_source_resource({'alternativeTitle': alt_titles})
@@ -291,7 +291,7 @@ class UCSDBlacklightDCMapper(DublinCoreMapper):
     def map_type(self):
         field = 'type'
         self.source_resource_orig_to_prop('resource_type_tesim', field)
-        if field in self.mapped_data["sourceResource"]:
+        if field in self.mapped_data.get('sourceResource'):
             self.mapped_data["sourceResource"][field] = self.mapped_data["sourceResource"][field][0]
 
     def map_state_located_in(self):

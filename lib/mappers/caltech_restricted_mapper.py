@@ -14,7 +14,7 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
         restrict_prefixes = ["Finding Aid", "PBM_", "DAG_", "DAGB_"]
         restricted = False
         if 'title' in self.provider_data:
-            title = self.provider_data['title']
+            title = self.provider_data.get('title')
             if not isinstance(title, basestring):
                 for r in title:
                     if r.startswith(tuple(restrict_prefixes)):
@@ -38,8 +38,8 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
         '''
         restricted = self.find_restricted()
         if not restricted:
-            ident = self.provider_data['identifier']
-            for i in ident:
+            ident = self.provider_data.get('identifier')
+            for i in filter(None, ident):
                 if i:
                     if 'library.caltech.edu' in i:
                         self.mapped_data.update({'isShownAt': i})
@@ -50,8 +50,8 @@ class CalTech_Restricted_Mapper(Islandora_OAIMapper):
         if not restricted:
             # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
             try:
-                thumb_url = self.provider_data['identifier.thumbnail'][0]
-                if 'type' in self.provider_data and any(s in self.provider_data['type'] for s in ('StillImage','image')):
+                thumb_url = self.provider_data.get('identifier.thumbnail')[0]
+                if 'type' in self.provider_data and any(s in self.provider_data.get('type') for s in ('StillImage','image')):
                     jpg_url = thumb_url.replace("/TN/", "/JPG/")
                     request = requests.get(jpg_url)
                     if request.status_code == 200:

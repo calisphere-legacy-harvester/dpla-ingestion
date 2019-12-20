@@ -9,7 +9,7 @@ class PSPL_OAIMapper(DublinCoreMapper):
     '''
 
     def map_is_shown_by(self):
-        ident = self.provider_data['originalRecord']['id']
+        ident = self.provider_data.get('originalRecord',{}).get('id')
         if ':' in ident:
             collID, recID = ident.rsplit(':', 1)
             self.mapped_data["isShownBy"] = ''.join((
@@ -17,8 +17,8 @@ class PSPL_OAIMapper(DublinCoreMapper):
                 recID, '.1.1&width=400&ext=jpg'))
 
     def map_is_shown_at(self):
-        ident = self.provider_data['originalRecord']['id']
-        if ':' in ident:    
+        ident = self.provider_data.get('originalRecord',{}).get('id')
+        if ':' in ident:
             collID, recID = ident.rsplit(':', 1)
             self.mapped_data["isShownAt"] = ''.join(
                 ('http://collections.accessingthepast.org/cgi-bin/', collID,

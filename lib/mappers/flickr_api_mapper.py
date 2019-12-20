@@ -13,10 +13,10 @@ class FlickrMapper(Mapper):
         super(FlickrMapper, self).__init__(provider_data, key_prefix)
 
     def map_is_shown_at(self):
-        urls = self.provider_data['urls']
+        urls = self.provider_data.get('urls')
         for url in urls:
-            if url['type'] == 'photopage':
-                self.mapped_data['isShownAt'] = url['text']
+            if url.get('type') == 'photopage':
+                self.mapped_data['isShownAt'] = url.get('text')
 
     @property
     def url_image(self):
@@ -34,10 +34,10 @@ class FlickrMapper(Mapper):
         url_image_template = "https://farm{farm}.staticflickr.com/" \
             "{server}/{id}_{secret}_z.jpg"
         return url_image_template.format(
-            farm=self.provider_data['farm'],
-            server=self.provider_data['server'],
-            id=self.provider_data['id'],
-            secret=self.provider_data['secret'], )
+            farm=self.provider_data.get('farm'),
+            server=self.provider_data.get('server'),
+            id=self.provider_data.get('id'),
+            secret=self.provider_data.get('secret'), )
 
     def map_is_shown_by(self):
         self.mapped_data['isShownBy'] = self.url_image
@@ -51,22 +51,22 @@ class FlickrMapper(Mapper):
 
     def map_description(self):
         self.update_source_resource(
-            {'description': self.provider_data['description']['text']})
+            {'description': self.provider_data.get('description',{}).get('text')})
 
     def map_subject(self):
-        tags = self.provider_data['tags']
+        tags = self.provider_data.get('tags')
         subjects = []
         for tag in tags:
-            subjects.append(tag['raw'])
+            subjects.append(tag.get('raw'))
         self.update_source_resource({'subject': subjects})
 
     def map_title(self):
         self.update_source_resource(
-            {'title': self.provider_data['title']['text']})
+            {'title': self.provider_data.get('title',{}).get('text')})
 
     def map_format(self):
         self.update_source_resource(
-            {'format': self.provider_data['media']})
+            {'format': self.provider_data.get('media')})
 
     def map_spatial(self):
         '''Some photos have spatial (location) data'''

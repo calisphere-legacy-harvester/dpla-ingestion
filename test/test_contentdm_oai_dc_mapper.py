@@ -74,16 +74,16 @@ def test_contentdm_oai_dc_mapping():
     TC.assertEqual(srcRes['identifier'], [
         'http://archive.org/details/cubanc_000177', "sc_jdbp001110001",
         "sc_jdbp00111",
-        "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262",
+        "http://digital-collections.csun.edu/cdm/ref/collection/GSAC/id/21",
         "http://cdm15972.contentdm.oclc.org/bogus"
     ])
     TC.assertEqual(
         obj['isShownAt'],
-        "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262"
+        "http://digital-collections.csun.edu/cdm/ref/collection/GSAC/id/21"
     )
     TC.assertEqual(
         obj['isShownBy'],
-        "http://digitalcollections.lmu.edu/utils/getthumbnail/collection/johndblack/id/262"
+        "http://digital-collections.csun.edu/utils/getthumbnail/collection/GSAC/id/21"
     )
 
 
@@ -122,5 +122,5 @@ def test_get_larger_image():
     TC.assertEqual(obj['sourceResource']['type'], ['Still Image'])
     TC.assertEqual(
         obj['isShownBy'],
-        "http://cdm16745.contentdm.oclc.org/utils/ajaxhelper?CISOROOT=brubeckcollection&CISOPTR=103&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE=66"
+        "http://northbaydigital.sonoma.edu/utils/ajaxhelper?CISOROOT=maxwell&CISOPTR=12&action=2&DMHEIGHT=2000&DMWIDTH=2000&DMSCALE=100"
     )

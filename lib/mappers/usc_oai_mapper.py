@@ -26,7 +26,7 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         isShownAt = None
         if 'identifier' in self.provider_data_source:
             idents = getprop(self.provider_data_source, 'identifier')
-            for i in idents:
+            for i in filter(None, idents):
                 if 'doi.org' in i:
                     isShownAt = i
         if isShownAt:
@@ -36,7 +36,7 @@ class USC_OAIMapper(CONTENTdm_OAI_Mapper):
         isShownBy = None
         if 'identifier' in self.provider_data_source:
             idents = getprop(self.provider_data_source, 'identifier')
-            for i in idents:
+            for i in filter(None, idents):
                 if 'thumbnails.digitallibrary.usc.edu' in i:
                     isShownBy = i
         if isShownBy:
