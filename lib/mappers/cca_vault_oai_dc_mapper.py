@@ -14,8 +14,7 @@ class CCA_VaultOAIMapper(OAIDublinCoreMapper):
 
 
     def map_is_shown_at(self):
-        if 'identifier' in self.provider_data_source:
-            ident = self.provider_data_source.get('identifier')
+        ident = self.provider_data_source.get('identifier')
         if ident:
             self.mapped_data.update({"isShownAt": ident[0]})
 
