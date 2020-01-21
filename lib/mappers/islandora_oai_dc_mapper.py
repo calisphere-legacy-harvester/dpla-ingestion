@@ -9,12 +9,11 @@ class Islandora_OAIMapper(DublinCoreMapper):
     def map_is_shown_at(self):
 
         # Get digital collection URL from OAI-PMH slug
-        harvest_url = self.provider_data['originalRecord']['collection'][0][
-            'url_harvest']
+        harvest_url = self.provider_data.get('originalRecord',{}).get('collection',{})[0].get('url_harvest')
         coll_url = harvest_url.replace('/oai2', '')
 
         # Get & format record ID
-        ident = self.provider_data['originalRecord']['id']
+        ident = self.provider_data.get('originalRecord',{}).get('id')
         if ':' in ident:
             collID, recID = ident.rsplit(':', 1)
             newID = recID.replace('_', '%3A')
@@ -26,12 +25,11 @@ class Islandora_OAIMapper(DublinCoreMapper):
     def map_is_shown_by(self):
 
         # Get digital collection URL from OAI-PMH slug
-        harvest_url = self.provider_data['originalRecord']['collection'][0][
-            'url_harvest']
+        harvest_url = self.provider_data.get('originalRecord',{}).get('collection',{})[0].get('url_harvest')
         coll_url = harvest_url.replace('/oai2', '')
 
         # Get & format record ID
-        ident = self.provider_data['originalRecord']['id']
+        ident = self.provider_data.get('originalRecord',{}).get('id')
         if ':' in ident:
             collID, recID = ident.rsplit(':', 1)
             newID = recID.replace('_', '%3A')
@@ -41,7 +39,7 @@ class Islandora_OAIMapper(DublinCoreMapper):
                 (coll_url, '/islandora/object/', newID, '/datastream/TN/view'))
 
             # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
-            if 'image' or 'StillImage' in self.provider_data['type']:
+            if 'image' or 'StillImage' in self.provider_data.get('type'):
                 jpg_url = thumb_url.replace("/TN/", "/JPG/")
                 request = requests.get(jpg_url)
                 if request.status_code == 200:

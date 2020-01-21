@@ -6,7 +6,7 @@ class UCB_BAMPFA_Mapper(Mapper):
         self.metadata = self.provider_data
 
     def map_is_shown_at(self):
-        id_local = str(self.metadata['idnumber_s'])
+        id_local = str(self.metadata.get('idnumber_s'))
         is_shown_at = ''.join((
             'https://webapps.cspace.berkeley.edu/bampfa/search/search/?idnumber=',
             id_local, '&displayType=full&maxresults=1&start=1'))
@@ -15,7 +15,7 @@ class UCB_BAMPFA_Mapper(Mapper):
 
     def map_is_shown_by(self):
 
-        blobArray = self.metadata['blob_ss']
+        blobArray = self.metadata.get('blob_ss')
         blob = str(blobArray[0])
         is_shown_by = ''.join(
             ('https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/',

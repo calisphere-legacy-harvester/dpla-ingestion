@@ -12,7 +12,7 @@ class Omeka_NoThumb_Mapper(Omeka_OAIMapper):
         '''Grab only the first image URL from identifier values'''
         thumb = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 's3.amazonaws.com/omeka-net' in i:
                 thumb = i
                 break
@@ -44,7 +44,7 @@ class Omeka_NoThumb_Mapper(Omeka_OAIMapper):
         if thumb:
             isShownAt = None
             idents = getprop(self.provider_data_source, 'identifier')
-            for i in idents:
+            for i in filter(None, idents):
                 if 'items/show' in i:
                     isShownAt = i
             if isShownAt:

@@ -52,7 +52,7 @@ def test_basic_dublin_core():
     TC.assertEqual(srcRes["identifier"], [
         "http://archive.org/details/cubanc_000177", "sc_jdbp001110001",
         "sc_jdbp00111",
-        "http://digitalcollections.lmu.edu/cdm/ref/collection/johndblack/id/262",
+        "http://digital-collections.csun.edu/cdm/ref/collection/GSAC/id/21",
         "http://cdm15972.contentdm.oclc.org/bogus"
     ])
     TC.assertEqual(srcRes["creator"], ["Coffin, H. R."])

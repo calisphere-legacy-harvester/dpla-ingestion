@@ -13,10 +13,10 @@ class YouTubeVideoSnippetMapper(Mapper):
         import sys
         print('KEYS:{}'.format(self.provider_data.keys()), file=sys.stderr)
         self.mapped_data['isShownAt'] = self.url_video_page.format(
-            id=self.provider_data['id'])
+            id=self.provider_data.get('id'))
 
     def map_is_shown_by(self):
-        thumbnails = self.provider_data['snippet']['thumbnails']
+        thumbnails = self.provider_data.get('snippet',{}).get('thumbnails')
         try:
             url_thumb = thumbnails['standard']['url']
         except KeyError:
@@ -32,13 +32,13 @@ class YouTubeVideoSnippetMapper(Mapper):
 
     def map_description(self):
         self.update_source_resource(
-            {'description': self.provider_data['snippet']['description']})
+            {'description': self.provider_data.get('snippet',{}).get('description')})
 
     def map_subject(self):
         if 'tags' in self.provider_data['snippet']:
             self.update_source_resource(
-                {'subject': self.provider_data['snippet']['tags']})
+                {'subject': self.provider_data.get('snippet',{}).get('tags')})
 
     def map_title(self):
         self.update_source_resource(
-            {'title': self.provider_data['snippet']['title']})
+            {'title': self.provider_data.get('snippet',{}).get('title')})

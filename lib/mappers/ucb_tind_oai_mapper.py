@@ -12,7 +12,7 @@ class UCBTIND_OAIMapper(CONTENTdm_OAI_Mapper):
     def map_is_shown_at(self):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'tind.io/record/' in i and '/files/' not in i:
                 isShownAt = i
         if isShownAt:
@@ -21,7 +21,7 @@ class UCBTIND_OAIMapper(CONTENTdm_OAI_Mapper):
     def map_is_shown_by(self):
         isShownBy = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'tind.io/record/' in i and '/files/' in i:
                 isShownBy = i
         if isShownBy:

@@ -14,20 +14,20 @@ class SanJose_PastPerfectMapper(PastPerfectXMLMapper):
     # Also leave out 'webobject' types as found in URL value
     def map_source_resource(self):
         if 'thumbnail' in self.metadata:
-            if 'webobject' not in self.metadata['url'][0]:
+            if 'webobject' not in self.metadata.get('url')[0]:
                 super(SanJose_PastPerfectMapper, self).map_source_resource()
 
     def map_is_shown_at(self, index=None):
         '''Set is_shownBy as well'''
         if 'thumbnail' in self.metadata:
-            if 'webobject' not in self.metadata['url'][0]:
-                self.mapped_data.update({"isShownAt": self.metadata['url'][0]})
-                if '.tif' in self.metadata['thumbnail'][0]:
-                    jpg_url = self.metadata['thumbnail'][0].replace(
+            if 'webobject' not in self.metadata.get('url')[0]:
+                self.mapped_data.update({"isShownAt": self.metadata.get('url')[0]})
+                if '.tif' in self.metadata.get('thumbnail')[0]:
+                    jpg_url = self.metadata.get('thumbnail')[0].replace(
                         ".tif", ".jpg")
                     self.mapped_data.update({"isShownBy": jpg_url})
                 else:
                     self.mapped_data.update({
                         "isShownBy":
-                        self.metadata['thumbnail'][0]
+                        self.metadata.get('thumbnail')[0]
                     })

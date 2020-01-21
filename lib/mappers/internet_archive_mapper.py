@@ -6,7 +6,7 @@ class InternetArchiveMapper(Mapper):
     def map_is_shown_at(self):
         # map 'isShownBy' too
         if 'identifier' in self.provider_data:
-            identifier = self.provider_data['identifier']
+            identifier = self.provider_data.get('identifier')
             self.mapped_data['isShownAt'] = ''.join(
                 ('https://archive.org/details/', identifier))
             self.mapped_data['isShownBy'] = ''.join(
@@ -16,67 +16,67 @@ class InternetArchiveMapper(Mapper):
         if 'collection' in self.provider_data:
             self.update_source_resource({
                 'relation':
-                self.provider_data['collection']
+                self.provider_data.get('collection')
             })
 
     def map_date(self):
         if 'date' in self.provider_data:
-            self.update_source_resource({'date': self.provider_data['date']})
+            self.update_source_resource({'date': self.provider_data.get('date')})
 
     def map_description(self):
         if 'description' in self.provider_data:
             self.update_source_resource({
                 'description':
-                self.provider_data['description']
+                self.provider_data.get('description')
             })
 
     def map_format(self):
         if 'format' in self.provider_data:
             self.update_source_resource({
-                'format': self.provider_data['format']
+                'format': self.provider_data.get('format')
             })
 
     def map_identifier(self):
         if 'identifier' in self.provider_data:
             self.update_source_resource({
                 'identifier':
-                self.provider_data['identifier']
+                self.provider_data.get('identifier')
             })
 
     def map_language(self):
         if 'language' in self.provider_data:
             self.update_source_resource({
                 'language':
-                self.provider_data['language']
+                self.provider_data.get('language')
             })
 
     def map_type(self):
         if 'mediatype' in self.provider_data:
             self.update_source_resource({
-                'type': self.provider_data['mediatype']
+                'type': self.provider_data.get('mediatype')
             })
 
     def map_rights(self):
         if 'licenseurl' in self.provider_data:
             self.update_source_resource({
                 'rights':
-                self.provider_data['licenseurl']
+                self.provider_data.get('licenseurl')
             })
 
     def map_publisher(self):
         if 'publisher' in self.provider_data:
             self.update_source_resource({
                 'publisher':
-                self.provider_data['publisher']
+                self.provider_data.get('publisher')
             })
 
     def map_subject(self):
         if 'subject' in self.provider_data:
             self.update_source_resource({
                 'subject':
-                self.provider_data['subject']
+                self.provider_data.get('subject')
             })
 
     def map_title(self):
         if 'title' in self.provider_data:
-            self.update_source_resource({'title': self.provider_data['title']})
+            self.update_source_resource({'title': self.provider_data.get('title')})

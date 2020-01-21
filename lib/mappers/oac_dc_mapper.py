@@ -95,19 +95,19 @@ class OAC_DCMapper(DublinCoreMapper):
         best_image = None
         if 'originalRecord' in self.provider_data:  # guard weird input
             x = 0
-            thumb = self.provider_data['originalRecord'].get('thumbnail', None)
+            thumb = self.provider_data.get('originalRecord',{}).get('thumbnail', None)
             if thumb:
                 if 'src' in thumb:
-                    x = thumb['X']
-                    best_image = thumb['src']
-            ref_images = self.provider_data['originalRecord'].get(
+                    x = thumb.get('X')
+                    best_image = thumb.get('src')
+            ref_images = self.provider_data.get('originalRecord',{}).get(
                 'reference-image', [])
             if type(ref_images) == dict:
                 ref_images = [ref_images]
             for obj in ref_images:
                 if int(obj['X']) > x:
-                    x = int(obj['X'])
-                    best_image = obj['src']
+                    x = int(obj.get('X'))
+                    best_image = obj.get('src')
             if best_image and not best_image.startswith('http'):
                 best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
         return best_image
@@ -119,7 +119,7 @@ class OAC_DCMapper(DublinCoreMapper):
         '''
         image_count = 0
         if 'originalRecord' in self.provider_data:  # guard weird input
-            ref_image_count = self.provider_data['originalRecord'].get(
+            ref_image_count = self.provider_data.get('originalRecord',{}).get(
                 'reference-image-count', None)
             if ref_image_count:
                 image_count = ref_image_count[0]['text']
@@ -140,10 +140,10 @@ class OAC_DCMapper(DublinCoreMapper):
 
     def map_data_provider(self):
         if 'originalRecord' in self.provider_data:  # guard weird input
-            if 'collection' in self.provider_data['originalRecord']:
+            if 'collection' in self.provider_data.get('originalRecord'):
                 self.mapped_data.update({
                     "dataProvider":
-                    self.provider_data['originalRecord']['collection']
+                    self.provider_data.get('originalRecord',{}).get('collection')
                 })
 
     def map_state_located_in(self):
@@ -155,33 +155,30 @@ class OAC_DCMapper(DublinCoreMapper):
 
     def map_spatial(self):
         if 'originalRecord' in self.provider_data:  # guard weird input
-            if 'coverage' in self.provider_data['originalRecord']:
+            if 'coverage' in self.provider_data.get('originalRecord'):
                 coverage_data = iterify(
-                    getprop(self.provider_data['originalRecord'], "coverage"))
+                    getprop(self.provider_data.get('originalRecord'), "coverage"))
                 # remove arks from data
                 # and move the "text" value to
                 coverage = []
                 for c in coverage_data:
                     if (not isinstance(c, basestring) and
-                            not c['text'].startswith('ark:')):
-                        if 'q' in c.get('attrib', {}) and 'temporal' not in c[
-                                'attrib']['q']:
-                            coverage.append(c['text'])
-                        if 'q' not in c.get('attrib', {}) and c.get('attrib', {}) is not None and not Anum_re.match(c[
-                                    'text']):
-                            coverage.append(c['text'])
+                            not c.get('text').startswith('ark:')):
+                        if 'q' in c.get('attrib', {}) and 'temporal' not in c.get('attrib',{}).get('q'):
+                            coverage.append(c.get('text'))
+                        if 'q' not in c.get('attrib', {}) and c.get('attrib', {}) is not None and not Anum_re.match(c.get('text')):
+                            coverage.append(c.get('text'))
                 self.update_source_resource({"spatial": coverage})
 
     def map_temporal(self):
         if 'originalRecord' in self.provider_data:  # guard weird input
-            if 'coverage' in self.provider_data['originalRecord']:
+            if 'coverage' in self.provider_data.get('originalRecord'):
                 time_data = iterify(
-                    getprop(self.provider_data['originalRecord'], "coverage"))
+                    getprop(self.provider_data.get('originalRecord'), "coverage"))
                 temporal = []
                 for t in time_data:
-                    if 'q' in t.get('attrib', {}) and 'temporal' in t['attrib'][
-                            'q']:
-                        temporal.append(t['text'])
+                    if 'q' in t.get('attrib', {}) and 'temporal' in t.get('attrib',{}).get('q'):
+                        temporal.append(t.get('text'))
                     self.update_source_resource({"temporal": temporal})
 
     def map_format(self):
@@ -205,8 +202,8 @@ class OAC_DCMapper(DublinCoreMapper):
         copydate_data = self.provider_data.get('date', None)
         if copydate_data:
             copyright_date = [
-                d['text'] for d in copydate_data
-                if d['attrib'] if d['attrib']['q'] == 'dcterms:dateCopyrighted'
+                d.get('text') for d in copydate_data
+                if d.get('attrib') if d.get('attrib',{}).get('q') == 'dcterms:dateCopyrighted'
             ]
             self.update_source_resource({"copyrightDate": copyright_date})
 
@@ -217,8 +214,8 @@ class OAC_DCMapper(DublinCoreMapper):
         grab_titles = self.provider_data.get('title', None)
         if grab_titles:
             alt_titles = [
-                t['text'] for t in grab_titles
-                if t['attrib'] if t['attrib']['q'] == 'alternative'
+                t.get('text') for t in grab_titles
+                if t.get('attrib') if t.get('attrib',{}).get('q') == 'alternative'
             ]
             self.update_source_resource({"alternativeTitle": alt_titles})
 
@@ -229,7 +226,7 @@ class OAC_DCMapper(DublinCoreMapper):
         genre_data = self.provider_data.get('type', None)
         if genre_data:
             genre_form = [
-                g['text'] for g in genre_data
-                if g['attrib'] if g['attrib']['q'] == 'genreform'
+                g.get('text') for g in genre_data
+                if g.get('attrib') if g.get('attrib',{}).get('q') == 'genreform'
             ]
             self.update_source_resource({"genre": genre_form})

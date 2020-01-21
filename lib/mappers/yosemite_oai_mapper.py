@@ -9,7 +9,7 @@ class Yosemite_OAIMapper(OAIDublinCoreMapper):
     def map_is_shown_at(self):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'npgallery.nps.gov' in i:
                 if 'AssetDetail' in i:
                     isShownAt = i
@@ -20,7 +20,7 @@ class Yosemite_OAIMapper(OAIDublinCoreMapper):
         '''Grab the image URL from identifier values (but not the full size version) by looking for slash at end of string'''
         isShownBy = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'npgallery.nps.gov' in i:
                 if i.endswith('/'):
                     isShownBy = i

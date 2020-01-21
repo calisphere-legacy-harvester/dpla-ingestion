@@ -12,7 +12,7 @@ class CSU_DSpace_Mapper(CONTENTdm_OAI_Mapper):
         '''Return DSpace handle.net-type numerical values representing collection & object
         '''
         objectID = getprop(self.provider_data_source, 'identifier')
-        for d in objectID:
+        for d in filter(None, objectID):
             if "hdl.handle.net" in d:
                 handle = d.replace('http://hdl.handle.net/', '')
         return handle
@@ -22,7 +22,7 @@ class CSU_DSpace_Mapper(CONTENTdm_OAI_Mapper):
         '''
         handle = self.get_handle()
         fNameOrig = getprop(self.provider_data_source, 'originalName')
-        for f in fNameOrig:
+        for f in filter(None, fNameOrig):
             # don't take .txt, .doc, .tiff
             if not any(x in f.lower() for x in [".txt", ".doc", ".tif"]):
                 fNameEncode = urllib.quote(f)

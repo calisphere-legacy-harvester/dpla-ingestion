@@ -3,7 +3,7 @@ from dplaingestion.selector import exists, getprop
 
 class Chapman_OAI_Mapper(OAIDublinCoreMapper):
     '''Mapper for bepress hosted collections from their OAI feed
-    
+
     OAI has a number of strange mappings to description & identifier
     '''
     def map_is_shown_by(self):
@@ -11,7 +11,7 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
         with the metadata in the OAI feed
         Can parse the OAI id to get infor we need.
 
-        As it turns out, for "image" type objects, larger images are 
+        As it turns out, for "image" type objects, larger images are
         available.
         The creation of the URL to grab the image needs to check the image
         object information before setting the URL. ContentDM has an image
@@ -21,12 +21,13 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
         This needs to be done after the sourceResouce/type is mapped, so it
         happens in update_mapped_fields
         '''
-        descs = getprop(self.provider_data_source, 'description')
-        for d in descs:
-            if 'thumbnail' in d:
-                url_preview = d.replace('thumbnail', 'preview')
-                self.mapped_data.update({'isShownBy': url_preview})
-                break
+        if 'description' in self.provider_data_source:
+            descs = getprop(self.provider_data_source, 'description')
+            for d in descs:
+                if 'thumbnail' in d:
+                    url_preview = d.replace('thumbnail', 'preview')
+                    self.mapped_data.update({'isShownBy': url_preview})
+                    break
 
     def map_is_shown_at(self):
         '''The identifier that points to the OAI server & has cdm/ref in the
@@ -34,30 +35,33 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
         Can get harvest base URL from the "collection" object
         '''
         isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
-            if 'http://digitalcommons.chapman.edu' in i:
-                if 'context' not in i:
-                    isShownAt = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'http://digitalcommons.chapman.edu' in i:
+                    if 'context' not in i:
+                        isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
 
     def map_identifier(self):
-        idents = getprop(self.provider_data_source, 'identifier')
-        idents_srcRes = []
-        for i in idents:
-            if 'context' not in i:
-                idents_srcRes.append(i)
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            idents_srcRes = []
+            for i in idents:
+                if 'context' not in i:
+                    idents_srcRes.append(i)
         if idents_srcRes:
             self.update_source_resource({'identifier': idents_srcRes})
 
     def map_description(self):
-        descs = getprop(self.provider_data_source, 'description')
-        descs_srcRes = []
-        for d in descs:
-            if 'thumbnail' not in d:
-                descs_srcRes.append(d)
+        if 'description' in self.provider_data_source:
+            descs = getprop(self.provider_data_source, 'description')
+            descs_srcRes = []
+            for d in descs:
+                if 'thumbnail' not in d:
+                    descs_srcRes.append(d)
         if descs_srcRes:
             self.update_source_resource({'description': descs_srcRes})
 
@@ -85,4 +89,3 @@ class Chapman_OAI_Mapper(OAIDublinCoreMapper):
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-

@@ -27,15 +27,15 @@ class UCD_JSONMapper(Mapper):
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_ids(self):
-        collection_id = self.provider_data['collection'][0]['resource_uri']
+        collection_id = self.provider_data.get('collection',{})[0].get('resource_uri')
         collection_id = collection_id.rsplit('/')[-2]
         #get ARK for _id, if possible
         doc_id = None
-        for i in self.metadata['identifier']:
+        for i in self.metadata.get('identifier'):
             if 'ark:/' in i:
                 doc_id = i
         if not doc_id:
-            doc_id = self.metadata['identifier'][0]
+            doc_id = self.metadata.get('identifier')[0]
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id
@@ -43,23 +43,23 @@ class UCD_JSONMapper(Mapper):
 
     def map_title(self):
         if 'name' in self.metadata:
-            self.update_source_resource({'title': self.metadata['name']})
+            self.update_source_resource({'title': self.metadata.get('name')})
 
     def map_date(self):
         if 'datePublished' in self.metadata:
             self.update_source_resource({
-                'date': self.metadata['datePublished']
+                'date': self.metadata.get('datePublished')
             })
 
     def map_description(self):
         if 'description' in self.metadata:
             self.update_source_resource({
-                'description': self.metadata['description']
+                'description': self.metadata.get('description')
             })
 
     def map_subject(self):
         if 'about' in self.metadata:
-            values = self.metadata['about']
+            values = self.metadata.get('about')
             if isinstance(values, dict):
                 subject = [{'name': values['name']}]
             elif isinstance(values, basestring):
@@ -71,7 +71,7 @@ class UCD_JSONMapper(Mapper):
 
     def map_format(self):
         if 'material' in self.metadata:
-            self.update_source_resource({'format': self.metadata['material']})
+            self.update_source_resource({'format': self.metadata.get('material')})
 
     def map_creator(self):
         if 'creator' in self.metadata:
@@ -91,7 +91,7 @@ class UCD_JSONMapper(Mapper):
     def map_identifier(self):
         identifiers = []
         if 'identifier' in self.metadata:
-            for i in self.metadata['identifier']:
+            for i in self.metadata.get('identifier'):
                 identifiers.append(i)
         if identifiers:
             self.update_source_resource({'identifier': identifiers})

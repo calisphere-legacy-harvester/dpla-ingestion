@@ -17,7 +17,7 @@ class OAIDublinCoreMapper(DublinCoreMapper):
     def split_values(self, prop):
         new_values = []
         if exists(self.provider_data_source, prop):
-            for value in getprop(self.provider_data_source, prop):
+            for value in filter(None, getprop(self.provider_data_source, prop)):
                 new_values.extend([s.strip() for s in value.split(';')])
         return new_values
 

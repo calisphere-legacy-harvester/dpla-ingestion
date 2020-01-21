@@ -9,22 +9,22 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
         '''truncate identifier.thumbnail value past object ID
         '''
         if 'identifier.thumbnail' in self.provider_data:
-            if isinstance(self.provider_data['identifier.thumbnail'], basestring):
-                isShownAt = self.provider_data['identifier.thumbnail'].split('/datastream/TN')[0]
+            if isinstance(self.provider_data.get('identifier.thumbnail'), basestring):
+                isShownAt = self.provider_data.get('identifier.thumbnail').split('/datastream/TN')[0]
             else:
-                isShownAt = self.provider_data['identifier.thumbnail'][0].split('/datastream/TN')[0]
+                isShownAt = self.provider_data.get('identifier.thumbnail')[0].split('/datastream/TN')[0]
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
         if 'identifier.thumbnail' in self.provider_data:
-            self.mapped_data.update({'isShownBy': self.provider_data['identifier.thumbnail']})
+            self.mapped_data.update({'isShownBy': self.provider_data.get('identifier.thumbnail')})
 
     def map_provenance(self):
         # Add boilerplate statement to any existing provenance info
         prov_list = []
 
         if 'provenance' in self.provider_data:
-            provenance = self.provider_data['provenance']
+            provenance = self.provider_data.get('provenance')
             for prov in provenance:
                 prov_list.append(prov)
         prov_list.append('California Revealed is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian.')
@@ -33,13 +33,13 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     def map_type(self):
         # If type value = 'item', get type from medium
         if 'type' in self.provider_data:
-            if self.provider_data['type'][0] == 'Item':
+            if self.provider_data.get('type')[0] == 'Item':
                 try:
-                    self.update_source_resource({'type': self.provider_data['medium']})
+                    self.update_source_resource({'type': self.provider_data.get('medium')})
                 except KeyError:
                     pass
             else:
-                self.update_source_resource({'type': self.provider_data['type']})
+                self.update_source_resource({'type': self.provider_data.get('type')})
 
     def map_extent(self):
         self.source_resource_orig_to_prop('extent', 'extent')
@@ -49,7 +49,7 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
         desc_list =[]
 
         if 'description' in self.provider_data:
-            description = self.provider_data['description']
+            description = self.provider_data.get('description')
             for desc in description:
                 if 'California Audiovisual Preservation Project (CAVPP)' in desc or 'California Revealed' in desc:
                     continue

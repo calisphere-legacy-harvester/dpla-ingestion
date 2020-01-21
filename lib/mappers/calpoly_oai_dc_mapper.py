@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.oai_dublin_core_mapper import OAIDublinCoreMapper
 import requests
-from akara import logger
 
 
 class CalPoly_OAIMapper(OAIDublinCoreMapper):
@@ -17,8 +16,8 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
 
     def find_restricted(self):
         restricted = False
-        if 'rights' in self.provider_data:
-            rights = self.provider_data['rights']
+        rights = self.provider_data.get('rights')
+        if rights:
             if not isinstance(rights, basestring):
                 for r in rights:
                     if r and r.startswith("RESTRICT"):
@@ -40,8 +39,8 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
         if not restricted:
             super(CalPoly_OAIMapper, self).map_source_resource()
             # removing "null" from sourceResource field values
-            for k in self.mapped_data["sourceResource"]:
-                notNull = self.remove_null_values(self.mapped_data["sourceResource"][k])
+            for k in self.mapped_data.get('sourceResource'):
+                notNull = self.remove_null_values(self.mapped_data.get('sourceResource',{}).get(k))
                 self.update_source_resource({k: notNull})
 
     def map_is_shown_at(self):
@@ -51,18 +50,20 @@ class CalPoly_OAIMapper(OAIDublinCoreMapper):
         '''
         restricted = self.find_restricted()
         if not restricted:
-            ident = self.provider_data['identifier']
-            for i in ident:
-                if i:
-                    if 'digital.lib.calpoly.edu' in i:
-                        self.mapped_data.update({'isShownAt': i})
+            ident = self.provider_data.get('identifier')
+            if ident:
+                for i in ident:
+                    if i:
+                        if 'digital.lib.calpoly.edu' in i:
+                            self.mapped_data.update({'isShownAt': i})
 
     def map_is_shown_by(self):
 
         # Change URL from 'TN' to 'JPG' for larger versions of image objects & test to make sure the link resolves
-        thumb_url = self.provider_data['identifier.thumbnail']
+        thumb_url = self.provider_data.get('identifier.thumbnail')
         if thumb_url:
-            if 'StillImage' in self.provider_data['type']:
+            type = self.provider_data.get('type')
+            if type and 'StillImage' in type:
                 jpg_url = thumb_url[0].replace("/TN/", "/JPG/")
                 request = requests.get(jpg_url)
                 if request.status_code == 200:

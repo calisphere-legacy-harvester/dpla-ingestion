@@ -12,7 +12,7 @@ class Omeka_OAIMapper(DublinCoreMapper):
     def map_is_shown_at(self):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'items/show' in i:
                 isShownAt = i
         if isShownAt:
@@ -22,7 +22,7 @@ class Omeka_OAIMapper(DublinCoreMapper):
         '''Grab only the first image URL from identifier values'''
         thumb = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 's3.amazonaws.com/omeka-net' in i:
                 thumb = i
                 break
@@ -52,7 +52,7 @@ class Omeka_OAIMapper(DublinCoreMapper):
             ident = getprop(self.provider_data_source, 'identifier')
             if not isinstance(ident, basestring):
                 ident_list = []
-                for i in ident:
+                for i in filter(None, ident):
                     if "s3.amazonaws.com/omeka-net/" not in i:
                         if "files/original" not in i:
                             ident_list.append(i)

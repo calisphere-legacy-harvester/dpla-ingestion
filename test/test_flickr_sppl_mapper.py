@@ -39,7 +39,7 @@ class FlickrSDASMMapperTestCase(TestCase):
         self.assertEqual(srcRes['format'], "photo")
         self.assertEqual(
             srcRes['identifier'],
-            ['ark.cdlib.org/ark:/13030/kt867nd5wp', 'csp_055', 'LP1399'])
+            ['<a href=\"http://ark.cdlib.org/ark:/13030/kt2199q7mk\" rel=\"noreferrer nofollow\">ark.cdlib.org/ark:/13030/kt2199q7mk</a>', 'csp_138', 'LP1399'])
 
 
 # Copyright © 2017, Regents of the University of California

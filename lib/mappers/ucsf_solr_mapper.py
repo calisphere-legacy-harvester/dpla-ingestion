@@ -15,9 +15,9 @@ class UCSFSolrFeedMapper(Mapper):
         self.metadata = self.provider_data
 
     def map_ids(self):
-        collection_id = self.provider_data['collection'][0]['resource_uri']
+        collection_id = self.provider_data.get('collection',{})[0].get('resource_uri')
         collection_id = collection_id.rsplit('/')[-2]
-        doc_id = self.provider_data['id']
+        doc_id = self.provider_data.get('id')
         _id = COUCH_ID_BUILDER(collection_id, doc_id)
         id  = hashlib.md5(_id).hexdigest()
         at_id = "http://ucldc.cdlib.org/api/items/" + id
@@ -25,7 +25,7 @@ class UCSFSolrFeedMapper(Mapper):
 
     def map_is_shown_at(self, index=None):
         '''Set is_shownBy as well'''
-        id_local = self.metadata['id']
+        id_local = self.metadata.get('id')
         is_shown_by_path = '/'.join([ c for c in id_local[:4]])
         is_shown_at = 'https://industrydocuments.library.ucsf.edu/tobacco/docs/#id={}'.format(id_local)
         is_shown_by_base = 'https://s3-us-west-2.amazonaws.com/edu.ucsf.library.iddl.artifacts/'
@@ -63,11 +63,11 @@ class UCSFSolrFeedMapper(Mapper):
             self.update_source_resource({'extent':extent})
 
     def map_identifier(self):
-        ids = [self.metadata['id'], self.metadata['tid']]
+        ids = [self.metadata.get('id'), self.metadata.get('tid')]
         if 'bates' in self.metadata:
-            ids.append(self.metadata['bates'])
+            ids.append(self.metadata.get('bates'))
         if 'case' in self.metadata:
-            ids.extend(self.metadata['case'])
+            ids.extend(self.metadata.get('case'))
         self.update_source_resource({'identifier':ids})
 
     def map_relation(self):
@@ -78,13 +78,13 @@ class UCSFSolrFeedMapper(Mapper):
         '''brand, mentioned, organization & person'''
         subjects = []
         if 'brand' in self.metadata:
-            subjects.extend(self.metadata['brand'])
+            subjects.extend(self.metadata.get('brand'))
         if 'mentioned' in self.metadata:
-            subjects.extend(self.metadata['mentioned'])
+            subjects.extend(self.metadata.get('mentioned'))
         if 'organization' in self.metadata:
-            subjects.extend(self.metadata['organization'])
+            subjects.extend(self.metadata.get('organization'))
         if 'person' in self.metadata:
-            subjects.extend(self.metadata['person'])
+            subjects.extend(self.metadata.get('person'))
         if subjects:
             self.update_source_resource({'subject': subjects})
 
@@ -97,5 +97,4 @@ class UCSFSolrFeedMapper(Mapper):
     def map_type(self):
         '''Map type & genre'''
         if 'type' in self.metadata:
-            self.update_source_resource({'genre': self.metadata['type']})
-
+            self.update_source_resource({'genre': self.metadata.get('type')})

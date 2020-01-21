@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#  -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
 
@@ -13,7 +13,7 @@ class Quartex_OAIMapper(CONTENTdm_OAI_Mapper):
     def map_is_shown_at(self):
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'documents/detail' in i:
                 isShownAt = i
         if isShownAt:
@@ -24,7 +24,7 @@ class Quartex_OAIMapper(CONTENTdm_OAI_Mapper):
         switch out Size2 for Size4 (largest possible)'''
         isShownBy = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'thumbnails/preview' in i:
                 isShownBy = i
         if isShownBy:

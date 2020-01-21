@@ -22,7 +22,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         happens in update_mapped_fields
         '''
         descs = getprop(self.provider_data_source, 'description')
-        for d in descs:
+        for d in filter(None, descs):
             if '/thumbnail.jpg' in d:
                 url_preview = d.replace('thumbnail', 'preview')
                 self.mapped_data.update({'isShownBy': url_preview})
@@ -35,7 +35,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         '''
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
-        for i in idents:
+        for i in filter(None, idents):
             if 'scholarlycommons.pacific.edu' in i:
                 if 'viewcontent' not in i:
                     isShownAt = i
@@ -46,7 +46,7 @@ class UP_OAI_Mapper(OAIDublinCoreMapper):
         '''drop thumbnail URL from description field'''
         values = []
         descs = getprop(self.provider_data_source, 'description')
-        for d in descs:
+        for d in filter(None, descs):
             if 'thumbnail.jpg' not in d:
                 values.append(d)
         if values:
