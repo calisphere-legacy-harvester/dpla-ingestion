@@ -41,6 +41,7 @@ def test_cavpp_overrides():
                             [u"01:31:36",
                             u'1 tape of 1'])
     TC.assertEqual(srcRes['type'],[u'Still Image'])
+    TC.assertEqual(srcRes['genre'],[u'Nonfiction films'])
     TC.assertEqual(srcRes['date'],[u'1973-12-11',
                                   u'1965-10-14'])
     TC.assertEqual(srcRes['description'],[u"Evelyn Joslyn speaking on the subject of the Lott family. She personally knew Judge Lott and the rest of the family."])

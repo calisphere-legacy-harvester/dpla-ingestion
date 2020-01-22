@@ -44,6 +44,9 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     def map_extent(self):
         self.source_resource_orig_to_prop('extent', 'extent')
 
+    def map_genre(self):
+        self.source_resource_orig_to_prop('genre', 'genre')
+
     def map_description(self):
         #scrub CAVPP and California Revealed from description
         desc_list =[]
