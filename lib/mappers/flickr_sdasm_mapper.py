@@ -17,40 +17,41 @@ class FlickrSDASMMapper(FlickrMapper):
         identifiers = set() # we don't want dups, catalog & filename often
         description = self.provider_data.get('description',{}).get('text')
         if description:
-            matches = re.search('PictionID:([-.\w]+)', description)
+            matches = re.search('PictionID:([-.\w]+)', description, re.IGNORECASE)
             import sys
             if matches:
                 description = description.replace(matches.group(0), '')
                 identifiers.add(matches.group(1))
-            matches = re.search('Catalog:([-.\w]+)', description)
+            matches = re.search('Catalog:([-.\w]+)', description, re.IGNORECASE)
             if matches:
                 description = description.replace(matches.group(0), '')
                 identifiers.add(matches.group(1))
-            matches = re.search('Filename:([-.\w]+)', description)
+            matches = re.search('Filename:([-.\w]+)', description, re.IGNORECASE)
             if matches:
                 description = description.replace(matches.group(0), '')
                 identifiers.add(matches.group(1))
 
             '''Parse out date and title'''
-            matches = re.search('Date on Neg:.[\d/]+', description)
+            matches = re.search('Date on Neg:.[\d/]+', description, re.IGNORECASE)
             if matches:
                 description = description.replace(matches.group(0), '')
                 date = matches.group(0).replace('Date on Neg:', '')
                 self.update_source_resource({
                     'date': date.strip()
                 })
-            matches = re.search('Date:.[\d/]+', description)
+            matches = re.search('Date:.[\d/]+', description, re.IGNORECASE)
             if matches:
                 description = description.replace(matches.group(0), '')
                 date = matches.group(0).replace('Date:', '')
                 self.update_source_resource({
                     'date': date.strip()
                 })
-            matches = re.search('Title:(.+)(?=Details)', description)
+            matches = re.search('Title:.+?(?= -)', description, re.IGNORECASE)
             if matches:
                 description = description.replace(matches.group(0), '')
+                title = matches.group(0).replace('Title:', '')
                 self.update_source_resource({
-                    'title': matches.group(1).strip()
+                    'title': title.strip()
                 })
             else:
                 self.update_source_resource({
@@ -60,5 +61,5 @@ class FlickrSDASMMapper(FlickrMapper):
             #cleaning up description a bit
             description = description.replace(' - ', '')
             if len(identifiers):
-                self.update_source_resource({'description': description})
                 self.update_source_resource({'identifier': [i for i in identifiers]})
+            self.update_source_resource({'description': description})
