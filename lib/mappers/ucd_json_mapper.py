@@ -62,11 +62,11 @@ class UCD_JSONMapper(Mapper):
             values = self.metadata.get('about')
             if isinstance(values, dict):
                 subject = [{'name': values['name']}]
-            elif isinstance(values, basestring):
-                subject = [{'name': values}]
-            else:
+            elif isinstance(values, list):
                 for v in values:
-                    subject = [{'name': v['name']} for v in values]
+                    subject = [{'name': v.get('name')} for v in values]
+            else:
+                subject = [{'name': values}]
             self.update_source_resource({'subject': subject})
 
     def map_format(self):
