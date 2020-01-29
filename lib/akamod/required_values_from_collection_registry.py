@@ -36,7 +36,7 @@ def set_field_from_value_mode(data, field, mode, value, multivalue=True):
     '''Set the value for the data "field" from data in collection
     ckey field with the value passed in.
     '''
-    logger.debug('Field:{} mode:{} value:{} mv:{}'.format(field, mode, value, multivalue))
+    #logger.debug('Field:{} mode:{} value:{} mv:{}'.format(field, mode, value, multivalue))
     if value: #no value don't bother
         if mode=='overwrite':
             if exists(data, field):
@@ -114,7 +114,7 @@ def required_values_from_collection_registry(body, ctype, field, mode):
         response.code = 500
         response.add_header('content-type','text/plain')
         return "Unable to parse body as JSON"
-    
+
     if field == 'rights':
         data = set_rights_from_collection(data, mode)
     elif field == 'type':
