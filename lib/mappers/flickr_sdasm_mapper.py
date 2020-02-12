@@ -7,9 +7,6 @@ class FlickrSDASMMapper(FlickrMapper):
     def map_description(self):
         pass
 
-    def map_title(self):
-        pass
-
     def map_identifier(self):
         '''Parse out identifier values prefixed by "PictionID:" and "Catalog:"
         remove from description field and save to identifier field
@@ -45,17 +42,6 @@ class FlickrSDASMMapper(FlickrMapper):
                 date = matches.group(0).replace('Date:', '')
                 self.update_source_resource({
                     'date': date.strip()
-                })
-            matches = re.search('Title:.+?(?= -)', description, re.IGNORECASE)
-            if matches:
-                description = description.replace(matches.group(0), '')
-                title = matches.group(0).replace('Title:', '')
-                self.update_source_resource({
-                    'title': title.strip()
-                })
-            else:
-                self.update_source_resource({
-                    'title': self.provider_data.get('title',{}).get('text')
                 })
 
             #cleaning up description a bit
