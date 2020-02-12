@@ -28,7 +28,7 @@ def test_black_gold_mapping():
     TC.assertIn('originalRecord', obj)
     TC.assertEqual(
         obj['isShownAt'],
-        "http://oskicat.berkeley.edu/record=b17672647"
+        "http://digicoll.lib.berkeley.edu/record/53877/files/UCB-17-07.jpg"
     )
     TC.assertEqual(
         obj['isShownBy'],

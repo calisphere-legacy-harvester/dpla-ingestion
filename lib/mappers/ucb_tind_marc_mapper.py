@@ -11,14 +11,14 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
 
-    # def map_is_shown_at(self):
-    #     isShownAt = None
-    #     idents = getprop(self.provider_data_source, 'identifier')
-    #     for i in filter(None, idents):
-    #         if 'tind.io/record/' in i and '/files/' not in i:
-    #             isShownAt = i
-    #     if isShownAt:
-    #         self.mapped_data.update({'isShownAt': isShownAt})
+    def map_is_shown_at(self, _dict, tag, codes):
+        prop = "isShownAt"
+        if tag == '856':
+            if _dict['856']['ind2'] != '1':
+                self.extend_prop(prop, _dict, codes)
+                if isinstance(self.mapped_data[prop], list):
+                    # EDM says this is a single URL, not a list
+                    self.mapped_data[prop] = self.mapped_data[prop][0]
 
     # def map_is_shown_by(self):
     #     isShownBy = None
