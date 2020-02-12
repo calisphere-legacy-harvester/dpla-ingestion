@@ -11,8 +11,8 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
 
-    def map_is_shown_at(self, _dict, tag, codes):
-        prop = "isShownAt"
+    def map_is_shown_by(self, _dict, tag, codes):
+        prop = "isShownBy"
         if tag == '856':
             if _dict['856']['ind2'] != '1':
                 self.extend_prop(prop, _dict, codes)
