@@ -11,28 +11,38 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
-            lambda t: t == "246": [(self.map_alt_title, None)]
-            lambda t: t == "856": [(self.map_is_shown_by, "u"),
-                                   (self.map_is_shown_at, "u")],
-            lambda t: t == "245": [(self.map_title, 0, "!c6")],
-            lambda t: t in ("700", "710", "711", "720"):
-            [(self.map_creator, None, "!6")],
+            lambda t: t == "246": [(self.map_alt_title, None)],
+            lambda t: t == "700": [(self.map_creator, "!6")],
             lambda t: t == "336": [(self.map_format, "a")],
+            lambda t: t == "001": [(self.map_is_shown_at, None)]
         })
 
+    def map_title(self, _dict, tag, index, codes):
+        if tag == '245':
+            if codes:
+                codes = codes + '6'
+            else:
+                codes = "!6"
+        super(UCBTIND_MARCMapper, self).map_title(_dict, tag, index, codes)
 
     def map_alt_title(self, _dict, tag, codes):
         prop = "sourceResource/alternativeTitle"
         self.extend_prop(prop, _dict, codes)
 
-    # def map_is_shown_by(self, _dict, tag, codes):
-    #     prop = "isShownBy"
-    #     if tag == '856':
-    #         if _dict['856']['ind2'] != '1':
-    #             self.extend_prop(prop, _dict, codes)
-    #             if isinstance(self.mapped_data[prop], list):
-    #                 # EDM says this is a single URL, not a list
-    #                 self.mapped_data[prop] = self.mapped_data[prop][0]
+    def map_is_shown_by(self, _dict, tag, codes):
+        prop = "isShownBy"
+        if tag == '856':
+            if _dict['856']['ind2'] != '1':
+                self.extend_prop(prop, _dict, codes)
+                if isinstance(self.mapped_data[prop], list):
+                    # EDM says this is a single URL, not a list
+                    self.mapped_data[prop] = self.mapped_data[prop][0]
+
+    def map_is_shown_at(self, _dict, tag, codes):
+        prop = "isShownAt"
+        if tag == '001':
+            self.mapped_data[prop] = "http://digicoll.lib.berkeley.edu/record/"
+            self.mapped_data[prop] += self._get_values(_dict, codes)[0]
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

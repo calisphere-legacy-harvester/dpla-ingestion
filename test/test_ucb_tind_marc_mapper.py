@@ -27,12 +27,27 @@ def test_black_gold_mapping():
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
     TC.assertEqual(
-        obj['isShownAt'],
+        obj['isShownBy'],
         "http://digicoll.lib.berkeley.edu/record/53877/files/UCB-17-07.jpg"
     )
     TC.assertEqual(
-        obj['isShownBy'],
-        "http://oskicat.berkeley.edu/record=b17672647"
+        obj['isShownAt'],
+        "http://digicoll.lib.berkeley.edu/record/53877"
+    )
+    TC.assertEqual(
+        obj['sourceResource']['creator'][0],
+        "Utagawa, Hiroshige,  1826?-1869."
+    )
+    TC.assertEqual(
+        obj['sourceResource']['title'][0],
+        "Zensei fc5abki sugoroku"
+    )
+    TC.assertEqual(
+        obj['sourceResource']['alternativeTitle'][0],
+        "jhklfdahjlkdfalhjdfa")
+    TC.assertEqual(
+        obj['sourceResource']['format'][0],
+        "Photograph"
     )
 
 # Copyright © 2016, Regents of the University of California
