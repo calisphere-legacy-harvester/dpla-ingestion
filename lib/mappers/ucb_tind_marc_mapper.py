@@ -10,24 +10,29 @@ class UCBTIND_MARCMapper(PyMARCMapper):
 
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
+        self.mapping_dict.update({
+            lambda t: t == "246": [(self.map_alt_title, None)]
+            lambda t: t == "856": [(self.map_is_shown_by, "u"),
+                                   (self.map_is_shown_at, "u")],
+            lambda t: t == "245": [(self.map_title, 0, "!c6")],
+            lambda t: t in ("700", "710", "711", "720"):
+            [(self.map_creator, None, "!6")],
+            lambda t: t == "336": [(self.map_format, "a")],
+        })
 
-    def map_is_shown_by(self, _dict, tag, codes):
-        prop = "isShownBy"
-        if tag == '856':
-            if _dict['856']['ind2'] != '1':
-                self.extend_prop(prop, _dict, codes)
-                if isinstance(self.mapped_data[prop], list):
-                    # EDM says this is a single URL, not a list
-                    self.mapped_data[prop] = self.mapped_data[prop][0]
 
-    # def map_is_shown_by(self):
-    #     isShownBy = None
-    #     idents = getprop(self.provider_data_source, 'identifier')
-    #     for i in filter(None, idents):
-    #         if 'tind.io/record/' in i and '/files/' in i:
-    #             isShownBy = i
-    #     if isShownBy:
-    #         self.mapped_data.update({'isShownBy': isShownBy})
+    def map_alt_title(self, _dict, tag, codes):
+        prop = "sourceResource/alternativeTitle"
+        self.extend_prop(prop, _dict, codes)
+
+    # def map_is_shown_by(self, _dict, tag, codes):
+    #     prop = "isShownBy"
+    #     if tag == '856':
+    #         if _dict['856']['ind2'] != '1':
+    #             self.extend_prop(prop, _dict, codes)
+    #             if isinstance(self.mapped_data[prop], list):
+    #                 # EDM says this is a single URL, not a list
+    #                 self.mapped_data[prop] = self.mapped_data[prop][0]
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
