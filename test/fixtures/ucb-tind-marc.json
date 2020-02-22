@@ -1,102 +1,448 @@
 {
-    "fields": [{"001": "53877"},
-            {"005": "20191121100127.0"},
-            {"035": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "(sugoroku)00001"}]}},
-            {"041": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "jpn"}]}},
-            {"245": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"6": "880-02"},
-                                   {"a": "Zensei fc5abki sugoroku "}]}},
-            {"246": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "jhklfdahjlkdfalhjdfa"}]}},
-            {"260": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "[Japan] "},
-                                   {"b": "[publisher not identified]"},
-                                   {"c": "[between 1868 and 1912]"}]}},
-            {"269": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "1868"}]}},
-            {"300": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "1 folded sheet"},
-                                   {"b": "color illustrations"},
-                                   {"c": "70 x 71 cm, folded to 24 x 18 cm"}]}},
-            {"336": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Photograph"}]}},
-            {"500": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Illustration of capitalists in the Maiji period; in form of a sugoroku game board."}]}},
-            {"500": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Reinforced cover pasted on verso of sugoroku."}]}},
-            {"500": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Actual size: 69.3 x 70.5 cm."}]}},
-            {"650": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Sugoroku (Game)"}]}},
-            {"650": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Capitalists and financiers -- Japan."}]}},
-            {"650": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Capitalists and financiers."}]}},
-            {"650": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Sugoroku (Game)"}]}},
-            {"651": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Japan."}]}},
-            {"700": {"ind1": "1",
-                     "ind2": " ",
-                     "subfields": [{"6": "880-01"},
-                                   {"a": "Utagawa, Hiroshige,  1826?-1869."}]}},
-            {"852": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"c": "East Asian Library"}]}},
-            {"856": {"ind1": "4",
-                     "ind2": "1",
-                     "subfields": [{"": "http://oskicat.berkeley.edu/record=b17672647"},
-                                   {"y": "View library catalog record."}]}},
-            {"856": {"ind1": "4",
-                     "ind2": " ",
-                     "subfields": [{"y": "e585a8e79b9be5af8ce8b2b4e5a3bde58fa4e98c84"},
-                                   {"s": "16031749"},
-                                   {"": "http://digicoll.lib.berkeley.edu/record/53877/files/UCB-17-07.jpg"}]}},
-            {"880": {"ind1": "1",
-                     "ind2": " ",
-                     "subfields": [{"6": "700-01"},
-                                   {"a": "e6ad8ce5b79de5bba3e9878d,  1826?-1869."}]}},
-            {"880": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"6": "245-02"},
-                                   {"a": "e585a8e79b9be5af8ce8b2b4e5a3bde58fa4e98c84 "}]}},
-            {"901": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"m": "b17672647"},
-                                   {"o": "460783738"}]}},
-            {"903": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"b": "m"}]}},
-            {"909": {"ind1": "C",
-                     "ind2": "O",
-                     "subfields": [{"o": "oai:digicoll.lib.berkeley.edu:53877"},
-                                   {"p": "sugorok"}]}},
-            {"912": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "jklfdahjklfdahjkldflahjk "}]}},
-            {"980": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "sugorok"}]}},
-            {"982": {"ind1": " ",
-                     "ind2": " ",
-                     "subfields": [{"a": "Sugorok"},
-                                   {"b": "Sugoroku Game Board"}]}}],
- "leader": "          22        4500"}
+    "fields": [
+    {
+        "001": "53878"
+    },
+    {
+        "005": "20200213221104.0"
+    },
+    {
+        "035":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "(sugoroku)00002"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "041":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "jpn"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "245":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "6": "880-02"
+            },
+            {
+                "a": "Dainihon kokusan sugoroku "
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "246":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "\u5927\u65e5\u672c\u56fd\u7523\u53cc\u516d"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "260":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "6": "880-03"
+            },
+            {
+                "a": "Honjo-ku [Tokyo] "
+            },
+            {
+                "b": "Kobayashi Shinkichi"
+            },
+            {
+                "c": "Meiji 20 [1887]"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "269":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "1887"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "300":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "1 folded sheet in wrapper"
+            },
+            {
+                "b": "color illustrations"
+            },
+            {
+                "c": "72 x 62 cm, folded to 26 x 20 cm"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "336":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Image"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "500":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Actual size: 71.6 x 61.3 cm."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "500":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Illustration of Industries in the Maiji period; in form of a sugoroku game board."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "500":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Picture on wrapper."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "650":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Sugoroku (Game)"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "650":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Industries -- Japan -- Pictorial works."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "650":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Industries."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "650":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Sugoroku (Game)"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "651":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Japan."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "655":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Pictorial works."
+            },
+            {
+                "2": "fast"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "700":
+        {
+            "ind1": "1",
+            "subfields": [
+            {
+                "6": "880-01"
+            },
+            {
+                "a": "Utagawa, Kuniteru,  1830?-1874."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "852":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "c": "East Asian Library"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "856":
+        {
+            "ind1": "4",
+            "subfields": [
+            {
+                "u": "http://oskicat.berkeley.edu/record=b17680844"
+            },
+            {
+                "y": "View library catalog record."
+            }],
+            "ind2": "1"
+        }
+    },
+    {
+        "856":
+        {
+            "ind1": "4",
+            "subfields": [
+            {
+                "y": "\u5927\u65e5\u672c\u570b\u7523\u96d9\u516d /"
+            },
+            {
+                "s": "10007376"
+            },
+            {
+                "u": "http://digicoll.lib.berkeley.edu/record/53878/files/UCB-24-13.jpg"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "856":
+        {
+            "ind1": "4",
+            "subfields": [
+            {
+                "y": "\u5927\u65e5\u672c\u570b\u7523\u96d9\u516d /"
+            },
+            {
+                "s": "2544725"
+            },
+            {
+                "u": "http://digicoll.lib.berkeley.edu/record/53878/files/UCB-24-13-01.jpg"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "856":
+        {
+            "ind1": "4",
+            "subfields": [
+            {
+                "y": "\u5927\u65e5\u672c\u570b\u7523\u96d9\u516d /"
+            },
+            {
+                "s": "1999932"
+            },
+            {
+                "u": "http://digicoll.lib.berkeley.edu/record/53878/files/UCB-24-13-02.jpg"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "880":
+        {
+            "ind1": "1",
+            "subfields": [
+            {
+                "6": "700-01"
+            },
+            {
+                "a": "\u6b4c\u5ddd\u56fd\u8f1d,  1830?-1874."
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "880":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "6": "245-02"
+            },
+            {
+                "a": "\u5927\u65e5\u672c\u570b\u7523\u96d9\u516d "
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "880":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "6": "260-03"
+            },
+            {
+                "a": "\u672c\u6240\u5340 [Tokyo] "
+            },
+            {
+                "b": "\u5c0f\u6797\u65b0\u5409"
+            },
+            {
+                "c": "\u660e\u6cbb 20 [1887]"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "901":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "m": "b17680844"
+            },
+            {
+                "o": "466422377"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "903":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "b": "m"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "909":
+        {
+            "ind1": "C",
+            "subfields": [
+            {
+                "o": "oai:digicoll.lib.berkeley.edu:53878"
+            },
+            {
+                "p": "sugoroku"
+            }],
+            "ind2": "O"
+        }
+    },
+    {
+        "912":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "\u5927\u65e5\u672c\u570b\u7523\u96d9\u516d "
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "913":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "\u672c\u6240\u5340 [Tokyo] "
+            },
+            {
+                "b": "\u5c0f\u6797\u65b0\u5409"
+            },
+            {
+                "c": "\u660e\u6cbb 20 [1887]"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "980":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "sugoroku"
+            }],
+            "ind2": " "
+        }
+    },
+    {
+        "982":
+        {
+            "ind1": " ",
+            "subfields": [
+            {
+                "a": "Sugoroku"
+            },
+            {
+                "b": "Sugoroku Game Board"
+            }],
+            "ind2": " "
+        }
+    }],
+    "leader": "          22        4500"
+}

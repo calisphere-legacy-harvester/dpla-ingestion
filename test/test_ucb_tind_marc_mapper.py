@@ -17,10 +17,10 @@ def _get_server_response(body):
 
 
 def test_black_gold_mapping():
-    fixture = path.join(DIR_FIXTURES, 'ucb-tind-marc.json')
+    fixture = path.join(DIR_FIXTURES, 'ucb-tind-marc-2.json')
     with open(fixture) as f:
         INPUT = f.read()
-        TC.assertIn('id', INPUT)
+        TC.assertIn('fields', INPUT)
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
@@ -28,26 +28,27 @@ def test_black_gold_mapping():
     TC.assertIn('originalRecord', obj)
     TC.assertEqual(
         obj['isShownBy'],
-        "http://digicoll.lib.berkeley.edu/record/53877/files/UCB-17-07.jpg"
+        "http://digicoll.lib.berkeley.edu/record/53878/files/UCB-24-13.jpg"
     )
     TC.assertEqual(
         obj['isShownAt'],
-        "http://digicoll.lib.berkeley.edu/record/53877"
+        "http://digicoll.lib.berkeley.edu/record/53878"
     )
     TC.assertEqual(
-        obj['sourceResource']['creator'][0],
-        "Utagawa, Hiroshige,  1826?-1869."
+        obj['sourceResource']['contributor'][0],
+        "Utagawa, Kuniteru,  1830?-1874."
     )
     TC.assertEqual(
         obj['sourceResource']['title'][0],
-        "Zensei fc5abki sugoroku"
+        "Dainihon kokusan sugoroku"
     )
     TC.assertEqual(
         obj['sourceResource']['alternativeTitle'][0],
-        "jhklfdahjlkdfalhjdfa")
+        u"\u5927\u65e5\u672c\u56fd\u7523\u53cc\u516d"
+    )
     TC.assertEqual(
         obj['sourceResource']['format'][0],
-        "Photograph"
+        "Image"
     )
 
 # Copyright © 2016, Regents of the University of California

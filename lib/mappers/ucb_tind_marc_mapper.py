@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.mappers.marc_mapper import PyMARCMapper
-from dplaingestion.selector import getprop
+from dplaingestion.selector import getprop, setprop
+
 from akara import logger
 
 class UCBTIND_MARCMapper(PyMARCMapper):
@@ -11,11 +12,41 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
-            lambda t: t == "246": [(self.map_alt_title, None)],
-            lambda t: t == "700": [(self.map_creator, "!6")],
+            lambda t: t == "246": [(self.map_alt_title, '!6')],
             lambda t: t == "336": [(self.map_format, "a")],
             lambda t: t == "001": [(self.map_is_shown_at, None)]
         })
+
+
+    def _get_contributor_values(self, _dict, codes):
+        """
+        Extracts the appropriate "#text" values from _dict for the contributor
+        field. If subfield "e" #text value is "aut" or "cre", the _dict is not
+        used.
+        """
+        values = []
+        for subfield in self._get_subfields(_dict):
+            if self.pymarc:
+                if "e" in subfield:
+                    if subfield['e'] in ("aut", "cre"):
+                        return []
+                else:
+                    for code in subfield.keys():
+                        if not codes or code in codes:
+                            if code != '6':             # ADDED FOR UCB TIND
+                                values.append(subfield[code])
+            else:
+                if not codes or ("code" in subfield and
+                                 subfield["code"] in codes):
+                    if "#text" in subfield:
+                        values.append(subfield["#text"])
+
+        # Do not any _dict subfield values if the _dict contains #text of
+        # "aut" or "cre" for code "e"
+                if (subfield.get("code") == "e" and
+                        subfield.get("#text") in ("aut", "cre")):
+                    return []
+        return values
 
     def map_title(self, _dict, tag, index, codes):
         if tag == '245':
