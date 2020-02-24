@@ -18,6 +18,8 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         })
 
 
+    # subclassed for the `if code !=6` commented below
+    # (code 6 is a reference to marc field 880)
     def _get_contributor_values(self, _dict, codes):
         """
         Extracts the appropriate "#text" values from _dict for the contributor
@@ -48,6 +50,7 @@ class UCBTIND_MARCMapper(PyMARCMapper):
                     return []
         return values
 
+    # subclassed for excluding code 6 (reference to marc field 880)
     def map_title(self, _dict, tag, index, codes):
         if tag == '245':
             if codes:
@@ -56,10 +59,14 @@ class UCBTIND_MARCMapper(PyMARCMapper):
                 codes = "!6"
         super(UCBTIND_MARCMapper, self).map_title(_dict, tag, index, codes)
 
+    # no alt title default mapping in the PyMarcMapper
     def map_alt_title(self, _dict, tag, codes):
         prop = "sourceResource/alternativeTitle"
         self.extend_prop(prop, _dict, codes)
 
+    # there are two marc fields tagged 856, both with ind1='4'
+    # one has ind2='1', the other has ind2=''
+    # the one with ind2=1 has a link to oskicat that we don't care about
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
         if tag == '856':
@@ -69,6 +76,7 @@ class UCBTIND_MARCMapper(PyMARCMapper):
                     # EDM says this is a single URL, not a list
                     self.mapped_data[prop] = self.mapped_data[prop][0]
 
+    # prepend marc field 001 with TIND url
     def map_is_shown_at(self, _dict, tag, codes):
         prop = "isShownAt"
         if tag == '001':
