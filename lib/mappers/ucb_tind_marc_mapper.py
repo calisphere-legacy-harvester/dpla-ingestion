@@ -17,38 +17,11 @@ class UCBTIND_MARCMapper(PyMARCMapper):
             lambda t: t == "001": [(self.map_is_shown_at, None)]
         })
 
-
-    # subclassed for the `if code !=6` commented below
-    # (code 6 is a reference to marc field 880)
-    def _get_contributor_values(self, _dict, codes):
-        """
-        Extracts the appropriate "#text" values from _dict for the contributor
-        field. If subfield "e" #text value is "aut" or "cre", the _dict is not
-        used.
-        """
-        values = []
-        for subfield in self._get_subfields(_dict):
-            if self.pymarc:
-                if "e" in subfield:
-                    if subfield['e'] in ("aut", "cre"):
-                        return []
-                else:
-                    for code in subfield.keys():
-                        if not codes or code in codes:
-                            if code != '6':             # ADDED FOR UCB TIND
-                                values.append(subfield[code])
-            else:
-                if not codes or ("code" in subfield and
-                                 subfield["code"] in codes):
-                    if "#text" in subfield:
-                        values.append(subfield["#text"])
-
-        # Do not any _dict subfield values if the _dict contains #text of
-        # "aut" or "cre" for code "e"
-                if (subfield.get("code") == "e" and
-                        subfield.get("#text") in ("aut", "cre")):
-                    return []
-        return values
+    # TIND doesn't use 1xx codes, only 7xx tags for creator
+    # code 6 is a reference to marc field 880 and needs to be removed
+    def map_contributor(self, _dict, tag, codes):
+        prop = "sourceResource/creator"
+        self.extend_prop(prop, _dict, "!6")
 
     # subclassed for excluding code 6 (reference to marc field 880)
     def map_title(self, _dict, tag, index, codes):
