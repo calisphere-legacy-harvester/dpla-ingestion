@@ -1,0 +1,208 @@
+{
+    "_id":
+    "3155--oai:drupal-site.org:islandora_17_14",
+    "_rev":
+    "2-c44200ba077e1ee6442b5607bd948c2a",
+    "@context":
+    "http://dp.la/api/items/context",
+    "dataProvider":
+    "San José State University, Special Collections and Archives",
+    "admin": {
+        "validation_message": null,
+        "valid_after_enrich": true
+    },
+    "originalRecord": {
+        "publisher": ["United States Government Printing Office"],
+        "description": [
+            "In a graphic design, a sailor clenching his fist, looms above the image of sinking naval ships. December 7 refers to the December 7, 1941 attack on Pearl Harbor by Japan.",
+            "Printed on recto: OWI Poster No. 15. Additional copies may be obtained... from the Office of War Information, Washington, D.C\"/\"U. S. Government Printing Office : 1942--O-491978\"",
+            "Microtek Scanmaker 1000XL, 600 dpi TIFF image in 24-bit RGB color. Auto Level image processing applied and compressed into JPEG format using Photoshop CS3."
+        ],
+        "language": ["eng"],
+        "rights": [
+            "For more information on copyright or permissions for this image, please contact San Jose State University Special Collections & Archives Department. http://library.sjsu.edu/sjsu-special-collections/sjsu-special-collections-and-archives"
+        ],
+        "format": ["image/jpg", "40 X 27 in."],
+        "collection": [{
+            "dcmi_type":
+            "X",
+            "disqus_shortname_prod":
+            "",
+            "featured":
+            false,
+            "ready_for_publication":
+            true,
+            "hosted":
+            "",
+            "id":
+            "3155",
+            "url_oac":
+            "http://www.oac.cdlib.org/findaid/ark:/13030/kt1f59r4jv",
+            "custom_facet": [],
+            "harvest_frequency":
+            null,
+            "metadata_in_dams":
+            false,
+            "url_harvest":
+            "https://digitalcollections.sjsu.edu/oai2",
+            "campus": [],
+            "files_in_dams":
+            false,
+            "date_last_harvested":
+            null,
+            "harvest_exception_notes":
+            "",
+            "files_in_hand":
+            false,
+            "ingestType":
+            "collection",
+            "description":
+            "Charles B. Burdick (1927-1998) grew up in San Jose, California where he attended Lincoln High School before enlisting in the United States Army during World War II. After serving in the Army, Burdick enrolled at San Jose State College in 1946. He graduated with a B.A. in History in 1949, and obtained his Ph.D. from Stanford University in 1954. He joined SJSU's History Department in 1957, and became department chair in 1976. Over the course of his distinguished career, Burdick published dozens of articles and book chapters, and wrote and edited over twenty books. His work on the history of the German High Command in World War II remains an important part of the historiography of World War II. After an association with San Jose State University that spanned forty-five years, Professor Burdick retired in 1988. He died in 1998. The SJSU Special Collections includes two collections from Professor Burdick's papers: the Military History Collection, which contains Burdick's research files, and the War Poster Collection. The King Library Digital collection contains a representative selection of 54 images from the War Poster Collection focusing on World War I and World War II. For additional information about using the images in this collection, please contact the SJSU Special Collections Department.",
+            "repository": [{
+                "name":
+                "San José State University, Special Collections and Archives",
+                "aeon_prod":
+                "",
+                "campus": [],
+                "aeon_test":
+                "",
+                "id":
+                129,
+                "ark":
+                "ark:/13030/kt8j49q3pt",
+                "@id":
+                "https://registry.cdlib.org/api/v1/repository/129/",
+                "slug":
+                "special-collections-and-archives-2",
+                "google_analytics_tracking_code":
+                "",
+                "resource_uri":
+                "/api/v1/repository/129/"
+            }],
+            "merritt_extra_data":
+            "",
+            "extent":
+            null,
+            "rights_status":
+            "X",
+            "disqus_shortname_test":
+            "",
+            "@id":
+            "https://registry.cdlib.org/api/v1/collection/3155/",
+            "slug":
+            "burdick-charles-b-war-poster-collection",
+            "name":
+            "Charles B. Burdick War Poster Collection",
+            "qa_completed":
+            false,
+            "harvest_type":
+            "OAI",
+            "harvest_extra_data":
+            "islandora_17",
+            "url_local":
+            "https://digitalcollections.sjsu.edu/islandora/object/islandora%3A17",
+            "enrichments_item":
+            "/select-id?prop=id, /dpla_mapper?mapper_type=islandora_oai_dc, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+            "rights_statement":
+            "",
+            "merritt_id":
+            "",
+            "staging_notes":
+            "",
+            "local_id":
+            "burdick-charles-b-war-poster-collection",
+            "title":
+            "Charles B. Burdick War Poster Collection",
+            "resource_uri":
+            "/api/v1/collection/3155/"
+        }],
+        "contributor": [
+            "Perlin, Bernard, 1918- (artist) (Creator)",
+            "United States. Office of War Information (Contributor)"
+        ],
+        "relation": ["Charles B. Burdick War Poster Collection"],
+        "coverage": ["World War II"],
+        "datestamp":
+        "2019-10-30T10:31:05Z",
+        "title": ["Avenge December 7."],
+        "identifier": [
+            "islandora:17_14", "filename: ww_post_030", "oclc: 666952451",
+            "islandora: 17_14"
+        ],
+        "type": ["Posters"],
+        "id":
+        "oai:drupal-site.org:islandora_17_14",
+        "subject": [
+            "Government vessels", "Propaganda", "Patriotism", "Sailors",
+            "War posters", "Pearl Harbor (Hawaii), Attack on, 1941",
+            "World War, 1939-1945"
+        ]
+    },
+    "ingestDate":
+    "2020-03-16T21:54:08.315433Z",
+    "id":
+    "oai:drupal-site.org:islandora_17_14",
+    "ingestionSequence":
+    6,
+    "isShownAt":
+    "https://digitalcollections.sjsu.edu/islandora/object/islandora%3A17%3A14",
+    "provider": {
+        "@id": "https://registry.cdlib.org/api/v1/collection/3155/",
+        "name": "San José State University, Special Collections and Archives"
+    },
+    "sourceResource": {
+        "publisher": ["United States Government Printing Office"],
+        "description": [
+            "In a graphic design, a sailor clenching his fist, looms above the image of sinking naval ships. December 7 refers to the December 7, 1941 attack on Pearl Harbor by Japan.",
+            "Printed on recto: OWI Poster No. 15. Additional copies may be obtained... from the Office of War Information, Washington, D.C\"/\"U. S. Government Printing Office : 1942--O-491978\"",
+            "Microtek Scanmaker 1000XL, 600 dpi TIFF image in 24-bit RGB color. Auto Level image processing applied and compressed into JPEG format using Photoshop CS3."
+        ],
+        "language": [{
+            "iso639_3": "eng",
+            "name": "English"
+        }],
+        "rights": [
+            "For more information on copyright or permissions for this image, please contact San Jose State University Special Collections & Archives Department. http://library.sjsu.edu/sjsu-special-collections/sjsu-special-collections-and-archives"
+        ],
+        "format": ["image/jpeg", "40 X 27 in."],
+        "contributor": [
+            "Perlin, Bernard, 1918- (artist) (Creator)",
+            "United States. Office of War Information (Contributor)"
+        ],
+        "relation": ["Charles B. Burdick War Poster Collection"],
+        "spatial": [{
+            "name": "World War II"
+        }],
+        "stateLocatedIn": [{
+            "name": "California"
+        }],
+        "title": ["Avenge December 7"],
+        "identifier": [
+            "islandora:17_14", "filename: ww_post_030", "oclc: 666952451",
+            "islandora: 17_14"
+        ],
+        "type":
+        "image",
+        "subject": [{
+            "name": "Government vessels"
+        }, {
+            "name": "Propaganda"
+        }, {
+            "name": "Patriotism"
+        }, {
+            "name": "Sailors"
+        }, {
+            "name": "War posters"
+        }, {
+            "name": "Pearl Harbor (Hawaii), Attack on, 1941"
+        }, {
+            "name": "World War, 1939-1945"
+        }]
+    },
+    "ingestType":
+    "item",
+    "@id":
+    "http://ucldc.cdlib.org/api/items/oai:drupal-site.org:islandora_17_14",
+    "isShownBy":
+    "https://digitalcollections.sjsu.edu/islandora/object/islandora%3A17%3A14/datastream/TN/view"
+}
