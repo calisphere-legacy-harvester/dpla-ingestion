@@ -16,6 +16,79 @@ class UCBTIND_MARCMapper(PyMARCMapper):
             lambda t: t == "336": [(self.map_format, "a")],
             lambda t: t == "001": [(self.map_is_shown_at, None)]
         })
+        fields_880 = [d for d in self.provider_data['fields'] if '880' in d.keys()]
+        self.fields_880 = {}
+        for field_880 in fields_880:
+            subfield = field_880['880']['subfields']
+            field_880['subfield'] = subfield
+            val_6 = self._get_values(field_880, '6')
+            self.fields_880[val_6[0]] = field_880
+
+    def _check_880(self, _dict):
+        field_880 = self._get_one_subfield(_dict, '6')
+        linked_fields = None
+        if field_880:
+            # get the tag
+            tag = _dict.keys()
+            tag.remove('subfield')
+            tag = tag[0]
+            # find the 880 field
+            key_880 = tag + field_880[3:]
+            if key_880 in self.fields_880:
+                linked_fields = self.fields_880[key_880]
+            # fail silently if 880 field not found
+        return linked_fields
+
+    def _get_values(self, _dict, codes):
+        """
+        Extracts the appropriate "#text" values from _dict given a string of
+        codes. If codes is None, all "#text" values are extracted. If codes
+        starts with "!", codes are excluded.
+        For pymarc records, the #text if just the data value for the dictionary
+        entry
+        """
+        values = []
+        exclude = False
+        codes = codes if codes != None else []
+
+        if codes and codes.startswith("!"):
+            exclude = True
+            codes = codes[1:]
+
+        for subfield in self._get_subfields(_dict):
+            if self.pymarc:
+                if not codes:
+                    pass
+                elif not exclude and (subfield.keys()[0] in codes):
+                    pass
+                elif exclude and len(subfield.keys()) == 1 and (
+                        subfield.keys()[0] not in codes):
+                    pass
+                else:
+                    continue
+                code = subfield.keys()[0]
+            else:
+                if not codes:
+                    pass
+                elif not exclude and ("code" in subfield and
+                                      subfield["code"] in codes):
+                    pass
+                elif exclude and ("code" in subfield and
+                                  subfield["code"] not in codes):
+                    pass
+                else:
+                    continue
+
+            values.append(subfield[code]) if self.pymarc else values.append(
+                subfield["#text"])
+            val_880 = self._check_880(_dict)
+            if val_880:
+                values.append(self._get_one_subfield(val_880, code))
+
+        if "subfield" not in _dict:
+            values.append(self._get_mainfields(_dict))
+
+        return values
 
     # TIND doesn't use 1xx codes, only 7xx tags for creator
     # code 6 is a reference to marc field 880 and needs to be removed
@@ -24,6 +97,10 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         self.extend_prop(prop, _dict, "!6")
 
     # subclassed for excluding code 6 (reference to marc field 880)
+    def map_publisher(self, _dict, tag, codes):
+        prop = "sourceResource/publisher"
+        self.extend_prop(prop, _dict, '!6')
+
     def map_title(self, _dict, tag, index, codes):
         if tag == '245':
             if codes:
