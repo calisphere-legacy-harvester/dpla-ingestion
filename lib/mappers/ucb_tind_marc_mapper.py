@@ -2,6 +2,7 @@
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.mappers.marc_mapper import PyMARCMapper
 from dplaingestion.selector import getprop, setprop
+import re
 
 from akara import logger
 
@@ -91,6 +92,30 @@ class UCBTIND_MARCMapper(PyMARCMapper):
 
         return values
 
+    def _join_values(self, prop, values):
+        """Joins the values on a prop-specific delimiter"""
+        join_props = (["sourceResource/subject"], ". "), \
+                     (["sourceResource/relation"], ". "), \
+                     (["sourceResource/contributor",
+                       "sourceResource/extent",
+                       "sourceResource/identifier"], " ")
+
+        for prop_list, delim in join_props:
+            if prop in prop_list:
+                if delim == ". ":
+                    # Remove any existing periods at end of values, except for
+                    # last value
+                    values = [re.sub("\.$", "", v) for v in values]
+                    values[-1] += "."
+                if values:
+                    values = [delim.join(values)]
+
+        # Remove any double periods (excluding those in ellipsis)
+        values = [re.sub("(?<!\.)\.{2}(?!\.)", ".", v) for v in values]
+
+        return values
+
+
     # TIND doesn't use 1xx codes, only 7xx tags for creator
     # code 6 is a reference to marc field 880 and needs to be removed
     def map_contributor(self, _dict, tag, codes):
@@ -137,6 +162,16 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         if tag == '001':
             self.mapped_data[prop] = "http://digicoll.lib.berkeley.edu/record/"
             self.mapped_data[prop] += self._get_values(_dict, codes)[0]
+
+
+    def update_title(self):
+        prop = "sourceResource/title"
+        title_list = filter(None, getprop(self.mapped_data, prop))
+        if title_list:
+            title = [t for ts in title_list for t in ts]
+            setprop(self.mapped_data, prop, title)
+        else:
+            delprop(self.mapped_data, prop)
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
