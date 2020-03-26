@@ -13,7 +13,8 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
             lambda t: t == "246": [(self.map_alt_title, '!6')],
-            lambda t: t == "336": [(self.map_format, "a")],
+            lambda t: t == "655": [(self.map_format, None)],
+            lambda t: t == "336": [(self.map_type, None)],
             lambda t: t == "001": [(self.map_is_shown_at, None)]
         })
         fields_880 = [d for d in self.provider_data['fields'] if '880' in d.keys()]
@@ -112,6 +113,10 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     # no alt title default mapping in the PyMarcMapper
     def map_alt_title(self, _dict, tag, codes):
         prop = "sourceResource/alternativeTitle"
+        self.extend_prop(prop, _dict, codes)
+
+    def map_type(self, _dict, tag, codes):
+        prop = "sourceResource/type"
         self.extend_prop(prop, _dict, codes)
 
     # there are two marc fields tagged 856, both with ind1='4'
