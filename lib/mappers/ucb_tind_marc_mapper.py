@@ -16,7 +16,8 @@ class UCBTIND_MARCMapper(PyMARCMapper):
             lambda t: t == "246": [(self.map_alt_title, '!6')],
             lambda t: t == "655": [(self.map_format, None)],
             lambda t: t == "336": [(self.map_type, None)],
-            lambda t: t == "001": [(self.map_is_shown_at, None)]
+            lambda t: t == "001": [(self.map_is_shown_at, None),
+                                   (self.map_is_shown_by, None)]
         })
         fields_880 = [d for d in self.provider_data['fields'] if '880' in d.keys()]
         self.fields_880 = {}
@@ -149,12 +150,19 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     # the one with ind2=1 has a link to oskicat that we don't care about
     def map_is_shown_by(self, _dict, tag, codes):
         prop = "isShownBy"
-        if tag == '856':
-            if _dict['856']['ind2'] != '1':
-                self.extend_prop(prop, _dict, codes)
-                if isinstance(self.mapped_data[prop], list):
-                    # EDM says this is a single URL, not a list
-                    self.mapped_data[prop] = self.mapped_data[prop][0]
+        if tag == '001':
+            isShownBy = "http://digicoll.lib.berkeley.edu/nanna/thumbnail/v2/"
+            isShownBy += self._get_values(_dict,codes)[0]
+            isShownBy += "?redirect=1"
+            self.mapped_data[prop] = isShownBy
+        # fetch from the TIND image API via record ID
+        # https://digicoll.lib.berkeley.edu/nanna/thumbnail/v2/53877?redirect=1
+        # if tag == '856':
+        #     if _dict['856']['ind2'] != '1':
+        #         self.extend_prop(prop, _dict, codes)
+        #         if isinstance(self.mapped_data[prop], list):
+        #             # EDM says this is a single URL, not a list
+        #             self.mapped_data[prop] = self.mapped_data[prop][0]
 
     # prepend marc field 001 with TIND url
     def map_is_shown_at(self, _dict, tag, codes):
