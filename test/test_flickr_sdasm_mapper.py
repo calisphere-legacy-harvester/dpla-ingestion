@@ -32,10 +32,10 @@ class FlickrSDASMMapperTestCase(TestCase):
         srcRes = obj['sourceResource']
         self.assertEqual(
             srcRes['title'],
-            'Atlas 55D Details: Prelaunch; Complex 12; AMR')
+            'Ryan Aeronautical Image')
         self.assertEqual(
             srcRes['description'],
-            '--Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum')
+            'Title:Atlas 55D Details: Prelaunch; Complex 12; AMR --Image from the Convair/General Dynamics Astronautics Atlas Negative Collection---Please Tag these images so that the information can be permanently stored with the digital file.---Repository: San Diego Air and Space Museum')
         self.assertEqual(srcRes['subject'], ['woo yay', 'Hoopla'])
         self.assertEqual(srcRes['format'], "photo")
         self.assertEqual(srcRes['identifier'], ["14_008096", "43829091", "14_008096.TIF"])
