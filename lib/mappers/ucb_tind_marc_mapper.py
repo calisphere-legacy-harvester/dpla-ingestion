@@ -14,7 +14,7 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
             lambda t: t == "246": [(self.map_alt_title, '!6')],
-            lambda t: t == "655": [(self.map_format, None)],
+            lambda t: t == "655": [(self.map_format, '!2')],
             lambda t: t == "336": [(self.map_type, None)],
             lambda t: t == "001": [(self.map_is_shown_at, None),
                                    (self.map_is_shown_by, None)]
@@ -126,7 +126,7 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     # subclassed for excluding code 6 (reference to marc field 880)
     def map_publisher(self, _dict, tag, codes):
         prop = "sourceResource/publisher"
-        self.extend_prop(prop, _dict, '!6')
+        self.extend_prop(prop, _dict, '!6c')
 
     def map_title(self, _dict, tag, index, codes):
         if tag == '245':
@@ -143,6 +143,12 @@ class UCBTIND_MARCMapper(PyMARCMapper):
 
     def map_type(self, _dict, tag, codes):
         prop = "sourceResource/type"
+        self.extend_prop(prop, _dict, codes)
+
+    def map_description(self, _dict, tag, codes):
+        if tag == '540':
+            return
+        prop = "sourceResource/description"
         self.extend_prop(prop, _dict, codes)
 
     # there are two marc fields tagged 856, both with ind1='4'
