@@ -13,6 +13,7 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
+            lambda t: t == "024": [(self.map_identifier, 'a')],
             lambda t: t == "246": [(self.map_alt_title, '!6')],
             lambda t: t == "655": [(self.map_format, '!2')],
             lambda t: t == "336": [(self.map_type, None)],
@@ -151,6 +152,23 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         prop = "sourceResource/description"
         self.extend_prop(prop, _dict, codes)
 
+    def map_identifier(self, _dict, tag, codes):
+        prop = "sourceResource/identifier"
+        label = self.identifier_tag_labels.get(tag)
+
+        # self.extend_prop(prop, _dict, codes, label, values=None)
+        # rather than calling extend_prop here, we append (<tag>, <value>)
+        # so update_identifier knows what to do
+        values = self._get_values(_dict, codes)
+        if values:
+            if label:
+                values.insert(0, label)
+            prop_value = self._get_mapped_value(prop)
+
+            # prop_value.extend((self._join_values(prop, values)))
+            prop_value.extend([['tag'+tag, (self._join_values(prop, values))]])
+            setprop(self.mapped_data, prop, prop_value)
+
     # there are two marc fields tagged 856, both with ind1='4'
     # one has ind2='1', the other has ind2=''
     # the one with ind2=1 has a link to oskicat that we don't care about
@@ -176,6 +194,30 @@ class UCBTIND_MARCMapper(PyMARCMapper):
         if tag == '001':
             self.mapped_data[prop] = "http://digicoll.lib.berkeley.edu/record/"
             self.mapped_data[prop] += self._get_values(_dict, codes)[0]
+
+
+    def update_mapped_fields(self):
+        self.update_identifier()
+        self.update_title()
+        self.update_format()
+        self.update_is_shown_at()
+        self.update_type_and_spec_type()
+
+
+    def update_identifier(self):
+        prop = "sourceResource/identifier"
+        i_list = filter(None, getprop(self.mapped_data, prop))
+        new_i_list = []
+        tag024_flag = any('tag024' in identifier for identifier in i_list)
+        tag035_flag = any('tag035' in identifier for identifier in i_list)
+
+        for identifier in i_list:
+            if tag024_flag and tag035_flag:
+                if 'tag035' in identifier:
+                    continue
+            new_i_list = new_i_list + identifier[1]
+
+        setprop(self.mapped_data, prop, new_i_list)
 
 
     def update_title(self):
