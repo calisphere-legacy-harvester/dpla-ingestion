@@ -93,7 +93,7 @@
          }
       },
       "mediaType":{
-         "text":"Image",
+         "text":"Streaming Media",
          "attrib":{
             "order":"0",
             "label":"Media Type"
