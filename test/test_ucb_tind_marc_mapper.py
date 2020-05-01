@@ -17,7 +17,7 @@ def _get_server_response(body):
 
 
 def test_black_gold_mapping():
-    fixture = path.join(DIR_FIXTURES, 'ucb-tind-marc-2.json')
+    fixture = path.join(DIR_FIXTURES, 'ucb-tind-marc.json')
     with open(fixture) as f:
         INPUT = f.read()
         TC.assertIn('fields', INPUT)
