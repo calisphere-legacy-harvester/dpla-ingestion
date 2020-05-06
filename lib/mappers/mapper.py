@@ -143,6 +143,7 @@ class Mapper(object):
         self.map_type()
         self.map_genre()
         self.map_provenance()
+        self.map_source()
 
     def update_source_resource(self, _dict):
         """
