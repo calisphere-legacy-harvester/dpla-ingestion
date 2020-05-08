@@ -20,3 +20,4 @@ git+https://github.com/mredar/markupsafe.git#egg=MarkupSafe
 git+https://github.com/mredar/jsonpath.git#egg=jsonpath
 requests==2.22.0
 extruct==0.7.2
+rdflib==4.2.2
