@@ -259,6 +259,9 @@ class Mapper(object):
     def map_spec_type(self):
         pass
 
+    def map_source(self):
+        pass
+
     def map_intermediate_provider(self):
         pass
 
