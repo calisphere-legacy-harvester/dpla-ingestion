@@ -60,6 +60,48 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
                     desc_list.append(desc)
         self.update_source_resource({'description': desc_list})
 
+    def map_contributor(self):
+        #scrub 'Unknown' from contributor values
+
+        values = []
+        field = "contributor"
+        if exists(self.provider_data_source, field):
+            # Need to check if string or not
+            prop_val = getprop(self.provider_data_source, field)
+            if isinstance(prop_val, basestring):
+                if 'unknown' in prop_val.lower():
+                    pass
+                else:
+                    values.append(prop_val)
+            else:
+                # should be list then
+                matching = [s for s in prop_val if 'unknown' in s.lower()]
+                for prop in matching: prop_val.remove(prop)
+                values.extend(prop_val)
+            if values:
+                self.update_source_resource({'contributor': values})
+
+    def map_creator(self):
+        #scrub 'Unknown' from creator values
+
+        values = []
+        field = "creator"
+        if exists(self.provider_data_source, field):
+            # Need to check if string or not
+            prop_val = getprop(self.provider_data_source, field)
+            if isinstance(prop_val, basestring):
+                if 'unknown' in prop_val.lower():
+                    pass
+                else:
+                    values.append(prop_val)
+            else:
+                # should be list then
+                matching = [s for s in prop_val if 'unknown' in s.lower()]
+                for prop in matching: prop_val.remove(prop)
+                values.extend(prop_val)
+            if values:
+                self.update_source_resource({'creator': values})
+
     def map_format(self):
         #scrub 'Unknown' from format values
         fields = ("format", "medium")
@@ -134,5 +176,4 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
             self.update_source_resource({'identifier': values})
 
     def map_rights(self):
-        fields = ("rights", "rightsHolder", "rightsNote", "dateCopyrighted")
-        self.source_resource_orig_list_to_prop(fields, 'rights')
+        self.source_resource_prop_to_prop("rights")
