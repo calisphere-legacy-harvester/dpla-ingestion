@@ -1,0 +1,107 @@
+{
+       "publisher": [
+           "Institutional Assets and Monuments of Venezuela (IAM Venezuela)",
+           "The Arc/k Project"
+       ],
+       "rights": [
+           "Educational Use Permitted Only - Attribution, NoDerivitives, NonCommerical",
+           "For additional information on the use of these images contact: info@arck-project.org"
+       ],
+       "description": [
+           "Located at the Paseo de la Lectura of the Albarregas Metropolitan Park in the city of Mérida, this monument to Tulio Febres Cordero and Gabriel García Márquez is a sculptural group of two human-size bronze statues on a classic iron bench. The dialogue between writers Tulio Febres Cordero and García Márquez symbolizes the brotherhood of Colombia and Venezuela and represents the close historical ties of the city of Mérida with other Colombian cities.\r\n\r\nIn June 2017, the torso of the statue of Tulio Febres Cordero was stolen from the Albarregas promenade in Mérida. The piece was located by state police on April 10, 2018 when it was mistaken for a dead person in some water pipes. To this day the piece remains in a regional dependency. This archival 3D solve records the monument after the statue was stolen."
+       ],
+       "format": [
+           ".obj"
+       ],
+       "creator": [
+           "Manuel Suescún Quintero"
+       ],
+       "contributor": [
+           "Samuel Leonardo Hurtado Camargo"
+       ],
+       "collection": [
+           {
+               "dcmi_type": "X",
+               "disqus_shortname_prod": "",
+               "featured": false,
+               "ready_for_publication": false,
+               "hosted": "",
+               "id": "27564",
+               "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c82z1ckb/",
+               "custom_facet": [
+               ],
+               "harvest_frequency": null,
+               "metadata_in_dams": false,
+               "url_harvest": "https://collections.arck-project.org/oai",
+               "campus": [
+               ],
+               "files_in_dams": false,
+               "date_last_harvested": null,
+               "harvest_exception_notes": "",
+               "files_in_hand": false,
+               "ingestType": "collection",
+               "description": "Non-profits The Arc/k Project and Institutional Assets and Monuments of Venezuela partnered together to document Venezuela's cultural heritage objects and locations in digital 3D format.",
+               "repository": [
+                   {
+                       "name": "The Arc/k Project",
+                       "aeon_prod": "",
+                       "slug": "the-arck-project",
+                       "aeon_test": "",
+                       "id": 344,
+                       "ark": "ark:/13030/c8cf9x57",
+                       "@id": "https://registry.cdlib.org/api/v1/repository/344/",
+                       "campus": [
+                       ],
+                       "google_analytics_tracking_code": "UA-160827274-2",
+                       "resource_uri": "/api/v1/repository/344/"
+                   }
+               ],
+               "merritt_extra_data": "",
+               "extent": null,
+               "rights_status": "X",
+               "disqus_shortname_test": "",
+               "@id": "https://registry.cdlib.org/api/v1/collection/27564/",
+               "slug": "cultural-heritage-of-venezuela-non-profits-the-arc",
+               "name": "Cultural Heritage of Venezuela",
+               "qa_completed": false,
+               "harvest_type": "OAI",
+               "harvest_extra_data": "63",
+               "url_local": "https://collections.arck-project.org/category/63/cultural-heritage-of-venezuela",
+               "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=contentdm_oai_dc,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&no_overwrite=True,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=fill,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+               "rights_statement": "",
+               "merritt_id": "",
+               "staging_notes": "",
+               "local_id": "arck-venezuela",
+               "title": "Cultural Heritage of Venezuela",
+               "resource_uri": "/api/v1/collection/27564/"
+           }
+       ],
+       "datestamp": "2019-09-16T08:55:56Z",
+       "relation": [
+           "https://collections.arck-project.org/thumbnail/16"
+       ],
+       "source": [
+           "Photogrammetry"
+       ],
+       "coverage": [
+           "Mérida",
+           "Venezuela"
+       ],
+       "date": [
+           "2018-07-28"
+       ],
+       "title": [
+           "La Conversación"
+       ],
+       "identifier": [
+           "https://collections.arck-project.org/view/ARCK3D0000000150"
+       ],
+       "type": [
+           "3D Image",
+           "Image"
+       ],
+       "id": "oai:16",
+       "subject": [
+           "Statues--Venezuela"
+       ]
+   }
