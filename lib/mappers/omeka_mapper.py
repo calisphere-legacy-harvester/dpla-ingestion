@@ -45,7 +45,8 @@ class Omeka_OAIMapper(DublinCoreMapper):
         if thumb:
             self.mapped_data.update({'isShownBy': thumb})
 
-    '''Suppress dc:identifier values featuring 's3.amazonaws.com/omeka-net/'
+    '''Suppress dc:identifier values featuring 's3.amazonaws.com/omeka-net/
+        also suppress thumbnail and record URL values from identifier
     '''
     def map_identifier(self):
         if 'identifier' in self.provider_data_source:
@@ -55,7 +56,8 @@ class Omeka_OAIMapper(DublinCoreMapper):
                 for i in filter(None, ident):
                     if "s3.amazonaws.com/omeka-net/" not in i:
                         if "files/original" not in i:
-                            ident_list.append(i)
+                            if "items/show" not in i:
+                                ident_list.append(i)
                 if ident_list:
                     self.update_source_resource({"identifier": ident_list})
             else:

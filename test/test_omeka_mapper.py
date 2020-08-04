@@ -33,10 +33,7 @@ def test_csa_omeka_mapping():
         obj['isShownBy'],
         "https://history.santacruzpl.org/omeka/files/thumbnails/17d6cdfcdd3bacca6845667756d8ba99.jpg"
     )
-    TC.assertEqual(srcRes['identifier'], [
-    "LC-0171.TIF",
-    "http://christensenfamilycollection.omeka.net/items/show/205"
-    ])
+    TC.assertEqual(srcRes['identifier'], ["LC-0171.TIF"])
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
