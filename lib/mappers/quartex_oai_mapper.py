@@ -30,6 +30,11 @@ class Quartex_OAIMapper(CONTENTdm_OAI_Mapper):
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
+    def update_mapped_fields(self):
+        '''Need to do this so mapper doesn't try to build
+        isShownBy value from legacy partial ContentDM identifier'''
+        pass
+
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
 # Redistribution and use in source and binary forms, with or without
