@@ -69,6 +69,12 @@ class eMuseumXMLMapper(Mapper):
 
     def map_type(self):
         if 'mediaType' in self.provider_data:
-            self.update_source_resource({
+            #manually convert 'Streaming Media' MediaType to 'moving image'
+            if 'Streaming Media' in self.provider_data.get('mediaType',{}).get('text'):
+                self.update_source_resource({
+                'type': 'moving image'
+                })
+            else:
+                self.update_source_resource({
                 'type': self.provider_data.get('mediaType',{}).get('text')
-            })
+                })

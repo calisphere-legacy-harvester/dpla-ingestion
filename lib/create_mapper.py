@@ -322,6 +322,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.sjsu_islandora_mapper import SJSU_Islandora_Mapper
         return SJSU_Islandora_Mapper(data)
 
+    def _create_arck_oai_mapper(data):
+        from dplaingestion.mappers.arck_oai_mapper import ArcK_OAIMapper
+        return ArcK_OAIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -396,6 +400,7 @@ def create_mapper(mapper_type, data):
         'ucb_tind_marc': lambda d: _create_ucb_tind_marc_mapper(d),
         'internet_archive': lambda d: _create_internet_archive_mapper(d),
         'sjsu_islandora': lambda d: _create_sjsu_islandora_mapper(d),
+        'arck_oai': lambda d: _create_arck_oai_mapper(d),
     }
 
     return mappers.get(mapper_type)(data)

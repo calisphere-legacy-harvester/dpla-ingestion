@@ -11,29 +11,32 @@ TC = TestCase('__init__')
 
 
 def _get_server_response(body):
-    url = server() + "dpla_mapper?mapper_type=omeka"
+    url = server() + "dpla_mapper?mapper_type=arck_oai"
     return H.request(url, "POST", body=body)
 
 
-def test_csa_omeka_mapping():
-    fixture = path.join(DIR_FIXTURES, 'mpd-omeka-oai.json')
+def test_black_gold_mapping():
+    fixture = path.join(DIR_FIXTURES, 'arck-oai.json')
     with open(fixture) as f:
         INPUT = f.read()
         TC.assertIn('id', INPUT)
         resp, content = _get_server_response(INPUT)
     TC.assertEqual(resp.status, 200)
     obj = json.loads(content)
+    srcRes = obj['sourceResource']
     TC.assertIn('sourceResource', obj)
     TC.assertIn('originalRecord', obj)
-    srcRes = obj['sourceResource']
     TC.assertEqual(
         obj['isShownAt'],
-        "http://christensenfamilycollection.omeka.net/items/show/205")
+        "https://collections.arck-project.org/view/ARCK3D0000000150"
+    )
     TC.assertEqual(
         obj['isShownBy'],
-        "https://history.santacruzpl.org/omeka/files/thumbnails/17d6cdfcdd3bacca6845667756d8ba99.jpg"
+        "https://collections.arck-project.org/thumbnail/16"
     )
-    TC.assertEqual(srcRes['identifier'], ["LC-0171.TIF"])
+    TC.assertEqual(srcRes['source'],["Photogrammetry"])
+    TC.assertNotIn('relation', srcRes)
+
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.

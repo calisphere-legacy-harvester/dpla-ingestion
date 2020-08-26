@@ -1,39 +1,46 @@
-#  -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from dplaingestion.mappers.contentdm_oai_dc_mapper import CONTENTdm_OAI_Mapper
 from dplaingestion.selector import getprop
 
 
-class Quartex_OAIMapper(CONTENTdm_OAI_Mapper):
-    '''A base mapper for Quartex Repository SERVICES
-    https://www.amdigital.co.uk/about/quartex'''
+class ArcK_OAIMapper(CONTENTdm_OAI_Mapper):
+    '''A base mapper for Arc/k project libnova OAI feed.
+    Based off CONTENTdm mapper since it seemed to map all MD correctly.'''
 
     def __init__(self, provider_data):
-        super(Quartex_OAIMapper, self).__init__(provider_data)
+        super(ArcK_OAIMapper, self).__init__(provider_data)
 
     def map_is_shown_at(self):
         isShownAt = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in filter(None, idents):
-            if 'documents/detail' in i:
-                isShownAt = i
+        if 'identifier' in self.provider_data_source:
+            idents = getprop(self.provider_data_source, 'identifier')
+            for i in filter(None, idents):
+                if 'view/ARCK3D' in i:
+                    isShownAt = i
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
-        '''Grab the image URL from identifier values and
-        switch out Size2 for Size4 (largest possible)'''
         isShownBy = None
-        idents = getprop(self.provider_data_source, 'identifier')
-        for i in filter(None, idents):
-            if 'thumbnails/preview' in i:
-                isShownBy = i
+        if 'relation' in self.provider_data_source:
+            relation = getprop(self.provider_data_source, 'relation')
+            for i in filter(None, relation):
+                if '/thumbnail' in i:
+                    isShownBy = i
         if isShownBy:
             self.mapped_data.update({'isShownBy': isShownBy})
 
-    def update_mapped_fields(self):
-        '''Need to do this so mapper doesn't try to build
-        isShownBy value from legacy partial ContentDM identifier'''
-        pass
+    def map_source(self):
+        self.source_resource_prop_to_prop("source")
+
+    def map_relation(self):
+        if 'relation' in self.provider_data_source:
+            relation = getprop(self.provider_data_source, 'relation')
+            for i in filter(None, relation):
+                if '/thumbnail' in i:
+                    return
+                else:
+                    self.source_resource_prop_to_prop("relation")
 
 # Copyright © 2016, Regents of the University of California
 # All rights reserved.
