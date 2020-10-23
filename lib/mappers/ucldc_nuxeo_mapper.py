@@ -16,29 +16,28 @@ class UCLDCNuxeoMapper(object):
         self.mapped_data = {"sourceResource": {}}
         self.provider_data_source = jsonpath(self.provider_data, '$.properties')[0]
 
-        # type of mapping - helper functions
-   def array_wrap_map(source, dest, dest_field):
-        if exists(self.provider_data_source, source):
-            arr = [self.provider_data_source.get(source)]
-            self.mapped_data[dest].update({dest_field: arr})
+    # type of mapping - helper functions
+    def array_wrap(src, dest, dest_parent):
+        if exists(self.provider_data_source, src):
+            arr = [self.provider_data_source.get(src)]
+            self.mapped_data[dest_parent].update({dest: arr})
 
-    def straight_map_provider_data(source, dest_field):
-        if exists(self.provider_data, source):
-            self.mapped_data.update({dest_field: self.provider_data.get(source)})
+    def direct(src, dest, dest_parent=None):
+        if exists(self.provider_data_source, src):
+            if dest_parent:
+                self.mapped_data[dest_parent].update({dest: self.provider_data_source.get(src)})
+            else: 
+                self.mapped_data.update({dest: self.provider_data.get(src)})
 
-    def straight_map(source, dest, dest_field):
-        if exists(self.provider_data_source, source):
-            self.mapped_data[dest].update({dest_field: self.provider_data_source.get(source)})
-
-    def aggregate_subfield_map(source, src_subfield, dest, dest_field):
-        if exists(self.provider_data_source, source):
-            aggregate = [a[src_subfield] for a in self.provider_data_source.get(source)]
-            self.mapped_data[dest].update({dest_field: aggregate})
+    def aggregate_subfield(src, src_subfield, dest, dest_parent):
+        if exists(self.provider_data_source, src):
+            aggregate = [a[src_subfield] for a in self.provider_data_source.get(src)]
+            self.mapped_data[dest_parent].update({dest: aggregate})
     
-    def force_array_map(source, dest, dest_field):
-        if exists(self.provider_data_source, source):
-            arr = [a for a in self.provider_data_source.get(source)]
-            self.mapped_data[dest].update({dest_field: arr})
+    def force_array(src, dest, dest_parent):
+        if exists(self.provider_data_source, src):
+            arr = [a for a in self.provider_data_source.get(src)]
+            self.mapped_data[dest_parent].update({dest: arr})
 
 
     def map(self):
@@ -61,12 +60,12 @@ class UCLDCNuxeoMapper(object):
     def map_root(self):
         """Maps base fields shared by all Mappers"""
         self.mapped_data["originalRecord"] = self.provider_data.get("originalRecord", {})
-        self.straight_map('ucldc_schema:source', 'originalRecord', 'source')
-        self.straight_map('ucldc_schema:physlocation', 'originalRecord', 'location')
+        self.direct('ucldc_schema:source', 'source', 'originalRecord')
+        self.direct('ucldc_schema:physlocation', 'location', 'originalRecord')
         self.map_rights_holder()
         self.map_rights_note()
-        self.straight_map('ucldc_schema:rightsstartdate', 'originalRecord', 'dateCopyrighted')
-        self.straight_map('ucldc_schema:transcription', 'originalRecord', 'transcription')
+        self.direct('ucldc_schema:rightsstartdate', 'dateCopyrighted', 'originalRecord')
+        self.direct('ucldc_schema:transcription', 'transcription', 'originalRecord')
 
         id = self.provider_data.get("id", "")
         _id = self.provider_data.get("_id")
@@ -77,9 +76,9 @@ class UCLDCNuxeoMapper(object):
             self.mapped_data.update({prop: self.provider_data.get(prop)})
 
         # map_provider
-        self.straight_map_provider_data('provider', 'provider')
+        self.direct('provider', 'provider')
         # map_data_provider
-        self.straight_map_provider_data('source', 'dataProvider')
+        self.direct('source', 'dataProvider')
         self.map_is_shown_at()
 
     # originalRecord mapping
@@ -114,28 +113,26 @@ class UCLDCNuxeoMapper(object):
 
     def map_source_resource(self):
         """Mapps the mapped_data sourceResource fields."""
-        aggregate_subfield_map('ucldc_schema:contributor', 'name', 'sourceResource', 'contributor')
-        aggregate_subfield_map('ucldc_schema:creator', 'name', 'sourceResource', 'creator')
-        aggregate_subfield_map('ucldc_schema:date', 'date', 'sourceResource', 'date')
-        self.map_description()          #pass
-        straight_map('ucldc_schema:extent', 'sourceResource', 'extent')
-        straight_map('ucldc_schema:physdesc', 'sourceResource', 'format')
-        self.map_identifier()           #pass
+        aggregate_subfield('ucldc_schema:contributor', 'name', 'contributor', 'sourceResource')
+        aggregate_subfield('ucldc_schema:creator', 'name', 'creator', 'sourceResource')
+        aggregate_subfield('ucldc_schema:date', 'date', 'date', 'sourceResource')
+        self.map_description()
+        direct('ucldc_schema:extent', 'extent', 'sourceResource')
+        direct('ucldc_schema:physdesc', 'format', 'sourceResource')
+        self.map_identifier()
         self.map_is_part_of()           #pass
-        self.map_language()             #pass
-        force_array_map('ucldc_schema:publisher', 'sourceResource', 'publisher')
-        self.map_relation()             #pass
-        self.map_rights()               #pass
-        self.map_spatial()              #pass
-        # self.map_spec_type()            #pass
-        # self.map_state_located_in()     #pass
-        self.map_subject()              #pass
-        force_array_map('ucldc_schema:temporalcoverage', 'sourceResource', 'temporalCoverage')
-        array_wrap_map('dc:title', 'sourceResource', 'title')
-        straight_map('ucldc_schema:type', 'sourceResource', 'type')
-        aggregate_subfield_map('ucldc_schema:formgenre', 'heading', 'sourceResource', 'genre')
-        straight_map('ucldc_schema:provenance', 'sourceResource', 'provenance')
-        force_array_map('ucldc_schema:alternativetitle', 'sourceResource', 'alternativeTitle')
+        self.map_language()
+        force_array('ucldc_schema:publisher', 'publisher', 'sourceResource')
+        self.map_relation()
+        self.map_rights()
+        self.map_spatial()
+        self.map_subject()
+        force_array('ucldc_schema:temporalcoverage', 'temporalCoverage', 'sourceResource')
+        array_wrap('dc:title', 'title', 'sourceResource')
+        direct('ucldc_schema:type', 'type', 'sourceResource')
+        aggregate_subfield('ucldc_schema:formgenre', 'heading', 'genre', 'sourceResource')
+        direct('ucldc_schema:provenance', 'provenance', 'sourceResource')
+        force_array('ucldc_schema:alternativetitle', 'alternativeTitle', 'sourceResource')
 
     # sourceResource mapping
     type_labels = {

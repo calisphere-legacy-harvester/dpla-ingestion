@@ -42,6 +42,8 @@ def selid(body, ctype, prop='handle'):
         else:
             if v:
                 for h in (v if isinstance(v, list) else [v]):
+                    # given a string believed to be a uri or uri reference, tests
+                    # the uri is absolute, not relative - ie has a scheme
                     if is_absolute(h):
                         id = h
                 if not id:
