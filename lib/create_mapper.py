@@ -326,6 +326,10 @@ def create_mapper(mapper_type, data):
         from dplaingestion.mappers.arck_oai_mapper import ArcK_OAIMapper
         return ArcK_OAIMapper(data)
 
+    def _create_preservica_api_mapper(data):
+        from dplaingestion.mappers.preservica_api_mapper import PreservicaAPIMapper
+        return PreservicaAPIMapper(data)
+
     mappers = {
         'marc': lambda d: _create_pymarc_mapper(d),
         'dublin_core': lambda d: _create_dublin_core_mapper(d),
@@ -401,6 +405,7 @@ def create_mapper(mapper_type, data):
         'internet_archive': lambda d: _create_internet_archive_mapper(d),
         'sjsu_islandora': lambda d: _create_sjsu_islandora_mapper(d),
         'arck_oai': lambda d: _create_arck_oai_mapper(d),
+        'preservica_api': lambda d: _create_preservica_api_mapper(d)
     }
 
     return mappers.get(mapper_type)(data)

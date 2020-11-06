@@ -1,0 +1,55 @@
+{
+  "preservica_id": {
+    "$": "8c81f065-b6e4-457e-8b76-d18176f74bee"
+  },
+  "{http://www.openarchives.org/OAI/2.0/oai_dc/}dc": {
+    "rights": {
+      "$": "Copyrighted. Rights are owned by the African American Museum & Library at Oakland. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owner. In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+    },
+    "publisher": {
+      "$": "African American Museum & Library at Oakland (Oakland, Calif.)"
+    },
+    "format": {
+      "$": "negatives (photographs)"
+    },
+    "description": {
+      "$": "Two Oakland firefighters standing in front of fire station [2327a]"
+    },
+    "language": {
+      "$": "eng"
+    },
+    "creator": {},
+    "@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.openarchives.org/OAI/2.0/oai_dc/ oai_dc.xsd",
+    "title": {
+      "$": "Two Oakland firefighters standing in front of fire station"
+    },
+    "date": {
+      "$": "circa 1950s"
+    },
+    "relation": {
+      "$": "http://www.oac.cdlib.org/findaid/ark:/13030/c8930w8p/"
+    },
+    "source": {
+      "$": "Joseph (E. F.) Photograph Collection"
+    },
+    "coverage": {},
+    "contributor": {},
+    "identifier": {
+      "$": "MS126_2327A"
+    },
+    "type": {
+      "$": "image"
+    },
+    "subject": [
+      {
+        "$": "African Americans--California--Oakland--History--Pictorial works."
+      },
+      {
+        "$": "Oakland (Calif.). Fire Department--Pictorial works."
+      },
+      {
+        "$": "Oakland (Calif.)--History--Pictorial works."
+      }
+    ]
+  }
+}
