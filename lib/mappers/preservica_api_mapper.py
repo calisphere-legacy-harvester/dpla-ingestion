@@ -17,41 +17,43 @@ class PreservicaAPIMapper(Mapper):
         self.mapped_data.update({"isShownAt": is_shown_at})
 
     def map_is_shown_by(self):
-    	is_shown_by = "https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile%7C{}".format(self.preservica_id)
-    	self.mapped_data.update({"isShownBy": is_shown_by})
+        is_shown_by = "https://oakland.access.preservica.com/download/thumbnail/sdb:digitalFile%7C{}".format(self.preservica_id)
+        self.mapped_data.update({"isShownBy": is_shown_by})
 
     def map_source_resource(self):
-    	self.mapped_data.get('sourceResource').update({'stateLocatedIn':'California'})
-    	
-    	DC_elements = ['contributor', 'coverage', 'creator', 'date',
+        self.mapped_data.get('sourceResource').update({'stateLocatedIn':'California'})
+
+        DC_elements = ['contributor', 'coverage', 'creator', 'date',
                     'description', 'format', 'identifier', 'language',
                     'publisher', 'relation', 'rights', 'source', 'subject',
                     'title', 'type']
-    	
-    	for key in self.dc_metadata:
-    		if key in DC_elements:
 
-    			source_resource_fieldname = key
-    			value = self.dc_metadata[key]
+        for key in self.dc_metadata:
+            if key in DC_elements:
 
-    			if isinstance(value, dict):
-    				value = value.get('$', None)
-    				if value:
-    				    value = [value]
-    			elif isinstance(value, list):
-    				value_list = []
-    				for d in value:
-    					list_element = d.get('$', None)
-    					if list_element:
-    						value_list.append({'name': list_element})
-    				value = value_list
-    			
-    			if key == 'coverage':
-    				source_resource_fieldname = 'spatial'
+                source_resource_fieldname = key
+                value = self.dc_metadata[key]
 
-    			if not(key and value):
-    				continue
+                if isinstance(value, dict):
+                    value = value.get('$', None)
+                    if value:
+                        if isinstance(value, int):
+                            value = str(value)
+                        value = [value]
+                elif isinstance(value, list):
+                    value_list = []
+                    for d in value:
+                        list_element = d.get('$', None)
+                        if list_element:
+                            if isinstance(list_element, int):
+                                list_element = str(list_element, int)
+                            value_list.append({'name': list_element})
+                    value = value_list
 
-    			self.mapped_data.get('sourceResource')[source_resource_fieldname] = value
+                if key == 'coverage':
+                    source_resource_fieldname = 'spatial'
 
+                if not(key and value):
+                    continue
 
+                self.mapped_data.get('sourceResource')[source_resource_fieldname] = value
