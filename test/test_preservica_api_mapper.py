@@ -3,6 +3,7 @@ import os.path as path
 from unittest import TestCase
 from server_support import server, H
 from amara.thirdparty import json
+from dplaingestion.akamod.select_preservica_id import select_id
 
 
 DIR_FIXTURES = path.join(path.abspath(path.split(__file__)[0]), 'fixtures')
@@ -21,7 +22,7 @@ def test_map_dc_meta():
         INPUT = f.read()
     dobj = json.loads(INPUT)
 
-    #select_id('CNUMERICID', dobj)
+    select_id('CNUMERICID', dobj)
     resp, content = _get_server_response(json.dumps(dobj))
     TC.assertEqual(resp.status, 200)
 

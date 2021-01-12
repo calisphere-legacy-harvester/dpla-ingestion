@@ -23,7 +23,7 @@ def select_id(source_name, data):
     data[u'id']  = hashlib.md5(data[u'_id']).hexdigest()
 
 @simple_service('POST', 'http://purl.org/la/dp/select-preservica-id',
-'select-cmis-atom-id',
+'select-preservica-id',
                 'application/json')
 def selectid(body, ctype):
     '''   
