@@ -150,6 +150,7 @@ MODULES = [
     "dplaingestion.akamod.csl_marc_id",
     "dplaingestion.akamod.select_oac_id",
     "dplaingestion.akamod.select_cmis_atom_id",
+    "dplaingestion.akamod.select_preservica_id",
     "dplaingestion.akamod.oai-to-dpla",
     "dplaingestion.akamod.dedupe_sourceresource",
     "dplaingestion.akamod.lapl_oai_isShown_26096",
