@@ -28,7 +28,8 @@ class Mapper(object):
         if key_prefix is not None:
             self.remove_key_prefix(self.provider_data, key_prefix)
 
-    def extract_xml_items(self, group_key, item_key, name_key=None,data=None):
+    def extract_xml_items(self, group_key, item_key, name_key=None,
+                          data=None):
         """
         Generalization of what proved to be an idiom in XML information
         extraction, e.g. in the XML structure;
@@ -96,22 +97,22 @@ class Mapper(object):
         4. Running any post-mapping logic via update_mapped_fields
         """
         self.map_root()
-        self.map_source_resource() # pass
-        self.map_multiple_fields() # pass
-        self.update_mapped_fields() # pass
+        self.map_source_resource()
+        self.map_multiple_fields()
+        self.update_mapped_fields()
 
     def map_root(self):
         """Maps the mapped_data root fields."""
         self.map_base()
         self.map_provider()
         self.map_data_provider()
-        self.map_edm_rights()               # pass
-        self.map_intermediate_provider()    # pass
-        self.map_is_shown_at()              # pass
-        self.map_is_shown_by()              # pass
-        self.map_item_count()               # pass
-        self.map_has_view()                 # pass
-        self.map_object()                   # pass
+        self.map_edm_rights()
+        self.map_intermediate_provider()
+        self.map_is_shown_at()
+        self.map_is_shown_by()
+        self.map_item_count()
+        self.map_has_view()
+        self.map_object()
 
     def map_base(self):
         """Maps base fields shared by all Mappers"""
@@ -121,28 +122,28 @@ class Mapper(object):
 
     def map_source_resource(self):
         """Mapps the mapped_data sourceResource fields."""
-        self.map_contributor()          #pass
-        self.map_creator()              #pass
-        self.map_date()                 #pass
-        self.map_description()          #pass
-        self.map_extent()               #pass
-        self.map_format()               #pass
-        self.map_identifier()           #pass
-        self.map_is_part_of()           #pass
-        self.map_language()             #pass
-        self.map_publisher()            #pass
-        self.map_relation()             #pass
-        self.map_rights()               #pass
-        self.map_spatial()              #pass
-        self.map_spec_type()            #pass
-        self.map_state_located_in()     #pass
-        self.map_subject()              #pass
-        self.map_temporal()             #pass
-        self.map_title()                #pass
-        self.map_type()                 #pass
-        self.map_genre()                #pass
-        self.map_provenance()           #pass
-        self.map_source()               #pass
+        self.map_contributor()
+        self.map_creator()
+        self.map_date()
+        self.map_description()
+        self.map_extent()
+        self.map_format()
+        self.map_identifier()
+        self.map_is_part_of()
+        self.map_language()
+        self.map_publisher()
+        self.map_relation()
+        self.map_rights()
+        self.map_spatial()
+        self.map_spec_type()
+        self.map_state_located_in()
+        self.map_subject()
+        self.map_temporal()
+        self.map_title()
+        self.map_type()
+        self.map_genre()
+        self.map_provenance()
+        self.map_source()
 
     def update_source_resource(self, _dict):
         """
