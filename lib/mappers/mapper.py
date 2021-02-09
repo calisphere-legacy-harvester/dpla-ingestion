@@ -121,30 +121,6 @@ class Mapper(object):
 
     def map_source_resource(self):
         """Mapps the mapped_data sourceResource fields."""
-<<<<<<< Updated upstream
-        self.map_contributor()
-        self.map_creator()
-        self.map_date()
-        self.map_description()
-        self.map_extent()
-        self.map_format()
-        self.map_identifier()
-        self.map_is_part_of()
-        self.map_language()
-        self.map_publisher()
-        self.map_relation()
-        self.map_rights()
-        self.map_spatial()
-        self.map_spec_type()
-        self.map_state_located_in()
-        self.map_subject()
-        self.map_temporal()
-        self.map_title()
-        self.map_type()
-        self.map_genre()
-        self.map_provenance()
-        self.map_source()
-=======
         self.map_contributor()          #pass
         self.map_creator()              #pass
         self.map_date()                 #pass
@@ -166,7 +142,7 @@ class Mapper(object):
         self.map_type()                 #pass
         self.map_genre()                #pass
         self.map_provenance()           #pass
->>>>>>> Stashed changes
+        self.map_source()               #pass
 
     def update_source_resource(self, _dict):
         """
