@@ -1,0 +1,154 @@
+{
+   "identifier.thumbnail": [
+       "https://californiarevealed.org/islandora/object/cavpp%3A225041/datastream/TN/view/Aerial%20View%20of%20Jonestown%2C%20Guyana%2C%20Circa%201977.jpg"
+   ],
+   "creator": [
+       "Unknown"
+   ],
+   "rightsHolder": [
+       "California Historical Society"
+   ],
+   "contributor": [
+       "California Historical Society"
+   ],
+   "datestamp": "2021-01-28T19:11:25Z",
+   "id": "oai:californiarevealed.org:cavpp_225041",
+   "subject": [
+       "Peoples Temple",
+       "Aerial views"
+   ],
+   "title": [
+       "Aerial View of Jonestown, Guyana, Circa 1977"
+   ],
+   "provenance": [
+       "California Historical Society"
+   ],
+   "spatial": [
+       "Jonestown (Guyana)"
+   ],
+   "isPartOf": [
+       "http://www.oac.cdlib.org/findaid/ark:/13030/kt6m3nf469/",
+       "Photographs of Peoples Temple in the United States and Guyana, 1967-1978"
+   ],
+   "type": [
+       "Still Image"
+   ],
+   "identifier.url": [
+       "https://californiarevealed.org/islandora/object/cavpp:225041"
+   ],
+   "medium": [
+       "Slide"
+   ],
+   "description": [
+       "35mm color slide."
+   ],
+   "rightsNote": [
+       "Copyrighted. The California Historical Society (CHS) is providing access to these photos for educational and research purposes. Written permission is required for commercial use. CHS is the lawful owner of the Peoples Temple documents and photographs; by orders of the California Superior Court and of the Guyana High Court. CHS is not aware of any other copyrights or other rights associated with this material. Responsibility for making an independent legal assessment of an item and securing any necessary permissions ultimately rests with any person intending to use an item."
+   ],
+   "collection": [
+       {
+           "dcmi_type": "X",
+           "disqus_shortname_prod": "",
+           "featured": false,
+           "ready_for_publication": true,
+           "hosted": "",
+           "campus": [
+           ],
+           "url_oac": "",
+           "custom_facet": [
+               {
+                   "label": "Creator",
+                   "facet_field": "creator_ss",
+                   "id": 98,
+                   "sort_by": "value"
+               },
+               {
+                   "label": "Subject",
+                   "facet_field": "subject_ss",
+                   "id": 99,
+                   "sort_by": "value"
+               },
+               {
+                   "label": "Place",
+                   "facet_field": "coverage_ss",
+                   "id": 100,
+                   "sort_by": "value"
+               },
+               {
+                   "label": "Genre",
+                   "facet_field": "genre_ss",
+                   "id": 101,
+                   "sort_by": "value"
+               }
+           ],
+           "harvest_frequency": null,
+           "metadata_in_dams": false,
+           "url_harvest": "http://californiarevealed.org/oai2",
+           "id": "26230",
+           "files_in_dams": false,
+           "date_last_harvested": null,
+           "harvest_exception_notes": "",
+           "files_in_hand": false,
+           "ingestType": "collection",
+           "description": "California Revealed is a State Library initiative to help California’s public libraries, in partnership with other local heritage groups, digitize, preserve, and provide online access to archival materials - books, newspapers, photographs, audiovisual recordings, and more - that tell the incredible stories of the Golden State. We also provide free access and preservation services for existing digital collections for partner organizations with in-house digitization programs. California Revealed is supported by the U.S. Institute of Museum and Library Services under the provisions of the Library Services and Technology Act, administered in California by the State Librarian.",
+           "repository": [
+               {
+                   "slug": "california-historical-society",
+                   "name": "California Historical Society",
+                   "aeon_prod": "",
+                   "campus": [
+                   ],
+                   "aeon_test": "",
+                   "ark": "ark:/13030/tf7v19p5mm",
+                   "@id": "https://registry.cdlib.org/api/v1/repository/50/",
+                   "id": 50,
+                   "google_analytics_tracking_code": "UA-32933096-2",
+                   "resource_uri": "/api/v1/repository/50/"
+               }
+           ],
+           "merritt_extra_data": "",
+           "extent": null,
+           "rights_status": "X",
+           "disqus_shortname_test": "",
+           "@id": "https://registry.cdlib.org/api/v1/collection/26230/",
+           "slug": "california-light-and-sound-from-california-histori",
+           "harvest_extra_data": "cavpp_16",
+           "qa_completed": false,
+           "harvest_type": "OAI",
+           "name": "California Revealed from California Historical Society",
+           "url_local": "https://californiarevealed.org/collections/california-historical-society",
+           "enrichments_item": "/select-id?prop=id, /dpla_mapper?mapper_type=cavpp_islandora, /strip_html, /cleanup_value, /move_date_values?prop=sourceResource%2Fsubject, /move_date_values?prop=sourceResource%2Fspatial, /shred?prop=sourceResource%2Fspatial&delim=--, /enrich-subject, /enrich_earliest_date, /enrich_date, /enrich-type, /enrich-format, /enrich_location, /copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider, /enrich_language, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3, /lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True, /copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true, /set_prop?prop=sourceResource%2FstateLocatedIn&value=California, /enrich_location?prop=sourceResource%2FstateLocatedIn, /shred?prop=sourceResource%2Fsubject%2Fname, /shred?prop=sourceResource%2Fcreator, /shred?prop=sourceResource%2Ftype, /filter_fields?keys=sourceResource, /required-values-from-collection-registry?field=rights&mode=fill, /required-values-from-collection-registry?field=type&mode=fill, /required-values-from-collection-registry?field=title&mode=fill, /set-ucldc-dataprovider, /dedupe-sourceresource, /validate_mapv3",
+           "rights_statement": "",
+           "merritt_id": "",
+           "staging_notes": "",
+           "local_id": "cavpp",
+           "title": "California Revealed from California Historical Society",
+           "resource_uri": "/api/v1/collection/26230/"
+       }
+   ],
+   "extent": [
+       "Unknown",
+       "1 Page of 1"
+   ],
+   "publisher": [
+       "California Historical Society"
+   ],
+   "language": [
+       "eng"
+   ],
+   "rights": [
+       "Copyrighted. Rights are owned by California Historical Society. Copyright Holder has given Institution permission to provide access to the digitized work online. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the Copyright Holder. In addition, the reproduction of some materials may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user."
+   ],
+   "created": [
+       "1977-03"
+   ],
+   "identifier.ark": [
+       "http://ark.cdlib.org/ark:/13030/kt0c6032hh"
+   ],
+   "identifier": [
+       "chi_000218",
+       "https://archive.org/details/chi_000218",
+       "PC 010.05.0536",
+       "https://californiarevealed.org/islandora/object/cavpp%3A225041"
+   ]
+}
