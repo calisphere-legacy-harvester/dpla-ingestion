@@ -94,19 +94,19 @@ class OAC_DCMapper(DublinCoreMapper):
         '''From the list of images, choose the largest one'''
         best_image = None
         if 'originalRecord' in self.provider_data:  # guard weird input
-            x = 0
+            dim = 0
             thumb = self.provider_data.get('originalRecord',{}).get('thumbnail', None)
             if thumb:
                 if 'src' in thumb:
-                    x = thumb.get('X')
+                    dim = max(int(thumb.get('X')), int(thumb.get('Y')))
                     best_image = thumb.get('src')
             ref_images = self.provider_data.get('originalRecord',{}).get(
                 'reference-image', [])
             if type(ref_images) == dict:
                 ref_images = [ref_images]
             for obj in ref_images:
-                if int(obj['X']) > x:
-                    x = int(obj.get('X'))
+                if max(int(obj.get('X')), int(obj.get('Y'))) > dim:
+                    dim = max(int(obj.get('X')), int(obj.get('Y')))
                     best_image = obj.get('src')
             if best_image and not best_image.startswith('http'):
                 best_image = '/'.join((URL_OAC_CONTENT_BASE, best_image))
