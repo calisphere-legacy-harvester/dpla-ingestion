@@ -44,7 +44,7 @@ def test_ucldc_nuxeo_mapping():
         TC.assertNotIn('relation', srcRes)
         TC.assertEqual(srcRes['rights'], ["Copyrighted", "This material is provided for private study, scholarship, or research. Transmission or reproduction of any material protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. The creators of the material or their heirs may retain copyright to this material."])
         TC.assertEqual(srcRes['subject'], ["Photographers -- Photographs"])
-        TC.assertEqual(srcRes['temporalCoverage'], [])
+        TC.assertEqual(srcRes['temporal'], [])
         TC.assertEqual(srcRes['title'],
                 [u"Adeline Cochems having her portrait taken by her father Edward W, Cochems in Santa Ana, California: Photograph"])
         TC.assertEqual(srcRes['type'], "image")

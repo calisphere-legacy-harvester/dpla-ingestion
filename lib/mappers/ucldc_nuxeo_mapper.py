@@ -212,7 +212,7 @@ class UCLDCNuxeoMapper(Mapper):
 
     def map_temporal(self):
         if exists(self.provider_data_source, 'ucldc_schema:temporalcoverage'):
-            self.update_source_resource({'temporalCoverage': [tc for tc in self.provider_data_source.get('ucldc_schema:temporalcoverage')]})
+            self.update_source_resource({'temporal': [tc for tc in self.provider_data_source.get('ucldc_schema:temporalcoverage')]})
 
     def map_title(self):
         if exists(self.provider_data_source, 'dc:title'):
