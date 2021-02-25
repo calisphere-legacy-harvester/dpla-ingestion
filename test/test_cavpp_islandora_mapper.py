@@ -48,3 +48,4 @@ def test_cavpp_overrides():
                                   u'1965-10-14'])
     TC.assertEqual(srcRes['description'],[u"Evelyn Joslyn speaking on the subject of the Lott family. She personally knew Judge Lott and the rest of the family."])
     TC.assertEqual(srcRes['rights'],[u"Copyrighted. Rights are owned by Marshall Gold Discovery State Historic Park."])
+    TC.assertNotIn('relation', srcRes)

@@ -55,6 +55,11 @@
     "creator": [
       "Unknown"
     ],
+    "isPartOf": [
+       "Hotel strike series",
+       "Finding Aid to the Rene Battaglini Oral History; Battaglini (Rene) Oral History",
+       "http://www.oac.cdlib.org/findaid/ark:/13030/tf8z09n9p3/"
+    ],
     "identifier.thumbnail": [
       "https://californiarevealed.org/islandora/object/cavpp%3A24434/datastream/TN/view/Polk%27s%20Oakland%20%28California%29%20city%20directory%2C%20including%20Alameda%2C%20Berkeley%2C%20Emeryville%20and%20Piedmont.jpg"
     ],
