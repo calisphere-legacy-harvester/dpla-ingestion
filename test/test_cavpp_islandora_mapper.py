@@ -48,3 +48,4 @@ def test_cavpp_overrides():
                                   u'1965-10-14'])
     TC.assertEqual(srcRes['description'],[u"Evelyn Joslyn speaking on the subject of the Lott family. She personally knew Judge Lott and the rest of the family."])
     TC.assertEqual(srcRes['rights'],[u"Copyrighted. Rights are owned by Marshall Gold Discovery State Historic Park."])
+    TC.assertEqual(srcRes['relation'],[u"Hotel strike series",u"Finding Aid to the Rene Battaglini Oral History; Battaglini (Rene) Oral History",u"http://www.oac.cdlib.org/findaid/ark:/13030/tf8z09n9p3/"])
