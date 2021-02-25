@@ -177,3 +177,11 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
 
     def map_rights(self):
         self.source_resource_prop_to_prop("rights")
+
+    def map_relation(self):
+        # subclassed to remove "isPartOf" from fields
+        fields = ("conformsTo", "hasFormat", "hasPart", "hasVersion",
+                  "isFormatOf", "isReferencedBy", "isReplacedBy",
+                  "isRequiredBy", "isVersionOf", "references", "relation",
+                  "replaces", "requires")
+        self.source_resource_orig_list_to_prop(fields, 'relation')
