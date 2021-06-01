@@ -13,7 +13,7 @@ class UCLA_OAIMapper(OAIDublinCoreMapper):
             for i in filter(None, idents):
                 if 'ark:' in i:
                     url = 'https://digital.library.ucla.edu/catalog/{}'.format(i)
-                    isShownAt = i
+                    isShownAt = url
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
