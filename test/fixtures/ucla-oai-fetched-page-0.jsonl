@@ -1,0 +1,98 @@
+{
+    "collection": [
+        {
+            "@id": "https://registry.cdlib.org/api/v1/collection/27768/",
+            "campus": [
+                {
+                    "@id": "https://registry.cdlib.org/api/v1/campus/10/",
+                    "ark": "ark:/13030/tf8z09p95s",
+                    "google_analytics_tracking_code": "",
+                    "id": 10,
+                    "name": "UCLA",
+                    "position": 3,
+                    "resource_uri": "/api/v1/campus/10/",
+                    "slug": "UCLA"
+                }
+            ],
+            "custom_facet": [],
+            "date_last_harvested": null,
+            "dcmi_type": "X",
+            "description": "Five autograph albums belonging to nurse E.F. Raynes Plante and signed by soldiers recuperating at the Red Cross hospital at 6 Third Avenue, Hove, Sussex, England, 1914-1943 (bulk 1914-1918)",
+            "disqus_shortname_prod": "",
+            "disqus_shortname_test": "",
+            "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=ucsc_oai_dpla,\r\n/strip_html,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fiso639_3&substitution=iso639_3&inverse=True,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider&skip_if_exists=true,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=overwrite,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+            "extent": null,
+            "featured": false,
+            "files_in_dams": false,
+            "files_in_hand": false,
+            "harvest_exception_notes": "",
+            "harvest_extra_data": "collections:E.F. Raynes Plante Autograph Albums (1914-1918)",
+            "harvest_frequency": null,
+            "harvest_type": "OAI",
+            "hosted": "",
+            "id": "27768",
+            "ingestType": "collection",
+            "local_id": "Biomed MS 111",
+            "merritt_extra_data": "",
+            "merritt_id": "",
+            "metadata_in_dams": false,
+            "name": "E.F. Raynes Plante Autograph Albums (1914-1918)",
+            "qa_completed": false,
+            "ready_for_publication": false,
+            "repository": [
+                {
+                    "@id": "https://registry.cdlib.org/api/v1/repository/229/",
+                    "aeon_prod": "",
+                    "aeon_test": "",
+                    "ark": "ark:/13030/tf8h4nc0sw",
+                    "campus": [
+                        {
+                            "ark": "ark:/13030/tf8z09p95s",
+                            "google_analytics_tracking_code": "",
+                            "id": 10,
+                            "name": "UCLA",
+                            "position": 3,
+                            "resource_uri": "/api/v1/campus/10/",
+                            "slug": "UCLA"
+                        }
+                    ],
+                    "google_analytics_tracking_code": "UA-31813926-1",
+                    "id": 229,
+                    "name": "Library Special Collections, Medicine and Science",
+                    "resource_uri": "/api/v1/repository/229/",
+                    "slug": "ucla-library-special-collections-medicine-and-scie"
+                }
+            ],
+            "resource_uri": "/api/v1/collection/27768/",
+            "rights_statement": "",
+            "rights_status": "X",
+            "slug": "ef-raynes-plante-autograph-albums-1914-1918-five-a",
+            "staging_notes": "",
+            "title": "E.F. Raynes Plante Autograph Albums (1914-1918)",
+            "url_harvest": "https://digital.library.ucla.edu/catalog/oai",
+            "url_local": "https://digital.library.ucla.edu/catalog/ark:/21198/n1t31k",
+            "url_oac": ""
+        }
+    ],
+    "date": [
+        "1914"
+    ],
+    "datestamp": "2021-04-17T01:11:13Z",
+    "id": "oai:library.ucla.edu:ark:/21198/n1fs6z",
+    "identifier": [
+        "uclasc_bioms111_b01",
+        "ark:/21198/n1fs6z",
+        "https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fn1fs6z%2Fm130cp0d/full/!200,200/0/default.jpg"
+    ],
+    "rights": [
+        "UCLA Charles E. Young Research Library Department of Special Collections, A1713 Young Research Library, Box 951575, Los Angeles, CA 90095-1575. E-mail: spec-coll@library.ucla.edu. Phone: (310)825-4987"
+    ],
+    "source": [
+        "History and Special Collections for the Sciences Collection",
+        "E.F. Raynes Plante Autograph Albums (1914-1918)",
+        "OpenUCLA Collections"
+    ],
+    "title": [
+        "Autograph album no. 1"
+    ]
+}
