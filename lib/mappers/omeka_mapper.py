@@ -39,7 +39,7 @@ class Omeka_OAIMapper(DublinCoreMapper):
                     request = requests.get(thumb_url)
                     if request.status_code == 200:
                         thumb = thumb_url
-                    else:
+                    elif i.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.tif', '.bmp', '.gif', 'jp2')):
                         thumb = i
                 break
         if thumb:
