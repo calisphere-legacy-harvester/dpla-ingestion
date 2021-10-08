@@ -188,7 +188,7 @@ def create_mapper(mapper_type, data):
         return Omeka_NoThumb_Mapper(data)
 
     def _create_omeka_santa_clara_mapper(data):
-        from dplaingestion.mappers._create_omeka_santa_clara_mapper import Omeka_OAIMapper
+        from dplaingestion.mappers.omeka_santa_clara_mapper import Omeka_OAIMapper
         return Omeka_OAIMapper(data)
 
     def _create_ucb_blacklight_dc_mapper(data):
