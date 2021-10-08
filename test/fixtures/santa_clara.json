@@ -1,0 +1,108 @@
+{
+    "collection": [
+        {
+            "@id": "https://registry.cdlib.org/api/v1/collection/5138",
+            "campus": [],
+            "custom_facet": [],
+            "date_last_harvested": null,
+            "dcmi_type": "T",
+            "description": "The Dominic L. Cortese Collection consists of photographs, a press release, newspaper clippings, speeches, and correspondence that document his time as Santa Clara County Supervisor from 1969 to 1980.",
+            "disqus_shortname_prod": "",
+            "disqus_shortname_test": "",
+            "enrichments_item": "/select-id?prop=id,\r\n/dpla_mapper?mapper_type=omeka,\r\n/cleanup_value,\r\n/move_date_values?prop=sourceResource%2Fsubject,\r\n/move_date_values?prop=sourceResource%2Fspatial,\r\n/shred?prop=sourceResource%2Fspatial&delim=--,\r\n/enrich-subject,\r\n/enrich_earliest_date,\r\n/enrich_date,\r\n/enrich-type,\r\n/enrich-format,\r\n/enrich_location,\r\n/copy_prop?prop=originalRecord%2Fcollection&to_prop=dataProvider,\r\n/enrich_language,\r\n/lookup?prop=sourceResource%2Flanguage%2Fname&target=sourceResource%2Flanguage%2Fname&substitution=iso639_3,\r\n/copy_prop?prop=provider%2Fname&to_prop=dataProvider,\r\n/set_prop?prop=sourceResource%2FstateLocatedIn&value=California,\r\n/enrich_location?prop=sourceResource%2FstateLocatedIn,\r\n/shred?prop=sourceResource%2Fsubject%2Fname,\r\n/shred?prop=sourceResource%2Fcreator,\r\n/shred?prop=sourceResource%2Ftype,\r\n/filter_fields?keys=sourceResource,\r\n/required-values-from-collection-registry?field=rights&mode=fill,\r\n/required-values-from-collection-registry?field=type&mode=overwrite,\r\n/required-values-from-collection-registry?field=title&mode=fill,\r\n/set-ucldc-dataprovider,\r\n/dedupe-sourceresource,\r\n/validate_mapv3",
+            "extent": null,
+            "featured": false,
+            "files_in_dams": false,
+            "files_in_hand": false,
+            "harvest_exception_notes": "",
+            "harvest_extra_data": "1887",
+            "harvest_frequency": null,
+            "harvest_type": "OAI",
+            "hosted": "",
+            "id": "5138",
+            "ingestType": "collection",
+            "local_id": "cortese-dominic-l-collection",
+            "merritt_extra_data": "",
+            "merritt_id": "",
+            "metadata_in_dams": false,
+            "name": "Dominic L. Cortese Collection",
+            "qa_completed": false,
+            "ready_for_publication": false,
+            "repository": [
+                {
+                    "@id": "https://registry.cdlib.org/api/v1/repository/383/",
+                    "aeon_prod": "",
+                    "aeon_test": "",
+                    "ark": "ark:/13030/c8st7x33",
+                    "campus": [],
+                    "google_analytics_tracking_code": "",
+                    "id": 383,
+                    "name": "Santa Clara County, Office of the Clerk of the Board",
+                    "resource_uri": "/api/v1/repository/383/",
+                    "slug": "santa-clara-county-office-of-the-clerk-of-the-boar"
+                }
+            ],
+            "resource_uri": "/api/v1/collection/5138/",
+            "rights_statement": "",
+            "rights_status": "X",
+            "slug": "cortese-dominic-l-collection",
+            "staging_notes": "",
+            "title": "Dominic L. Cortese Collection",
+            "url_harvest": "https://sccbosarchive.org/oai",
+            "url_local": "https://sccbosarchive.org/s/home/page/search-results?page=1&view=grid&limit=25&sort=dd&supervisors=Dom%20Cortese",
+            "url_oac": "http://www.oac.cdlib.org/findaid/ark:/13030/c8cc0z3n"
+        }
+    ],
+    "contributor": [
+        "Dom Cortese"
+    ],
+    "coverage": [
+        "District 2",
+        "San Jose",
+        "1980"
+    ],
+    "creator": [
+        "Dom Cortese"
+    ],
+    "date": [
+        "01/02/1980"
+    ],
+    "datestamp": "2021-07-27T20:42:36Z",
+    "description": [
+        "Supervisor Cortese's draft for State of the County addressing the County's goals in pursuit of not only healthy environment and strong economic outlook, but also strong local government leadership in coming decade."
+    ],
+    "format": [
+        "Speech"
+    ],
+    "id": "oai:sccbosarchive.org:3274",
+    "identifier": [
+        "BOS2019002_004_002_Cortese_Dominic_letter_01.02.80.pdf",
+        "https://sccbosarchive.org/api/items/3274",
+        "https://sccbosarchive.org/files/original/88f267b72935d9205a19f0998b98e97979b5949e.pdf"
+    ],
+    "language": [
+        "English"
+    ],
+    "relation": [
+        "Dominic L. Cortese",
+        "State of the County 1980"
+    ],
+    "rights": [
+        "No Copyright: http://rightsstatements.org/vocab/NoC-US/1.0/"
+    ],
+    "source": [
+        "https://santa-clara-sftp.s3.us-east-1.amazonaws.com/files/07-23-2020_004_002/BOS2019002_004_002_Cortese_Dominic_letter_01.02.80.pdf"
+    ],
+    "subject": [
+        "Speech",
+        "State of the County",
+        "Proposition 13",
+        "New Transit System"
+    ],
+    "title": [
+        "Supervisor Dom Cortese's draft of speech for State of the County address"
+    ],
+    "type": [
+        "Document"
+    ]
+}
