@@ -9,7 +9,6 @@ class Omeka_OAI_SantaClara_mapper(Omeka_OAIMapper):
         super(Omeka_OAI_SantaClara_mapper, self).__init__(provider_data)
 
     def map_is_shown_at(self):
-        print("in map_is_shown_at")
         isShownAt = None
         idents = getprop(self.provider_data_source, 'identifier')
         print("idents: {}".format(idents))
@@ -18,4 +17,4 @@ class Omeka_OAI_SantaClara_mapper(Omeka_OAIMapper):
                 omeka_id = i.split('/')[-1]
                 isShownAt = 'https://sccbosarchive.org/s/home/item/{}'.format(omeka_id)
         if isShownAt:
-            self.mapped_data.update({'isShownAt': "testing"})
+            self.mapped_data.update({'isShownAt': isShownAt})
