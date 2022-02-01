@@ -13,10 +13,11 @@ class UCBTIND_MARCMapper(PyMARCMapper):
     def __init__(self, provider_data):
         super(UCBTIND_MARCMapper, self).__init__(provider_data)
         self.mapping_dict.update({
-            lambda t: t == "024": [(self.map_identifier, 'a')],
+            lambda t: t in ("024", "901"): [(self.map_identifier, 'a')],
             lambda t: t == "246": [(self.map_alt_title, '!6')],
             lambda t: t == "655": [(self.map_format, '!2')],
             lambda t: t == "336": [(self.map_type, None)],
+            lambda t: t == "541": [(self.map_provenance, 'a')],
             lambda t: t == "001": [(self.map_is_shown_at, None),
                                    (self.map_is_shown_by, None)]
         })
@@ -195,6 +196,9 @@ class UCBTIND_MARCMapper(PyMARCMapper):
             self.mapped_data[prop] = "http://digicoll.lib.berkeley.edu/record/"
             self.mapped_data[prop] += self._get_values(_dict, codes)[0]
 
+    def map_provenance(self, _dict, tag, codes):
+        prop = 'sourceResource/provenance'
+        self.extend_prop(prop, _dict, codes)
 
     def update_mapped_fields(self):
         self.update_identifier()
