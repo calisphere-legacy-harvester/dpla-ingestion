@@ -11,7 +11,6 @@ class SanJose_PastPerfectMapper(PastPerfectXMLMapper):
 
     # Don't create sourceResource, isShownBy or isShownAt for
     # thumbnail-less objects, so they do not get passed through to SOLR
-    # Also leave out 'webobject' types as found in URL value
     def map_source_resource(self):
         if 'thumbnail' in self.metadata:
             super(SanJose_PastPerfectMapper, self).map_source_resource()
