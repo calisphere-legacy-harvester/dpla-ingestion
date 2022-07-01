@@ -9,11 +9,27 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     def map_is_shown_at(self):
         '''truncate identifier.thumbnail value past object ID
         '''
-        if 'identifier.thumbnail' in self.provider_data:
-            if isinstance(self.provider_data.get('identifier.thumbnail'), basestring):
-                isShownAt = self.provider_data.get('identifier.thumbnail').split('/datastream/TN')[0]
+        nodeId = None
+        thumbnail = None
+        isShownAt = None
+        if 'identifier' in self.provider_data:
+            if isinstance(self.provider_data.get('identifier'), str):
+                nodeId = self.provider_data.get('identifier')
             else:
-                isShownAt = self.provider_data.get('identifier.thumbnail')[0].split('/datastream/TN')[0]
+                nodeId = self.provider_data.get('identifier')[0]
+
+        if 'identifier.thumbnail' in self.provider_data:
+            if isinstance(self.provider_data.get('identifier.thumbnail'), str):
+                thumbnail = self.provider_data.get('identifier.thumbnail')
+            else:
+                thumbnail = self.provider_data.get('identifier.thumbnail')[0]
+
+        if thumbnail and '/datastream/TN' in thumbnail:
+            isShownAt = thumbnail.split('/datastream/TN')[0]
+        elif 'node' in nodeId:
+            isShownAt = nodeId
+
+        if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
 
     def map_is_shown_by(self):
