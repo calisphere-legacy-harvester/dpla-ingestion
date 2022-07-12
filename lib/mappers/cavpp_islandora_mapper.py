@@ -145,7 +145,7 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
 
     def map_date(self):
         #scrub 'Unknown' from date values
-        fields = ("created", "issued")
+        fields = ("created", "issued", "date")
 
         values = []
         for field in fields:
