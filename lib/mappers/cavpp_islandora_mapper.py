@@ -9,25 +9,27 @@ class CAVPP_Islandora_Mapper(OAIDublinCoreMapper):
     def map_is_shown_at(self):
         '''truncate identifier.thumbnail value past object ID
         '''
-        nodeId = None
-        thumbnail = None
+        identifiers = None
+        thumbnails = None
         isShownAt = None
         if 'identifier' in self.provider_data:
             if isinstance(self.provider_data.get('identifier'), str):
-                nodeId = self.provider_data.get('identifier')
+                identifiers = [self.provider_data.get('identifier')]
             else:
-                nodeId = self.provider_data.get('identifier')[0]
+                identifiers = self.provider_data.get('identifier', [])
+        node_identifiers = [i for i in identifiers if 'node' in i]
 
         if 'identifier.thumbnail' in self.provider_data:
             if isinstance(self.provider_data.get('identifier.thumbnail'), str):
-                thumbnail = self.provider_data.get('identifier.thumbnail')
+                thumbnails = [self.provider_data.get('identifier.thumbnail')]
             else:
-                thumbnail = self.provider_data.get('identifier.thumbnail')[0]
+                thumbnails = self.provider_data.get('identifier.thumbnail', [])
+        datastream_thumbnails = [t for t in thumbnails if '/datastream/TN' in t]
 
-        if thumbnail and '/datastream/TN' in thumbnail:
-            isShownAt = thumbnail.split('/datastream/TN')[0]
-        elif 'node' in nodeId:
-            isShownAt = nodeId
+        if datastream_thumbnails:
+            isShownAt = datastream_thumbnails[0].split('/datastream/TN')[0]
+        elif node_identifiers:
+            isShownAt = node_identifiers[0]
 
         if isShownAt:
             self.mapped_data.update({'isShownAt': isShownAt})
